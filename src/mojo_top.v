@@ -30,66 +30,66 @@ wire rst = ~rst_n;
 //assign sda_out = 1'bz;
 //assign scl_out = 1'b1;
 
-module Data_Controller(
-	input busy,
-	input block, //set to 0
-	output new_data_tx,
-	output [7:0] data_tx,
-	input new_data_rx,
-	input [7:0] data_rx,
-	input [7:0] data,
-	output [7:0] addr,
-	input rst,
-	input clk
-    );
+Data_Controller Data_Controller(
+	.busy(),
+	.block(), //set to 0
+	.new_data_tx(),
+	.data_tx(),
+	.new_data_rx(),
+	.data_rx(),
+	.data(),
+	.addr(),
+	.rst(rst),
+	.clk(clk)
+);
 	 
-module serial_rx #(
+Data_serial_rx serial_rx #(
 	parameter CLK_PER_BIT = 50,
 	parameter CTR_SIZE = 6
 	)(
-	input clk,
-	input rst,
-	input rx,
-	output [7:0] data,
-	output new_data
-	);	 
+	.clk(clk),
+	.rst(rst),
+	.rx(),
+	.data(),
+	.new_data()
+);	 
 	
-module serial_tx #(
+Data_serial_tx serial_tx #(
 	parameter CLK_PER_BIT = 50,
 	parameter CTR_SIZE = 6
 	)(
-	input clk,
-	input rst,
-	output tx,
-	input block,//remove only used for the avr side of stuff
-	output busy,
-	input [7:0] data,
-	input new_data
+	.clk(clk),
+	.rst(rst),
+	.tx(),
+	.block(),//remove only used for the avr side of stuff
+	.busy(),
+	.data(),
+	.new_data()
 	);
 	
-module Altimeter_Controller(
-	output [19:0] pressure,
-	output [19:0] temp,
-	output [19:0] delta_pressure,
-	output [19:0] delta_temp,
-	output [19:0] min_pressure,
-	output [19:0] max_pressure,
-	output [19:0] min_temp,
-	output [19:0] max_temp,
-	output ena,
-	output [7:0] addr,
-	output [7:0] sub_addr,
-	output [7:0] data_wr,
-	input [7:0] data_rd,
-	input busy,
-	input ack_err,
-	input rst,
-	input clk
+Altimeter_Controller Altimeter_Controller(
+	.pressure,
+	.temp,
+	.delta_pressure,
+	.delta_temp,
+	.min_pressure,
+	.max_pressure,
+	.min_temp,
+	.max_temp,
+	.ena,
+	.addr,
+	.sub_addr,
+	.data_wr,
+	.data_rd,
+	.busy,
+	.ack_err,
+	.rst(clk),
+	.clk(clk)
     );
 
-module I2C_Driver(
-	input clk,
-	input rst,
+Alt_I2C_Driver I2C_Driver(
+	.clk(),
+	.rst(rst),
 	input ena,
 	input [7:0] addr,
 	input rw,
@@ -103,7 +103,7 @@ module I2C_Driver(
 	//inout SCL
    );
 	
-module Gyro_Controller(
+Gyro_Controller Gyro_Controller(
 	output [19:0] roll,
 	output [19:0] pitch,
 	output [19:0] yaw,
@@ -116,7 +116,7 @@ module Gyro_Controller(
 	input clk
     );
 
-module Spi_Master(
+Gyro_Spi_Master Spi_Master(
 	input clk,
 	input rst,
 	input ss,
@@ -128,7 +128,7 @@ module Spi_Master(
 	output [7:0] dout
     );
 	 
-module Accelerometer_Controller(
+Accelerometer_Controller Accelerometer_Controller(
 	output [19:0] x_accl,
 	output [19:0] y_accl,
 	output [19:0] z_accl,
@@ -141,7 +141,7 @@ module Accelerometer_Controller(
 	input clk
     );
 	 
-module Spi_Master(
+Accl_Spi_Master Spi_Master(
 	input clk,
 	input rst,
 	input ss,
@@ -153,7 +153,7 @@ module Spi_Master(
 	output [7:0] dout
     ); 
 	 
-module GPS_Controller(
+GPS_Controller GPS_Controller(
 	output [19:0] x_gps,
 	output [19:0] y_gps,
 	output [19:0] z_gps,
@@ -168,7 +168,7 @@ module GPS_Controller(
 	input clk
     );
 	 
-module Spi_Master(
+GPS_Spi_Master Spi_Master(
 	input clk,
 	input rst,
 	input ss,
@@ -180,7 +180,7 @@ module Spi_Master(
 	output [7:0] dout
     ); 
 	 
-module Analog_Controller(
+Analog_Controller Analog_Controller(
 	output [7:0] ch0,
 	output [7:0] ch1,
 	output [7:0] ch4,
@@ -220,7 +220,7 @@ avr_interface avr_interface (
     .new_rx_data()
 );
 
-module Camera_Initializer(
+Camera_Initializer Camera_Initializer(
 	input start,
 	input new_data,
 	input [7:0] data,
@@ -235,7 +235,7 @@ module Camera_Initializer(
 	input clk
     );
 
-module Camera_Digitizer(
+Camera_Digitizer Camera_Digitizer(
 	input busy,
 	input block,
 	input new_data,
@@ -249,7 +249,7 @@ module Camera_Digitizer(
 	input clk
     );
 	 
-module serial_rx #(
+cam_serial_rx serial_rx #(
 	parameter CLK_PER_BIT = 50,
 	parameter CTR_SIZE = 6
 	)(
@@ -260,7 +260,7 @@ module serial_rx #(
 	output new_data
 	);
 	
-module serial_tx #(
+cam_serial_tx serial_tx #(
 	parameter CLK_PER_BIT = 50,
 	parameter CTR_SIZE = 6
 	)(
