@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 36: &lt;<arg fmt="%s" index="1">ena</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 37: &lt;<arg fmt="%s" index="1">start</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: &lt;<arg fmt="%s" index="1">scl_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 39: &lt;<arg fmt="%s" index="1">sda_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 40: &lt;<arg fmt="%s" index="1">busy</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 1: Module &lt;<arg fmt="%s" index="1">mojo_top</arg>&gt; ignored due to previous errors.
+</msg>
+
+</messages>
+

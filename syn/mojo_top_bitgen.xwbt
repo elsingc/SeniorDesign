@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\MyDocs\Desktop\Mojo-Base\syn\mojo_top.ncd
+OUTFILE=D:\MyDocs\Desktop\Mojo-Base\syn\mojo_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=D:\MyDocs\Desktop\Mojo-Base\syn
+LICENSE=WebPack
+USER_INFO=210825884_0_0_573
