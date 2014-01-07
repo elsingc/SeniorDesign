@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Reading design: mojo_top.prj
 
@@ -113,30 +113,51 @@ Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\serial_rx.v"
 Parsing module <serial_rx>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\cclk_detector.v" into library work
 Parsing module <cclk_detector>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\voltage_controller.v" into library work
-Parsing module <voltage_controller>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\avr_interface.v" into library work
 Parsing module <avr_interface>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Serializer.v" into library work
-Parsing module <Serializer>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\PWM.v" into library work
-Parsing module <PWM>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\analog_reader.v" into library work
-Parsing module <analog_reader>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Gyro_Controller.v" into library work
+Parsing module <Gyro_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\GPS_Controller.v" into library work
+Parsing module <GPS_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Data_Controller.v" into library work
+Parsing module <Data_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Camera_Initializer.v" into library work
+Parsing module <Camera_Initializer>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Camera_Digitizer.v" into library work
+Parsing module <Camera_Digitizer>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Analog_Controller.v" into library work
+Parsing module <Analog_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Altimeter_Controller.v" into library work
+Parsing module <Altimeter_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Accelerometer_Controller.v" into library work
+Parsing module <Accelerometer_Controller>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" into library work
 Parsing module <mojo_top>.
-ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 36: <ena> is not declared.
-ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 37: <start> is not declared.
-ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: <scl_out> is not declared.
-ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 39: <sda_out> is not declared.
-ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 40: <busy> is not declared.
-ERROR:HDLCompiler:598 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 1: Module <mojo_top> ignored due to previous errors.
-Verilog file D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v ignored due to errors
+ERROR:HDLCompiler:31 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 138: <Spi_Master> is already declared.
+ERROR:HDLCompiler:31 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 165: <Spi_Master> is already declared.
+ERROR:HDLCompiler:31 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 246: <serial_rx> is already declared.
+ERROR:HDLCompiler:31 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 254: <serial_tx> is already declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 65: <pressure> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 66: <temp> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 67: <delta_pressure> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 68: <delta_temp> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 69: <min_pressure> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 70: <max_pressure> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 71: <min_temp> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 72: <max_temp> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 73: <ena> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 74: <addr> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 75: <sub_addr> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 76: <data_wr> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 77: <data_rd> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 78: <busy> is not declared.
+ERROR:HDLCompiler:69 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 79: <ack_err> is not declared.
+Sorry, too many errors..
 --> 
 
-Total memory usage is 205676 kilobytes
+Total memory usage is 205996 kilobytes
 
-Number of errors   :    6 (   0 filtered)
+Number of errors   :   19 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

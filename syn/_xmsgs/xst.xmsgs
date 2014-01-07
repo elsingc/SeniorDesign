@@ -5,22 +5,61 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 36: &lt;<arg fmt="%s" index="1">ena</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="31" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 138: &lt;<arg fmt="%s" index="1">Spi_Master</arg>&gt; is already declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 37: &lt;<arg fmt="%s" index="1">start</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="31" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 165: &lt;<arg fmt="%s" index="1">Spi_Master</arg>&gt; is already declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: &lt;<arg fmt="%s" index="1">scl_out</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="31" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 246: &lt;<arg fmt="%s" index="1">serial_rx</arg>&gt; is already declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 39: &lt;<arg fmt="%s" index="1">sda_out</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="31" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 254: &lt;<arg fmt="%s" index="1">serial_tx</arg>&gt; is already declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 40: &lt;<arg fmt="%s" index="1">busy</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 65: &lt;<arg fmt="%s" index="1">pressure</arg>&gt; is not declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="598" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 1: Module &lt;<arg fmt="%s" index="1">mojo_top</arg>&gt; ignored due to previous errors.
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 66: &lt;<arg fmt="%s" index="1">temp</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 67: &lt;<arg fmt="%s" index="1">delta_pressure</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 68: &lt;<arg fmt="%s" index="1">delta_temp</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 69: &lt;<arg fmt="%s" index="1">min_pressure</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 70: &lt;<arg fmt="%s" index="1">max_pressure</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 71: &lt;<arg fmt="%s" index="1">min_temp</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 72: &lt;<arg fmt="%s" index="1">max_temp</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="old" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 73: &lt;<arg fmt="%s" index="1">ena</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 74: &lt;<arg fmt="%s" index="1">addr</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 75: &lt;<arg fmt="%s" index="1">sub_addr</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 76: &lt;<arg fmt="%s" index="1">data_wr</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 77: &lt;<arg fmt="%s" index="1">data_rd</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="old" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 78: &lt;<arg fmt="%s" index="1">busy</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 79: &lt;<arg fmt="%s" index="1">ack_err</arg>&gt; is not declared.
 </msg>
 
 </messages>

@@ -988,3 +988,4 @@ xst -intstyle ise -ifn "D:/MyDocs/Desktop/Mojo-Base/syn/mojo_top.xst" -ofn "D:/M
 xst -intstyle ise -ifn "D:/MyDocs/Desktop/Mojo-Base/syn/mojo_top.xst" -ofn "D:/MyDocs/Desktop/Mojo-Base/syn/mojo_top.syr" 
 xst -intstyle ise -ifn "D:/MyDocs/Desktop/Mojo-Base/syn/mojo_top.xst" -ofn "D:/MyDocs/Desktop/Mojo-Base/syn/mojo_top.syr" 
 xst -intstyle ise -ifn "D:/MyDocs/Documents/GitHub/SeniorDesign/syn/mojo_top.xst" -ofn "D:/MyDocs/Documents/GitHub/SeniorDesign/syn/mojo_top.syr" 
+xst -intstyle ise -ifn "D:/MyDocs/Documents/GitHub/SeniorDesign/syn/mojo_top.xst" -ofn "D:/MyDocs/Documents/GitHub/SeniorDesign/syn/mojo_top.syr" 

@@ -43,10 +43,7 @@ Data_Controller Data_Controller(
 	.clk(clk)
 );
 	 
-Data_serial_rx serial_rx #(
-	parameter CLK_PER_BIT = 50,
-	parameter CTR_SIZE = 6
-	)(
+Data_serial_rx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_rx (
 	.clk(clk),
 	.rst(rst),
 	.rx(),
@@ -54,10 +51,7 @@ Data_serial_rx serial_rx #(
 	.new_data()
 );	 
 	
-Data_serial_tx serial_tx #(
-	parameter CLK_PER_BIT = 50,
-	parameter CTR_SIZE = 6
-	)(
+Data_serial_tx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_tx (
 	.clk(clk),
 	.rst(rst),
 	.tx(),
@@ -88,114 +82,114 @@ Altimeter_Controller Altimeter_Controller(
     );
 
 Alt_I2C_Driver I2C_Driver(
-	.clk(),
+	.clk(clk),
 	.rst(rst),
-	input ena,
-	input [7:0] addr,
-	input rw,
-	input [7:0]data_wr,
-	input [7:0]sub_addr,
-	output reg busy,
-	output reg [7:0]data_rd,
-	output reg ack_err,
-	inout SDA,
-	inout SCL
+	.ena(),
+	.addr(),
+	.rw(),
+	.data_wr(),
+	.sub_addr(),
+	.busy(),
+	.data_rd(),
+	.ack_err(),
+	.SDA(),
+	.SCL()
 	//inout SCL
-   );
+);
 	
 Gyro_Controller Gyro_Controller(
-	output [19:0] roll,
-	output [19:0] pitch,
-	output [19:0] yaw,
-	output ena,
-	output [7:0] data_wr,
-	input [7:0] data_rd,
-	input busy,
-	input new,
-	input rst,
-	input clk
-    );
+	.roll(),
+	.pitch(),
+	.yaw(),
+	.ena(),
+	.data_wr(),
+	.data_rd(),
+	.busy(),
+	.new(),
+	.rst(rst),
+	.clk(clk)
+);
 
 Gyro_Spi_Master Spi_Master(
-	input clk,
-	input rst,
-	input ss,
-	input mosi,
-	output miso,
-	input sck,
-	output done,
-	input [7:0] din,
-	output [7:0] dout
-    );
+	.clk(clk),
+	.rst(rst),
+	.ss(),
+	.mosi(),
+	.miso(),
+	.sck(),
+	.done(),
+	.din(),
+	.dout()
+);
 	 
 Accelerometer_Controller Accelerometer_Controller(
-	output [19:0] x_accl,
-	output [19:0] y_accl,
-	output [19:0] z_accl,
-	output ena,
-	output [7:0] data_wr,
-	output [7:0] data_rd,
-	input busy,
-	output new,
-	input rst,
-	input clk
-    );
+	.x_accl(),
+	.y_accl(),
+	.z_accl(),
+	.ena(),
+	.data_wr(),
+	.data_rd(),
+	.busy(),
+	.new(),
+	.rst(rst),
+	.clk(clk)
+);
 	 
 Accl_Spi_Master Spi_Master(
-	input clk,
-	input rst,
-	input ss,
-	input mosi,
-	output miso,
-	input sck,
-	output done,
-	input [7:0] din,
-	output [7:0] dout
-    ); 
+	.clk(clk),
+	.rst(rst),
+	.ss(),
+	.mosi(),
+	.miso(),
+	.sck(),
+	.done(),
+	.din(),
+	.dout()
+); 
 	 
 GPS_Controller GPS_Controller(
-	output [19:0] x_gps,
-	output [19:0] y_gps,
-	output [19:0] z_gps,
-	output [19:0] time_gps,
-	output [19:0] ground_speed,
-	output ena,
-	output [7:0]data_wr,
-	input [7:0] data_rd,
-	input busy,
-	input new,
-	input rst,
-	input clk
-    );
+	.x_gps(),
+	.y_gps(),
+	.z_gps(),
+	.time_gps(),
+	.ground_speed(),
+	.ena(),
+	.data_wr(),
+	.data_rd(),
+	.busy(),
+	.new(),
+	.rst(rst),
+	.clk(clk)
+);
 	 
 GPS_Spi_Master Spi_Master(
-	input clk,
-	input rst,
-	input ss,
-	input mosi,
-	output miso,
-	input sck,
-	output done,
-	input [7:0] din,
-	output [7:0] dout
-    ); 
+	.clk(clk),
+	.rst(rst),
+	.ss(),
+	.mosi(),
+	.miso(),
+	.sck(),
+	.done(),
+	.din(),
+	.dout()
+); 
 	 
 Analog_Controller Analog_Controller(
-	output [7:0] ch0,
-	output [7:0] ch1,
-	output [7:0] ch4,
-	output [7:0] ch5,
-	output [7:0] ch6,
-	output [7:0] ch7,
-	output [7:0] ch8,
-	output [7:0] ch9,
-	output [7:0] channel,
-	input new_sample,
-	input [7:0] sample,
-	input [7:0] sample_channel,
-	input rst,
-	input clk
-    );
+	.ch0(),
+	.ch1(),
+	.ch4(),
+	.ch5(),
+	.ch6(),
+	.ch7(),
+	.ch8(),
+	.ch9(),
+	.channel(),
+	.new_sample(),
+	.sample(),
+	.sample_channel(),
+	.rst(),
+	.clk(clk)
+);
 	 
 avr_interface avr_interface (
     .clk(clk),
@@ -221,56 +215,50 @@ avr_interface avr_interface (
 );
 
 Camera_Initializer Camera_Initializer(
-	input start,
-	input new_data,
-	input [7:0] data,
-	output ena,
-	output [7:0] addr,
-	output [7:0] sub_addr,
-	output [7:0] data_wr,
-	input [7:0] data_rd,
-	input busy,
-	input ack_err,
-	input rst,
-	input clk
-    );
+	.start(),
+	.new_data(),
+	.data(),
+	.ena(),
+	.addr(),
+	.sub_addr(),
+	.data_wr(),
+	.data_rd(),
+	.busy(),
+	.ack_err(),
+	.rst(rst),
+	.clk(clk)
+);
 
 Camera_Digitizer Camera_Digitizer(
-	input busy,
-	input block,
-	input new_data,
-	input [7:0] data,
-	input dtr,
-	input vsync,
-	input href,
-	input pclk,
-	input [7:0] ybus,
-	input rst,
-	input clk
+	.busy(),
+	.block(),
+	.new_data(),
+	.data(),
+	.dtr(),
+	.vsync(),
+	.href(),
+	.pclk(),
+	.ybus(),
+	.rst(rst),
+	.clk(clk)
     );
 	 
-cam_serial_rx serial_rx #(
-	parameter CLK_PER_BIT = 50,
-	parameter CTR_SIZE = 6
-	)(
-	input clk,
-	input rst,
-	input rx,
-	output [7:0] data,
-	output new_data
+cam_serial_rx#(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_rx (
+	.clk(clk),
+	.rst(rst),
+	.rx(),
+	.data(),
+	.new_data()
 	);
 	
-cam_serial_tx serial_tx #(
-	parameter CLK_PER_BIT = 50,
-	parameter CTR_SIZE = 6
-	)(
-	input clk,
-	input rst,
-	output tx,
-	input block,//remove only used for the avr side of stuff
-	output busy,
-	input [7:0] data,
-	input new_data
+cam_serial_tx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_tx (
+	.clk(clk),
+	.rst(rst),
+	.tx(),
+	.block(),//remove only used for the avr side of stuff
+	.busy(),
+	.data(),
+	.new_data()
 	);
 
 
