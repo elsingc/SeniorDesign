@@ -1,8 +1,9 @@
 module mojo_top(
     input clk,
     input rst_n,
-    input cclk,
-    output[7:0]led,
+	 output[7:0]led,
+  /*  input cclk,
+    
     output spi_miso,
     input spi_ss,
     input spi_mosi,
@@ -10,144 +11,182 @@ module mojo_top(
     output [3:0] spi_channel,
     input avr_tx,
     output avr_rx,
-    input avr_rx_busy
-	 //input [7:0] pixel,
-	 //input pclk,
-	 //input href,
-//	 //input vsync,
-//	 inout sda_out,
-//	 inout scl_out,
-//	 input start
+    input avr_rx_busy,
+	
+	 input [7:0] pixel,
+	 input pclk,
+	 input href,
+	 input vsync,
+	 input cam_tx,
+	 output cam_rx,
+	  */
+	 inout alt_sda_out,
+	 inout alt_scl_out,
+	 inout imu_sda_out,
+	 inout imu_scl_out, 
+	 inout cam_sda_out,
+	 inout cam_scl_out,
+	 input start,
+	 output data_tx, 
+	 input data_rx
     );
 
 wire rst = ~rst_n;
-//
-//assign spi_miso = 1'bz;
-//assign avr_rx = 1'bz;
-//assign spi_channel = 4'bzzzz;
+
+assign spi_miso = 1'bz;
+assign avr_rx = 1'bz;
+assign spi_channel = 4'bzzzz;
 //assign toggle_check = toggle;
 
-//assign sda_out = 1'bz;
-//assign scl_out = 1'b1;
+assign led[6:1] = 7'h00;
+//assign led[0] = data_new_data_rx;
 
+wire [19:0] pressure, x_gps, y_gps, z_gps, time_gps, ground_speed;
+wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z, magm_x, magm_y, magm_z;
+//====================DATA CONTROLLER===================================
+wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
+wire [7:0] data_data_addr, snsr_data, snsr_addr, data_data_tx, data_data_rx;
 Data_Controller Data_Controller(
-	.busy(),
-	.block(), //set to 0
-	.new_data_tx(),
-	.data_tx(),
-	.new_data_rx(),
-	.data_rx(),
-	.data(),
-	.addr(),
+	.debug(led[0]),
+	.busy(data_busy),
+	.block(data_block), //set to 0
+	.new_data_tx(data_new_data_tx),
+	.data_tx(data_data_tx),
+	.new_data_rx(data_new_data_rx),
+	.data_rx(data_data_rx),
+	.data(snsr_data),
+	.addr(snsr_addr),
 	.rst(rst),
 	.clk(clk)
 );
 	 
-Data_serial_rx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_rx (
+serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) Data_serial_rx (
 	.clk(clk),
 	.rst(rst),
-	.rx(),
-	.data(),
-	.new_data()
+	.rx(data_rx),
+	.data(data_data_rx),
+	.new_data(data_new_data_rx)
 );	 
 	
-Data_serial_tx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_tx (
+serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) Data_serial_tx (
 	.clk(clk),
 	.rst(rst),
-	.tx(),
-	.block(),//remove only used for the avr side of stuff
-	.busy(),
-	.data(),
-	.new_data()
+	.tx(data_tx),
+	.block(data_block),//remove only used for the avr side of stuff
+	.busy(data_busy),
+	.data(data_data_tx),
+	.new_data(data_new_data_tx)
 	);
 	
+Sensor_Reg Sensor_Reg(
+	.data(snsr_data),
+	.addr(snsr_addr),
+	.pressure(pressure),
+	.alt_temp(alt_temp),
+	.gyro_temp(gyro_temp),
+	.gyro_x(gyro_x),
+	.gyro_y(gyro_y),
+	.gyro_z(gyro_z),
+	.x_accl(accl_x),
+	.y_accl(accl_y),
+	.z_accl(accl_z),
+	.magm_x(magm_x),
+	.magm_y(magm_y),
+	.magm_z(magm_z),
+//below this line unimplemented---------------------------------------
+	/*x_gps,
+	y_gps,
+	z_gps,
+	time_gps,
+	ground_speed,
+	air_speed_p,
+	air_speed_n,*/
+	.rst(rst),
+	.clk(clk)
+	);
+//====================ALTIMETER=========================================
+wire alt_ena, alt_rw, alt_busy, alt_ready, alt_ack_err, alt_start_transfer, alt_stop_transfer, alt_r_start;
+wire [7:0] alt_data_wr, alt_data_rd;
 Altimeter_Controller Altimeter_Controller(
-	.pressure,
-	.temp,
-	.delta_pressure,
-	.delta_temp,
-	.min_pressure,
-	.max_pressure,
-	.min_temp,
-	.max_temp,
-	.ena,
-	.addr,
-	.sub_addr,
-	.data_wr,
-	.data_rd,
-	.busy,
-	.ack_err,
-	.rst(clk),
+	.debug(led[7]),
+	.pressure(pressure),
+	.temp(alt_temp),
+	.ena(alt_ena),
+	.rw(alt_rw),
+	.data_wr(alt_data_wr),
+	.data_rd(alt_data_rd),
+	.ready(alt_ready),
+	.busy(alt_busy),
+	.ack_err(alt_ack_err),
+	.start_transfer(alt_start_transfer),
+	.stop_transfer(alt_stop_transfer),
+	.r_start(alt_r_start),
+	.rst(rst),
 	.clk(clk)
     );
 
-Alt_I2C_Driver I2C_Driver(
+I2C_Driver Alt_I2C_Driver(
 	.clk(clk),
 	.rst(rst),
-	.ena(),
-	.addr(),
-	.rw(),
-	.data_wr(),
-	.sub_addr(),
-	.busy(),
-	.data_rd(),
-	.ack_err(),
-	.SDA(),
-	.SCL()
-	//inout SCL
-);
-	
-Gyro_Controller Gyro_Controller(
-	.roll(),
-	.pitch(),
-	.yaw(),
-	.ena(),
-	.data_wr(),
-	.data_rd(),
-	.busy(),
-	.new(),
+	.rw(alt_rw),
+	.data_wr(alt_data_wr),
+	.data_rd(alt_data_rd),
+	.busy(alt_busy),
+	.ready(alt_ready),
+	.ack_err(alt_ack_err),
+	.ena(alt_ena),
+	.start_transfer(alt_start_transfer),
+	.stop_transfer(alt_stop_transfer),
+	.r_start(alt_r_start),
+	.SDA(alt_sda_out),
+	.SCL(alt_scl_out)
+);	 
+//====================IMU CONTROLLER====================================
+wire imu_ena, imu_rw, imu_busy, imu_ack_err, imu_start_transfer, imu_stop_transfer, imu_r_start;
+wire [7:0] imu_data_wr, imu_data_rd;
+
+IMU_Controller IMU_Controller(
+	.GYRO_TEMP(gyro_temp),
+	.GYRO_X(gyro_x),
+	.GYRO_Y(gyro_y),
+	.GYRO_Z(gyro_z),
+	.ACCL_X(accl_x),
+	.ACCL_Y(accl_y),
+	.ACCL_Z(accl_z),
+	.MAGM_X(magm_x),
+	.MAGM_Y(magm_y),
+	.MAGM_Z(magm_z),
+	.ena(imu_ena),
+	.rw(imu_rw),
+	.data_wr(imu_data_wr),
+	.r_start(imu_r_start),
+	.start_transfer(imu_start_transfer),
+	.stop_transfer(imu_stop_transfer),
+	.data_rd(imu_data_rd),
+	.busy(imu_busy),
+	.ready(imu_ready),
 	.rst(rst),
 	.clk(clk)
 );
 
-Gyro_Spi_Master Spi_Master(
+I2C_Driver IMU_I2C_Driver(
 	.clk(clk),
 	.rst(rst),
-	.ss(),
-	.mosi(),
-	.miso(),
-	.sck(),
-	.done(),
-	.din(),
-	.dout()
-);
-	 
-Accelerometer_Controller Accelerometer_Controller(
-	.x_accl(),
-	.y_accl(),
-	.z_accl(),
-	.ena(),
-	.data_wr(),
-	.data_rd(),
-	.busy(),
-	.new(),
-	.rst(rst),
-	.clk(clk)
-);
-	 
-Accl_Spi_Master Spi_Master(
-	.clk(clk),
-	.rst(rst),
-	.ss(),
-	.mosi(),
-	.miso(),
-	.sck(),
-	.done(),
-	.din(),
-	.dout()
-); 
-	 
-GPS_Controller GPS_Controller(
+	.rw(imu_rw),
+	.data_wr(imu_data_wr),
+	.data_rd(imu_data_rd),
+	.busy(imu_busy),
+	.ready(imu_ready),
+	.ack_err(imu_ack_err),
+	.ena(imu_ena),
+	.start_transfer(imu_start_transfer),
+	.stop_transfer(imu_stop_transfer),
+	.r_start(imu_r_start),
+	.SDA(imu_sda_out),
+	.SCL(imu_scl_out)
+);	 
+//====================GPS=============================================== 
+/*GPS_Controller GPS_Controller(
 	.x_gps(),
 	.y_gps(),
 	.z_gps(),
@@ -161,20 +200,9 @@ GPS_Controller GPS_Controller(
 	.rst(rst),
 	.clk(clk)
 );
-	 
-GPS_Spi_Master Spi_Master(
-	.clk(clk),
-	.rst(rst),
-	.ss(),
-	.mosi(),
-	.miso(),
-	.sck(),
-	.done(),
-	.din(),
-	.dout()
-); 
-	 
-Analog_Controller Analog_Controller(
+	 */
+//====================ANALOG CONGROLLER=================================
+/*Analog_Controller Analog_Controller(
 	.ch0(),
 	.ch1(),
 	.ch4(),
@@ -213,101 +241,73 @@ avr_interface avr_interface (
     .rx_data(),
     .new_rx_data()
 );
+	 */
+//====================CAM CONTROLLER====================================
+wire cam_ena, cam_rw, cam_ack_err, cam_busy, cam_pulse, cam_new_tx_data, cam_tx_busy, cam_new_rx_data;
+wire [7:0] cam_addr, cam_data_wr, cam_data_rd, cam_sub_addr, cam_tx_data, cam_rx_data;
 
-Camera_Initializer Camera_Initializer(
-	.start(),
-	.new_data(),
-	.data(),
-	.ena(),
-	.addr(),
-	.sub_addr(),
-	.data_wr(),
-	.data_rd(),
-	.busy(),
-	.ack_err(),
+serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(8)) serial_rx (
+	.clk(clk),
 	.rst(rst),
-	.clk(clk)
+	.rx(cam_rx),
+	.data(cam_rx_data),
+	.new_data(cam_new_rx_data)
 );
 
-Camera_Digitizer Camera_Digitizer(
-	.busy(),
-	.block(),
-	.new_data(),
-	.data(),
-	.dtr(),
-	.vsync(),
-	.href(),
-	.pclk(),
-	.ybus(),
-	.rst(rst),
-	.clk(clk)
-    );
-	 
-cam_serial_rx#(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_rx (
+serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(8)) serial_tx (
 	.clk(clk),
 	.rst(rst),
-	.rx(),
-	.data(),
-	.new_data()
-	);
-	
-cam_serial_tx #(.CLK_PER_BIT(100), .CTR_SIZE(7)) serial_tx (
+	.tx(cam_tx),
+	.block(cam_tx_block),
+	.busy(cam_tx_busy),
+	.data(cam_tx_data),
+	.new_data(cam_new_tx_data)
+);
+
+cam_serializer cam_serializer(
 	.clk(clk),
 	.rst(rst),
-	.tx(),
-	.block(),//remove only used for the avr side of stuff
-	.busy(),
-	.data(),
-	.new_data()
-	);
+	.ybuss(pixel),
+	.vsync(vsync),
+	.href(href),
+	.pclk(pclk),
+	.tx_data(cam_tx_data),
+	.new_tx_data(cam_new_tx_data),
+	.tx_busy(cam_tx_busy),
+	.rx_data(cam_rx_data),
+	.new_rx_data(cam_new_rx_data),
+	.start_config(cam_start)
+);
 
+cam_driver sends_one(
+	.clk(clk),
+	.start(cam_start),
+	.ena(cam_ena),
+	.addr(cam_addr),
+	.data_wr(cam_data_wr),
+	.data_rd(cam_data_rd),
+	.sub_addr(cam_sub_addr),
+	.rw(cam_rw),
+	.ack_err(cam_ack_err),
+	.busy(cam_busy),
+	.rst(rst)
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//wire ena, rw, ack_err, busy, pulse;
-//wire [7:0] addr, data_wr, data_rd, sub_addr;
-//
-//cam_driver sends_one(
-//	.comm_clk(clk),
-//	.start(start),
-//	.ena(ena),
-//	.addr(addr),
-//	.data_wr(data_wr),
-//	.data_rd(data_rd),
-//	.sub_addr(sub_addr),
-//	.rw(rw),
-//	.ack_err(ack_err),
-//	.busy(busy),
-//	.rst(rst)
-//	);
-//
-//I2C_Driver cam_i2c(
-//	.SDA(sda_out),
-//	.SCL(scl_out),
-//	.clk(clk),
-//	.rst(rst),
-//	.ena(ena),
-//	.addr(addr),
-//	.rw(rw),
-//	.data_wr(data_wr),
-//	.data_rd(data_rd),
-//	.sub_addr(sub_addr),
-//	.ack_err(ack_err),
-//	.busy(busy)
-//   );
+cam_I2C_Driver cam_I2C_Driver(
+	.SDA(cam_sda_out),
+	.SCL(cam_scl_out),
+	.clk(clk),
+	.rst(rst),
+	.ena(cam_ena),
+	.addr(cam_addr),
+	.rw(cam_rw),
+	.data_wr(cam_data_wr),
+	.data_rd(cam_data_rd),
+	.sub_addr(cam_sub_addr),
+	.ack_err(cam_ack_err),
+	.busy(cam_busy)
+);
+//====================END===============================================
 //initializer_pulse pulser(
 //	.clk(clk),
 //   .rst(rst),

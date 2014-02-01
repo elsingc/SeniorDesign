@@ -4,7 +4,7 @@ TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
 
 # PlanAhead Generated physical constraints 
 NET "clk" LOC = P56;
-//NET "rst_n" CLOCK_DEDICATED_ROUTE = FALSE; 
+NET "rst_n" CLOCK_DEDICATED_ROUTE = FALSE; 
 NET "rst_n" LOC = P38;
 
 #NET "cclk" LOC = P70;
@@ -32,10 +32,14 @@ NET "led<7>" LOC = P123;
 #NET "href" LOC = P35;
 #NET "vsync" LOC = P33;
 
-NET "sda_out" LOC = P41;
-NET "scl_out" LOC = P51;
+NET "alt_sda_out" LOC = P75;
+NET "alt_scl_out" LOC = P74;
+NET "imu_sda_out" LOC = P67;
+NET "imu_scl_out" LOC = P66;
 
-NET "start" LOC = P57;
+NET "data_tx" LOC = P79;
+NET "data_rx" LOC = P78;
+
 #
 #NET "spi_mosi" LOC = P44;
 #NET "spi_miso" LOC = P45;

@@ -1,230 +1,322 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    10:26:35 01/30/2014 
+// Design Name: 
+// Module Name:    I2C_Driver 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module I2C_Driver(
-	input clk,
+    input clk,
 	input rst,
-	input ena,
-	input [7:0] addr,
-	input rw,
+	input rw,	
 	input [7:0]data_wr,
-	input [7:0]sub_addr,
-	output reg busy,
 	output reg [7:0]data_rd,
+	output reg busy,
+	output reg ready,
 	output reg ack_err,
+	input ena,
+	input start_transfer,
+	input stop_transfer,
+	input r_start,
 	inout SDA,
 	inout SCL
-	//inout SCL
    );
 	
 	
 	
-localparam STATE_SIZE = 5;
+
 localparam clock_speed = 50000000;
-localparam com_speed = 1000;//00;
+localparam com_speed = 100000;//;
 localparam divider =(clock_speed/com_speed)/4;
 
 
-
-localparam 	ready = 0,
+localparam STATE_SIZE = 9;
+localparam 	system_ready = 0,
 				start = 1,
-				device_addr_send = 2,
-				slv_ack1 = 3,
-				sub_addr_send = 4,
-				slv_ack2 = 5,
-				wr = 6,
-				rd = 7,
-				slv_ack3 = 8,
-				mstr_ack = 9,
+				wait_transfer = 2,
+				transfer = 3,
+				ack = 4,
+				wait_release_ack = 5,
+				repeated_start_a = 6,
+				repeated_start_b = 7,
+				repeated_start_c = 8,
+				repeated_start_d = 9,
 				stop = 10;
+				
+reg [STATE_SIZE:0] state = system_ready;
 
-
-reg [STATE_SIZE:0] state;
-
-//integer bitcount = 7;
 reg [3:0] bitcount;
-
-//integer count = 0;
 reg [16:0] count;
 
-reg data_clk;
-reg scl_clk;
-reg scl_ena;
-reg sda_int;
-reg sda_ena_n;
-reg [7:0] addr_rw;
+reg data_clk = 1'b1;
+reg scl_clk = 1'b1;
+reg scl_ena = 1'b0;
+reg scl_wait = 1'b0;
+reg scl_repeated_start = 1'b0;
+reg sda_int = 1'b1;
+reg sda_int_negedge = 1'b1;
+reg sda_ena_n = 1'b1;
+reg rstart_clk_high = 1'b0;
 reg [7:0] data_tx = 8'h00;
 reg [7:0] data_rx = 8'h00;
-reg [7:0] sub_addr_tx = 8'h00;
-reg stretch;
+reg stretch = 1'b0;
 
 assign SDA = sda_ena_n == 1'b0 ? 1'b0 : 1'bz;
-assign SCL = scl_ena == 1'b1 ? scl_clk : 1'bz;
-//assign toggle = data_clk;
-
+assign SCL = (scl_ena == 1'b1) ? scl_clk : 1'bz;
 
 always @(*) begin
 	if(state == start) begin
 		sda_ena_n <= data_clk;
 	end else if(state == stop) begin
 		sda_ena_n <= ~data_clk;
+	end else if(state == ack || state == wait_release_ack) begin
+		if(rw == 1'b1)begin
+			sda_ena_n <= 1'b0;
+		end else begin
+			sda_ena_n <= sda_int;
+		end
 	end else begin
-		sda_ena_n <= sda_int;
+		sda_ena_n <= (sda_int);
 	end
 end
 
 always @(posedge clk or posedge rst)begin
 	if(rst) begin
-		stretch <= 0;
-		count <= 0;
+		stretch <= 1'b0;
+		count <= 1'b0;
 	end else begin
 		if(count ==((divider*4)-1)) begin
-			count <= 0;
+			count <= 1'b0;
 		end else if(stretch == 0) begin
-			count <= count + 1;
+			count <= count + 1'b1;
 		end
 		if((count >= 0) && (count < (divider))) begin
-			scl_clk <= 0;
-			data_clk <= 0;
-		end else if((count >= divider) && (count < (divider*2))) begin
-			scl_clk <= 0;
-			data_clk <= 1;
-		end else if((count >= (divider*2)) && (count <=divider*3)) begin
-			scl_clk <= 1'bZ;
-			if(SCL == 0)begin
-				stretch <= 1;
+			if(rstart_clk_high)begin
+				scl_clk <= 1'b1;
 			end else begin
-				stretch <= 0;
+				scl_clk <= 1'b0;
 			end
-			data_clk <= 1;
+			data_clk <= 1'b0;
+		end else if((count >= divider) && (count < (divider*2))) begin
+			if(rstart_clk_high)begin
+				scl_clk <= 1'b1;
+			end else begin
+				scl_clk <= 1'b0;
+			end
+			data_clk <= 1'b1;
+		end else if((count >= (divider*2)) && (count <=divider*3)) begin
+			if(rstart_clk_high)begin
+				scl_clk <= 1'b1;
+			end else begin
+				if(scl_wait)begin
+					scl_clk <= 1'b0;
+				end else begin
+					scl_clk <= 1'bZ;
+				end
+				if(SCL == 0 && !scl_wait)begin
+					stretch <= 1'b1;
+				end else begin
+					stretch <= 1'b0;
+				end
+			end
+			data_clk <= 1'b1;
 		end else begin
-			scl_clk <= 1'bz;
-			data_clk <= 0;
+			if(rstart_clk_high)begin
+				scl_clk <= 1'b1;
+			end else begin
+				if(scl_wait)begin
+					scl_clk <= 1'b0;
+				end else begin
+					scl_clk <= 1'bZ;
+				end
+			end
+			data_clk <= 1'b0;
 		end
 	end
 end
 
 always @(posedge data_clk or posedge rst)begin
 	if(rst) begin
-		state <= ready;
+		state <= system_ready;
 		busy <= 1'b1;
 		scl_ena <= 1'b0;
-		sda_int <= 1;
-		bitcount <= 7;
+		sda_int <= 1'b1;
+		scl_repeated_start <= 1'b1;
+		bitcount <= 4'd7;
 		data_rd <= 8'b0;;
 	end else begin// if(data_clk == 1'b1) begin
 		case (state)
-			ready: begin
+			system_ready: begin
+				scl_ena <= 1'b0;
 				if(ena==1'b1)begin
-					busy <= 1'b1;
-					addr_rw <= addr;//&rw;
-					data_tx <= data_wr;
-					sub_addr_tx <= sub_addr;
 					state <= start;
-					bitcount <= 7;
 				end else begin
 					busy <= 1'b0;
-					state <= ready;
+					ready <= 1'b1;
+					state <= system_ready;
 				end
 			end
 			
+			//sends the start bit
 			start: begin
 				busy <= 1'b1;
+				ready <= 1'b0;
 				scl_ena <= 1'b1;
-				sda_int <= 1;// addr_rw[bitcount];
-				state <= device_addr_send;
+				scl_wait <= 1'b1;
+				sda_int <= 1'b0;
+				state <= wait_transfer;
 			end
 			
-			device_addr_send: begin
-				busy <= 1'b1;
-				if(bitcount == 0) begin
-					sda_int <= 1'b1;
-					bitcount <= 7;
-					state <= slv_ack1;
+			//this state determines whether another read or write is performed before stoping
+			wait_transfer: begin
+				ready <= 1'b1;
+				busy <= 1'b0;
+				bitcount <= 4'd8; 
+				scl_wait <= 1'b1;					
+				scl_ena <= 1'b1;
+				sda_int <= 1'b1;
+				if(start_transfer/* && !stop_transfer*/) begin
+					data_tx <= data_wr;
+					state <= transfer;
+				end else if(stop_transfer) begin
+					state <= stop;
+				end else if(r_start) begin
+					state <= repeated_start_a;
 				end else begin
-					sda_int <= addr_rw[bitcount-1];
-					bitcount <= bitcount - 1;
-					state <= device_addr_send;
+					state <= wait_transfer;
 				end
 			end			
 			
-			slv_ack1: begin
-				busy <= 1'b1;
-				sda_int <= 0;//data_tx[bitcount];
-				state <= sub_addr_send;
-			end
 			
-			sub_addr_send:begin
+			//this side handles the setting up of data when in write mode
+			//if in read, the data gets clocked in at the negedge which is handdled
+			//by the negedge statemachine
+			transfer: begin
 				busy <= 1'b1;
+				ready <= 1'b0;
+				scl_ena <= 1'b1;
+				scl_wait <= 1'b0;
 				if(bitcount == 0) begin
-					sda_int <= 1'b1;
-					bitcount <= 7;
-					state <= slv_ack2;
-				end else begin
-					sda_int <= sub_addr_tx[bitcount-1];
-					bitcount <= bitcount - 1;
-					state <= sub_addr_send;
-				end
-			end
-			
-			slv_ack2:begin
-				busy <= 1'b1;
-				if(rw == 1'b1) begin 
-					state <= rd;
-				end else begin 
-					sda_int <= data_wr[bitcount];
-					state <= wr;
-				end
-			end
-			
-			wr: begin
-				busy <= 1'b1;
-				if(bitcount == 0) begin
-					sda_int <= 1'b1;
-					bitcount <= 7; 
-					state <= slv_ack3;
-				end else begin
-					bitcount <= bitcount - 1;
-					sda_int <= data_tx[bitcount-1]; //<---------might be wrong, bitcound -1 might be right
-					state <= wr;
-				end
-			end
-			
-			rd: begin
-				busy <= 1;
-				if(bitcount == 0) begin
-					if(rw == 1'b1) begin
-						sda_int <= 1'b0;	
+					if(rw == 1'b1)begin
+						data_rd <= data_rx;
+						sda_int <= 1'b0;
 					end else begin
 						sda_int <= 1'b1;
 					end
-					bitcount <= 7;
-					data_rd <= data_rx;
-					state <= mstr_ack;
+					scl_wait <= 1'b1;
+					state <= ack;
 				end else begin
-					bitcount <= bitcount - 1;;
-					state <= rd;
+					if(rw == 1'b0)begin
+						sda_int <= data_tx[bitcount - 1]; //<---------might be wrong, bitcound -1 might be right
+					end else begin
+						sda_int <= 1'b1;
+					end
+					scl_wait <= 1'b0;
+					bitcount <= bitcount - 1'b1;
+					state <= transfer;
+				end
+				
+			end
+				
+			ack:begin
+				if(rw == 1'b1)begin 
+					sda_int <= 1'b0;
+				end else begin
+					sda_int <= 1'b1;
+				end
+				scl_ena <= 1'b1;
+				scl_wait <= 1'b0;
+				busy <= 1'b1;
+				ready <= 1'b0;
+				state <= wait_transfer;
+			end
+			
+			wait_release_ack: begin
+				scl_ena <= 1'b1;
+				scl_wait <= 1'b1;
+				busy <= 1'b1;
+				ready <= 1'b0;
+				if(rw == 1'b1)begin
+					sda_int <= 1'b1;
+				end else begin
+					sda_int <= 1'b1;
+					if(SDA == 1'b1) begin
+						state <= wait_transfer;
+					end else begin
+						state <= wait_release_ack;
+					end
 				end
 			end
-			
-			slv_ack3: begin
+			//send clock high
+			repeated_start_a: begin
+				ready <= 1'b0;
 				busy <= 1'b1;
-				scl_ena <= 1'b0;
-				state <= stop;
+				sda_int <= 1'b1;
+				scl_ena <= 1'b1;
+				rstart_clk_high <= 1'b1;
+				state <= repeated_start_b;
 			end
 			
-			mstr_ack: begin
+			//send sda low
+			repeated_start_b: begin
 				busy <= 1'b1;
+				ready <= 1'b0;
 				scl_ena <= 1'b0;
-				state <= stop;
-			end 
+				scl_wait <= 1'b1;
+				sda_int <= 1'b0;
+				rstart_clk_high <= 1'b1;
+				state <= repeated_start_c;
+			end
 			
-			stop: begin
-				busy <= 1'b0;
-				state <= ready;
+			repeated_start_c: begin
+				busy <= 1'b1;
+				ready <= 1'b0;
+				scl_ena <= 1'b1;
+				scl_wait <= 1'b1;
+				sda_int <= 1'b0;
+				rstart_clk_high <= 1'b0;
+				state <= wait_transfer;
+			end
+			repeated_start_d: begin
+				busy <= 1'b1;
+				ready <= 1'b0;
+				scl_ena <= 1'b1;
+				scl_wait <= 1'b1;
+				sda_int <= 1'b0;
+				rstart_clk_high <= 1'b0;
+				state <= wait_transfer;
+			end
+			
+			stop:begin
+				ready <= 1'b0;
+				busy <= 1'b1;
+				sda_int <= 1'b1;
+				scl_ena <= 1'b0;
+				state <= system_ready;
+			end
+			
+			default:begin
+				state <= system_ready;
 			end
 		endcase
 	end
-	
-
 end
+
+
+//not sure if this is needed yet
 always @(negedge data_clk or posedge rst) begin
 	if(rst) begin
 		ack_err <= 1'b0;
@@ -234,20 +326,18 @@ always @(negedge data_clk or posedge rst) begin
 				ack_err <= 1'b0;
 			end
 			
-			slv_ack1: begin
-				ack_err <= SDA | ack_err;
+			transfer: begin
+				if(rw == 1'b1)begin
+					data_rx[bitcount - 1] <= SDA;	
+				end
 			end
 			
-			rd: begin
-				data_rx[bitcount] <= SDA;
-			end
-			
-			slv_ack2: begin
-				ack_err <= SDA | ack_err;
-			end
-			
-			slv_ack3: begin
-				ack_err <= SDA | ack_err;
+			ack: begin
+				if(rw == 1'b1)begin
+					sda_int_negedge <= 1'b1;
+				end else begin
+					ack_err <= SDA | ack_err;
+				end
 			end
 			
 			default:begin
@@ -256,382 +346,4 @@ always @(negedge data_clk or posedge rst) begin
 	end
 end
 
-/*
-always@(posedge clk or posedge rst) begin //state logic
-	if(rst)begin
-		state <= IDLE;
-	end else begin
-		case(state)
-		IDLE: begin
-			if(ena == 1) begin
-				state <= START;
-			end
-		end
-		
-		START: begin
-			state <= ADDRESS_1;
-		end
-	
-		ADDRESS_1: begin
-			state <= ADDRESS_2;
-		end
-		
-		ADDRESS_2: begin
-			if ((bitcount - 1) >= 0) begin
-				bitcount <= bitcount - 1;
-				state <= ADDRESS_1;
-			end else begin
-				bitcount <= 7;
-				state <= ADDRESS_ACK_1;
-			end
-		end
-		
-		ADDRESS_ACK_1: begin
-			state <= ADDRESS_ACK_2;
-		end
-		
-		ADDRESS_ACK_2: begin
-			if (SDA == 1'b1) begin 
-				state <= EE;
-			end else begin
-				state <= SUB_1;
-			end
-
-		end
-		
-		SUB_1: begin
-			state <= SUB_2;
-		end
-		
-		SUB_2: begin
-			if ((bitcount - 1) >= 0) begin
-				bitcount <= bitcount - 1;
-				state <= SUB_1;
-			end else begin
-				bitcount <= 7;
-				state <= SUB_ACK_1;
-			end
-		end
-		
-		SUB_ACK_1: begin
-			state <= SUB_ACK_2;
-		end
-		
-		SUB_ACK_2: begin
-			if (SDA == 1) begin 
-				state <= EE;
-			end else begin
-				state <= RW_1;
-			end
-		end
-		
-		RW_1: begin
-			state <= RW_2;
-		end
-		
-		RW_2: begin
-			if ((bitcount - 1) >= 0) begin
-				bitcount <= bitcount - 1;
-				state <= RW_1;
-			end else begin
-				bitcount <= 7;
-				state <= RW_ACK_1;
-			end
-		end
-		
-		RW_ACK_1: begin
-			state <= RW_ACK_2;
-		end
-		
-		RW_ACK_2: begin
-			if (SDA == 1) begin
-				ack_err <= 1'b1;
-				state <= EE;
-			end else begin
-				bitcount <= 7;
-				state <= STOP;
-			end
-		end
-		
-		STOP: begin
-			state <= IDLE;
-		end
-		
-		EE: begin
-			
-		end
-		
-		
-		default: begin
-			state <= IDLE;
-		end 
-		endcase
-	end
-end
-
-always@(*)begin //output logic
-	case(state)
-	IDLE: begin
-			SCL <= 1'b1;
-			SDA01 <= 1;
-			busy<= 1'b0;
-		end
-		
-		START: begin
-			SCL <= 1'b0;
-			busy <= 1'b1;
-			if(rw == 1)begin
-				write_addr <= 8'hC0;
-			end else begin
-				write_addr <= 8'hC1;
-			end
-		end
-	
-		ADDRESS_1: begin
-			SCL <= 1'b1;
-			SDA01 <= write_addr[bitcount];
-		end
-		
-		ADDRESS_2: begin
-			SCL <= 1'b0;
-		end
-		
-		ADDRESS_ACK_1: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b1;
-		end
-		
-		ADDRESS_ACK_2: begin
-			SCL <= 1'b0;
-			ack <= SDA; // 0 is ack 1 if errs
-
-		end
-		
-		SUB_1: begin
-			SCL <= 1'b1;
-			SDA01 <= addr[bitcount];
-		end
-		
-		SUB_2: begin
-			SCL <= 1'b0;
-		end
-		
-		SUB_ACK_1: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b1;
-		end
-		
-		SUB_ACK_2: begin
-			SCL <= 1'b0;
-		end
-		
-		RW_1: begin
-			SCL <= 1'b1;
-			if(rw == 1) begin
-				SDA01 <= data_wr[bitcount];
-			end else begin
-				data_rd[bitcount] <= SDA01;
-			end
-		end
-		
-		RW_2: begin
-			SCL <= 1'b1;
-		end
-		
-		RW_ACK_1: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b1;
-		end
-		
-		RW_ACK_2: begin
-			SCL <= 1'b0;
-		end
-		
-		STOP: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b1;
-		end
-		
-		EE: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b1;
-			ack <= 1'b1;
-			busy <= 1'b0;
-		end
-		
-		default: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b0;//1;
-			busy <= 1'b0;
-		end 
-	endcase
-end
-
-*/
-
-/*
-always @(state_q) begin
-	ack <= 0;
-	SDA01 <= 1;
-	SCL <= 1;
-	busy <= 0;
-	ack_err <= 0;
-	
-	case(state_q)
-		IDLE: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b0;//1;
-			//busy<= 1'b0;
-			if(ena == 1) begin
-				state_d <= START;
-			//	busy <= 1'b0;
-			end
-		end
-		
-		START: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b1;//0;
-			//if(rw == 1)begin
-			//	write_addr <= 8'hC1;
-			//end else begin
-			//	write_addr <= 8'hC0;
-			//end
-			state_d <= IDLE;
-		end
-	
-		ADDRESS_1: begin
-			SCL <= 0;
-			//SDA01 <= write_addr[bitcount];
-			state_d <= ADDRESS_2;
-		end
-		
-		ADDRESS_2: begin
-			SCL <= 1'b1;
-		//	if ((bitcount - 1) >= 0) begin
-			//	bitcount <= bitcount - 1;
-		//		state_d <= ADDRESS_1;
-		//	end else begin
-			//	bitcount <= 7;
-				state_d <= ADDRESS_ACK_1;
-		//	end
-		end
-		
-		ADDRESS_ACK_1: begin
-			SCL <= 1'b0;
-			//SDA01 <= 1'b1;
-			state_d <= IDLE; //ADDRESS_ACK_2/
-		end
-		
-		ADDRESS_ACK_2: begin
-			SCL <= 1'b1;
-			ack <= SDA; // 0 is ack 1 if err
-			if (ack == 1'b1) begin 
-				state_d <= EE;
-			end else begin
-				bitcount <= 7;
-			end
-
-		end
-		
-		SUB_1: begin
-			SCL <= 1'b0;
-			SDA01 <= addr[bitcount];
-			state_d <= SUB_2;
-		end
-		
-		SUB_2: begin
-			SCL <= 1'b1;
-			if ((bitcount - 1) >= 0) begin
-				bitcount <= bitcount - 1;
-				state_d <= SUB_1;
-			end else begin
-				bitcount <= 7;
-				state_d <= SUB_ACK_1;
-			end
-		end
-		
-		SUB_ACK_1: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b1;
-			state_d <= SUB_ACK_2;
-		end
-		
-		SUB_ACK_2: begin
-			SCL <= 1'b1;
-			ack <= SDA; // 0 is ack 1 if err
-			if (ack == 1) begin 
-				ack_err <= 1'b1;
-				state_d <= EE;
-			end else begin
-				bitcount <= 7;
-				state_d <= RW_1;
-			end
-		end
-		
-		RW_1: begin
-			SCL <= 1'b0;
-			if(rw == 1) begin
-				SDA01 <= data_wr[bitcount];
-			end else begin
-				data_rd[bitcount] <= SDA01;
-			end
-			state_d <= RW_2;
-		end
-		
-		RW_2: begin
-			SCL <= 1'b1;
-			if ((bitcount - 1) >= 0) begin
-				bitcount <= bitcount - 1;
-				state_d <= RW_1;
-			end else begin
-				bitcount <= 7;
-				state_d <= RW_ACK_1;
-			end
-		end
-		
-		RW_ACK_1: begin
-			SCL <= 1'b0;
-			SDA01 <= 1'b1;
-			state_d <= RW_ACK_2;
-		end
-		
-		RW_ACK_2: begin
-			SCL <= 1'b1;
-			ack <= SDA; // 0 is ack 1 if err
-			if (ack == 1) begin
-				ack_err <= 1'b1;
-				state_d <= EE;
-			end else begin
-				bitcount <= 7;
-				state_d <= STOP;
-			end
-		end
-		
-		STOP: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b1;
-		end
-		
-		EE: begin
-			SCL <= 1'b1;
-			SDA01 <= 1'b1;
-			ack <= 1'b1;
-			busy <= 1'b0;
-		end
-		
-		default: begin
-			state_d <= IDLE;
-		end 
-	endcase
-end
-
-always @(posedge clk) begin
-    if (rst) begin
-        state_q <= IDLE;
-    end else begin
-        state_q <= state_d;
-    end
-end
-		*/
-		
 endmodule

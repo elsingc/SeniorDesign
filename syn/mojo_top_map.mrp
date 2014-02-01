@@ -10,40 +10,40 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Dec 11 20:46:49 2013
+Mapped Date    : Sat Feb 01 16:29:16 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                    35 out of  11,440    1%
-    Number used as Flip Flops:                  35
-    Number used as Latches:                      0
+  Number of Slice Registers:                   762 out of  11,440    6%
+    Number used as Flip Flops:                 753
+    Number used as Latches:                      9
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                         68 out of   5,720    1%
-    Number used as logic:                       67 out of   5,720    1%
-      Number using O6 output only:              48
-      Number using O5 output only:              14
-      Number using O5 and O6:                    5
+  Number of Slice LUTs:                      1,180 out of   5,720   20%
+    Number used as logic:                    1,160 out of   5,720   20%
+      Number using O6 output only:             815
+      Number using O5 output only:              66
+      Number using O5 and O6:                  279
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:      1
-      Number with same-slice register load:      0
-      Number with same-slice carry load:         1
+    Number used exclusively as route-thrus:     20
+      Number with same-slice register load:     15
+      Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    27 out of   1,430    1%
-  Number of MUXCYs used:                        16 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:           71
-    Number with an unused Flip Flop:            39 out of      71   54%
-    Number with an unused LUT:                   3 out of      71    4%
-    Number of fully used LUT-FF pairs:          29 out of      71   40%
-    Number of unique control sets:               9
+  Number of occupied Slices:                   373 out of   1,430   26%
+  Number of MUXCYs used:                       392 out of   2,860   13%
+  Number of LUT Flip Flop pairs used:        1,217
+    Number with an unused Flip Flop:           689 out of   1,217   56%
+    Number with an unused LUT:                  37 out of   1,217    3%
+    Number of fully used LUT-FF pairs:         491 out of   1,217   40%
+    Number of unique control sets:              30
     Number of slice register sites lost
-      to control set restrictions:              53 out of  11,440    1%
+      to control set restrictions:              86 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -52,16 +52,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        13 out of     102   12%
-    Number of LOCed IOBs:                       13 out of      13  100%
+  Number of bonded IOBs:                        18 out of     102   17%
+    Number of LOCed IOBs:                       16 out of      18   88%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
-    Number used as BUFGs:                        1
+  Number of BUFG/BUFGMUXs:                       5 out of      16   31%
+    Number used as BUFGs:                        5
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
@@ -80,11 +80,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.73
+Average Fanout of Non-Clock Nets:                5.28
 
-Peak Memory Usage:  357 MB
-Total REAL time to MAP completion:  5 secs 
-Total CPU time to MAP completion:   5 secs 
+Peak Memory Usage:  382 MB
+Total REAL time to MAP completion:  17 secs 
+Total CPU time to MAP completion:   13 secs 
 
 Table of Contents
 -----------------
@@ -107,9 +107,30 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
+   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
+   IOB component <rst_n> is placed at site <P38>. The corresponding BUFG
+   component <Alt_I2C_Driver/rst_inv_BUFG> is placed at site <BUFGMUX_X3Y5>.
+   There is only a select set of IOBs that can use the fast path to the Clocker
+   buffer, and they are not being used. You may want to analyze why this problem
+   exists and correct it. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN <rst_n.PAD> allowing
+   your design to continue. This constraint disables all clock placer rules
+   related to the specified COMP.PIN. The use of this override is highly
+   discouraged as it may lead to very poor timing results. It is recommended
+   that this error condition be corrected in the design.
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network start has no load.
+INFO:LIT:395 - The above info message is repeated 8 more times for the following
+   (max. 5 shown):
+   cam_serializer/framebuffer/doutb<7>,
+   cam_serializer/framebuffer/doutb<6>,
+   cam_serializer/framebuffer/doutb<5>,
+   cam_serializer/framebuffer/doutb<4>,
+   cam_serializer/framebuffer/doutb<3>
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -120,14 +141,244 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 18 IOs, 16 are locked
+   and 2 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
+  30 block(s) removed
    2 block(s) optimized away
+  43 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "cam_serializer/framebuffer/doutb<7>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<6>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<5>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<4>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<3>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<2>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<1>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/doutb<0>" is sourceless and has been
+removed.
+The signal "cam_serializer/framebuffer/N0" is sourceless and has been removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_LDC" (LATCH) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_LDC" is sourceless and has been removed.
+   Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_11" (ROM) removed.
+    The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1" is sourceless and has been removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux11" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux21" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux31" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux41" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux51" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux61" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux71" (ROM) removed.
+     Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/Mmux_dout_mux81" (ROM) removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_LDC" (LATCH) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_LDC" is sourceless and has been removed.
+   Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_01" (ROM) removed.
+    The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0" is sourceless and has been removed.
+The signal "cam_serializer/framebuffer/N1" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ena_array<2>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/enb_array<2>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<0>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_doutb<0>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<1>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_doutb<1>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<2>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_doutb<2>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<3>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_doutb<3>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<4>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[2].ram.ram_doutb<0>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<5>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[2].ram.ram_doutb<1>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<6>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[2].ram.ram_doutb<2>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.ram_doutb<7>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[2].ram.ram_doutb<3>" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[0]_AND_9_o" is sourceless and has
+been removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_C_0" (FF) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_C_0" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[0]_AND_8_o" is sourceless and has
+been removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_P_0" (FF) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_0_P_0" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[1]_AND_7_o" is sourceless and has
+been removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_C_1" (FF) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_C_1" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[1]_AND_6_o" is sourceless and has
+been removed.
+ Sourceless block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_P_1" (FF) removed.
+  The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/sel_pipe_1_P_1" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_enb" is sourceless and has been removed.
+The signal
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.ram_ena" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "cam_serializer/clk_INV_439_o" is unused and has been removed.
+ Unused block "cam_serializer/clk_INV_439_o1_INV_0" (BUF) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/bindec_a.bindec_inst_a/ADDR[1]_PWR_16_o_equal_3_o<1>1" (ROM)
+removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/bindec_b.bindec_inst_b/ADDR[1]_PWR_16_o_equal_3_o<1>1" (ROM)
+removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[0]_AND_8_o1" (ROM) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[0]_AND_9_o1" (ROM) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[1]_AND_6_o1" (ROM) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/has_mux_b.B/MEM_LAT_RST_sel_i[1]_AND_7_o1" (ROM) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/out11_INV_0" (BUF) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/out1_INV_0" (BUF) removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[0].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram" (RAMB8BWER)
+removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[1].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram" (RAMB8BWER)
+removed.
+Unused block
+"cam_serializer/framebuffer/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_g
+en/valid.cstr/ramloop[2].ram.r/s6_noinit.ram/SDP.SIMPLE_PRIM9.ram" (RAMB8BWER)
+removed.
+Unused block "cam_serializer/framebuffer/XST_GND" (ZERO) removed.
+Unused block "cam_serializer/framebuffer/XST_VCC" (ONE) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -144,7 +395,15 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| alt_scl_out                        | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| alt_sda_out                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| cam_scl_out                        | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| cam_sda_out                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| data_rx                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| data_tx                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| imu_scl_out                        | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| imu_sda_out                        | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | led<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | led<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | led<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -154,9 +413,6 @@ Section 6 - IOB Properties
 | led<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | led<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | rst_n                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| scl_out                            | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| sda_out                            | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| start                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

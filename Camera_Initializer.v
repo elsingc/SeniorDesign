@@ -58,7 +58,7 @@ reg prev_start = 0;
 //reg [7:0] data_wr;
 //reg rw;
 
-always @(posedge comm_clk or posedge rst) begin
+always @(posedge clk or posedge rst) begin
 	if(rst) begin
 		ena <= 0;
 		prev_start <= 0;
