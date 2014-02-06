@@ -23,9 +23,13 @@ module mojo_top(
 	 inout alt_sda_out,
 	 inout alt_scl_out,
 	 inout imu_sda_out,
-	 inout imu_scl_out, 
+	 inout imu_scl_out,
 	 inout cam_sda_out,
 	 inout cam_scl_out,
+	 
+	 input gps_rx_pin,
+	 output gps_tx_pin,
+	 
 	 input start,
 	 output data_tx, 
 	 input data_rx
@@ -41,7 +45,8 @@ assign spi_channel = 4'bzzzz;
 assign led[6:1] = 7'h00;
 //assign led[0] = data_new_data_rx;
 
-wire [19:0] pressure, x_gps, y_gps, z_gps, time_gps, ground_speed;
+wire [19:0] pressure;
+wire [31:0] gps_long, gps_lat, gps_alt, time_gps, ground_speed;
 wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z, magm_x, magm_y, magm_z;
 //====================DATA CONTROLLER===================================
 wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
@@ -93,13 +98,13 @@ Sensor_Reg Sensor_Reg(
 	.magm_x(magm_x),
 	.magm_y(magm_y),
 	.magm_z(magm_z),
+	.gps_long(gps_long),
+	.gps_lat(gps_lat),
+	.gps_alt(gps_alt),
+	.gps_time(gps_time),
+	.ground_speed(ground_speed),
 //below this line unimplemented---------------------------------------
-	/*x_gps,
-	y_gps,
-	z_gps,
-	time_gps,
-	ground_speed,
-	air_speed_p,
+	/*air_speed_p,
 	air_speed_n,*/
 	.rst(rst),
 	.clk(clk)
@@ -185,22 +190,48 @@ I2C_Driver IMU_I2C_Driver(
 	.SDA(imu_sda_out),
 	.SCL(imu_scl_out)
 );	 
-//====================GPS=============================================== 
-/*GPS_Controller GPS_Controller(
-	.x_gps(),
-	.y_gps(),
-	.z_gps(),
-	.time_gps(),
-	.ground_speed(),
-	.ena(),
-	.data_wr(),
-	.data_rd(),
+//====================GPS===============================================
+wire gps_tx_send, gps_tx_busy, gps_rx_new_data;
+wire [7:0] gps_tx, gps_rx;
+serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_tx (
+	.clk(clk),
+	.rst(rst),
+	.tx(gps_tx_pin),
+	.block(),
+	.busy(gps_tx_busy),
+	.data(gps_tx),
+	.new_data(gps_tx_send)
+	);
+
+serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_rx (
+	.clk(clk),
+	.rst(rst),
+	.rx(gps_rx_pin),
+	.data(gps_rx),
+	.new_data(gps_rx_new_data)
+);
+
+
+GPS_Controller GPS_Controller(
+	.long(gps_long),
+	.lat(gps_lat),
+	.alt(gps_alt),
+	.time_(gps_time),
+	.ground_speed(ground_speed),
+
+	.tx_data(gps_tx),
+	.tx_send(gps_tx_send),
+	.tx_busy(gps_tx_busy),
+	
+	.rx_data(gps_rx),
+	.rx_new(gps_rx_new_data),
+
 	.busy(),
 	.new(),
 	.rst(rst),
 	.clk(clk)
 );
-	 */
+
 //====================ANALOG CONGROLLER=================================
 /*Analog_Controller Analog_Controller(
 	.ch0(),

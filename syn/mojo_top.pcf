@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Feb 01 16:29:33 2014
+// Written by: Map P.20131013 on Thu Feb 06 01:05:44 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -20,6 +20,8 @@ COMP "led<6>" LOCATE = SITE "P124" LEVEL 1;
 COMP "led<7>" LOCATE = SITE "P123" LEVEL 1;
 COMP "imu_sda_out" LOCATE = SITE "P67" LEVEL 1;
 COMP "imu_scl_out" LOCATE = SITE "P66" LEVEL 1;
+COMP "gps_rx_pin" LOCATE = SITE "P84" LEVEL 1;
+COMP "gps_tx_pin" LOCATE = SITE "P83" LEVEL 1;
 COMP "alt_sda_out" LOCATE = SITE "P75" LEVEL 1;
 TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "IMU_I2C_Driver/count_14" BEL "IMU_I2C_Driver/count_13" BEL
@@ -48,7 +50,7 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "cam_I2C_Driver/count_5" BEL "cam_I2C_Driver/count_4" BEL
         "cam_I2C_Driver/count_3" BEL "cam_I2C_Driver/count_2" BEL
         "cam_I2C_Driver/count_1" BEL "cam_I2C_Driver/count_0" BEL
-        "cam_I2C_Driver/count[16]_clk_DFF_313" BEL
+        "cam_I2C_Driver/count[16]_clk_DFF_320" BEL
         "Data_Controller/state_FSM_FFd1" BEL "Data_Controller/state_FSM_FFd2"
         BEL "Data_Controller/data_tx_7" BEL "Data_Controller/data_tx_6" BEL
         "Data_Controller/data_tx_5" BEL "Data_Controller/data_tx_4" BEL
@@ -73,22 +75,21 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "Data_serial_rx/data_q_4" BEL "Data_serial_rx/data_q_3" BEL
         "Data_serial_rx/data_q_2" BEL "Data_serial_rx/data_q_1" BEL
         "Data_serial_rx/data_q_0" BEL "Data_serial_rx/rx_q" BEL
-        "Data_serial_tx/state_q_FSM_FFd1" BEL
-        "Data_serial_tx/state_q_FSM_FFd2" BEL "Data_serial_tx/bit_ctr_q_2" BEL
-        "Data_serial_tx/bit_ctr_q_1" BEL "Data_serial_tx/bit_ctr_q_0" BEL
-        "Data_serial_tx/ctr_q_12" BEL "Data_serial_tx/ctr_q_11" BEL
-        "Data_serial_tx/ctr_q_10" BEL "Data_serial_tx/ctr_q_9" BEL
-        "Data_serial_tx/ctr_q_8" BEL "Data_serial_tx/ctr_q_7" BEL
-        "Data_serial_tx/ctr_q_6" BEL "Data_serial_tx/ctr_q_5" BEL
-        "Data_serial_tx/ctr_q_4" BEL "Data_serial_tx/ctr_q_3" BEL
-        "Data_serial_tx/ctr_q_2" BEL "Data_serial_tx/ctr_q_1" BEL
-        "Data_serial_tx/ctr_q_0" BEL "Data_serial_tx/data_q_7" BEL
+        "Data_serial_tx/bit_ctr_q_2" BEL "Data_serial_tx/bit_ctr_q_1" BEL
+        "Data_serial_tx/bit_ctr_q_0" BEL "Data_serial_tx/state_q_FSM_FFd1" BEL
+        "Data_serial_tx/state_q_FSM_FFd2" BEL "Data_serial_tx/ctr_q_12" BEL
+        "Data_serial_tx/ctr_q_11" BEL "Data_serial_tx/ctr_q_10" BEL
+        "Data_serial_tx/ctr_q_9" BEL "Data_serial_tx/ctr_q_8" BEL
+        "Data_serial_tx/ctr_q_7" BEL "Data_serial_tx/ctr_q_6" BEL
+        "Data_serial_tx/ctr_q_5" BEL "Data_serial_tx/ctr_q_4" BEL
+        "Data_serial_tx/ctr_q_3" BEL "Data_serial_tx/ctr_q_2" BEL
+        "Data_serial_tx/ctr_q_1" BEL "Data_serial_tx/ctr_q_0" BEL
+        "Data_serial_tx/tx_q" BEL "Data_serial_tx/data_q_7" BEL
         "Data_serial_tx/data_q_6" BEL "Data_serial_tx/data_q_5" BEL
         "Data_serial_tx/data_q_4" BEL "Data_serial_tx/data_q_3" BEL
         "Data_serial_tx/data_q_2" BEL "Data_serial_tx/data_q_1" BEL
-        "Data_serial_tx/data_q_0" BEL "Data_serial_tx/tx_q" BEL
-        "Altimeter_Controller/state_FSM_FFd2" BEL
-        "Altimeter_Controller/state_FSM_FFd3" BEL
+        "Data_serial_tx/data_q_0" BEL "Altimeter_Controller/state_FSM_FFd2"
+        BEL "Altimeter_Controller/state_FSM_FFd3" BEL
         "Altimeter_Controller/state_FSM_FFd1" BEL
         "Altimeter_Controller/state_FSM_FFd5" BEL
         "Altimeter_Controller/state_FSM_FFd6" BEL
@@ -478,11 +479,11 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "sends_one/state_FSM_FFd3" BEL "sends_one/state_FSM_FFd4" BEL
         "sends_one/ena" BEL "sends_one/sub_addr_5" BEL "sends_one/sub_addr_4"
         BEL "sends_one/sub_addr_3" BEL "sends_one/sub_addr_2" BEL
-        "sends_one/sub_addr_1" BEL "sends_one/sub_addr_0" BEL
-        "sends_one/data_wr_7" BEL "sends_one/data_wr_6" BEL
-        "sends_one/data_wr_5" BEL "sends_one/data_wr_4" BEL
-        "sends_one/data_wr_3" BEL "sends_one/data_wr_2" BEL
-        "sends_one/data_wr_1" BEL "sends_one/addr_6" BEL
+        "sends_one/sub_addr_0" BEL "sends_one/data_wr_7" BEL
+        "sends_one/data_wr_6" BEL "sends_one/data_wr_5" BEL
+        "sends_one/data_wr_4" BEL "sends_one/data_wr_3" BEL
+        "sends_one/data_wr_2" BEL "sends_one/data_wr_1" BEL
+        "sends_one/data_wr_0" BEL "sends_one/addr_6" BEL
         "sends_one/prev_start" BEL "IMU_I2C_Driver/data_clk" BEL
         "Alt_I2C_Driver/data_clk" BEL "IMU_I2C_Driver/stretch" BEL
         "Alt_I2C_Driver/stretch" BEL "cam_I2C_Driver/stretch" BEL

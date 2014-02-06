@@ -1,9 +1,13 @@
-Release 14.7 - par P.20131013 (nt64)
+Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Feb 01 16:29:52 2014
+Thu Feb  6 01:05:57 2014
 
 All signals are completely routed.
 
+WARNING:ParHelpers:361 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   gps_rx_pin_IBUF
 
 
