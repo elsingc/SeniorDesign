@@ -18,7 +18,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Data_Controller(
-	output reg debug,
+	output reg [7:0] debug,
 	input busy,
 	input block, //set to 0
 	output reg new_data_tx,
@@ -49,14 +49,16 @@ always @(posedge clk or posedge rst) begin
 			IDLE: begin
 				new_data_tx <= 1'b0;
 				data_tx <= 8'h00;
-				if(new_data_rx && data_rx == 8'h04) begin
-					state <= GET_ADDR;
+				if(new_data_rx /*&& data_rx == 8'h04*/) begin
+					addr <= data_rx;
+					debug <= data_rx;
+					state <= WAIT_ADDR;//GET_ADDR;
 				end else begin
 					state <= IDLE;
 				end
 			end
 			
-			GET_ADDR: begin
+		/*	GET_ADDR: begin
 				new_data_tx <= 1'b0;
 				data_tx <= 8'h00;
 				if(new_data_rx) begin
@@ -66,7 +68,7 @@ always @(posedge clk or posedge rst) begin
 					state <= GET_ADDR;
 				end
 			end
-			
+			*/
 			
 			WAIT_ADDR: begin
 				new_data_tx <= 1'b0;

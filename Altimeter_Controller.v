@@ -1,6 +1,6 @@
 module Altimeter_Controller(
-	output reg debug,
-	output reg [19:0] pressure,
+	output reg [7:0]debug,
+	output reg [23:0] pressure,
 	output reg [15:0] temp,
 	output reg ena,
 	output reg rw,
@@ -19,8 +19,8 @@ module Altimeter_Controller(
     //make signals active high
     
 	localparam STATE_SIZE = 10;
-	reg [STATE_SIZE:0] state;
-	reg [7:0] STATUS_REG;
+	reg [STATE_SIZE:0] state = INIT_OSR_START;
+	reg [7:0] STATUS_REG = 8'hff;
 	localparam 		INIT_OSR_START 					= 0,
 						INIT_OSR_START_WAIT 				= 1,
 						INIT_OSR_SEND_C0 					= 2,
@@ -156,8 +156,10 @@ always @(posedge clk or posedge rst) begin
 		r_start <= 1'b0;
 		start_transfer <= 1'b0;
 		stop_transfer <= 1'b0;
+		STATUS_REG <= 8'hff;
 	end else begin
-		
+		pressure <= pressure;
+		temp <= temp;
 		case(state)
 	//====================INIT_OSR==========================================
 			INIT_OSR_START:begin
@@ -587,7 +589,6 @@ always @(posedge clk or posedge rst) begin
 			
 	//====================READ_STATUS=======================================	
 			READ_STATUS_START:begin
-				debug <= 1'b0;
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -749,11 +750,12 @@ always @(posedge clk or posedge rst) begin
 			READ_STATUS_WAIT_READ: begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
-				rw <= 1'b0;
+				rw <= 1'b1;
 				start_transfer <= 1'b0;
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
+					STATUS_REG <= data_rd;
 					state <= READ_STATUS_STOP;
 				end else begin
 					state <= READ_STATUS_WAIT_READ;
@@ -761,9 +763,6 @@ always @(posedge clk or posedge rst) begin
 			end
 			
 			READ_STATUS_STOP: begin
-				ena <= 1'b1;
-				data_wr <= 8'hff;
-				rw <= 1'b0;
 				start_transfer <= 1'b0;
 				stop_transfer <= 1'b1;
 				r_start <= 1'b0;
@@ -795,10 +794,10 @@ always @(posedge clk or posedge rst) begin
 					start_transfer <= 1'b0;
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
-					if(STATUS_REG == 8'h08) begin
+					if((STATUS_REG[2] == 1'b1) || (STATUS_REG[3] == 1'b1)) begin
 						state <= OUT_P_MSB_START;   // OUT_P_MSB_START
 					end else begin
-						state <= READ_STATUS_CONTINUE;		// READ_STATUS_START
+						state <= READ_STATUS_START;		// READ_STATUS_START
 					end
 				end 		
 			
@@ -884,9 +883,9 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_MSB_WAIT_01;
-					end else begin
 						state <= OUT_P_MSB_RSTART;
+					end else begin
+						state <= OUT_P_MSB_WAIT_01;
 					end
 				end
 			
@@ -941,9 +940,9 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_MSB_WAIT_C1;
-					end else begin
 						state <= OUT_P_MSB_READ;
+					end else begin
+						state <= OUT_P_MSB_WAIT_C1;
 					end
 				end
 			
@@ -951,15 +950,17 @@ always @(posedge clk or posedge rst) begin
 					ena <= 1'b1;
 					data_wr <= 8'hff;
 					rw <= 1'b1;
-					start_transfer <= 1'b1;
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
+						start_transfer <= 1'b1;
 						state <= OUT_P_MSB_READ;
 					end else begin
+						start_transfer <= 1'b0;
 						state <= OUT_P_MSB_WAIT_READ;
 					end
 				end 
+				
 			
 			OUT_P_MSB_WAIT_READ: begin
 					ena <= 1'b1;
@@ -969,23 +970,23 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
+						pressure[23:16] <= data_rd;
 						state <= OUT_P_MSB_STOP;
 					end else begin
 						state <= OUT_P_MSB_WAIT_READ;
-						pressure[19:16] <= data_rd[3:0];
 					end
 				end
 			
 			OUT_P_MSB_STOP: begin
-					start_transfer <= 1'b0;
-					stop_transfer <= 1'b1;
-					r_start <= 1'b0;
-					if(!busy) begin
-						state <= OUT_P_MSB_STOP;
-					end else begin
-						state <= OUT_P_MSB_WAIT_STOP;
-					end
+				start_transfer <= 1'b0;
+				stop_transfer <= 1'b1;
+				r_start <= 1'b0;
+				if(!busy) begin
+					state <= OUT_P_MSB_STOP;
+				end else begin
+					state <= OUT_P_MSB_WAIT_STOP;
 				end
+			end
 			
 			OUT_P_MSB_WAIT_STOP: begin
 					ena <= 1'b0;
@@ -1000,7 +1001,7 @@ always @(posedge clk or posedge rst) begin
 						state <= OUT_P_MSB_WAIT_STOP;
 					end
 				end 			
-/*	
+
 	//====================OUT_P_CSB=========================================
 			OUT_P_CSB_START:begin
 				ena <= 1'b1;
@@ -1054,15 +1055,15 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_CSB_WAIT_C0;
-					end else begin
 						state <= OUT_P_CSB_SEND_02;
+					end else begin
+						state <= OUT_P_CSB_WAIT_C0;
 					end
 				end
 			
 			OUT_P_CSB_SEND_02:begin
 				ena <= 1'b1;
-				data_wr <= 8'hC0;
+				data_wr <= 8'h02;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
@@ -1077,7 +1078,7 @@ always @(posedge clk or posedge rst) begin
 			
 			OUT_P_CSB_WAIT_02: begin
 					ena <= 1'b1;
-					data_wr <= 8'h00;
+					data_wr <= 8'h02;
 					rw <= 1'b0;
 					start_transfer <= 1'b0;
 					stop_transfer <= 1'b0;
@@ -1119,7 +1120,7 @@ always @(posedge clk or posedge rst) begin
 			
 			OUT_P_CSB_SEND_C1:begin
 				ena <= 1'b1;
-				data_wr <= 8'hC0;
+				data_wr <= 8'hC1;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
@@ -1140,9 +1141,9 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_CSB_WAIT_C1;
-					end else begin
 						state <= OUT_P_CSB_READ;
+					end else begin
+						state <= OUT_P_CSB_WAIT_C1;
 					end
 				end
 			
@@ -1168,9 +1169,10 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_CSB_WAIT_READ;
-					end else begin
+						pressure[15:8] <= data_rd;
 						state <= OUT_P_CSB_STOP;
+					end else begin
+						state <= OUT_P_CSB_WAIT_READ;
 					end
 				end
 			
@@ -1184,6 +1186,7 @@ always @(posedge clk or posedge rst) begin
 						state <= OUT_P_CSB_WAIT_STOP;
 					end
 				end 
+			
 			
 			OUT_P_CSB_WAIT_STOP: begin
 					ena <= 1'b0;
@@ -1260,7 +1263,7 @@ always @(posedge clk or posedge rst) begin
 			
 			OUT_P_LSB_SEND_03:begin
 				ena <= 1'b1;
-				data_wr <= 8'hC0;
+				data_wr <= 8'h03;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
@@ -1366,10 +1369,11 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_P_LSB_WAIT_READ;
-					end else begin
-						pressure[15:8] <= data_rd;
+						pressure[7:0] <= data_rd[7:0];
 						state <= OUT_P_LSB_STOP;
+					end else begin
+						//pressure[15:8] <= data_rd;
+						state <= OUT_P_LSB_WAIT_READ;
 					end
 				end
 			
@@ -1565,10 +1569,10 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_T_MSB_WAIT_READ;
-					end else begin
 						temp[15:8] <= data_rd;
 						state <= OUT_T_MSB_STOP;
+					end else begin
+						state <= OUT_T_MSB_WAIT_READ;
 					end
 				end 			
 
@@ -1764,10 +1768,10 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= OUT_T_LSB_WAIT_READ;
-					end else begin
 						temp[7:0] <= data_rd;
 						state <= OUT_T_LSB_STOP;
+					end else begin
+						state <= OUT_T_LSB_WAIT_READ;
 					end
 				end 			
 
@@ -1795,10 +1799,10 @@ always @(posedge clk or posedge rst) begin
 						state <= OUT_T_LSB_WAIT_STOP;
 					end
 				end 		
-	*/
+				
 	//====================END===============================================		
 		 endcase
 	 end
  end
  
-  endmodule
+ endmodule

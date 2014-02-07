@@ -19,7 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module I2C_Driver(
-    input clk,
+	//output reg [7:0] debug, 
+   input clk,
 	input rst,
 	input rw,	
 	input [7:0]data_wr,
@@ -33,13 +34,12 @@ module I2C_Driver(
 	input r_start,
 	inout SDA,
 	inout SCL
-   );
-	
-	
-	
+   );	
+
+//assign data_rd = data_rx;
 
 localparam clock_speed = 50000000;
-localparam com_speed = 100000;//;
+localparam com_speed = 400000;//0;
 localparam divider =(clock_speed/com_speed)/4;
 
 
@@ -53,13 +53,12 @@ localparam 	system_ready = 0,
 				repeated_start_a = 6,
 				repeated_start_b = 7,
 				repeated_start_c = 8,
-				repeated_start_d = 9,
-				stop = 10;
+				stop = 9;
 				
 reg [STATE_SIZE:0] state = system_ready;
 
 reg [3:0] bitcount;
-reg [16:0] count;
+reg [21:0] count;
 
 reg data_clk = 1'b1;
 reg scl_clk = 1'b1;
@@ -73,7 +72,6 @@ reg rstart_clk_high = 1'b0;
 reg [7:0] data_tx = 8'h00;
 reg [7:0] data_rx = 8'h00;
 reg stretch = 1'b0;
-
 assign SDA = sda_ena_n == 1'b0 ? 1'b0 : 1'bz;
 assign SCL = (scl_ena == 1'b1) ? scl_clk : 1'bz;
 
@@ -156,8 +154,12 @@ always @(posedge data_clk or posedge rst)begin
 		sda_int <= 1'b1;
 		scl_repeated_start <= 1'b1;
 		bitcount <= 4'd7;
-		data_rd <= 8'b0;;
 	end else begin// if(data_clk == 1'b1) begin
+		if(rw == 1'b1)begin
+			//debug <= 8'hff;
+		end else begin
+			//debug <= 8'h00;
+		end
 		case (state)
 			system_ready: begin
 				scl_ena <= 1'b0;
@@ -188,6 +190,7 @@ always @(posedge data_clk or posedge rst)begin
 				scl_wait <= 1'b1;					
 				scl_ena <= 1'b1;
 				sda_int <= 1'b1;
+				rstart_clk_high <= 1'b0;
 				if(start_transfer/* && !stop_transfer*/) begin
 					data_tx <= data_wr;
 					state <= transfer;
@@ -209,10 +212,12 @@ always @(posedge data_clk or posedge rst)begin
 				ready <= 1'b0;
 				scl_ena <= 1'b1;
 				scl_wait <= 1'b0;
+				rstart_clk_high <= 1'b0;
 				if(bitcount == 0) begin
 					if(rw == 1'b1)begin
-						data_rd <= data_rx;
 						sda_int <= 1'b0;
+					//	debug <= data_rx;
+						data_rd = data_rx;
 					end else begin
 						sda_int <= 1'b1;
 					end
@@ -233,10 +238,12 @@ always @(posedge data_clk or posedge rst)begin
 				
 			ack:begin
 				if(rw == 1'b1)begin 
-					sda_int <= 1'b0;
+					sda_int <= 1'b1;
+					
 				end else begin
 					sda_int <= 1'b1;
 				end
+				rstart_clk_high <= 1'b0;
 				scl_ena <= 1'b1;
 				scl_wait <= 1'b0;
 				busy <= 1'b1;
@@ -249,8 +256,10 @@ always @(posedge data_clk or posedge rst)begin
 				scl_wait <= 1'b1;
 				busy <= 1'b1;
 				ready <= 1'b0;
+				rstart_clk_high <= 1'b0;
 				if(rw == 1'b1)begin
 					sda_int <= 1'b1;
+					
 				end else begin
 					sda_int <= 1'b1;
 					if(SDA == 1'b1) begin
@@ -290,17 +299,9 @@ always @(posedge data_clk or posedge rst)begin
 				rstart_clk_high <= 1'b0;
 				state <= wait_transfer;
 			end
-			repeated_start_d: begin
-				busy <= 1'b1;
-				ready <= 1'b0;
-				scl_ena <= 1'b1;
-				scl_wait <= 1'b1;
-				sda_int <= 1'b0;
-				rstart_clk_high <= 1'b0;
-				state <= wait_transfer;
-			end
 			
 			stop:begin
+				rstart_clk_high <= 1'b0;
 				ready <= 1'b0;
 				busy <= 1'b1;
 				sda_int <= 1'b1;
@@ -328,7 +329,7 @@ always @(negedge data_clk or posedge rst) begin
 			
 			transfer: begin
 				if(rw == 1'b1)begin
-					data_rx[bitcount - 1] <= SDA;	
+					data_rx[bitcount] <= SDA;
 				end
 			end
 			

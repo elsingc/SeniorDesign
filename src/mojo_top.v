@@ -24,9 +24,9 @@ module mojo_top(
 	 inout alt_scl_out,
 	 inout imu_sda_out,
 	 inout imu_scl_out, 
-	 inout cam_sda_out,
+	/* inout cam_sda_out,
 	 inout cam_scl_out,
-	 input start,
+	 input start,*/
 	 output data_tx, 
 	 input data_rx
     );
@@ -38,16 +38,16 @@ assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 //assign toggle_check = toggle;
 
-assign led[6:1] = 7'h00;
-//assign led[0] = data_new_data_rx;
+//assign led[7:1] = 7'h00;
+//assign led[0] = 1'b1;
 
-wire [19:0] pressure, x_gps, y_gps, z_gps, time_gps, ground_speed;
+wire [23:0] pressure;//, x_gps, y_gps, z_gps, time_gps, ground_speed;
 wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z, magm_x, magm_y, magm_z;
 //====================DATA CONTROLLER===================================
 wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
 wire [7:0] data_data_addr, snsr_data, snsr_addr, data_data_tx, data_data_rx;
 Data_Controller Data_Controller(
-	.debug(led[0]),
+	.debug(),
 	.busy(data_busy),
 	.block(data_block), //set to 0
 	.new_data_tx(data_new_data_tx),
@@ -94,21 +94,22 @@ Sensor_Reg Sensor_Reg(
 	.magm_y(magm_y),
 	.magm_z(magm_z),
 //below this line unimplemented---------------------------------------
-	/*x_gps,
-	y_gps,
-	z_gps,
-	time_gps,
-	ground_speed,
-	air_speed_p,
-	air_speed_n,*/
+	.x_gps(),
+	.y_gps(),
+	.z_gps(),
+	.time_gps(),
+	.ground_speed(),
+	.air_speed_p(),
+	.air_speed_n(),
 	.rst(rst),
 	.clk(clk)
 	);
+
 //====================ALTIMETER=========================================
 wire alt_ena, alt_rw, alt_busy, alt_ready, alt_ack_err, alt_start_transfer, alt_stop_transfer, alt_r_start;
 wire [7:0] alt_data_wr, alt_data_rd;
 Altimeter_Controller Altimeter_Controller(
-	.debug(led[7]),
+	.debug(),
 	.pressure(pressure),
 	.temp(alt_temp),
 	.ena(alt_ena),
@@ -146,6 +147,7 @@ wire imu_ena, imu_rw, imu_busy, imu_ack_err, imu_start_transfer, imu_stop_transf
 wire [7:0] imu_data_wr, imu_data_rd;
 
 IMU_Controller IMU_Controller(
+	.debug(led),
 	.GYRO_TEMP(gyro_temp),
 	.GYRO_X(gyro_x),
 	.GYRO_Y(gyro_y),
@@ -176,7 +178,7 @@ I2C_Driver IMU_I2C_Driver(
 	.data_wr(imu_data_wr),
 	.data_rd(imu_data_rd),
 	.busy(imu_busy),
-	.ready(imu_ready),
+	.ready(imu_ready), 
 	.ack_err(imu_ack_err),
 	.ena(imu_ena),
 	.start_transfer(imu_start_transfer),
@@ -185,6 +187,7 @@ I2C_Driver IMU_I2C_Driver(
 	.SDA(imu_sda_out),
 	.SCL(imu_scl_out)
 );	 
+
 //====================GPS=============================================== 
 /*GPS_Controller GPS_Controller(
 	.x_gps(),
@@ -245,7 +248,7 @@ avr_interface avr_interface (
 //====================CAM CONTROLLER====================================
 wire cam_ena, cam_rw, cam_ack_err, cam_busy, cam_pulse, cam_new_tx_data, cam_tx_busy, cam_new_rx_data;
 wire [7:0] cam_addr, cam_data_wr, cam_data_rd, cam_sub_addr, cam_tx_data, cam_rx_data;
-
+/*
 serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(8)) serial_rx (
 	.clk(clk),
 	.rst(rst),
@@ -307,6 +310,7 @@ cam_I2C_Driver cam_I2C_Driver(
 	.ack_err(cam_ack_err),
 	.busy(cam_busy)
 );
+*/
 //====================END===============================================
 //initializer_pulse pulser(
 //	.clk(clk),

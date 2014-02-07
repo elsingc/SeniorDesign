@@ -28,19 +28,261 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 249428 paths analyzed, 2133 endpoints analyzed, 0 failing endpoints
+ 283555 paths analyzed, 2348 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is  10.648ns.
+ Minimum period is  10.305ns.
 --------------------------------------------------------------------------------
 
-Paths for end point IMU_Controller/data_wr_1 (SLICE_X15Y6.B4), 7036 paths
+Paths for end point IMU_Controller/GYRO_Z_6 (SLICE_X12Y42.D1), 1360 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     9.352ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     9.695ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd61 (FF)
+  Destination:          IMU_Controller/GYRO_Z_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.190ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.080ns (0.680 - 0.760)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd61 to IMU_Controller/GYRO_Z_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y19.AMUX     Tshcko                0.576   IMU_Controller/state_FSM_FFd68
+                                                       IMU_Controller/state_FSM_FFd61
+    SLICE_X5Y14.C2       net (fanout=7)        1.653   IMU_Controller/state_FSM_FFd61
+    SLICE_X5Y14.C        Tilo                  0.259   IMU_Controller/state[10]_busy_Select_690_o<10>48
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>45
+    SLICE_X4Y19.A4       net (fanout=2)        1.584   IMU_Controller/state[10]_busy_Select_690_o<10>48
+    SLICE_X4Y19.A        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/out5
+    SLICE_X4Y19.C1       net (fanout=6)        0.563   IMU_Controller/out5
+    SLICE_X4Y19.C        Tilo                  0.255   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/state_state[8]3_1
+    SLICE_X4Y19.D5       net (fanout=2)        0.239   IMU_Controller/state_state[8]3
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.D1      net (fanout=8)        1.701   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT131
+                                                       IMU_Controller/GYRO_Z_6
+    -------------------------------------------------  ---------------------------
+    Total                                     10.190ns (2.196ns logic, 7.994ns route)
+                                                       (21.6% logic, 78.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     9.805ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd204 (FF)
+  Destination:          IMU_Controller/GYRO_Z_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.018ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.142ns (0.680 - 0.822)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd204 to IMU_Controller/GYRO_Z_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X3Y12.BQ       Tcko                  0.430   IMU_Controller/state_FSM_FFd208
+                                                       IMU_Controller/state_FSM_FFd204
+    SLICE_X7Y14.B4       net (fanout=3)        1.910   IMU_Controller/state_FSM_FFd204
+    SLICE_X7Y14.B        Tilo                  0.259   N90
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>31_SW0
+    SLICE_X2Y18.D3       net (fanout=2)        1.143   N90
+    SLICE_X2Y18.COUT     Topcyd                0.290   IMU_Controller/state[10]_busy_Select_690_o<10>3
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>3_wg_lut<7>
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>3_wg_cy<7>
+    SLICE_X4Y19.D3       net (fanout=4)        1.179   IMU_Controller/state[10]_busy_Select_690_o<10>3
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.D1      net (fanout=8)        1.701   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT131
+                                                       IMU_Controller/GYRO_Z_6
+    -------------------------------------------------  ---------------------------
+    Total                                     10.018ns (1.831ns logic, 8.187ns route)
+                                                       (18.3% logic, 81.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     9.868ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd184 (FF)
+  Destination:          IMU_Controller/GYRO_Z_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.963ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.134ns (0.680 - 0.814)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd184 to IMU_Controller/GYRO_Z_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y12.AMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd190
+                                                       IMU_Controller/state_FSM_FFd184
+    SLICE_X7Y13.A2       net (fanout=6)        2.748   IMU_Controller/state_FSM_FFd184
+    SLICE_X7Y13.A        Tilo                  0.259   IMU_Controller/out6
+                                                       IMU_Controller/state_state[7]4
+    SLICE_X7Y13.C2       net (fanout=5)        0.559   IMU_Controller/state_state[7]4
+    SLICE_X7Y13.C        Tilo                  0.259   IMU_Controller/out6
+                                                       IMU_Controller/state_state[7]5_SW0
+    SLICE_X4Y19.D6       net (fanout=1)        0.813   N124
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.D1      net (fanout=8)        1.701   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT131
+                                                       IMU_Controller/GYRO_Z_6
+    -------------------------------------------------  ---------------------------
+    Total                                      9.963ns (1.888ns logic, 8.075ns route)
+                                                       (19.0% logic, 81.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point IMU_Controller/GYRO_Z_14 (SLICE_X11Y43.B1), 2022 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     9.865ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd89 (FF)
+  Destination:          IMU_Controller/GYRO_Z_14 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.050ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.050ns (0.711 - 0.761)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd89 to IMU_Controller/GYRO_Z_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y18.DMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd90
+                                                       IMU_Controller/state_FSM_FFd89
+    SLICE_X0Y7.D6        net (fanout=9)        2.680   IMU_Controller/state_FSM_FFd89
+    SLICE_X0Y7.COUT      Topcyd                0.312   IMU_Controller/state_state[5]_wg_cy<19>
+                                                       IMU_Controller/state_state[5]_wg_lut<19>
+                                                       IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<23>
+                                                       IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CMUX      Tcinc                 0.302   IMU_Controller/state[5]
+                                                       IMU_Controller/state_state[5]_wg_cy<26>
+    SLICE_X13Y30.B6      net (fanout=51)       3.037   IMU_Controller/state[5]
+    SLICE_X13Y30.B       Tilo                  0.259   IMU_Controller/ACCL_Y_15
+                                                       IMU_Controller/_n13889<8>11
+    SLICE_X10Y37.A6      net (fanout=9)        1.148   IMU_Controller/_n13889<8>1
+    SLICE_X10Y37.A       Tilo                  0.235   IMU_Controller/GYRO_Z_12
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT1511
+    SLICE_X11Y43.B1      net (fanout=8)        1.008   IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT151
+    SLICE_X11Y43.CLK     Tas                   0.373   IMU_Controller/GYRO_Z_15
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT61
+                                                       IMU_Controller/GYRO_Z_14
+    -------------------------------------------------  ---------------------------
+    Total                                     10.050ns (2.092ns logic, 7.958ns route)
+                                                       (20.8% logic, 79.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.015ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd278 (FF)
+  Destination:          IMU_Controller/GYRO_Z_14 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.862ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.088ns (0.711 - 0.799)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd278 to IMU_Controller/GYRO_Z_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.DQ        Tcko                  0.525   IMU_Controller/state_FSM_FFd278
+                                                       IMU_Controller/state_FSM_FFd278
+    SLICE_X0Y3.B3        net (fanout=8)        1.930   IMU_Controller/state_FSM_FFd278
+    SLICE_X0Y3.COUT      Topcyb                0.483   IMU_Controller/state_state[5]_wg_cy<3>
+                                                       IMU_Controller/state_state[5]_wg_lut<1>
+                                                       IMU_Controller/state_state[5]_wg_cy<3>
+    SLICE_X0Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<3>
+    SLICE_X0Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<7>
+                                                       IMU_Controller/state_state[5]_wg_cy<7>
+    SLICE_X0Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<7>
+    SLICE_X0Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<11>
+                                                       IMU_Controller/state_state[5]_wg_cy<11>
+    SLICE_X0Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<11>
+    SLICE_X0Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<15>
+                                                       IMU_Controller/state_state[5]_wg_cy<15>
+    SLICE_X0Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<15>
+    SLICE_X0Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<19>
+                                                       IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<23>
+                                                       IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CMUX      Tcinc                 0.302   IMU_Controller/state[5]
+                                                       IMU_Controller/state_state[5]_wg_cy<26>
+    SLICE_X13Y30.B6      net (fanout=51)       3.037   IMU_Controller/state[5]
+    SLICE_X13Y30.B       Tilo                  0.259   IMU_Controller/ACCL_Y_15
+                                                       IMU_Controller/_n13889<8>11
+    SLICE_X10Y37.A6      net (fanout=9)        1.148   IMU_Controller/_n13889<8>1
+    SLICE_X10Y37.A       Tilo                  0.235   IMU_Controller/GYRO_Z_12
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT1511
+    SLICE_X11Y43.B1      net (fanout=8)        1.008   IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT151
+    SLICE_X11Y43.CLK     Tas                   0.373   IMU_Controller/GYRO_Z_15
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT61
+                                                       IMU_Controller/GYRO_Z_14
+    -------------------------------------------------  ---------------------------
+    Total                                      9.862ns (2.642ns logic, 7.220ns route)
+                                                       (26.8% logic, 73.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.052ns (requirement - (data path - clock path skew + uncertainty))
   Source:               IMU_Controller/state_FSM_FFd279 (FF)
-  Destination:          IMU_Controller/data_wr_1 (FF)
+  Destination:          IMU_Controller/GYRO_Z_14 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      10.587ns (Levels of Logic = 10)
-  Clock Path Skew:      -0.026ns (0.286 - 0.312)
+  Data Path Delay:      9.871ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.042ns (0.711 - 0.753)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -51,173 +293,58 @@ Slack (setup path):     9.352ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd279 to IMU_Controller/data_wr_1
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd279 to IMU_Controller/GYRO_Z_14
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y2.CQ       Tcko                  0.476   IMU_Controller/state_FSM_FFd281
+    SLICE_X6Y18.CMUX     Tshcko                0.535   IMU_Controller/state_FSM_FFd29
                                                        IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.D2        net (fanout=9)        2.323   IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<3>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X15Y6.B4       net (fanout=2)        0.869   IMU_Controller/_n14039_inv
-    SLICE_X15Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<3>
-                                                       IMU_Controller/data_wr_1_rstpot
-                                                       IMU_Controller/data_wr_1
+    SLICE_X0Y3.A3        net (fanout=8)        1.938   IMU_Controller/state_FSM_FFd279
+    SLICE_X0Y3.COUT      Topcya                0.474   IMU_Controller/state_state[5]_wg_cy<3>
+                                                       IMU_Controller/state_state[5]_wg_lut<0>
+                                                       IMU_Controller/state_state[5]_wg_cy<3>
+    SLICE_X0Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<3>
+    SLICE_X0Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<7>
+                                                       IMU_Controller/state_state[5]_wg_cy<7>
+    SLICE_X0Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<7>
+    SLICE_X0Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<11>
+                                                       IMU_Controller/state_state[5]_wg_cy<11>
+    SLICE_X0Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<11>
+    SLICE_X0Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<15>
+                                                       IMU_Controller/state_state[5]_wg_cy<15>
+    SLICE_X0Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<15>
+    SLICE_X0Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<19>
+                                                       IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[5]_wg_cy<19>
+    SLICE_X0Y8.COUT      Tbyp                  0.093   IMU_Controller/state_state[5]_wg_cy<23>
+                                                       IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[5]_wg_cy<23>
+    SLICE_X0Y9.CMUX      Tcinc                 0.302   IMU_Controller/state[5]
+                                                       IMU_Controller/state_state[5]_wg_cy<26>
+    SLICE_X13Y30.B6      net (fanout=51)       3.037   IMU_Controller/state[5]
+    SLICE_X13Y30.B       Tilo                  0.259   IMU_Controller/ACCL_Y_15
+                                                       IMU_Controller/_n13889<8>11
+    SLICE_X10Y37.A6      net (fanout=9)        1.148   IMU_Controller/_n13889<8>1
+    SLICE_X10Y37.A       Tilo                  0.235   IMU_Controller/GYRO_Z_12
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT1511
+    SLICE_X11Y43.B1      net (fanout=8)        1.008   IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT151
+    SLICE_X11Y43.CLK     Tas                   0.373   IMU_Controller/GYRO_Z_15
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT61
+                                                       IMU_Controller/GYRO_Z_14
     -------------------------------------------------  ---------------------------
-    Total                                     10.587ns (2.592ns logic, 7.995ns route)
-                                                       (24.5% logic, 75.5% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     9.364ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd295 (FF)
-  Destination:          IMU_Controller/data_wr_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      10.581ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.020ns (0.186 - 0.206)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd295 to IMU_Controller/data_wr_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X15Y2.CMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd298
-                                                       IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.D5        net (fanout=8)        2.467   IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_lut<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X15Y6.B4       net (fanout=2)        0.869   IMU_Controller/_n14039_inv
-    SLICE_X15Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<3>
-                                                       IMU_Controller/data_wr_1_rstpot
-                                                       IMU_Controller/data_wr_1
-    -------------------------------------------------  ---------------------------
-    Total                                     10.581ns (2.448ns logic, 8.133ns route)
-                                                       (23.1% logic, 76.9% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     9.446ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd263 (FF)
-  Destination:          IMU_Controller/data_wr_1 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      10.494ns (Levels of Logic = 10)
-  Clock Path Skew:      -0.025ns (0.286 - 0.311)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd263 to IMU_Controller/data_wr_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y3.DMUX     Tshcko                0.535   IMU_Controller/state_FSM_FFd264
-                                                       IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.A1        net (fanout=8)        2.009   IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.COUT      Topcya                0.474   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<0>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X15Y6.B4       net (fanout=2)        0.869   IMU_Controller/_n14039_inv
-    SLICE_X15Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<3>
-                                                       IMU_Controller/data_wr_1_rstpot
-                                                       IMU_Controller/data_wr_1
-    -------------------------------------------------  ---------------------------
-    Total                                     10.494ns (2.813ns logic, 7.681ns route)
+    Total                                      9.871ns (2.643ns logic, 7.228ns route)
                                                        (26.8% logic, 73.2% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point IMU_Controller/data_wr_5 (SLICE_X11Y6.D5), 7036 paths
+Paths for end point IMU_Controller/GYRO_Z_4 (SLICE_X12Y42.B4), 1360 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     10.003ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd279 (FF)
-  Destination:          IMU_Controller/data_wr_5 (FF)
+Slack (setup path):     9.984ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd61 (FF)
+  Destination:          IMU_Controller/GYRO_Z_4 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      9.957ns (Levels of Logic = 10)
-  Clock Path Skew:      -0.005ns (0.681 - 0.686)
+  Data Path Delay:      9.901ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.080ns (0.680 - 0.760)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -228,281 +355,42 @@ Slack (setup path):     10.003ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd279 to IMU_Controller/data_wr_5
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd61 to IMU_Controller/GYRO_Z_4
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y2.CQ       Tcko                  0.476   IMU_Controller/state_FSM_FFd281
-                                                       IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.D2        net (fanout=9)        2.323   IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<3>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X11Y6.D5       net (fanout=2)        0.239   IMU_Controller/_n14039_inv
-    SLICE_X11Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/data_wr_5_rstpot
-                                                       IMU_Controller/data_wr_5
+    SLICE_X0Y19.AMUX     Tshcko                0.576   IMU_Controller/state_FSM_FFd68
+                                                       IMU_Controller/state_FSM_FFd61
+    SLICE_X5Y14.C2       net (fanout=7)        1.653   IMU_Controller/state_FSM_FFd61
+    SLICE_X5Y14.C        Tilo                  0.259   IMU_Controller/state[10]_busy_Select_690_o<10>48
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>45
+    SLICE_X4Y19.A4       net (fanout=2)        1.584   IMU_Controller/state[10]_busy_Select_690_o<10>48
+    SLICE_X4Y19.A        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/out5
+    SLICE_X4Y19.C1       net (fanout=6)        0.563   IMU_Controller/out5
+    SLICE_X4Y19.C        Tilo                  0.255   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/state_state[8]3_1
+    SLICE_X4Y19.D5       net (fanout=2)        0.239   IMU_Controller/state_state[8]3
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.B4      net (fanout=8)        1.412   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT111
+                                                       IMU_Controller/GYRO_Z_4
     -------------------------------------------------  ---------------------------
-    Total                                      9.957ns (2.592ns logic, 7.365ns route)
-                                                       (26.0% logic, 74.0% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     10.009ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd295 (FF)
-  Destination:          IMU_Controller/data_wr_5 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      9.951ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.005ns (0.681 - 0.686)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd295 to IMU_Controller/data_wr_5
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X15Y2.CMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd298
-                                                       IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.D5        net (fanout=8)        2.467   IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_lut<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X11Y6.D5       net (fanout=2)        0.239   IMU_Controller/_n14039_inv
-    SLICE_X11Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/data_wr_5_rstpot
-                                                       IMU_Controller/data_wr_5
-    -------------------------------------------------  ---------------------------
-    Total                                      9.951ns (2.448ns logic, 7.503ns route)
-                                                       (24.6% logic, 75.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     10.097ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd263 (FF)
-  Destination:          IMU_Controller/data_wr_5 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      9.864ns (Levels of Logic = 10)
-  Clock Path Skew:      -0.004ns (0.681 - 0.685)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd263 to IMU_Controller/data_wr_5
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y3.DMUX     Tshcko                0.535   IMU_Controller/state_FSM_FFd264
-                                                       IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.A1        net (fanout=8)        2.009   IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.COUT      Topcya                0.474   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<0>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X11Y6.C5       net (fanout=7)        2.170   N391
-    SLICE_X11Y6.C        Tilo                  0.259   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/_n14039_inv12
-    SLICE_X11Y6.D5       net (fanout=2)        0.239   IMU_Controller/_n14039_inv
-    SLICE_X11Y6.CLK      Tas                   0.373   IMU_Controller/data_wr<5>
-                                                       IMU_Controller/data_wr_5_rstpot
-                                                       IMU_Controller/data_wr_5
-    -------------------------------------------------  ---------------------------
-    Total                                      9.864ns (2.813ns logic, 7.051ns route)
-                                                       (28.5% logic, 71.5% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point IMU_Controller/data_wr_6 (SLICE_X10Y6.A1), 2128 paths
---------------------------------------------------------------------------------
-Slack (setup path):     10.194ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd279 (FF)
-  Destination:          IMU_Controller/data_wr_6 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      9.766ns (Levels of Logic = 9)
-  Clock Path Skew:      -0.005ns (0.681 - 0.686)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd279 to IMU_Controller/data_wr_6
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y2.CQ       Tcko                  0.476   IMU_Controller/state_FSM_FFd281
-                                                       IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.D2        net (fanout=9)        2.323   IMU_Controller/state_FSM_FFd279
-    SLICE_X4Y2.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<3>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X10Y6.A1       net (fanout=7)        2.501   N391
-    SLICE_X10Y6.CLK      Tas                   0.349   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/data_wr_6_rstpot
-                                                       IMU_Controller/data_wr_6
-    -------------------------------------------------  ---------------------------
-    Total                                      9.766ns (2.309ns logic, 7.457ns route)
-                                                       (23.6% logic, 76.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     10.200ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd295 (FF)
-  Destination:          IMU_Controller/data_wr_6 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      9.760ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.005ns (0.681 - 0.686)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd295 to IMU_Controller/data_wr_6
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X15Y2.CMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd298
-                                                       IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.D5        net (fanout=8)        2.467   IMU_Controller/state_FSM_FFd295
-    SLICE_X4Y4.COUT      Topcyd                0.312   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_lut<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X10Y6.A1       net (fanout=7)        2.501   N391
-    SLICE_X10Y6.CLK      Tas                   0.349   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/data_wr_6_rstpot
-                                                       IMU_Controller/data_wr_6
-    -------------------------------------------------  ---------------------------
-    Total                                      9.760ns (2.165ns logic, 7.595ns route)
+    Total                                      9.901ns (2.196ns logic, 7.705ns route)
                                                        (22.2% logic, 77.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     10.288ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               IMU_Controller/state_FSM_FFd263 (FF)
-  Destination:          IMU_Controller/data_wr_6 (FF)
+Slack (setup path):     10.094ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd204 (FF)
+  Destination:          IMU_Controller/GYRO_Z_4 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      9.673ns (Levels of Logic = 9)
-  Clock Path Skew:      -0.004ns (0.681 - 0.685)
+  Data Path Delay:      9.729ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.142ns (0.680 - 0.822)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -513,132 +401,161 @@ Slack (setup path):     10.288ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd263 to IMU_Controller/data_wr_6
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd204 to IMU_Controller/GYRO_Z_4
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y3.DMUX     Tshcko                0.535   IMU_Controller/state_FSM_FFd264
-                                                       IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.A1        net (fanout=8)        2.009   IMU_Controller/state_FSM_FFd263
-    SLICE_X4Y2.COUT      Topcya                0.474   IMU_Controller/state_state[2]_wg_cy<3>
-                                                       IMU_Controller/state_state[2]_wg_lut<0>
-                                                       IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<3>
-    SLICE_X4Y3.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<7>
-                                                       IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<7>
-    SLICE_X4Y4.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<11>
-                                                       IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<11>
-    SLICE_X4Y5.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<15>
-                                                       IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<15>
-    SLICE_X4Y6.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<19>
-                                                       IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.CIN       net (fanout=1)        0.003   IMU_Controller/state_state[2]_wg_cy<19>
-    SLICE_X4Y7.COUT      Tbyp                  0.093   IMU_Controller/state_state[2]_wg_cy<23>
-                                                       IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.CIN       net (fanout=1)        0.082   IMU_Controller/state_state[2]_wg_cy<23>
-    SLICE_X4Y8.DMUX      Tcind                 0.305   IMU_Controller/state[2]
-                                                       IMU_Controller/state_state[2]_wg_cy<27>
-    SLICE_X10Y6.D2       net (fanout=85)       2.536   IMU_Controller/state[2]
-    SLICE_X10Y6.CMUX     Topdc                 0.402   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/_n14039_inv3_SW0_F
-                                                       IMU_Controller/_n14039_inv3_SW0
-    SLICE_X10Y6.A1       net (fanout=7)        2.501   N391
-    SLICE_X10Y6.CLK      Tas                   0.349   IMU_Controller/data_wr<7>
-                                                       IMU_Controller/data_wr_6_rstpot
-                                                       IMU_Controller/data_wr_6
+    SLICE_X3Y12.BQ       Tcko                  0.430   IMU_Controller/state_FSM_FFd208
+                                                       IMU_Controller/state_FSM_FFd204
+    SLICE_X7Y14.B4       net (fanout=3)        1.910   IMU_Controller/state_FSM_FFd204
+    SLICE_X7Y14.B        Tilo                  0.259   N90
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>31_SW0
+    SLICE_X2Y18.D3       net (fanout=2)        1.143   N90
+    SLICE_X2Y18.COUT     Topcyd                0.290   IMU_Controller/state[10]_busy_Select_690_o<10>3
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>3_wg_lut<7>
+                                                       IMU_Controller/state[10]_busy_Select_690_o<10>3_wg_cy<7>
+    SLICE_X4Y19.D3       net (fanout=4)        1.179   IMU_Controller/state[10]_busy_Select_690_o<10>3
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.B4      net (fanout=8)        1.412   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT111
+                                                       IMU_Controller/GYRO_Z_4
     -------------------------------------------------  ---------------------------
-    Total                                      9.673ns (2.530ns logic, 7.143ns route)
-                                                       (26.2% logic, 73.8% route)
+    Total                                      9.729ns (1.831ns logic, 7.898ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.157ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               IMU_Controller/state_FSM_FFd184 (FF)
+  Destination:          IMU_Controller/GYRO_Z_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.674ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.134ns (0.680 - 0.814)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: IMU_Controller/state_FSM_FFd184 to IMU_Controller/GYRO_Z_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y12.AMUX     Tshcko                0.518   IMU_Controller/state_FSM_FFd190
+                                                       IMU_Controller/state_FSM_FFd184
+    SLICE_X7Y13.A2       net (fanout=6)        2.748   IMU_Controller/state_FSM_FFd184
+    SLICE_X7Y13.A        Tilo                  0.259   IMU_Controller/out6
+                                                       IMU_Controller/state_state[7]4
+    SLICE_X7Y13.C2       net (fanout=5)        0.559   IMU_Controller/state_state[7]4
+    SLICE_X7Y13.C        Tilo                  0.259   IMU_Controller/out6
+                                                       IMU_Controller/state_state[7]5_SW0
+    SLICE_X4Y19.D6       net (fanout=1)        0.813   N124
+    SLICE_X4Y19.D        Tilo                  0.254   IMU_Controller/_n13807<8>1
+                                                       IMU_Controller/_n13807<8>11
+    SLICE_X11Y37.A4      net (fanout=5)        2.254   IMU_Controller/_n13807<8>1
+    SLICE_X11Y37.A       Tilo                  0.259   IMU_Controller/GYRO_Z_2
+                                                       IMU_Controller/_n13896<8>1
+    SLICE_X12Y42.B4      net (fanout=8)        1.412   IMU_Controller/_n13896
+    SLICE_X12Y42.CLK     Tas                   0.339   IMU_Controller/GYRO_Z_6
+                                                       IMU_Controller/Mmux_state[10]_GYRO_Z[15]_select_710_OUT111
+                                                       IMU_Controller/GYRO_Z_4
+    -------------------------------------------------  ---------------------------
+    Total                                      9.674ns (1.888ns logic, 7.786ns route)
+                                                       (19.5% logic, 80.5% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point IMU_Controller/state_FSM_FFd25 (SLICE_X2Y9.C5), 1 path
+Paths for end point Data_serial_tx/data_q_3 (SLICE_X18Y27.DX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.399ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               IMU_Controller/state_FSM_FFd26 (FF)
-  Destination:          IMU_Controller/state_FSM_FFd25 (FF)
+Slack (hold path):      0.376ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Data_Controller/data_tx_3 (FF)
+  Destination:          Data_serial_tx/data_q_3 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.399ns (Levels of Logic = 1)
+  Data Path Delay:      0.378ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.038 - 0.036)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Data_Controller/data_tx_3 to Data_serial_tx/data_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y27.BMUX    Tshcko                0.244   Data_Controller/data_tx<6>
+                                                       Data_Controller/data_tx_3
+    SLICE_X18Y27.DX      net (fanout=1)        0.086   Data_Controller/data_tx<3>
+    SLICE_X18Y27.CLK     Tckdi       (-Th)    -0.048   Data_serial_tx/data_q<3>
+                                                       Data_serial_tx/data_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.378ns (0.292ns logic, 0.086ns route)
+                                                       (77.2% logic, 22.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Sensor_Reg/int_pressure_9 (SLICE_X14Y23.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.392ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Altimeter_Controller/pressure_9 (FF)
+  Destination:          Sensor_Reg/int_pressure_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.392ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: IMU_Controller/state_FSM_FFd26 to IMU_Controller/state_FSM_FFd25
+  Minimum Data Path at Fast Process Corner: Altimeter_Controller/pressure_9 to Sensor_Reg/int_pressure_9
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X2Y9.CQ        Tcko                  0.200   IMU_Controller/state_FSM_FFd27
-                                                       IMU_Controller/state_FSM_FFd26
-    SLICE_X2Y9.C5        net (fanout=8)        0.078   IMU_Controller/state_FSM_FFd26
-    SLICE_X2Y9.CLK       Tah         (-Th)    -0.121   IMU_Controller/state_FSM_FFd27
-                                                       IMU_Controller/state_FSM_FFd25-In1
-                                                       IMU_Controller/state_FSM_FFd25
+    SLICE_X14Y23.BQ      Tcko                  0.200   Altimeter_Controller/pressure_11
+                                                       Altimeter_Controller/pressure_9
+    SLICE_X14Y23.B5      net (fanout=1)        0.071   Altimeter_Controller/pressure_9
+    SLICE_X14Y23.CLK     Tah         (-Th)    -0.121   Altimeter_Controller/pressure_11
+                                                       Altimeter_Controller/pressure_9_rt
+                                                       Sensor_Reg/int_pressure_9
     -------------------------------------------------  ---------------------------
-    Total                                      0.399ns (0.321ns logic, 0.078ns route)
-                                                       (80.5% logic, 19.5% route)
+    Total                                      0.392ns (0.321ns logic, 0.071ns route)
+                                                       (81.9% logic, 18.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point IMU_Controller/state_FSM_FFd335 (SLICE_X10Y9.C5), 1 path
+Paths for end point Sensor_Reg/int_pressure_1 (SLICE_X14Y24.B5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.400ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               IMU_Controller/state_FSM_FFd336 (FF)
-  Destination:          IMU_Controller/state_FSM_FFd335 (FF)
+Slack (hold path):      0.392ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Altimeter_Controller/pressure_1 (FF)
+  Destination:          Sensor_Reg/int_pressure_1 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.400ns (Levels of Logic = 1)
+  Data Path Delay:      0.392ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: IMU_Controller/state_FSM_FFd336 to IMU_Controller/state_FSM_FFd335
+  Minimum Data Path at Fast Process Corner: Altimeter_Controller/pressure_1 to Sensor_Reg/int_pressure_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y9.CQ       Tcko                  0.200   IMU_Controller/state_FSM_FFd338
-                                                       IMU_Controller/state_FSM_FFd336
-    SLICE_X10Y9.C5       net (fanout=5)        0.079   IMU_Controller/state_FSM_FFd336
-    SLICE_X10Y9.CLK      Tah         (-Th)    -0.121   IMU_Controller/state_FSM_FFd338
-                                                       IMU_Controller/state_FSM_FFd335-In1
-                                                       IMU_Controller/state_FSM_FFd335
+    SLICE_X14Y24.BQ      Tcko                  0.200   Altimeter_Controller/pressure_3
+                                                       Altimeter_Controller/pressure_1
+    SLICE_X14Y24.B5      net (fanout=1)        0.071   Altimeter_Controller/pressure_1
+    SLICE_X14Y24.CLK     Tah         (-Th)    -0.121   Altimeter_Controller/pressure_3
+                                                       Altimeter_Controller/pressure_1_rt
+                                                       Sensor_Reg/int_pressure_1
     -------------------------------------------------  ---------------------------
-    Total                                      0.400ns (0.321ns logic, 0.079ns route)
-                                                       (80.3% logic, 19.8% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point IMU_Controller/state_FSM_FFd287 (SLICE_X14Y0.C5), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.400ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               IMU_Controller/state_FSM_FFd288 (FF)
-  Destination:          IMU_Controller/state_FSM_FFd287 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.400ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: IMU_Controller/state_FSM_FFd288 to IMU_Controller/state_FSM_FFd287
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X14Y0.CQ       Tcko                  0.200   IMU_Controller/state_FSM_FFd289
-                                                       IMU_Controller/state_FSM_FFd288
-    SLICE_X14Y0.C5       net (fanout=7)        0.079   IMU_Controller/state_FSM_FFd288
-    SLICE_X14Y0.CLK      Tah         (-Th)    -0.121   IMU_Controller/state_FSM_FFd289
-                                                       IMU_Controller/state_FSM_FFd287-In1
-                                                       IMU_Controller/state_FSM_FFd287
-    -------------------------------------------------  ---------------------------
-    Total                                      0.400ns (0.321ns logic, 0.079ns route)
-                                                       (80.3% logic, 19.8% route)
+    Total                                      0.392ns (0.321ns logic, 0.071ns route)
+                                                       (81.9% logic, 18.1% route)
 
 --------------------------------------------------------------------------------
 
@@ -655,18 +572,18 @@ Slack: 17.334ns (period - min period limit)
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: cam_I2C_Driver/stretch/CLK
-  Logical resource: cam_I2C_Driver/stretch/CK
-  Location pin: SLICE_X0Y8.CLK
+  Physical resource: IMU_Controller/stop_transfer/CLK
+  Logical resource: IMU_Controller/stop_transfer/CK
+  Location pin: SLICE_X4Y9.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 19.520ns (period - (min high pulse limit / (high pulse / period)))
   Period: 20.000ns
   High pulse: 10.000ns
   High pulse limit: 0.240ns (Trpw)
-  Physical resource: cam_I2C_Driver/stretch/SR
-  Logical resource: cam_I2C_Driver/stretch/SR
-  Location pin: SLICE_X0Y8.SR
+  Physical resource: IMU_Controller/stop_transfer/SR
+  Logical resource: IMU_Controller/stop_transfer/SR
+  Location pin: SLICE_X4Y9.SR
   Clock network: Alt_I2C_Driver/rst_inv_BUFG_LUT1
 --------------------------------------------------------------------------------
 
@@ -683,7 +600,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   10.648|         |         |         |
+clk            |   10.305|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -692,23 +609,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 249428 paths, 0 nets, and 4880 connections
+Constraints cover 283555 paths, 0 nets, and 4852 connections
 
 Design statistics:
-   Minimum period:  10.648ns{1}   (Maximum frequency:  93.914MHz)
+   Minimum period:  10.305ns{1}   (Maximum frequency:  97.040MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Sat Feb 01 16:30:01 2014 
+Analysis completed Wed Feb 05 01:31:53 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 231 MB
+Peak Memory Usage: 234 MB
 
 
 
