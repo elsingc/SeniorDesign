@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Feb 06 22:34:26 2014
+// Written by: Map P.20131013 on Fri Feb 07 17:14:57 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -20,8 +20,8 @@ COMP "led<6>" LOCATE = SITE "P124" LEVEL 1;
 COMP "led<7>" LOCATE = SITE "P123" LEVEL 1;
 COMP "imu_sda_out" LOCATE = SITE "P67" LEVEL 1;
 COMP "imu_scl_out" LOCATE = SITE "P66" LEVEL 1;
-COMP "gps_rx_pin" LOCATE = SITE "P84" LEVEL 1;
-COMP "gps_tx_pin" LOCATE = SITE "P83" LEVEL 1;
+COMP "gps_rx_pin" LOCATE = SITE "P100" LEVEL 1;
+COMP "gps_tx_pin" LOCATE = SITE "P99" LEVEL 1;
 COMP "alt_sda_out" LOCATE = SITE "P75" LEVEL 1;
 TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "IMU_I2C_Driver/count_14" BEL "IMU_I2C_Driver/count_13" BEL
