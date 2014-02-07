@@ -100,32 +100,15 @@ module gps_rom
    assign cfg_msg_velned_data[8] = 8'h01;
    assign cfg_msg_velned_data[9] = 8'h1e;
    assign cfg_msg_velned_data[10] = 8'h67;
-
-   reg [7:0] data;
-	reg [5:0] length;
 	
+	assign data = (message == 0) ? cfg_nav5_data [index]
+	            : (message == 1) ? cfg_msg_posllh_data [index]
+					: (message == 2) ? cfg_msg_velned_data [index]
+					: 8'd0;
 	
-   always @ (*)
-     begin
-        case (message)
-          0: begin
-             data <= cfg_nav5_data [index];
-             length <= 6'd44;
-          end
-          1: begin
-             data <= cfg_msg_posllh_data [index];
-             length <= 6'd11;
-          end
-          2: begin
-             data <= cfg_msg_velned_data [index];
-             length <= 6'd11;
-          end
-          default: begin
-             data <= 8'd0;
-             length <= 6'd0;
-          end
-        endcase // case message
-
-     end
+	assign length = (message == 0) ? 6'd44
+	              : (message == 1) ? 6'd11
+					  : (message == 2) ? 6'd11
+					  : 6'd0;
         
 endmodule

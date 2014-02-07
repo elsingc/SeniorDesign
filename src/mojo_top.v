@@ -213,9 +213,8 @@ serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_rx (
 
 
 GPS_Controller GPS_Controller(
-	.long(gps_long),
+	.lon(gps_long),
 	.lat(gps_lat),
-	.alt(gps_alt),
 	.time_(gps_time),
 	.ground_speed(ground_speed),
 

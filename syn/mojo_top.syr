@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -112,8 +112,6 @@ Analyzing Verilog file "/home/zach/SeniorDesign/syn/framebuffer.v" into library 
 Parsing module <framebuffer>.
 Analyzing Verilog file "/home/zach/SeniorDesign/gps_rom.v" into library work
 Parsing module <gps_rom>.
-WARNING:HDLCompiler:751 - "/home/zach/SeniorDesign/gps_rom.v" Line 104: Redeclaration of ansi port data is not allowed
-WARNING:HDLCompiler:751 - "/home/zach/SeniorDesign/gps_rom.v" Line 105: Redeclaration of ansi port length is not allowed
 Analyzing Verilog file "/home/zach/SeniorDesign/src/serial_tx.v" into library work
 Parsing module <serial_tx>.
 Analyzing Verilog file "/home/zach/SeniorDesign/src/serial_rx.v" into library work
@@ -126,7 +124,6 @@ Analyzing Verilog file "/home/zach/SeniorDesign/I2C_Driver.v" into library work
 Parsing module <I2C_Driver>.
 Analyzing Verilog file "/home/zach/SeniorDesign/GPS_Controller.v" into library work
 Parsing module <GPS_Controller>.
-WARNING:HDLCompiler:751 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 45: Redeclaration of ansi port tx_send is not allowed
 Analyzing Verilog file "/home/zach/SeniorDesign/Data_Controller.v" into library work
 Parsing module <Data_Controller>.
 Analyzing Verilog file "/home/zach/SeniorDesign/cam_serializer.v" into library work
@@ -173,31 +170,39 @@ WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 185: As
 Elaborating module <GPS_Controller>.
 
 Elaborating module <gps_rom>.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 78: Result of 3-bit expression is truncated to fit in 2-bit target.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 81: Result of 7-bit expression is truncated to fit in 6-bit target.
-WARNING:HDLCompiler:189 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 219: Size mismatch in connection of port <time_>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 127: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 142: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 146: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 156: Result of 32-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 187: Result of 17-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 263: Result of 32-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 270: Result of 32-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 296: Result of 32-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 301: Result of 32-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:189 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 218: Size mismatch in connection of port <time_>. Formal port size is 32-bit while actual signal size is 1-bit.
 
 Elaborating module <serial_rx(CLK_PER_BIT=5208,CTR_SIZE=8)>.
 
 Elaborating module <serial_tx(CLK_PER_BIT=5208,CTR_SIZE=8)>.
-WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 291: Assignment to cam_tx ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 290: Assignment to cam_tx ignored, since the identifier is never used
 
 Elaborating module <cam_serializer>.
 
 Elaborating module <framebuffer>.
 WARNING:HDLCompiler:1499 - "/home/zach/SeniorDesign/syn/framebuffer.v" Line 39: Empty module <framebuffer> remains a black box.
-WARNING:HDLCompiler:189 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 301: Size mismatch in connection of port <ybuss>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 300: Size mismatch in connection of port <ybuss>. Formal port size is 8-bit while actual signal size is 1-bit.
 
 Elaborating module <cam_driver>.
 
 Elaborating module <cam_I2C_Driver>.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 49: Net <gps_alt[31]> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 52: Net <data_block> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 283: Net <cam_rx> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 292: Net <cam_tx_block> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 301: Net <pixel> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 302: Net <vsync> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 303: Net <href> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 304: Net <pclk> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 282: Net <cam_rx> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 291: Net <cam_tx_block> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 300: Net <pixel> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 301: Net <vsync> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 302: Net <href> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 303: Net <pclk> does not have a driver.
 WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 86: Input port air_speed_p[15] is not connected on this instance
 WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 196: Input port block is not connected on this instance
 WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 215: Input port busy is not connected on this instance
@@ -215,7 +220,8 @@ WARNING:Xst:2898 - Port 'busy', unconnected in block instance 'GPS_Controller', 
 WARNING:Xst:2898 - Port 'new', unconnected in block instance 'GPS_Controller', is tied to GND.
 WARNING:Xst:647 - Input <start> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 177: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 288: Output port <tx> of the instance <serial_tx> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 287: Output port <tx> of the instance <serial_tx> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <gps_alt> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <data_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <cam_rx> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <cam_tx_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -646,26 +652,195 @@ Unit <IMU_Controller> synthesized.
 
 Synthesizing Unit <GPS_Controller>.
     Related source file is "/home/zach/SeniorDesign/GPS_Controller.v".
-WARNING:Xst:647 - Input <rx_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <rx_new> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <new> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <long> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <lat> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <alt> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <time_> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <ground_speed> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-    Found 2-bit register for signal <rom_msg>.
     Found 6-bit register for signal <rom_index>.
+    Found 6-bit register for signal <state>.
+    Found 2-bit register for signal <rom_msg>.
     Found 1-bit register for signal <tx_send>.
+    Found 5-bit register for signal <ack_index>.
+    Found 1-bit register for signal <msg_type<15>>.
+    Found 1-bit register for signal <msg_type<14>>.
+    Found 1-bit register for signal <msg_type<13>>.
+    Found 1-bit register for signal <msg_type<12>>.
+    Found 1-bit register for signal <msg_type<11>>.
+    Found 1-bit register for signal <msg_type<10>>.
+    Found 1-bit register for signal <msg_type<9>>.
+    Found 1-bit register for signal <msg_type<8>>.
+    Found 1-bit register for signal <msg_type<7>>.
+    Found 1-bit register for signal <msg_type<6>>.
+    Found 1-bit register for signal <msg_type<5>>.
+    Found 1-bit register for signal <msg_type<4>>.
+    Found 1-bit register for signal <msg_type<3>>.
+    Found 1-bit register for signal <msg_type<2>>.
+    Found 1-bit register for signal <msg_type<1>>.
+    Found 1-bit register for signal <msg_type<0>>.
+    Found 1-bit register for signal <msg_length<15>>.
+    Found 1-bit register for signal <msg_length<14>>.
+    Found 1-bit register for signal <msg_length<13>>.
+    Found 1-bit register for signal <msg_length<12>>.
+    Found 1-bit register for signal <msg_length<11>>.
+    Found 1-bit register for signal <msg_length<10>>.
+    Found 1-bit register for signal <msg_length<9>>.
+    Found 1-bit register for signal <msg_length<8>>.
+    Found 1-bit register for signal <msg_length<7>>.
+    Found 1-bit register for signal <msg_length<6>>.
+    Found 1-bit register for signal <msg_length<5>>.
+    Found 1-bit register for signal <msg_length<4>>.
+    Found 1-bit register for signal <msg_length<3>>.
+    Found 1-bit register for signal <msg_length<2>>.
+    Found 1-bit register for signal <msg_length<1>>.
+    Found 1-bit register for signal <msg_length<0>>.
+    Found 5-bit register for signal <msg_bytes_to_dump>.
+    Found 1-bit register for signal <time_<31>>.
+    Found 1-bit register for signal <time_<30>>.
+    Found 1-bit register for signal <time_<29>>.
+    Found 1-bit register for signal <time_<28>>.
+    Found 1-bit register for signal <time_<27>>.
+    Found 1-bit register for signal <time_<26>>.
+    Found 1-bit register for signal <time_<25>>.
+    Found 1-bit register for signal <time_<24>>.
+    Found 1-bit register for signal <time_<23>>.
+    Found 1-bit register for signal <time_<22>>.
+    Found 1-bit register for signal <time_<21>>.
+    Found 1-bit register for signal <time_<20>>.
+    Found 1-bit register for signal <time_<19>>.
+    Found 1-bit register for signal <time_<18>>.
+    Found 1-bit register for signal <time_<17>>.
+    Found 1-bit register for signal <time_<16>>.
+    Found 1-bit register for signal <time_<15>>.
+    Found 1-bit register for signal <time_<14>>.
+    Found 1-bit register for signal <time_<13>>.
+    Found 1-bit register for signal <time_<12>>.
+    Found 1-bit register for signal <time_<11>>.
+    Found 1-bit register for signal <time_<10>>.
+    Found 1-bit register for signal <time_<9>>.
+    Found 1-bit register for signal <time_<8>>.
+    Found 1-bit register for signal <time_<7>>.
+    Found 1-bit register for signal <time_<6>>.
+    Found 1-bit register for signal <time_<5>>.
+    Found 1-bit register for signal <time_<4>>.
+    Found 1-bit register for signal <time_<3>>.
+    Found 1-bit register for signal <time_<2>>.
+    Found 1-bit register for signal <time_<1>>.
+    Found 1-bit register for signal <time_<0>>.
+    Found 1-bit register for signal <lon<31>>.
+    Found 1-bit register for signal <lon<30>>.
+    Found 1-bit register for signal <lon<29>>.
+    Found 1-bit register for signal <lon<28>>.
+    Found 1-bit register for signal <lon<27>>.
+    Found 1-bit register for signal <lon<26>>.
+    Found 1-bit register for signal <lon<25>>.
+    Found 1-bit register for signal <lon<24>>.
+    Found 1-bit register for signal <lon<23>>.
+    Found 1-bit register for signal <lon<22>>.
+    Found 1-bit register for signal <lon<21>>.
+    Found 1-bit register for signal <lon<20>>.
+    Found 1-bit register for signal <lon<19>>.
+    Found 1-bit register for signal <lon<18>>.
+    Found 1-bit register for signal <lon<17>>.
+    Found 1-bit register for signal <lon<16>>.
+    Found 1-bit register for signal <lon<15>>.
+    Found 1-bit register for signal <lon<14>>.
+    Found 1-bit register for signal <lon<13>>.
+    Found 1-bit register for signal <lon<12>>.
+    Found 1-bit register for signal <lon<11>>.
+    Found 1-bit register for signal <lon<10>>.
+    Found 1-bit register for signal <lon<9>>.
+    Found 1-bit register for signal <lon<8>>.
+    Found 1-bit register for signal <lon<7>>.
+    Found 1-bit register for signal <lon<6>>.
+    Found 1-bit register for signal <lon<5>>.
+    Found 1-bit register for signal <lon<4>>.
+    Found 1-bit register for signal <lon<3>>.
+    Found 1-bit register for signal <lon<2>>.
+    Found 1-bit register for signal <lon<1>>.
+    Found 1-bit register for signal <lon<0>>.
+    Found 1-bit register for signal <lat<31>>.
+    Found 1-bit register for signal <lat<30>>.
+    Found 1-bit register for signal <lat<29>>.
+    Found 1-bit register for signal <lat<28>>.
+    Found 1-bit register for signal <lat<27>>.
+    Found 1-bit register for signal <lat<26>>.
+    Found 1-bit register for signal <lat<25>>.
+    Found 1-bit register for signal <lat<24>>.
+    Found 1-bit register for signal <lat<23>>.
+    Found 1-bit register for signal <lat<22>>.
+    Found 1-bit register for signal <lat<21>>.
+    Found 1-bit register for signal <lat<20>>.
+    Found 1-bit register for signal <lat<19>>.
+    Found 1-bit register for signal <lat<18>>.
+    Found 1-bit register for signal <lat<17>>.
+    Found 1-bit register for signal <lat<16>>.
+    Found 1-bit register for signal <lat<15>>.
+    Found 1-bit register for signal <lat<14>>.
+    Found 1-bit register for signal <lat<13>>.
+    Found 1-bit register for signal <lat<12>>.
+    Found 1-bit register for signal <lat<11>>.
+    Found 1-bit register for signal <lat<10>>.
+    Found 1-bit register for signal <lat<9>>.
+    Found 1-bit register for signal <lat<8>>.
+    Found 1-bit register for signal <lat<7>>.
+    Found 1-bit register for signal <lat<6>>.
+    Found 1-bit register for signal <lat<5>>.
+    Found 1-bit register for signal <lat<4>>.
+    Found 1-bit register for signal <lat<3>>.
+    Found 1-bit register for signal <lat<2>>.
+    Found 1-bit register for signal <lat<1>>.
+    Found 1-bit register for signal <lat<0>>.
+    Found 1-bit register for signal <ground_speed<31>>.
+    Found 1-bit register for signal <ground_speed<30>>.
+    Found 1-bit register for signal <ground_speed<29>>.
+    Found 1-bit register for signal <ground_speed<28>>.
+    Found 1-bit register for signal <ground_speed<27>>.
+    Found 1-bit register for signal <ground_speed<26>>.
+    Found 1-bit register for signal <ground_speed<25>>.
+    Found 1-bit register for signal <ground_speed<24>>.
+    Found 1-bit register for signal <ground_speed<23>>.
+    Found 1-bit register for signal <ground_speed<22>>.
+    Found 1-bit register for signal <ground_speed<21>>.
+    Found 1-bit register for signal <ground_speed<20>>.
+    Found 1-bit register for signal <ground_speed<19>>.
+    Found 1-bit register for signal <ground_speed<18>>.
+    Found 1-bit register for signal <ground_speed<17>>.
+    Found 1-bit register for signal <ground_speed<16>>.
+    Found 1-bit register for signal <ground_speed<15>>.
+    Found 1-bit register for signal <ground_speed<14>>.
+    Found 1-bit register for signal <ground_speed<13>>.
+    Found 1-bit register for signal <ground_speed<12>>.
+    Found 1-bit register for signal <ground_speed<11>>.
+    Found 1-bit register for signal <ground_speed<10>>.
+    Found 1-bit register for signal <ground_speed<9>>.
+    Found 1-bit register for signal <ground_speed<8>>.
+    Found 1-bit register for signal <ground_speed<7>>.
+    Found 1-bit register for signal <ground_speed<6>>.
+    Found 1-bit register for signal <ground_speed<5>>.
+    Found 1-bit register for signal <ground_speed<4>>.
+    Found 1-bit register for signal <ground_speed<3>>.
+    Found 1-bit register for signal <ground_speed<2>>.
+    Found 1-bit register for signal <ground_speed<1>>.
+    Found 1-bit register for signal <ground_speed<0>>.
+    Found 6-bit adder for signal <rom_index[5]_GND_22_o_add_7_OUT> created at line 127.
+    Found 5-bit adder for signal <ack_index[4]_GND_22_o_add_15_OUT> created at line 142.
+    Found 2-bit adder for signal <rom_msg[1]_GND_22_o_add_18_OUT> created at line 146.
+    Found 16-bit adder for signal <n0661> created at line 187.
+    Found 5-bit subtractor for signal <GND_22_o_GND_22_o_sub_64_OUT<4:0>> created at line 263.
+    Found 8x8-bit Read Only RAM for signal <ack_index[2]_X_21_o_wide_mux_13_OUT>
+    Found 6-bit comparator equal for signal <rom_index[5]_rom_length[5]_equal_9_o> created at line 128
+    Found 5-bit comparator greater for signal <ack_index[4]_GND_22_o_LessThan_13_o> created at line 139
+    Found 8-bit comparator not equal for signal <n0015> created at line 139
     Summary:
-	inferred   9 D-type flip-flop(s).
+	inferred   1 RAM(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred 185 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred 201 Multiplexer(s).
 Unit <GPS_Controller> synthesized.
 
 Synthesizing Unit <gps_rom>.
     Related source file is "/home/zach/SeniorDesign/gps_rom.v".
     Found 4x6-bit Read Only RAM for signal <length>
-    Found 8-bit 4-to-1 multiplexer for signal <data> created at line 110.
+    Found 8-bit 4-to-1 multiplexer for signal <data> created at line 25.
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Multiplexer(s).
@@ -787,9 +962,9 @@ Synthesizing Unit <cam_I2C_Driver>.
     Found 1-bit register for signal <scl_ena>.
     Found 1-bit register for signal <ack_err>.
     Found 1-bit register for signal <stretch>.
-    Found 1-bit register for signal <Z_16_o_clk_DFF_318_q>.
+    Found 1-bit register for signal <Z_16_o_clk_DFF_478_q>.
     Found 1-bit register for signal <data_clk>.
-    Found 1-bit register for signal <count[16]_clk_DFF_320>.
+    Found 1-bit register for signal <count[16]_clk_DFF_480>.
     Found 8-bit register for signal <addr_rw>.
     Found 8-bit register for signal <data_tx>.
     Found 8-bit register for signal <sub_addr_tx>.
@@ -835,37 +1010,47 @@ Unit <cam_I2C_Driver> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 1
+# RAMs                                                 : 2
  4x6-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 18
+ 8x8-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 23
  12-bit adder                                          : 1
  13-bit adder                                          : 4
+ 16-bit adder                                          : 1
  17-bit adder                                          : 3
+ 2-bit adder                                           : 1
  3-bit adder                                           : 4
  3-bit subtractor                                      : 1
  4-bit subtractor                                      : 3
- 5-bit subtractor                                      : 2
-# Registers                                            : 119
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 3
+ 6-bit adder                                           : 1
+# Registers                                            : 128
  1-bit register                                        : 65
  12-bit register                                       : 1
  13-bit register                                       : 4
- 16-bit register                                       : 11
+ 16-bit register                                       : 13
  17-bit register                                       : 3
  2-bit register                                        : 1
  3-bit register                                        : 5
+ 32-bit register                                       : 4
  4-bit register                                        : 3
- 6-bit register                                        : 1
+ 5-bit register                                        : 2
+ 6-bit register                                        : 2
  8-bit register                                        : 25
 # Latches                                              : 8
  1-bit latch                                           : 8
-# Comparators                                          : 13
+# Comparators                                          : 16
  16-bit comparator greater                             : 1
  17-bit comparator greater                             : 6
  17-bit comparator lessequal                           : 3
  32-bit comparator lessequal                           : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 267
- 1-bit 2-to-1 multiplexer                              : 203
+ 5-bit comparator greater                              : 1
+ 6-bit comparator equal                                : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 468
+ 1-bit 2-to-1 multiplexer                              : 363
  1-bit 8-to-1 multiplexer                              : 8
  12-bit 2-to-1 multiplexer                             : 2
  13-bit 2-to-1 multiplexer                             : 12
@@ -874,6 +1059,8 @@ Macro Statistics
  17-bit 2-to-1 multiplexer                             : 3
  3-bit 2-to-1 multiplexer                              : 4
  4-bit 2-to-1 multiplexer                              : 5
+ 5-bit 2-to-1 multiplexer                              : 7
+ 6-bit 2-to-1 multiplexer                              : 34
  8-bit 2-to-1 multiplexer                              : 3
  8-bit 23-to-1 multiplexer                             : 1
  8-bit 4-to-1 multiplexer                              : 1
@@ -889,49 +1076,38 @@ Macro Statistics
 
 Reading core <framebuffer.ngc>.
 Loading core <framebuffer> for timing and area information for instance <framebuffer>.
-WARNING:Xst:1290 - Hierarchical block <GPS_serial_rx> is unconnected in block <mojo_top>.
-   It will be removed from the design.
 INFO:Xst:2261 - The FF/Latch <addrR_12> in Unit <cam_serializer> is equivalent to the following 3 FFs/Latches, which will be removed : <addrR_13> <addrR_14> <addrR_15> 
 INFO:Xst:2261 - The FF/Latch <addr_0> in Unit <sends_one> is equivalent to the following 7 FFs/Latches, which will be removed : <addr_1> <addr_2> <addr_3> <addr_4> <addr_5> <sub_addr_6> <sub_addr_7> 
-WARNING:Xst:1710 - FF/Latch <data_q_4> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_5> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_6> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_7> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <pixel_state_0> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <pixel_state_1> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <pixel_state_2> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <wea> (without init value) has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addrR_12> (without init value) has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rw> (without init value) has a constant value of 0 in block <sends_one>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_0> (without init value) has a constant value of 0 in block <sends_one>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sub_addr_tx_6> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <sub_addr_tx_7> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <addr_rw_0> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <addr_rw_1> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <addr_rw_2> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <addr_rw_3> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <addr_rw_4> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <addr_rw_5> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <Data_serial_tx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <pressure_19> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <debug> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <pressure_16> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <pressure_18> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <pressure_17> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <GPS_serial_tx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <tx_send> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_msg_0> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_msg_1> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_0> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_1> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_2> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_3> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_4> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_index_5> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_0> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_1> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_2> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_rw_4> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_rw_3> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_rw_2> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_rw_1> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <addr_rw_0> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sub_addr_tx_7> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sub_addr_tx_6> has a constant value of 0 in block <cam_I2C_Driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_0> (without init value) has a constant value of 0 in block <sends_one>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rw> (without init value) has a constant value of 0 in block <sends_one>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addrR_12> (without init value) has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <wea> (without init value) has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <pixel_state_2> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <pixel_state_1> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <pixel_state_0> has a constant value of 0 in block <cam_serializer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_7> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_6> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_5> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_4> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_q_3> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_2> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_1> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_0> (without init value) has a constant value of 0 in block <serial_rx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <GPS_serial_tx>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <pressure_17> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <pressure_18> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <pressure_16> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <debug> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <pressure_19> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <Data_serial_tx>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <data_rd_4> of sequential type is unconnected in block <Alt_I2C_Driver>.
 WARNING:Xst:2677 - Node <data_rd_5> of sequential type is unconnected in block <Alt_I2C_Driver>.
 WARNING:Xst:2677 - Node <data_rd_6> of sequential type is unconnected in block <Alt_I2C_Driver>.
@@ -943,6 +1119,21 @@ WARNING:Xst:1898 - Due to constant pushing, FF/Latch <data_rd_1> is unconnected 
 WARNING:Xst:2404 -  FFs/Latches <addrR<15:12>> (without init value) have a constant value of 0 in block <cam_serializer>.
 WARNING:Xst:2404 -  FFs/Latches <sub_addr<7:6>> (without init value) have a constant value of 0 in block <cam_driver>.
 
+Synthesizing (advanced) Unit <GPS_Controller>.
+The following registers are absorbed into counter <rom_msg>: 1 register on signal <rom_msg>.
+INFO:Xst:3231 - The small RAM <Mram_ack_index[2]_X_21_o_wide_mux_13_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 8-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <ack_index<2:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <GPS_Controller> synthesized (advanced).
+
 Synthesizing (advanced) Unit <I2C_Driver>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 The following registers are absorbed into counter <bitcount>: 1 register on signal <bitcount>.
@@ -953,7 +1144,7 @@ The following registers are absorbed into counter <count>: 1 register on signal 
 Unit <cam_I2C_Driver> synthesized (advanced).
 
 Synthesizing (advanced) Unit <gps_rom>.
-INFO:Xst:3231 - The small RAM <Mram_length> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_length> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -978,34 +1169,43 @@ Unit <serial_tx_1> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 1
+# RAMs                                                 : 2
  4x6-bit single-port distributed Read Only RAM         : 1
-# Adders/Subtractors                                   : 9
+ 8x8-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 13
  12-bit adder                                          : 1
  13-bit adder                                          : 4
  3-bit subtractor                                      : 1
  4-bit subtractor                                      : 1
- 5-bit subtractor                                      : 2
-# Counters                                             : 9
+ 5-bit adder                                           : 2
+ 5-bit subtractor                                      : 3
+ 6-bit adder                                           : 1
+# Counters                                             : 10
  17-bit up counter                                     : 3
+ 2-bit up counter                                      : 1
  3-bit up counter                                      : 4
  4-bit down counter                                    : 2
-# Registers                                            : 506
- Flip-Flops                                            : 506
-# Comparators                                          : 13
+# Registers                                            : 680
+ Flip-Flops                                            : 680
+# Comparators                                          : 16
  16-bit comparator greater                             : 1
  17-bit comparator greater                             : 6
  17-bit comparator lessequal                           : 3
  32-bit comparator lessequal                           : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 254
- 1-bit 2-to-1 multiplexer                              : 199
+ 5-bit comparator greater                              : 1
+ 6-bit comparator equal                                : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 455
+ 1-bit 2-to-1 multiplexer                              : 359
  1-bit 8-to-1 multiplexer                              : 8
  12-bit 2-to-1 multiplexer                             : 2
  13-bit 2-to-1 multiplexer                             : 12
  13-bit 4-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 23
  4-bit 2-to-1 multiplexer                              : 3
+ 5-bit 2-to-1 multiplexer                              : 7
+ 6-bit 2-to-1 multiplexer                              : 34
  8-bit 2-to-1 multiplexer                              : 3
  8-bit 23-to-1 multiplexer                             : 1
  8-bit 4-to-1 multiplexer                              : 1
@@ -1021,15 +1221,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <debug> (without ini
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pressure_16> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pressure_18> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pressure_17> (without init value) has a constant value of 0 in block <Altimeter_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rom_msg_0> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_msg_1> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_0> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_1> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_2> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_3> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_4> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rom_index_5> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_send> (without init value) has a constant value of 0 in block <GPS_Controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_q_0> (without init value) has a constant value of 0 in block <serial_rx_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_1> (without init value) has a constant value of 0 in block <serial_rx_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_2> (without init value) has a constant value of 0 in block <serial_rx_2>. This FF/Latch will be trimmed during the optimization process.
@@ -1049,7 +1240,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_2> (without in
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_3> (without init value) has a constant value of 0 in block <cam_driver>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_4> (without init value) has a constant value of 0 in block <cam_driver>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_5> (without init value) has a constant value of 0 in block <cam_driver>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2973 - All outputs of instance <GPS_serial_rx> of block <serial_rx_1> are unconnected in block <mojo_top>. Underlying logic will be removed.
 WARNING:Xst:2677 - Node <serial_tx/tx_q> of sequential type is unconnected in block <mojo_top>.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_6> on signal <state_q[1:1]> with sequential encoding.
@@ -1070,6 +1260,7 @@ Optimizing FSM <Data_Controller/FSM_0> on signal <state[1:2]> with sequential en
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <Data_serial_rx/FSM_1> on signal <state_q[1:2]> with gray encoding.
+Optimizing FSM <GPS_serial_rx/FSM_1> on signal <state_q[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -1638,6 +1829,8 @@ Optimizing unit <Altimeter_Controller> ...
 
 Optimizing unit <IMU_Controller> ...
 
+Optimizing unit <GPS_Controller> ...
+
 Optimizing unit <cam_serializer> ...
 
 Optimizing unit <cam_driver> ...
@@ -1649,18 +1842,8 @@ WARNING:Xst:1293 - FF/Latch <cam_I2C_Driver/addr_rw_3> has a constant value of 0
 WARNING:Xst:1293 - FF/Latch <cam_I2C_Driver/addr_rw_2> has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <cam_I2C_Driver/addr_rw_1> has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <cam_I2C_Driver/addr_rw_0> has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Data_serial_tx/block_q> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_0> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_1> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_2> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_3> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_4> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_5> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_6> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/data_q_7> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/block_q> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/tx_q> (without init value) has a constant value of 1 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <GPS_serial_tx/state_q_FSM_FFd2> has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Data_serial_tx/block_q> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <Alt_I2C_Driver/data_rd_7> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <Alt_I2C_Driver/data_rd_6> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <Alt_I2C_Driver/data_rd_5> of sequential type is unconnected in block <mojo_top>.
@@ -1695,7 +1878,6 @@ WARNING:Xst:2677 - Node <cam_I2C_Driver/data_rx_2> of sequential type is unconne
 WARNING:Xst:2677 - Node <cam_I2C_Driver/data_rx_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_I2C_Driver/data_rx_0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_I2C_Driver/ack_err> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/busy_q> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_15> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_14> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_13> of sequential type is unconnected in block <mojo_top>.
@@ -1704,6 +1886,134 @@ WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_11> of sequential type is unco
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_10> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_9> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <IMU_Controller/GYRO_TEMP_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_31> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_30> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_29> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_28> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_27> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_26> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_25> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_24> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/ground_speed_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_31> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_30> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_29> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_28> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_27> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_26> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_25> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_24> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_31> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_30> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_29> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_28> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_27> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_26> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_25> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_24> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__31> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__30> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__29> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__28> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__27> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__26> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__25> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__24> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/time__0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_7> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_6> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_5> of sequential type is unconnected in block <mojo_top>.
@@ -1712,23 +2022,6 @@ WARNING:Xst:2677 - Node <cam_serializer/tx_data_3> of sequential type is unconne
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_2> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <cam_serializer/tx_data_0> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/bit_ctr_q_2> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/bit_ctr_q_1> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/bit_ctr_q_0> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/state_q_FSM_FFd1> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_12> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_11> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_10> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_9> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_8> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_7> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_6> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_5> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_4> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_3> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_2> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_1> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <GPS_serial_tx/ctr_q_0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:1710 - FF/Latch <cam_serializer/rstb> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cam_serializer/addrR_11> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cam_serializer/send_p_0> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1766,7 +2059,7 @@ INFO:Xst:2261 - The FF/Latch <cam_I2C_Driver/sub_addr_tx_1> in Unit <mojo_top> i
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 30.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 36.
 WARNING:Xst:1426 - The value init of the FF/Latch cam_I2C_Driver/busy_LD hinder the constant cleaning in the block mojo_top.
    You should achieve better results by setting this init to 1.
 
@@ -1776,8 +2069,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 753
- Flip-Flops                                            : 753
+# Registers                                            : 866
+ Flip-Flops                                            : 866
 
 =========================================================================
 
@@ -1800,30 +2093,30 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1909
+# BELS                             : 2226
 #      GND                         : 2
-#      INV                         : 13
-#      LUT1                        : 71
-#      LUT2                        : 91
-#      LUT3                        : 199
-#      LUT4                        : 340
-#      LUT5                        : 117
-#      LUT6                        : 621
-#      MUXCY                       : 358
-#      MUXF7                       : 19
+#      INV                         : 16
+#      LUT1                        : 95
+#      LUT2                        : 104
+#      LUT3                        : 223
+#      LUT4                        : 366
+#      LUT5                        : 177
+#      LUT6                        : 734
+#      MUXCY                       : 382
+#      MUXF7                       : 23
 #      VCC                         : 2
-#      XORCY                       : 76
-# FlipFlops/Latches                : 768
-#      FD                          : 21
-#      FDC                         : 397
-#      FDCE                        : 83
-#      FDE                         : 206
+#      XORCY                       : 102
+# FlipFlops/Latches                : 881
+#      FD                          : 36
+#      FDC                         : 409
+#      FDCE                        : 85
+#      FDE                         : 268
 #      FDE_1                       : 8
 #      FDP                         : 11
 #      FDPE                        : 9
-#      FDR                         : 5
-#      FDRE                        : 16
-#      FDS                         : 1
+#      FDR                         : 10
+#      FDRE                        : 32
+#      FDS                         : 2
 #      LD                          : 1
 #      LDC                         : 2
 #      LDE_1                       : 8
@@ -1832,8 +2125,8 @@ Primitive and Black Box Usage:
 # Clock Buffers                    : 5
 #      BUFG                        : 4
 #      BUFGP                       : 1
-# IO Buffers                       : 18
-#      IBUF                        : 2
+# IO Buffers                       : 19
+#      IBUF                        : 3
 #      IOBUF                       : 4
 #      OBUF                        : 10
 #      OBUFT                       : 2
@@ -1845,20 +2138,20 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             768  out of  11440     6%  
- Number of Slice LUTs:                 1452  out of   5720    25%  
-    Number used as Logic:              1452  out of   5720    25%  
+ Number of Slice Registers:             881  out of  11440     7%  
+ Number of Slice LUTs:                 1715  out of   5720    29%  
+    Number used as Logic:              1715  out of   5720    29%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1508
-   Number with an unused Flip Flop:     740  out of   1508    49%  
-   Number with an unused LUT:            56  out of   1508     3%  
-   Number of fully used LUT-FF pairs:   712  out of   1508    47%  
-   Number of unique control sets:        37
+ Number of LUT Flip Flop pairs used:   1777
+   Number with an unused Flip Flop:     896  out of   1777    50%  
+   Number with an unused LUT:            62  out of   1777     3%  
+   Number of fully used LUT-FF pairs:   819  out of   1777    46%  
+   Number of unique control sets:        43
 
 IO Utilization: 
  Number of IOs:                          21
- Number of bonded IOBs:                  19  out of    102    18%  
+ Number of bonded IOBs:                  20  out of    102    19%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                2  out of     32     6%  
@@ -1887,7 +2180,7 @@ Clock Information:
 Clock Signal                                                                                                                                                                                                                                                                   | Clock buffer(FF name)                                                                                                           | Load  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
 IMU_I2C_Driver/data_clk                                                                                                                                                                                                                                                        | BUFG                                                                                                                            | 43    |
-clk                                                                                                                                                                                                                                                                            | BUFGP                                                                                                                           | 664   |
+clk                                                                                                                                                                                                                                                                            | BUFGP                                                                                                                           | 777   |
 Alt_I2C_Driver/data_clk                                                                                                                                                                                                                                                        | BUFG                                                                                                                            | 27    |
 cam_I2C_Driver/data_clk                                                                                                                                                                                                                                                        | BUFG                                                                                                                            | 26    |
 rst_n                                                                                                                                                                                                                                                                          | IBUF+BUFG                                                                                                                       | 9     |
@@ -1908,7 +2201,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.873ns (Maximum Frequency: 112.697MHz)
-   Minimum input arrival time before clock: 6.874ns
+   Minimum input arrival time before clock: 6.928ns
    Maximum output required time after clock: 6.891ns
    Maximum combinational path delay: No path found
 
@@ -1942,7 +2235,7 @@ Delay:               3.511ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.873ns (frequency: 112.697MHz)
-  Total number of paths / destination ports: 249435 / 772
+  Total number of paths / destination ports: 253684 / 921
 -------------------------------------------------------------------------
 Delay:               8.873ns (Levels of Logic = 33)
   Source:            IMU_Controller/state_FSM_FFd272 (FF)
@@ -1984,9 +2277,9 @@ Delay:               8.873ns (Levels of Logic = 33)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[2]_wg_cy<25> (IMU_Controller/state_state[2]_wg_cy<25>)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[2]_wg_cy<26> (IMU_Controller/state_state[2]_wg_cy<26>)
      MUXCY:CI->O          85   0.235   2.201  IMU_Controller/state_state[2]_wg_cy<27> (IMU_Controller/state[2])
-     LUT5:I3->O            1   0.250   0.790  IMU_Controller/_n14039_inv6_SW0 (N388)
+     LUT5:I3->O            1   0.250   0.790  IMU_Controller/_n14039_inv6_SW0 (N406)
      LUT6:I4->O            2   0.250   0.726  IMU_Controller/_n14039_inv6 (IMU_Controller/_n14039_inv6)
-     LUT6:I5->O            6   0.254   0.876  IMU_Controller/data_wr_4_rstpot_SW0 (N421)
+     LUT6:I5->O            6   0.254   0.876  IMU_Controller/data_wr_4_rstpot_SW0 (N439)
      LUT6:I5->O            1   0.254   0.000  IMU_Controller/data_wr_4_rstpot (IMU_Controller/data_wr_4_rstpot)
      FDC:D                     0.074          IMU_Controller/data_wr_4
     ----------------------------------------
@@ -2034,9 +2327,9 @@ Delay:               5.996ns (Levels of Logic = 6)
      FDPE:C->Q            12   0.525   1.524  cam_I2C_Driver/bitcount_0 (cam_I2C_Driver/bitcount_0)
      LUT6:I0->O            1   0.254   0.910  cam_I2C_Driver/Mmux_GND_29_o_sub_addr_tx[7]_Mux_30_o_4 (cam_I2C_Driver/Mmux_GND_29_o_sub_addr_tx[7]_Mux_30_o_4)
      LUT6:I3->O            1   0.235   0.682  cam_I2C_Driver/Mmux_GND_29_o_sub_addr_tx[7]_Mux_30_o_2_f7 (cam_I2C_Driver/GND_29_o_sub_addr_tx[7]_Mux_30_o)
-     LUT6:I5->O            1   0.254   0.000  cam_I2C_Driver/Mmux__n026221_F (N471)
-     MUXF7:I0->O           1   0.163   0.958  cam_I2C_Driver/Mmux__n026221 (cam_I2C_Driver/Mmux__n02622)
-     LUT5:I1->O            1   0.254   0.000  cam_I2C_Driver/sda_int_rstpot_F (N463)
+     LUT6:I5->O            1   0.254   0.000  cam_I2C_Driver/Mmux__n026421_F (N501)
+     MUXF7:I0->O           1   0.163   0.958  cam_I2C_Driver/Mmux__n026421 (cam_I2C_Driver/Mmux__n02642)
+     LUT5:I1->O            1   0.254   0.000  cam_I2C_Driver/sda_int_rstpot_F (N489)
      MUXF7:I0->O           2   0.163   0.000  cam_I2C_Driver/sda_int_rstpot (cam_I2C_Driver/sda_int_rstpot)
      FD:D                      0.074          cam_I2C_Driver/sda_int_C
     ----------------------------------------
@@ -2047,7 +2340,7 @@ Delay:               5.996ns (Levels of Logic = 6)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'IMU_I2C_Driver/data_clk'
   Total number of paths / destination ports: 51 / 51
 -------------------------------------------------------------------------
-Offset:              6.874ns (Levels of Logic = 2)
+Offset:              6.928ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       IMU_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: IMU_I2C_Driver/data_clk rising
@@ -2056,18 +2349,18 @@ Offset:              6.874ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           159   1.328   2.372  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            518   0.255   2.460  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           202   1.328   2.416  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            554   0.255   2.470  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          IMU_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.874ns (2.042ns logic, 4.832ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      6.928ns (2.042ns logic, 4.886ns route)
+                                       (29.5% logic, 70.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 627 / 627
+  Total number of paths / destination ports: 707 / 707
 -------------------------------------------------------------------------
-Offset:              6.874ns (Levels of Logic = 2)
+Offset:              6.928ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       IMU_I2C_Driver/count_16 (FF)
   Destination Clock: clk rising
@@ -2076,18 +2369,18 @@ Offset:              6.874ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           159   1.328   2.372  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            518   0.255   2.460  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           202   1.328   2.416  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            554   0.255   2.470  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDCE:CLR                  0.459          IMU_I2C_Driver/count_0
     ----------------------------------------
-    Total                      6.874ns (2.042ns logic, 4.832ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      6.928ns (2.042ns logic, 4.886ns route)
+                                       (29.5% logic, 70.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Alt_I2C_Driver/data_clk'
   Total number of paths / destination ports: 27 / 27
 -------------------------------------------------------------------------
-Offset:              6.874ns (Levels of Logic = 2)
+Offset:              6.928ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       Alt_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: Alt_I2C_Driver/data_clk rising
@@ -2096,18 +2389,18 @@ Offset:              6.874ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           159   1.328   2.372  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            518   0.255   2.460  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           202   1.328   2.416  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            554   0.255   2.470  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          Alt_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.874ns (2.042ns logic, 4.832ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      6.928ns (2.042ns logic, 4.886ns route)
+                                       (29.5% logic, 70.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'cam_I2C_Driver/data_clk'
   Total number of paths / destination ports: 24 / 24
 -------------------------------------------------------------------------
-Offset:              6.874ns (Levels of Logic = 2)
+Offset:              6.928ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       cam_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: cam_I2C_Driver/data_clk rising
@@ -2116,12 +2409,12 @@ Offset:              6.874ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           159   1.328   2.372  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            518   0.255   2.460  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           202   1.328   2.416  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            554   0.255   2.470  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDC:CLR                   0.459          cam_I2C_Driver/scl_ena
     ----------------------------------------
-    Total                      6.874ns (2.042ns logic, 4.832ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      6.928ns (2.042ns logic, 4.886ns route)
+                                       (29.5% logic, 70.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Alt_I2C_Driver/data_clk'
@@ -2145,7 +2438,7 @@ Offset:              5.866ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 12 / 7
+  Total number of paths / destination ports: 13 / 8
 -------------------------------------------------------------------------
 Offset:              5.317ns (Levels of Logic = 2)
   Source:            IMU_Controller/rw (FF)
@@ -2281,15 +2574,15 @@ clk            |         |         |    5.193|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 32.00 secs
-Total CPU time to Xst completion: 30.82 secs
+Total REAL time to Xst completion: 33.00 secs
+Total CPU time to Xst completion: 32.63 secs
  
 --> 
 
 
-Total memory usage is 440008 kilobytes
+Total memory usage is 443756 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  315 (   0 filtered)
-Number of infos    :   26 (   0 filtered)
+Number of warnings :  394 (   0 filtered)
+Number of infos    :   27 (   0 filtered)
 

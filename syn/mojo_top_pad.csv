@@ -1,7 +1,7 @@
 #Release 14.7 - par P.20131013 (lin64)
 #Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-#Thu Feb  6 01:05:57 2014
+#Thu Feb  6 20:31:53 2014
 
 #
 ## NOTE: This file is designed to be imported into a spreadsheet program
@@ -47,10 +47,10 @@ P25,,,GND,,,,,,,,,,,,
 P26,cam_sda_out,IOB,IO_L37N_3,TRISTATE,LVCMOS25*,3,12,SLOW,,,,UNLOCATED,NO,NONE,
 P27,,IOBM,IO_L37P_3,UNUSED,,3,,,,,,,,,
 P28,,,VCCINT,,,,,,,,1.2,,,,
-P29,cam_scl_out,IOB,IO_L36N_3,BIDIR,LVCMOS25*,3,12,SLOW,,NONE,,UNLOCATED,NO,NONE,
+P29,,IOBS,IO_L36N_3,UNUSED,,3,,,,,,,,,
 P30,,IOBM,IO_L36P_3,UNUSED,,3,,,,,,,,,
 P31,,,VCCO_3,,,3,,,,,2.50,,,,
-P32,,IOBS,IO_L2N_3,UNUSED,,3,,,,,,,,,
+P32,cam_scl_out,IOB,IO_L2N_3,BIDIR,LVCMOS25*,3,12,SLOW,,NONE,,UNLOCATED,NO,NONE,
 P33,,IOBM,IO_L2P_3,UNUSED,,3,,,,,,,,,
 P34,,IOBS,IO_L1N_VREF_3,UNUSED,,3,,,,,,,,,
 P35,,IOBM,IO_L1P_3,UNUSED,,3,,,,,,,,,

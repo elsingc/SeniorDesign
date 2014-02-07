@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Feb 06 01:05:44 2014
+// Written by: Map P.20131013 on Thu Feb 06 20:31:38 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -50,7 +50,7 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "cam_I2C_Driver/count_5" BEL "cam_I2C_Driver/count_4" BEL
         "cam_I2C_Driver/count_3" BEL "cam_I2C_Driver/count_2" BEL
         "cam_I2C_Driver/count_1" BEL "cam_I2C_Driver/count_0" BEL
-        "cam_I2C_Driver/count[16]_clk_DFF_320" BEL
+        "cam_I2C_Driver/count[16]_clk_DFF_480" BEL
         "Data_Controller/state_FSM_FFd1" BEL "Data_Controller/state_FSM_FFd2"
         BEL "Data_Controller/data_tx_7" BEL "Data_Controller/data_tx_6" BEL
         "Data_Controller/data_tx_5" BEL "Data_Controller/data_tx_4" BEL
@@ -60,7 +60,21 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "Data_Controller/addr_6" BEL "Data_Controller/addr_5" BEL
         "Data_Controller/addr_4" BEL "Data_Controller/addr_3" BEL
         "Data_Controller/addr_2" BEL "Data_Controller/addr_1" BEL
-        "Data_Controller/addr_0" BEL "Data_serial_rx/bit_ctr_q_2" BEL
+        "Data_Controller/addr_0" BEL "GPS_serial_rx/bit_ctr_q_2" BEL
+        "GPS_serial_rx/bit_ctr_q_1" BEL "GPS_serial_rx/bit_ctr_q_0" BEL
+        "GPS_serial_rx/state_q_FSM_FFd1" BEL "GPS_serial_rx/state_q_FSM_FFd2"
+        BEL "GPS_serial_rx/ctr_q_12" BEL "GPS_serial_rx/ctr_q_11" BEL
+        "GPS_serial_rx/ctr_q_10" BEL "GPS_serial_rx/ctr_q_9" BEL
+        "GPS_serial_rx/ctr_q_8" BEL "GPS_serial_rx/ctr_q_7" BEL
+        "GPS_serial_rx/ctr_q_6" BEL "GPS_serial_rx/ctr_q_5" BEL
+        "GPS_serial_rx/ctr_q_4" BEL "GPS_serial_rx/ctr_q_3" BEL
+        "GPS_serial_rx/ctr_q_2" BEL "GPS_serial_rx/ctr_q_1" BEL
+        "GPS_serial_rx/ctr_q_0" BEL "GPS_serial_rx/new_data_q" BEL
+        "GPS_serial_rx/data_q_7" BEL "GPS_serial_rx/data_q_6" BEL
+        "GPS_serial_rx/data_q_5" BEL "GPS_serial_rx/data_q_4" BEL
+        "GPS_serial_rx/data_q_3" BEL "GPS_serial_rx/data_q_2" BEL
+        "GPS_serial_rx/data_q_1" BEL "GPS_serial_rx/data_q_0" BEL
+        "GPS_serial_rx/rx_q" BEL "Data_serial_rx/bit_ctr_q_2" BEL
         "Data_serial_rx/bit_ctr_q_1" BEL "Data_serial_rx/bit_ctr_q_0" BEL
         "Data_serial_rx/state_q_FSM_FFd1" BEL
         "Data_serial_rx/state_q_FSM_FFd2" BEL "Data_serial_rx/ctr_q_12" BEL
@@ -75,8 +89,22 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "Data_serial_rx/data_q_4" BEL "Data_serial_rx/data_q_3" BEL
         "Data_serial_rx/data_q_2" BEL "Data_serial_rx/data_q_1" BEL
         "Data_serial_rx/data_q_0" BEL "Data_serial_rx/rx_q" BEL
-        "Data_serial_tx/bit_ctr_q_2" BEL "Data_serial_tx/bit_ctr_q_1" BEL
-        "Data_serial_tx/bit_ctr_q_0" BEL "Data_serial_tx/state_q_FSM_FFd1" BEL
+        "GPS_serial_tx/bit_ctr_q_2" BEL "GPS_serial_tx/bit_ctr_q_1" BEL
+        "GPS_serial_tx/bit_ctr_q_0" BEL "GPS_serial_tx/state_q_FSM_FFd1" BEL
+        "GPS_serial_tx/state_q_FSM_FFd2" BEL "GPS_serial_tx/ctr_q_12" BEL
+        "GPS_serial_tx/ctr_q_11" BEL "GPS_serial_tx/ctr_q_10" BEL
+        "GPS_serial_tx/ctr_q_9" BEL "GPS_serial_tx/ctr_q_8" BEL
+        "GPS_serial_tx/ctr_q_7" BEL "GPS_serial_tx/ctr_q_6" BEL
+        "GPS_serial_tx/ctr_q_5" BEL "GPS_serial_tx/ctr_q_4" BEL
+        "GPS_serial_tx/ctr_q_3" BEL "GPS_serial_tx/ctr_q_2" BEL
+        "GPS_serial_tx/ctr_q_1" BEL "GPS_serial_tx/ctr_q_0" BEL
+        "GPS_serial_tx/tx_q" BEL "GPS_serial_tx/data_q_7" BEL
+        "GPS_serial_tx/data_q_6" BEL "GPS_serial_tx/data_q_5" BEL
+        "GPS_serial_tx/data_q_4" BEL "GPS_serial_tx/data_q_3" BEL
+        "GPS_serial_tx/data_q_2" BEL "GPS_serial_tx/data_q_1" BEL
+        "GPS_serial_tx/data_q_0" BEL "Data_serial_tx/bit_ctr_q_2" BEL
+        "Data_serial_tx/bit_ctr_q_1" BEL "Data_serial_tx/bit_ctr_q_0" BEL
+        "Data_serial_tx/state_q_FSM_FFd1" BEL
         "Data_serial_tx/state_q_FSM_FFd2" BEL "Data_serial_tx/ctr_q_12" BEL
         "Data_serial_tx/ctr_q_11" BEL "Data_serial_tx/ctr_q_10" BEL
         "Data_serial_tx/ctr_q_9" BEL "Data_serial_tx/ctr_q_8" BEL
@@ -475,10 +503,41 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "IMU_Controller/MAGM_Z_0" BEL "IMU_Controller/r_start" BEL
         "IMU_Controller/ena" BEL "IMU_Controller/stop_transfer" BEL
         "IMU_Controller/rw" BEL "IMU_Controller/start_transfer" BEL
-        "sends_one/state_FSM_FFd1" BEL "sends_one/state_FSM_FFd2" BEL
-        "sends_one/state_FSM_FFd3" BEL "sends_one/state_FSM_FFd4" BEL
-        "sends_one/ena" BEL "sends_one/sub_addr_5" BEL "sends_one/sub_addr_4"
-        BEL "sends_one/sub_addr_3" BEL "sends_one/sub_addr_2" BEL
+        "GPS_Controller/rom_msg_1" BEL "GPS_Controller/rom_msg_0" BEL
+        "GPS_Controller/msg_type_15" BEL "GPS_Controller/msg_type_14" BEL
+        "GPS_Controller/msg_type_13" BEL "GPS_Controller/msg_type_12" BEL
+        "GPS_Controller/msg_type_11" BEL "GPS_Controller/msg_type_10" BEL
+        "GPS_Controller/msg_type_9" BEL "GPS_Controller/msg_type_8" BEL
+        "GPS_Controller/msg_type_7" BEL "GPS_Controller/msg_type_6" BEL
+        "GPS_Controller/msg_type_5" BEL "GPS_Controller/msg_type_4" BEL
+        "GPS_Controller/msg_type_3" BEL "GPS_Controller/msg_type_2" BEL
+        "GPS_Controller/msg_type_1" BEL "GPS_Controller/msg_type_0" BEL
+        "GPS_Controller/msg_bytes_to_dump_4" BEL
+        "GPS_Controller/msg_bytes_to_dump_3" BEL
+        "GPS_Controller/msg_bytes_to_dump_2" BEL
+        "GPS_Controller/msg_bytes_to_dump_1" BEL
+        "GPS_Controller/msg_bytes_to_dump_0" BEL "GPS_Controller/ack_index_4"
+        BEL "GPS_Controller/ack_index_3" BEL "GPS_Controller/ack_index_2" BEL
+        "GPS_Controller/ack_index_1" BEL "GPS_Controller/ack_index_0" BEL
+        "GPS_Controller/msg_length_15" BEL "GPS_Controller/msg_length_14" BEL
+        "GPS_Controller/msg_length_13" BEL "GPS_Controller/msg_length_12" BEL
+        "GPS_Controller/msg_length_11" BEL "GPS_Controller/msg_length_10" BEL
+        "GPS_Controller/msg_length_9" BEL "GPS_Controller/msg_length_8" BEL
+        "GPS_Controller/msg_length_7" BEL "GPS_Controller/msg_length_6" BEL
+        "GPS_Controller/msg_length_5" BEL "GPS_Controller/msg_length_4" BEL
+        "GPS_Controller/msg_length_3" BEL "GPS_Controller/msg_length_2" BEL
+        "GPS_Controller/msg_length_1" BEL "GPS_Controller/msg_length_0" BEL
+        "GPS_Controller/tx_send" BEL "GPS_Controller/state_5" BEL
+        "GPS_Controller/state_4" BEL "GPS_Controller/state_3" BEL
+        "GPS_Controller/state_2" BEL "GPS_Controller/state_1" BEL
+        "GPS_Controller/state_0" BEL "GPS_Controller/rom_index_5" BEL
+        "GPS_Controller/rom_index_4" BEL "GPS_Controller/rom_index_3" BEL
+        "GPS_Controller/rom_index_2" BEL "GPS_Controller/rom_index_1" BEL
+        "GPS_Controller/rom_index_0" BEL "sends_one/state_FSM_FFd1" BEL
+        "sends_one/state_FSM_FFd2" BEL "sends_one/state_FSM_FFd3" BEL
+        "sends_one/state_FSM_FFd4" BEL "sends_one/ena" BEL
+        "sends_one/sub_addr_5" BEL "sends_one/sub_addr_4" BEL
+        "sends_one/sub_addr_3" BEL "sends_one/sub_addr_2" BEL
         "sends_one/sub_addr_0" BEL "sends_one/data_wr_7" BEL
         "sends_one/data_wr_6" BEL "sends_one/data_wr_5" BEL
         "sends_one/data_wr_4" BEL "sends_one/data_wr_3" BEL
@@ -487,12 +546,13 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_16" BEL "IMU_I2C_Driver/count_15" BEL
         "sends_one/prev_start" BEL "IMU_I2C_Driver/data_clk" BEL
         "Alt_I2C_Driver/data_clk" BEL "IMU_I2C_Driver/stretch" BEL
         "Alt_I2C_Driver/stretch" BEL "cam_I2C_Driver/stretch" BEL
-        "cam_I2C_Driver/scl_clk" BEL "Data_serial_tx/busy_q" BEL
-        "cam_I2C_Driver/data_clk" BEL "IMU_Controller/data_wr_5" BEL
-        "IMU_Controller/data_wr_1" BEL "IMU_Controller/data_wr_4" BEL
-        "IMU_Controller/data_wr_7" BEL "IMU_Controller/data_wr_6" BEL
-        "IMU_Controller/data_wr_3" BEL "IMU_Controller/data_wr_2" BEL
-        "IMU_Controller/data_wr_0" BEL "clk_BUFGP/BUFG";
+        "cam_I2C_Driver/scl_clk" BEL "GPS_serial_tx/busy_q" BEL
+        "Data_serial_tx/busy_q" BEL "cam_I2C_Driver/data_clk" BEL
+        "IMU_Controller/data_wr_5" BEL "IMU_Controller/data_wr_1" BEL
+        "IMU_Controller/data_wr_4" BEL "IMU_Controller/data_wr_7" BEL
+        "IMU_Controller/data_wr_6" BEL "IMU_Controller/data_wr_3" BEL
+        "IMU_Controller/data_wr_2" BEL "IMU_Controller/data_wr_0" BEL
+        "clk_BUFGP/BUFG";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 
