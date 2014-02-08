@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/zach/SeniorDesign/syn/mojo_top.ncd
-OUTFILE=/home/zach/SeniorDesign/syn/mojo_top.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=/home/zach/SeniorDesign/syn
-LICENSE=WebPack
-USER_INFO=210851410_0_0_915
