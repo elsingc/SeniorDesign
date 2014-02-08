@@ -6,7 +6,6 @@ ise -dd _ngo -nt timestamp -uc /home/zach/SeniorDesign/src/mojo.ucf -p
 xc6slx9-tqg144-2 mojo_top.ngc mojo_top.ngd
 
 Reading NGO file "/home/zach/SeniorDesign/syn/mojo_top.ngc" ...
-Loading design module "/home/zach/SeniorDesign/syn/framebuffer.ngc"...
 Gathering constraint information from source properties...
 Done.
 
@@ -29,10 +28,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 408508 kilobytes
+Total memory usage is 408660 kilobytes
 
 Writing NGD file "mojo_top.ngd" ...
-Total REAL time to NGDBUILD completion:  4 sec
+Total REAL time to NGDBUILD completion:  3 sec
 Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "mojo_top.bld"...

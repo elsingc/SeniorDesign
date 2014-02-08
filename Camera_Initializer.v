@@ -17,7 +17,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module cam_driver(
+module Camera_Initializer(
 	input clk,
 	input start,
 	output reg ena,

@@ -1,7 +1,11 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
+<<<<<<< HEAD
 Thu Feb  6 16:57:11 2014
+=======
+Wed Feb 05 01:32:00 2014
+>>>>>>> master
 
 drc -z mojo_top.ncd mojo_top.pcf
 
