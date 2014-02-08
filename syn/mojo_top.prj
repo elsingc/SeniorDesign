@@ -1,8 +1,0 @@
-verilog work "../src/serial_tx.v"
-verilog work "../src/serial_rx.v"
-verilog work "../Sensor_Reg.v"
-verilog work "../IMU_Controller.v"
-verilog work "../I2C_Driver.v"
-verilog work "../Data_Controller.v"
-verilog work "../Altimeter_Controller.v"
-verilog work "../src/mojo_top.v"

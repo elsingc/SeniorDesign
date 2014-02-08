@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=D:\MyDocs\Documents\GitHub\SeniorDesign\syn\mojo_top.ncd
-OUTFILE=D:\MyDocs\Documents\GitHub\SeniorDesign\syn\mojo_top.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=D:\MyDocs\Documents\GitHub\SeniorDesign\syn
-LICENSE=WebPack
-USER_INFO=210825884_0_0_573
