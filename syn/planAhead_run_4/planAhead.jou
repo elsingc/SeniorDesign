@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Thu Feb 06 21:35:28 2014
+# Process ID: 5904
+# Log file: D:/MyDocs/Documents/GitHub/SeniorDesign/syn/planAhead_run_4/planAhead.log
+# Journal file: D:/MyDocs/Documents/GitHub/SeniorDesign/syn/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source D:/MyDocs/Documents/GitHub/SeniorDesign/syn/pa.fromNetlist.tcl
