@@ -17,7 +17,6 @@
 // Additional Comments: 
 //////////////////////////////////////////////////////////////////////////////////
 module IMU_Controller(
-	output reg [7:0] debug,
 	output reg [15:0] GYRO_TEMP,
 	output reg [15:0] GYRO_X = 16'd0,
 	output reg [15:0] GYRO_Y = 16'd0,
@@ -65,27 +64,27 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						GYRO_INIT_INTRPT_CFG_STOP 			= 18,
 						GYRO_INIT_INTRPT_CFG_WAIT_STOP 	= 19,
 //================ACCL INIT===========================
-						ACCL_INIT_DLPF_START					= 20,
-						ACCL_INIT_DLPF_START_WAIT 			= 21,
-						ACCL_INIT_DLPF_SEND_A6 				= 22,
-						ACCL_INIT_DLPF_WAIT_A6 				= 23,
-						ACCL_INIT_DLPF_SEND_16 				= 24,
-						ACCL_INIT_DLPF_WAIT_16 				= 25,
-						ACCL_INIT_DLPF_SEND_10 				= 26,
-						ACCL_INIT_DLPF_WAIT_10 				= 27, 
-						ACCL_INIT_DLPF_STOP 					= 28,
-						ACCL_INIT_DLPF_WAIT_STOP 			= 29,
+						ACCL_INIT_PWR_CTRL_START			= 20,
+						ACCL_INIT_PWR_CTRL_START_WAIT 	= 21,
+						ACCL_INIT_PWR_CTRL_SEND_A6 		= 22,
+						ACCL_INIT_PWR_CTRL_WAIT_A6 		= 23,
+						ACCL_INIT_PWR_CTRL_SEND_2D 		= 24,
+						ACCL_INIT_PWR_CTRL_WAIT_2D 		= 25,
+						ACCL_INIT_PWR_CTRL_SEND_08 		= 26,
+						ACCL_INIT_PWR_CTRL_WAIT_08 		= 27, 
+						ACCL_INIT_PWR_CTRL_STOP 			= 28,
+						ACCL_INIT_PWR_CTRL_WAIT_STOP 		= 29,
 						
-						ACCL_INIT_INTRPT_CFG_START 		= 30,
-						ACCL_INIT_INTRPT_CFG_WAIT_START 	= 31,
-						ACCL_INIT_INTRPT_CFG_SEND_A6 		= 32,
-						ACCL_INIT_INTRPT_CFG_WAIT_A6 		= 33,
-						ACCL_INIT_INTRPT_CFG_SEND_13 		= 34,
-						ACCL_INIT_INTRPT_CFG_WAIT_13 		= 35,
-						ACCL_INIT_INTRPT_CFG_SEND_07 		= 36,
-						ACCL_INIT_INTRPT_CFG_WAIT_07 		= 37,
-						ACCL_INIT_INTRPT_CFG_STOP 			= 38,
-						ACCL_INIT_INTRPT_CFG_WAIT_STOP 	= 39,
+						ACCL_INIT_FORMAT_START 				= 30,
+						ACCL_INIT_FORMAT_WAIT_START 		= 31,
+						ACCL_INIT_FORMAT_SEND_A6 			= 32,
+						ACCL_INIT_FORMAT_WAIT_A6 			= 33,
+						ACCL_INIT_FORMAT_SEND_31 			= 34,
+						ACCL_INIT_FORMAT_WAIT_31 			= 35,
+						ACCL_INIT_FORMAT_SEND_01 			= 36,
+						ACCL_INIT_FORMAT_WAIT_01 			= 37,
+						ACCL_INIT_FORMAT_STOP 				= 38,
+						ACCL_INIT_FORMAT_WAIT_STOP 		= 39,
 						
 //================MAGM INIT===========================
 						MAGM_INIT_CRA_START					= 40,
@@ -235,8 +234,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_X_MSB_WAIT_START 				= 173,
 						ACCL_X_MSB_SEND_A6 					= 174,
 						ACCL_X_MSB_WAIT_A6 					= 175,
-						ACCL_X_MSB_SEND_50 					= 176,
-						ACCL_X_MSB_WAIT_50 					= 177,
+						ACCL_X_MSB_SEND_33 					= 176,
+						ACCL_X_MSB_WAIT_33 					= 177,
 						ACCL_X_MSB_RSTART 					= 178,
 						ACCL_X_MSB_WAIT_RSTART 				= 179,
 						ACCL_X_MSB_SEND_A7 					= 180,
@@ -250,8 +249,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_X_LSB_WAIT_START 				= 187,
 						ACCL_X_LSB_SEND_A6 					= 188,
 						ACCL_X_LSB_WAIT_A6 					= 189,
-						ACCL_X_LSB_SEND_51 					= 190,
-						ACCL_X_LSB_WAIT_51 					= 191,
+						ACCL_X_LSB_SEND_32 					= 190,
+						ACCL_X_LSB_WAIT_32 					= 191,
 						ACCL_X_LSB_RSTART 					= 192,
 						ACCL_X_LSB_WAIT_RSTART 				= 193,
 						ACCL_X_LSB_SEND_A7 					= 194,
@@ -265,8 +264,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_Y_MSB_WAIT_START 				= 201,
 						ACCL_Y_MSB_SEND_A6 					= 202,
 						ACCL_Y_MSB_WAIT_A6 					= 203,
-						ACCL_Y_MSB_SEND_52 					= 204,
-						ACCL_Y_MSB_WAIT_52 					= 205,
+						ACCL_Y_MSB_SEND_35 					= 204,
+						ACCL_Y_MSB_WAIT_35 					= 205,
 						ACCL_Y_MSB_RSTART 					= 206,
 						ACCL_Y_MSB_WAIT_RSTART 				= 207,
 						ACCL_Y_MSB_SEND_A7 					= 208,
@@ -280,8 +279,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_Y_LSB_WAIT_START 				= 215,
 						ACCL_Y_LSB_SEND_A6 					= 216,
 						ACCL_Y_LSB_WAIT_A6 					= 217,
-						ACCL_Y_LSB_SEND_53 					= 218,
-						ACCL_Y_LSB_WAIT_53 					= 219,
+						ACCL_Y_LSB_SEND_34 					= 218,
+						ACCL_Y_LSB_WAIT_34 					= 219,
 						ACCL_Y_LSB_RSTART 					= 220,
 						ACCL_Y_LSB_WAIT_RSTART 				= 221,
 						ACCL_Y_LSB_SEND_A7 					= 222,
@@ -295,8 +294,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_Z_MSB_WAIT_START 				= 229,
 						ACCL_Z_MSB_SEND_A6 					= 230,
 						ACCL_Z_MSB_WAIT_A6 					= 231,
-						ACCL_Z_MSB_SEND_54 					= 232,
-						ACCL_Z_MSB_WAIT_54 					= 233,
+						ACCL_Z_MSB_SEND_37 					= 232,
+						ACCL_Z_MSB_WAIT_37 					= 233,
 						ACCL_Z_MSB_RSTART 					= 234,
 						ACCL_Z_MSB_WAIT_RSTART 				= 235,
 						ACCL_Z_MSB_SEND_A7 					= 236,
@@ -310,8 +309,8 @@ localparam 			GYRO_INIT_DLPF_START					= 0,
 						ACCL_Z_LSB_WAIT_START 				= 243,
 						ACCL_Z_LSB_SEND_A6 					= 244,
 						ACCL_Z_LSB_WAIT_A6 					= 245,
-						ACCL_Z_LSB_SEND_55 					= 246,
-						ACCL_Z_LSB_WAIT_55 					= 247,
+						ACCL_Z_LSB_SEND_36 					= 246,
+						ACCL_Z_LSB_WAIT_36 					= 247,
 						ACCL_Z_LSB_RSTART 					= 248,
 						ACCL_Z_LSB_WAIT_RSTART 				= 249,
 						ACCL_Z_LSB_SEND_A7 					= 250,
@@ -721,14 +720,14 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_START;
+					state <= ACCL_INIT_PWR_CTRL_START;//ACCL_INIT_FORMAT_START;//ACCL_INIT_DLPF_START;//
 				end else begin
 					state <= GYRO_INIT_INTRPT_CFG_WAIT_STOP;
 				end
 			end 			
 		 	 
 //=======ACCL INIT=======================
-			ACCL_INIT_DLPF_START:begin
+			ACCL_INIT_PWR_CTRL_START:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -737,13 +736,13 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				if(busy) begin
 					ena <= 1'b0;
-					state<=ACCL_INIT_DLPF_START_WAIT;
+					state<=ACCL_INIT_PWR_CTRL_START_WAIT;
 				end else begin
-					state<=ACCL_INIT_DLPF_START;
+					state<=ACCL_INIT_PWR_CTRL_START;
 				end
 			end 			
 		 					
-			ACCL_INIT_DLPF_START_WAIT:begin
+			ACCL_INIT_PWR_CTRL_START_WAIT:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -751,13 +750,13 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_SEND_A6;
+					state <= ACCL_INIT_PWR_CTRL_SEND_A6;
 				end else begin
-					state <= ACCL_INIT_DLPF_START_WAIT;
+					state <= ACCL_INIT_PWR_CTRL_START_WAIT;
 				end
 			end 			
 		 	 		
-			ACCL_INIT_DLPF_SEND_A6:begin
+			ACCL_INIT_PWR_CTRL_SEND_A6:begin
 				ena <= 1'b1;
 				data_wr <= 8'hA6;
 				rw <= 1'b0;
@@ -765,14 +764,14 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_DLPF_SEND_A6;
+					state <= ACCL_INIT_PWR_CTRL_SEND_A6;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_DLPF_WAIT_A6;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_A6;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_WAIT_A6:begin
+			ACCL_INIT_PWR_CTRL_WAIT_A6:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -780,28 +779,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_SEND_16;
+					state <= ACCL_INIT_PWR_CTRL_SEND_2D;
 				end else begin
-					state <= ACCL_INIT_DLPF_WAIT_A6;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_A6;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_SEND_16:begin
+			ACCL_INIT_PWR_CTRL_SEND_2D:begin
 				ena <= 1'b1;
-				data_wr <= 8'h16;
+				data_wr <= 8'h2D;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_DLPF_SEND_16;
+					state <= ACCL_INIT_PWR_CTRL_SEND_2D;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_DLPF_WAIT_16;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_2D;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_WAIT_16:begin
+			ACCL_INIT_PWR_CTRL_WAIT_2D:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -809,28 +808,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_SEND_10;
+					state <= ACCL_INIT_PWR_CTRL_SEND_08;
 				end else begin
-					state <= ACCL_INIT_DLPF_WAIT_16;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_2D;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_SEND_10:begin
+			ACCL_INIT_PWR_CTRL_SEND_08:begin
 				ena <= 1'b1;
-				data_wr <= 8'h10;
+				data_wr <= 8'h08;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_DLPF_SEND_10;
+					state <= ACCL_INIT_PWR_CTRL_SEND_08;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_DLPF_WAIT_10;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_08;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_WAIT_10:begin
+			ACCL_INIT_PWR_CTRL_WAIT_08:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -838,24 +837,24 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_STOP;
+					state <= ACCL_INIT_PWR_CTRL_STOP;
 				end else begin
-					state <= ACCL_INIT_DLPF_WAIT_10;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_08;
 				end
 			end 			
 		 	 			
-			ACCL_INIT_DLPF_STOP:begin
+			ACCL_INIT_PWR_CTRL_STOP:begin
 				start_transfer <= 1'b0;
 				stop_transfer <= 1'b1;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_DLPF_STOP;
+					state <= ACCL_INIT_PWR_CTRL_STOP;
 				end else begin
-					state <= ACCL_INIT_DLPF_WAIT_STOP;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_STOP;
 				end
 			end 			
 		 	 				
-			ACCL_INIT_DLPF_WAIT_STOP:begin
+			ACCL_INIT_PWR_CTRL_WAIT_STOP:begin
 				ena <= 1'b0;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -863,14 +862,14 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_START;
+					state <= ACCL_INIT_FORMAT_START;
 				end else begin
-					state <= ACCL_INIT_DLPF_WAIT_STOP;
+					state <= ACCL_INIT_PWR_CTRL_WAIT_STOP;
 				end
 			end 			
 		 	 		
 //================		
-			ACCL_INIT_INTRPT_CFG_START:begin
+			ACCL_INIT_FORMAT_START:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -879,13 +878,13 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				if(busy) begin
 					ena <= 1'b0;
-					state<=ACCL_INIT_INTRPT_CFG_WAIT_START;
+					state<=ACCL_INIT_FORMAT_WAIT_START;
 				end else begin
-					state<=ACCL_INIT_INTRPT_CFG_START;
+					state<=ACCL_INIT_FORMAT_START;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_WAIT_START:begin
+			ACCL_INIT_FORMAT_WAIT_START:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -893,13 +892,13 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_SEND_A6;
+					state <= ACCL_INIT_FORMAT_SEND_A6;
 				end else begin
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_START;
+					state <= ACCL_INIT_FORMAT_WAIT_START;
 				end
 			end 			
 		 	
-			ACCL_INIT_INTRPT_CFG_SEND_A6:begin
+			ACCL_INIT_FORMAT_SEND_A6:begin
 				ena <= 1'b1;
 				data_wr <= 8'hA6;
 				rw <= 1'b0;
@@ -907,14 +906,14 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_INTRPT_CFG_SEND_A6;
+					state <= ACCL_INIT_FORMAT_SEND_A6;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_A6;
+					state <= ACCL_INIT_FORMAT_WAIT_A6;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_WAIT_A6:begin
+			ACCL_INIT_FORMAT_WAIT_A6:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -922,28 +921,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_SEND_13;
+					state <= ACCL_INIT_FORMAT_SEND_31;
 				end else begin
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_A6;
+					state <= ACCL_INIT_FORMAT_WAIT_A6;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_SEND_13:begin
+			ACCL_INIT_FORMAT_SEND_31:begin
 				ena <= 1'b1;
-				data_wr <= 8'h13;
+				data_wr <= 8'h31;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_INTRPT_CFG_SEND_13;
+					state <= ACCL_INIT_FORMAT_SEND_31;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_13;
+					state <= ACCL_INIT_FORMAT_WAIT_31;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_WAIT_13:begin
+			ACCL_INIT_FORMAT_WAIT_31:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -951,28 +950,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_SEND_07;
+					state <= ACCL_INIT_FORMAT_SEND_01;
 				end else begin
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_13;
+					state <= ACCL_INIT_FORMAT_WAIT_31;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_SEND_07:begin
+			ACCL_INIT_FORMAT_SEND_01:begin
 				ena <= 1'b1;
-				data_wr <= 8'h07;
+				data_wr <= 8'h01;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_INIT_INTRPT_CFG_SEND_07;
+					state <= ACCL_INIT_FORMAT_SEND_01;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_07;
+					state <= ACCL_INIT_FORMAT_WAIT_01;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_WAIT_07:begin
+			ACCL_INIT_FORMAT_WAIT_01:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -980,24 +979,24 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_STOP;
+					state <= ACCL_INIT_FORMAT_STOP;
 				end else begin
-					state <=ACCL_INIT_INTRPT_CFG_WAIT_07;
+					state <=ACCL_INIT_FORMAT_WAIT_01;
 				end
 			end 			
 		 	 	
-			ACCL_INIT_INTRPT_CFG_STOP:begin
+			ACCL_INIT_FORMAT_STOP:begin
 				start_transfer <= 1'b0;
 				stop_transfer <= 1'b1;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_INIT_INTRPT_CFG_STOP;
+					state <= ACCL_INIT_FORMAT_STOP;
 				end else begin
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_STOP;
+					state <= ACCL_INIT_FORMAT_WAIT_STOP;
 				end
 			end 			
 		 	 		
-			ACCL_INIT_INTRPT_CFG_WAIT_STOP:begin
+			ACCL_INIT_FORMAT_WAIT_STOP:begin
 				ena <= 1'b0;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -1007,9 +1006,9 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= MAGM_INIT_CRA_START;
 				end else begin
-					state <= ACCL_INIT_INTRPT_CFG_WAIT_STOP;
+					state <= ACCL_INIT_FORMAT_WAIT_STOP;
 				end
-			end 			
+			end 		
 		 	 
 		
 //=======MAGM INIT=======================
@@ -1465,7 +1464,6 @@ always @(posedge clk or posedge rst) begin
 				r_start <= 1'b0;
 				if(!busy) begin
 					GYRO_TEMP[15:8] <= data_rd;
-					debug <= data_rd;
 					state <= GYRO_T_MSB_STOP;
 				end else begin
 					state <= GYRO_T_MSB_WAIT_READ;
@@ -1666,7 +1664,6 @@ always @(posedge clk or posedge rst) begin
 				r_start <= 1'b0;
 				if(!busy) begin
 					GYRO_TEMP[7:0] <= data_rd;
-					debug <= data_rd;
 					state <= GYRO_T_LSB_STOP;
 				end else begin
 					state <= GYRO_T_LSB_WAIT_READ;
@@ -1867,7 +1864,6 @@ always @(posedge clk or posedge rst) begin
 				r_start <= 1'b0;
 				if(!busy) begin
 					GYRO_X[15:8] <= data_rd;
-					debug <= data_rd;
 					state <= GYRO_X_MSB_STOP;
 				end else begin
 					state <= GYRO_X_MSB_WAIT_READ;
@@ -2067,7 +2063,6 @@ always @(posedge clk or posedge rst) begin
 				r_start <= 1'b0;
 				if(!busy) begin
 					GYRO_X[7:0] <= data_rd;
-					debug <= data_rd;
 					state <= GYRO_X_LSB_STOP;
 				end else begin
 					state <= GYRO_X_LSB_WAIT_READ;
@@ -2954,28 +2949,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_X_MSB_SEND_50;
+					state <= ACCL_X_MSB_SEND_33;
 				end else begin
 					state <= ACCL_X_MSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_X_MSB_SEND_50:begin
+			ACCL_X_MSB_SEND_33:begin
 				ena <= 1'b1;
-				data_wr <= 8'h50;
+				data_wr <= 8'h33;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_X_MSB_SEND_50;
+					state <= ACCL_X_MSB_SEND_33;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_X_MSB_WAIT_50;
+					state <= ACCL_X_MSB_WAIT_33;
 				end
 			end 			
 		 	 				
-			ACCL_X_MSB_WAIT_50:begin
+			ACCL_X_MSB_WAIT_33:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -2985,7 +2980,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_X_MSB_RSTART;
 				end else begin
-					state <= ACCL_X_MSB_WAIT_50;
+					state <= ACCL_X_MSB_WAIT_33;
 				end
 			end 			
 		 	 				
@@ -3154,28 +3149,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_X_LSB_SEND_51;
+					state <= ACCL_X_LSB_SEND_32;
 				end else begin
 					state <= ACCL_X_LSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_X_LSB_SEND_51:begin
+			ACCL_X_LSB_SEND_32:begin
 				ena <= 1'b1;
-				data_wr <= 8'h51;
+				data_wr <= 8'h32;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_X_LSB_SEND_51;
+					state <= ACCL_X_LSB_SEND_32;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_X_LSB_WAIT_51;
+					state <= ACCL_X_LSB_WAIT_32;
 				end
 			end 			
 		 	 				
-			ACCL_X_LSB_WAIT_51:begin
+			ACCL_X_LSB_WAIT_32:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -3185,7 +3180,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_X_LSB_RSTART;
 				end else begin
-					state <= ACCL_X_LSB_WAIT_51;
+					state <= ACCL_X_LSB_WAIT_32;
 				end
 			end 			
 		 	 				
@@ -3354,28 +3349,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_Y_MSB_SEND_52;
+					state <= ACCL_Y_MSB_SEND_35;
 				end else begin
 					state <= ACCL_Y_MSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_Y_MSB_SEND_52:begin
+			ACCL_Y_MSB_SEND_35:begin
 				ena <= 1'b1;
-				data_wr <= 8'h52;
+				data_wr <= 8'h35;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_Y_MSB_SEND_52;
+					state <= ACCL_Y_MSB_SEND_35;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_Y_MSB_WAIT_52;
+					state <= ACCL_Y_MSB_WAIT_35;
 				end
 			end 			
 		 	 				
-			ACCL_Y_MSB_WAIT_52:begin
+			ACCL_Y_MSB_WAIT_35:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -3385,7 +3380,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_Y_MSB_RSTART;
 				end else begin
-					state <= ACCL_Y_MSB_WAIT_52;
+					state <= ACCL_Y_MSB_WAIT_35;
 				end
 			end 			
 		 	 				
@@ -3554,28 +3549,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_Y_LSB_SEND_53;
+					state <= ACCL_Y_LSB_SEND_34;
 				end else begin
 					state <= ACCL_Y_LSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_Y_LSB_SEND_53:begin
+			ACCL_Y_LSB_SEND_34:begin
 				ena <= 1'b1;
-				data_wr <= 8'h53;
+				data_wr <= 8'h34;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_Y_LSB_SEND_53;
+					state <= ACCL_Y_LSB_SEND_34;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_Y_LSB_WAIT_53;
+					state <= ACCL_Y_LSB_WAIT_34;
 				end
 			end 			
 		 	 				
-			ACCL_Y_LSB_WAIT_53:begin
+			ACCL_Y_LSB_WAIT_34:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -3585,7 +3580,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_Y_LSB_RSTART;
 				end else begin
-					state <= ACCL_Y_LSB_WAIT_53;
+					state <= ACCL_Y_LSB_WAIT_34;
 				end
 			end 			
 		 	 				
@@ -3754,28 +3749,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_Z_MSB_SEND_54;
+					state <= ACCL_Z_MSB_SEND_37;
 				end else begin
 					state <= ACCL_Z_MSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_Z_MSB_SEND_54:begin
+			ACCL_Z_MSB_SEND_37:begin
 				ena <= 1'b1;
-				data_wr <= 8'h54;
+				data_wr <= 8'h37;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_Z_MSB_SEND_54;
+					state <= ACCL_Z_MSB_SEND_37;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_Z_MSB_WAIT_54;
+					state <= ACCL_Z_MSB_WAIT_37;
 				end
 			end 			
 		 	 				
-			ACCL_Z_MSB_WAIT_54:begin
+			ACCL_Z_MSB_WAIT_37:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -3785,7 +3780,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_Z_MSB_RSTART;
 				end else begin
-					state <= ACCL_Z_MSB_WAIT_54;
+					state <= ACCL_Z_MSB_WAIT_37;
 				end
 			end 			
 		 	 				
@@ -3954,28 +3949,28 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					state <= ACCL_Z_LSB_SEND_55;
+					state <= ACCL_Z_LSB_SEND_36;
 				end else begin
 					state <= ACCL_Z_LSB_WAIT_A6;
 				end
 			end 			
 		 	 				
-			ACCL_Z_LSB_SEND_55:begin
+			ACCL_Z_LSB_SEND_36:begin
 				ena <= 1'b1;
-				data_wr <= 8'h55;
+				data_wr <= 8'h36;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= ACCL_Z_LSB_SEND_55;
+					state <= ACCL_Z_LSB_SEND_36;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= ACCL_Z_LSB_WAIT_55;
+					state <= ACCL_Z_LSB_WAIT_36;
 				end
 			end 			
 		 	 				
-			ACCL_Z_LSB_WAIT_55:begin
+			ACCL_Z_LSB_WAIT_36:begin
 				ena <= 1'b1;
 				data_wr <= 8'h00;
 				rw <= 1'b0;
@@ -3985,7 +3980,7 @@ always @(posedge clk or posedge rst) begin
 				if(!busy) begin
 					state <= ACCL_Z_LSB_RSTART;
 				end else begin
-					state <= 	ACCL_Z_LSB_WAIT_55;
+					state <= 	ACCL_Z_LSB_WAIT_36;
 				end
 			end 			
 		 					
@@ -4268,7 +4263,7 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					MAGM_X[15:0] <= data_rd;
+					MAGM_X[15:8] <= data_rd;
 					state <= MAGM_X_MSB_STOP;
 				end else begin
 					state <= MAGM_X_MSB_WAIT_READ;
@@ -4668,7 +4663,7 @@ always @(posedge clk or posedge rst) begin
 				stop_transfer <= 1'b0;
 				r_start <= 1'b0;
 				if(!busy) begin
-					MAGM_Z[15:0] <= data_rd;
+					MAGM_Z[15:8] <= data_rd;
 					state <= MAGM_Z_MSB_STOP;
 				end else begin
 					state <= MAGM_Z_MSB_WAIT_READ;

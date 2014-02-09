@@ -47,7 +47,7 @@ wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z,
 wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
 wire [7:0] data_data_addr, snsr_data, snsr_addr, data_data_tx, data_data_rx;
 Data_Controller Data_Controller(
-	.debug(),
+	.debug(led),
 	.busy(data_busy),
 	.block(data_block), //set to 0
 	.new_data_tx(data_new_data_tx),
@@ -60,7 +60,7 @@ Data_Controller Data_Controller(
 	.clk(clk)
 );
 	 
-serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) Data_serial_rx (
+serial_rx #(.CLK_PER_BIT(434), .CTR_SIZE(13)) Data_serial_rx (
 	.clk(clk),
 	.rst(rst),
 	.rx(data_rx),
@@ -68,7 +68,7 @@ serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) Data_serial_rx (
 	.new_data(data_new_data_rx)
 );	 
 	
-serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) Data_serial_tx (
+serial_tx #(.CLK_PER_BIT(434), .CTR_SIZE(13)) Data_serial_tx (
 	.clk(clk),
 	.rst(rst),
 	.tx(data_tx),
@@ -109,7 +109,6 @@ Sensor_Reg Sensor_Reg(
 wire alt_ena, alt_rw, alt_busy, alt_ready, alt_ack_err, alt_start_transfer, alt_stop_transfer, alt_r_start;
 wire [7:0] alt_data_wr, alt_data_rd;
 Altimeter_Controller Altimeter_Controller(
-	.debug(),
 	.pressure(pressure),
 	.temp(alt_temp),
 	.ena(alt_ena),
@@ -147,7 +146,6 @@ wire imu_ena, imu_rw, imu_busy, imu_ack_err, imu_start_transfer, imu_stop_transf
 wire [7:0] imu_data_wr, imu_data_rd;
 
 IMU_Controller IMU_Controller(
-	.debug(led),
 	.GYRO_TEMP(gyro_temp),
 	.GYRO_X(gyro_x),
 	.GYRO_Y(gyro_y),
