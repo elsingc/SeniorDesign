@@ -57,8 +57,8 @@ localparam 	system_ready = 0,
 				
 reg [STATE_SIZE:0] state = system_ready;
 
-reg [3:0] bitcount;
-reg [21:0] count;
+reg [3:0] bitcount  = 4'd0;
+reg [7:0] count  = 8'd0;
 
 reg data_clk = 1'b1;
 reg scl_clk = 1'b1;
@@ -94,10 +94,10 @@ end
 always @(posedge clk or posedge rst)begin
 	if(rst) begin
 		stretch <= 1'b0;
-		count <= 1'b0;
+		count <= 8'd0;
 	end else begin
 		if(count ==((divider*4)-1)) begin
-			count <= 1'b0;
+			count <= 8'd0;
 		end else if(stretch == 0) begin
 			count <= count + 1'b1;
 		end

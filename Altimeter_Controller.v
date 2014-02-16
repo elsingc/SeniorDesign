@@ -1,5 +1,4 @@
 module Altimeter_Controller(
-	output reg [7:0]debug,
 	output reg [23:0] pressure,
 	output reg [15:0] temp,
 	output reg ena,

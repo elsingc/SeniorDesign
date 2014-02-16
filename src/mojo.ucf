@@ -32,13 +32,13 @@ NET "led<7>" LOC = P123;
 #NET "href" LOC = P35;
 #NET "vsync" LOC = P33;
 
-NET "alt_sda_out" LOC = P75;
-NET "alt_scl_out" LOC = P74;
-NET "imu_sda_out" LOC = P67;
-NET "imu_scl_out" LOC = P66;
+NET "alt_sda_out" LOC = P34;
+NET "alt_scl_out" LOC = P32;
+NET "imu_sda_out" LOC = P16;
+NET "imu_scl_out" LOC = P21;
 
-NET "data_tx" LOC = P79;
-NET "data_rx" LOC = P78;
+NET "data_tx" LOC = P50;
+NET "data_rx" LOC = P51;
 
 NET "gps_tx" LOC = P99;
 NET "gps_rx" LOC = P117;

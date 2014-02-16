@@ -44,8 +44,17 @@ input clk
     );
 
 reg [23:0] int_pressure;
-reg [15:0] int_alt_temp, int_gyro_temp, int_gyro_x, int_gyro_y, int_gyro_z, int_x_accl, int_y_accl;
-reg [15:0] int_z_accl, int_magm_x, int_magm_y, int_magm_z;
+reg [15:0] 	int_alt_temp = 16'd0, 
+				int_gyro_temp = 16'd0, 
+				int_gyro_x = 16'd0, 
+				int_gyro_y = 16'd0, 
+				int_gyro_z = 16'd0, 
+				int_x_accl = 16'd0, 
+				int_y_accl = 16'd0,
+				int_z_accl = 16'd0, 
+				int_magm_x = 16'd0, 
+				int_magm_y = 16'd0, 
+				int_magm_z = 16'd0;
 always@(*) begin
 	if(rst)begin
 	
