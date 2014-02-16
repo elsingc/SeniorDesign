@@ -27,8 +27,8 @@ module mojo_top(
 	 /*inout cam_sda_out,
 	 inout cam_scl_out,*/
 	 
-	 input gps_rx_pin,
-	 output gps_tx_pin,
+	 input gps_rx,
+	 output gps_tx,
 	 
 	 //input start,
 	 output data_tx, 
@@ -192,26 +192,29 @@ I2C_Driver IMU_I2C_Driver(
 );	 
 
 //====================GPS===============================================
-wire gps_tx_send, gps_tx_busy, gps_rx_new_data;
-wire [7:0] gps_tx, gps_rx;
-serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_tx (
-	.clk(clk),
-	.rst(rst),
-	.tx(gps_tx_pin),
-	.block(),
-	.busy(gps_tx_busy),
-	.data(gps_tx),
-	.new_data(gps_tx_send)
-	);
+wire gps_tx_req_speed, gps_tx_cur_speed, gps_tx_block, gps_tx_busy,
+		gps_tx_send, gps_rx_new;
+wire [7:0] gps_tx_data, gps_rx_data;
 
-serial_rx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_rx (
+serial_tx_dualspeed gps_serial_tx(
 	.clk(clk),
 	.rst(rst),
-	.rx(gps_rx_pin),
-	.data(gps_rx),
-	.new_data(gps_rx_new_data)
+	.requested_speed(gps_tx_req_speed),
+	.current_speed(gps_tx_cur_speed),
+	.tx(gps_tx),
+	.block(gps_tx_block),
+	.busy(gps_tx_busy),
+	.data(gps_tx_data),
+	.new_data(gps_tx_send)
 );
 
+serial_rx #(.CLK_PER_BIT(434), .CTR_SIZE(9)) gps_serial_rx(
+	.clk(clk),
+	.rst(rst),
+	.rx(gps_rx),
+	.data(gps_rx_data),
+	.new_data(gps_rx_new)
+);
 
 GPS_Controller GPS_Controller(
 	.lon(gps_lon),
@@ -219,15 +222,15 @@ GPS_Controller GPS_Controller(
 	.time_(gps_time),
 	.ground_speed(ground_speed),
 
-	.tx_data(gps_tx),
+	.tx_data(gps_tx_data),
 	.tx_send(gps_tx_send),
 	.tx_busy(gps_tx_busy),
+	.tx_req_speed(gps_tx_req_speed),
+	.tx_cur_speed(gps_tx_cur_speed),
 	
-	.rx_data(gps_rx),
-	.rx_new(gps_rx_new_data),
+	.rx_data(gps_rx_data),
+	.rx_new(gps_rx_new),
 
-	.busy(),
-	.new(),
 	.rst(rst),
 	.clk(clk)
 );
