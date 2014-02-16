@@ -112,14 +112,12 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="mojo_top.lso"/>
       <outfile xil_pn:name="mojo_top.ngc"/>
       <outfile xil_pn:name="mojo_top.ngr"/>
-      <outfile xil_pn:name="mojo_top.prj"/>
       <outfile xil_pn:name="mojo_top.stx"/>
       <outfile xil_pn:name="mojo_top.syr"/>
-      <outfile xil_pn:name="mojo_top.xst"/>
       <outfile xil_pn:name="mojo_top_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
@@ -131,9 +129,10 @@
     <transform xil_pn:end_ts="1392096480" xil_pn:in_ck="5111505409790565208" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-3851582039775470388" xil_pn:start_ts="1392096473">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="mojo_top.bld"/>
       <outfile xil_pn:name="mojo_top.ngd"/>
       <outfile xil_pn:name="mojo_top_ngdbuild.xrpt"/>
     </transform>
@@ -141,9 +140,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="mojo_top.pcf"/>
       <outfile xil_pn:name="mojo_top_map.map"/>
       <outfile xil_pn:name="mojo_top_map.mrp"/>
@@ -156,13 +156,14 @@
     <transform xil_pn:end_ts="1392096536" xil_pn:in_ck="-6437872894870959000" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1392096508">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="mojo_top.ncd"/>
       <outfile xil_pn:name="mojo_top.pad"/>
       <outfile xil_pn:name="mojo_top.par"/>
       <outfile xil_pn:name="mojo_top.ptwx"/>
       <outfile xil_pn:name="mojo_top.unroutes"/>
-      <outfile xil_pn:name="mojo_top.xpi"/>
       <outfile xil_pn:name="mojo_top_pad.csv"/>
       <outfile xil_pn:name="mojo_top_pad.txt"/>
       <outfile xil_pn:name="mojo_top_par.xrpt"/>
@@ -170,12 +171,13 @@
     <transform xil_pn:end_ts="1392096562" xil_pn:in_ck="-306163040853111181" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="-2715821302113285865" xil_pn:start_ts="1392096536">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="mojo_top.bgn"/>
       <outfile xil_pn:name="mojo_top.bin"/>
       <outfile xil_pn:name="mojo_top.bit"/>
       <outfile xil_pn:name="mojo_top.drc"/>
-      <outfile xil_pn:name="mojo_top.ut"/>
       <outfile xil_pn:name="usage_statistics_webtalk.html"/>
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
@@ -183,7 +185,9 @@
     <transform xil_pn:end_ts="1392096536" xil_pn:in_ck="8202202867119205707" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1392096527">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="mojo_top.twr"/>
       <outfile xil_pn:name="mojo_top.twx"/>
     </transform>
