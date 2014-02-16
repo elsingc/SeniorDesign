@@ -99,6 +99,9 @@ DSP48 Utilization Ratio            : 100
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {".."  }
+
 =========================================================================
 
 
@@ -127,10 +130,10 @@ Parsing module <mojo_top>.
 =========================================================================
 
 Elaborating module <mojo_top>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 36: Assignment to spi_miso ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 37: Assignment to avr_rx ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: Result of 4-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: Assignment to spi_channel ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 43: Assignment to spi_miso ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 44: Assignment to avr_rx ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 45: Result of 4-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 45: Assignment to spi_channel ignored, since the identifier is never used
 
 Elaborating module <Data_Controller>.
 
@@ -147,9 +150,10 @@ WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v
 WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" Line 321: Assignment to sda_int_negedge ignored, since the identifier is never used
 
 Elaborating module <IMU_Controller>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 180: Assignment to imu_ack_err ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 47: Net <data_block> does not have a driver.
-WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 81: Input port x_gps[19] is not connected on this instance
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 186: Assignment to imu_ack_err ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 52: Net <gps_lon[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 55: Net <data_block> does not have a driver.
+WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 89: Input port air_speed_p[15] is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -157,14 +161,14 @@ WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.
 
 Synthesizing Unit <mojo_top>.
     Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v".
-WARNING:Xst:2898 - Port 'x_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'y_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'z_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'time_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'ground_speed', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_p', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_n', unconnected in block instance 'Sensor_Reg', is tied to GND.
-INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 172: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 57: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 178: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <gps_lon> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <gps_lat> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <gps_time> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ground_speed> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <data_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
@@ -272,10 +276,9 @@ Unit <serial_tx> synthesized.
 
 Synthesizing Unit <Sensor_Reg>.
     Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\Sensor_Reg.v".
-WARNING:Xst:647 - Input <x_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <y_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <z_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <time_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_lon> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_lat> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_time> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <ground_speed> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <air_speed_p> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -291,7 +294,7 @@ WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved
     Found 16-bit register for signal <int_magm_x>.
     Found 16-bit register for signal <int_magm_y>.
     Found 16-bit register for signal <int_magm_z>.
-    Found 8-bit 25-to-1 multiplexer for signal <_n0160> created at line 64.
+    Found 8-bit 25-to-1 multiplexer for signal <_n0159> created at line 62.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1287,6 +1290,14 @@ Optimizing unit <Altimeter_Controller> ...
 
 Optimizing unit <IMU_Controller> ...
 WARNING:Xst:2677 - Node <Alt_I2C_Driver/ack_err> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_0> of sequential type is unconnected in block <mojo_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -1300,8 +1311,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1083
- Flip-Flops                                            : 1083
+# Registers                                            : 1075
+ Flip-Flops                                            : 1075
 
 =========================================================================
 
@@ -1324,24 +1335,24 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1835
+# BELS                             : 1832
 #      GND                         : 1
 #      INV                         : 7
 #      LUT1                        : 26
 #      LUT2                        : 40
-#      LUT3                        : 282
-#      LUT4                        : 426
-#      LUT5                        : 110
-#      LUT6                        : 562
+#      LUT3                        : 290
+#      LUT4                        : 424
+#      LUT5                        : 111
+#      LUT6                        : 552
 #      MUXCY                       : 319
 #      MUXF7                       : 19
 #      VCC                         : 1
 #      XORCY                       : 42
-# FlipFlops/Latches                : 1092
+# FlipFlops/Latches                : 1084
 #      FD                          : 17
 #      FDC                         : 653
 #      FDCE                        : 26
-#      FDE                         : 333
+#      FDE                         : 325
 #      FDE_1                       : 16
 #      FDP                         : 8
 #      FDPE                        : 8
@@ -1365,16 +1376,16 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1092  out of  11440     9%  
- Number of Slice LUTs:                 1453  out of   5720    25%  
-    Number used as Logic:              1453  out of   5720    25%  
+ Number of Slice Registers:            1084  out of  11440     9%  
+ Number of Slice LUTs:                 1450  out of   5720    25%  
+    Number used as Logic:              1450  out of   5720    25%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1661
-   Number with an unused Flip Flop:     569  out of   1661    34%  
-   Number with an unused LUT:           208  out of   1661    12%  
-   Number of fully used LUT-FF pairs:   884  out of   1661    53%  
-   Number of unique control sets:        32
+ Number of LUT Flip Flop pairs used:   1649
+   Number with an unused Flip Flop:     565  out of   1649    34%  
+   Number with an unused LUT:           199  out of   1649    12%  
+   Number of fully used LUT-FF pairs:   885  out of   1649    53%  
+   Number of unique control sets:        31
 
 IO Utilization: 
  Number of IOs:                          16
@@ -1405,7 +1416,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 IMU_I2C_Driver/data_clk            | BUFG                   | 46    |
-clk                                | BUFGP                  | 991   |
+clk                                | BUFGP                  | 983   |
 Alt_I2C_Driver/data_clk            | BUFG                   | 46    |
 rst_n                              | IBUF+BUFG              | 9     |
 -----------------------------------+------------------------+-------+
@@ -1453,7 +1464,7 @@ Delay:               3.380ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.472ns (frequency: 118.043MHz)
-  Total number of paths / destination ports: 337541 / 1073
+  Total number of paths / destination ports: 337445 / 1057
 -------------------------------------------------------------------------
 Delay:               8.472ns (Levels of Logic = 32)
   Source:            IMU_Controller/state_FSM_FFd257 (FF)
@@ -1494,7 +1505,7 @@ Delay:               8.472ns (Levels of Logic = 32)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<26> (IMU_Controller/state_state[0]_wg_cy<26>)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<27> (IMU_Controller/state_state[0]_wg_cy<27>)
      MUXCY:CI->O          18   0.235   1.665  IMU_Controller/state_state[0]_wg_cy<28> (IMU_Controller/state[0])
-     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N140)
+     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N138)
      LUT6:I4->O            1   0.250   0.790  IMU_Controller/_n13768_inv8_SW1 (N227)
      LUT6:I4->O            6   0.250   0.876  IMU_Controller/data_wr_7_rstpot_SW0 (N178)
      LUT6:I5->O            1   0.254   0.000  IMU_Controller/data_wr_7_rstpot (IMU_Controller/data_wr_7_rstpot)
@@ -1539,7 +1550,7 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
      INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          IMU_I2C_Driver/sda_int
     ----------------------------------------
@@ -1548,7 +1559,7 @@ Offset:              6.990ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 960 / 960
+  Total number of paths / destination ports: 952 / 952
 -------------------------------------------------------------------------
 Offset:              6.990ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
@@ -1559,7 +1570,7 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
      INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDCE:CLR                  0.459          IMU_I2C_Driver/count_0
     ----------------------------------------
@@ -1579,32 +1590,12 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
      INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          Alt_I2C_Driver/sda_int
     ----------------------------------------
     Total                      6.990ns (2.042ns logic, 4.948ns route)
                                        (29.2% logic, 70.8% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 17 / 13
--------------------------------------------------------------------------
-Offset:              5.317ns (Levels of Logic = 2)
-  Source:            Altimeter_Controller/rw (FF)
-  Destination:       alt_sda_out (PAD)
-  Source Clock:      clk rising
-
-  Data Path: Altimeter_Controller/rw to alt_sda_out
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              5   0.525   0.949  Altimeter_Controller/rw (Altimeter_Controller/rw)
-     LUT6:I4->O            1   0.250   0.681  Alt_I2C_Driver/Mmux_sda_ena_n111 (Alt_I2C_Driver/sda_ena_n)
-     IOBUF:T->IO               2.912          alt_sda_out_IOBUF (alt_sda_out)
-    ----------------------------------------
-    Total                      5.317ns (3.687ns logic, 1.630ns route)
-                                       (69.3% logic, 30.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Alt_I2C_Driver/data_clk'
@@ -1625,6 +1616,26 @@ Offset:              5.866ns (Levels of Logic = 2)
     ----------------------------------------
     Total                      5.866ns (3.691ns logic, 2.175ns route)
                                        (62.9% logic, 37.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 9 / 5
+-------------------------------------------------------------------------
+Offset:              5.317ns (Levels of Logic = 2)
+  Source:            Altimeter_Controller/rw (FF)
+  Destination:       alt_sda_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Altimeter_Controller/rw to alt_sda_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              5   0.525   0.949  Altimeter_Controller/rw (Altimeter_Controller/rw)
+     LUT6:I4->O            1   0.250   0.681  Alt_I2C_Driver/Mmux_sda_ena_n111 (Alt_I2C_Driver/sda_ena_n)
+     IOBUF:T->IO               2.912          alt_sda_out_IOBUF (alt_sda_out)
+    ----------------------------------------
+    Total                      5.317ns (3.687ns logic, 1.630ns route)
+                                       (69.3% logic, 30.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'IMU_I2C_Driver/data_clk'
@@ -1693,14 +1704,14 @@ clk            |         |         |    4.550|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 50.00 secs
-Total CPU time to Xst completion: 49.88 secs
+Total REAL time to Xst completion: 47.00 secs
+Total CPU time to Xst completion: 47.06 secs
  
 --> 
 
-Total memory usage is 338408 kilobytes
+Total memory usage is 338792 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   52 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   59 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

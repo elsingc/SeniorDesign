@@ -27,8 +27,8 @@ module mojo_top(
 	 /*inout cam_sda_out,
 	 inout cam_scl_out,*/
 	 
-	 input gps_rx_pin,
-	 output gps_tx_pin,
+	// input gps_rx_pin,
+	// output gps_tx_pin,
 	 
 	 //input start,
 	 output data_tx, 
@@ -37,12 +37,15 @@ module mojo_top(
 
 wire rst = ~rst_n;
 
+//assign data_tx = gps_rx_pin;
+//assign gps_tx_pin = data_rx;
+
 assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 //assign toggle_check = toggle;
 
-//assign led[7:1] = 7'h00;
+assign led[7:0] = 8'h00;
 //assign led[0] = 1'b1;
 
 wire [23:0] pressure;
@@ -52,7 +55,7 @@ wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z,
 wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
 wire [7:0] data_data_addr, snsr_data, snsr_addr, data_data_tx, data_data_rx;
 Data_Controller Data_Controller(
-	.debug(led),
+	.debug(),
 	.busy(data_busy),
 	.block(data_block), //set to 0
 	.new_data_tx(data_new_data_tx),
@@ -64,7 +67,7 @@ Data_Controller Data_Controller(
 	.rst(rst),
 	.clk(clk)
 );
-	 
+	
 serial_rx #(.CLK_PER_BIT(434), .CTR_SIZE(13)) Data_serial_rx (
 	.clk(clk),
 	.rst(rst),
@@ -192,7 +195,7 @@ I2C_Driver IMU_I2C_Driver(
 //====================GPS===============================================
 wire gps_tx_send, gps_tx_busy, gps_rx_new_data;
 wire [7:0] gps_tx, gps_rx;
-serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_tx (
+/*serial_tx #(.CLK_PER_BIT(5208), .CTR_SIZE(13)) GPS_serial_tx (
 	.clk(clk),
 	.rst(rst),
 	.tx(gps_tx_pin),
@@ -229,7 +232,7 @@ GPS_Controller GPS_Controller(
 	.rst(rst),
 	.clk(clk)
 );
-
+*/
 //====================ANALOG CONGROLLER=================================
 /*Analog_Controller Analog_Controller(
 	.ch0(),

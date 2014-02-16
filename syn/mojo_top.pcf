@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Feb 08 21:19:51 2014
+// Written by: Map P.20131013 on Mon Feb 10 23:28:26 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -41,10 +41,6 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_7" BEL "IMU_I2C_Driver/count_6" BEL
         "Data_Controller/addr_4" BEL "Data_Controller/addr_3" BEL
         "Data_Controller/addr_2" BEL "Data_Controller/addr_1" BEL
         "Data_Controller/addr_0" BEL "Data_Controller/new_data_tx" BEL
-        "Data_Controller/debug_7" BEL "Data_Controller/debug_6" BEL
-        "Data_Controller/debug_5" BEL "Data_Controller/debug_4" BEL
-        "Data_Controller/debug_3" BEL "Data_Controller/debug_2" BEL
-        "Data_Controller/debug_1" BEL "Data_Controller/debug_0" BEL
         "Data_serial_rx/bit_ctr_q_2" BEL "Data_serial_rx/bit_ctr_q_1" BEL
         "Data_serial_rx/bit_ctr_q_0" BEL "Data_serial_rx/state_q_FSM_FFd1" BEL
         "Data_serial_rx/state_q_FSM_FFd2" BEL "Data_serial_rx/ctr_q_12" BEL

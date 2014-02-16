@@ -58,16 +58,15 @@ framebuffer framebuffer(
 );
 */
 
-framebuffer framebuffer(
-    .clka(~clk),
+frame_buffer frame_buffer(
     .wea(wea),
     .addra(count_p),
     .dina(din),
     .clkb(~clk), 
-	 .rstb(rstb),
     .addrb(send_p),
     .doutb(dout) 
 );
+
 
 localparam STATE_SIZE = 4; 
 localparam IDLE = 0,
