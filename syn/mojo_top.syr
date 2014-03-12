@@ -1,18 +1,21 @@
-Release 14.7 - xst P.20131013 (nt64)
+Release 14.7 - xst P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> Parameter TMPDIR set to xst/projnav.tmp
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
---> Parameter xsthdpdir set to xst
+--> 
+Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
---> Reading design: mojo_top.prj
+--> 
+Reading design: mojo_top.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -99,27 +102,36 @@ DSP48 Utilization Ratio            : 100
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {".."  }
+
 =========================================================================
 
 
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\serial_tx.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/gps_rom.v" into library work
+Parsing module <gps_rom>.
+Analyzing Verilog file "/home/zach/SeniorDesign/src/serial_tx.v" into library work
 Parsing module <serial_tx>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\serial_rx.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/src/serial_rx.v" into library work
 Parsing module <serial_rx>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Sensor_Reg.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/serial_tx_dualspeed.v" into library work
+Parsing module <serial_tx_dualspeed>.
+Analyzing Verilog file "/home/zach/SeniorDesign/Sensor_Reg.v" into library work
 Parsing module <Sensor_Reg>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\IMU_Controller.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/IMU_Controller.v" into library work
 Parsing module <IMU_Controller>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/I2C_Driver.v" into library work
 Parsing module <I2C_Driver>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Data_Controller.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/GPS_Controller.v" into library work
+Parsing module <GPS_Controller>.
+Analyzing Verilog file "/home/zach/SeniorDesign/Data_Controller.v" into library work
 Parsing module <Data_Controller>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Altimeter_Controller.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/Altimeter_Controller.v" into library work
 Parsing module <Altimeter_Controller>.
-Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" into library work
+Analyzing Verilog file "/home/zach/SeniorDesign/src/mojo_top.v" into library work
 Parsing module <mojo_top>.
 
 =========================================================================
@@ -127,10 +139,10 @@ Parsing module <mojo_top>.
 =========================================================================
 
 Elaborating module <mojo_top>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 36: Assignment to spi_miso ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 37: Assignment to avr_rx ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: Result of 4-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 38: Assignment to spi_channel ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 43: Assignment to spi_miso ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 44: Assignment to avr_rx ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 45: Result of 4-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 45: Assignment to spi_channel ignored, since the identifier is never used
 
 Elaborating module <Data_Controller>.
 
@@ -143,35 +155,47 @@ Elaborating module <Sensor_Reg>.
 Elaborating module <Altimeter_Controller>.
 
 Elaborating module <I2C_Driver>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" Line 149: Assignment to scl_repeated_start ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" Line 321: Assignment to sda_int_negedge ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/I2C_Driver.v" Line 149: Assignment to scl_repeated_start ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/I2C_Driver.v" Line 321: Assignment to sda_int_negedge ignored, since the identifier is never used
 
 Elaborating module <IMU_Controller>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 180: Assignment to imu_ack_err ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 47: Net <data_block> does not have a driver.
-WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 81: Input port x_gps[19] is not connected on this instance
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 186: Assignment to imu_ack_err ignored, since the identifier is never used
+
+Elaborating module <serial_tx_dualspeed>.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/serial_tx_dualspeed.v" Line 39: Result of 32-bit expression is truncated to fit in 13-bit target.
+
+Elaborating module <serial_rx(CLK_PER_BIT=434,CTR_SIZE=9)>.
+
+Elaborating module <GPS_Controller>.
+
+Elaborating module <gps_rom>.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/gps_rom.v" Line 38: Result of 32-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 109: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 112: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 123: Result of 25-bit expression is truncated to fit in 24-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 137: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 55: Net <data_block> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 196: Net <gps_tx_block> does not have a driver.
+WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 89: Input port air_speed_p[15] is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <mojo_top>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v".
-WARNING:Xst:2898 - Port 'x_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'y_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'z_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'time_gps', unconnected in block instance 'Sensor_Reg', is tied to GND.
-WARNING:Xst:2898 - Port 'ground_speed', unconnected in block instance 'Sensor_Reg', is tied to GND.
+    Related source file is "/home/zach/SeniorDesign/src/mojo_top.v".
 WARNING:Xst:2898 - Port 'air_speed_p', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_n', unconnected in block instance 'Sensor_Reg', is tied to GND.
-INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 172: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 57: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 178: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <data_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <gps_tx_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <mojo_top> synthesized.
 
 Synthesizing Unit <Data_Controller>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\Data_Controller.v".
+    Related source file is "/home/zach/SeniorDesign/Data_Controller.v".
 WARNING:Xst:647 - Input <block> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 5-bit register for signal <state>.
     Found 1-bit register for signal <new_data_tx>.
@@ -201,8 +225,8 @@ WARNING:Xst:647 - Input <block> is never used. This port will be preserved and l
 	inferred   1 Finite State Machine(s).
 Unit <Data_Controller> synthesized.
 
-Synthesizing Unit <serial_rx>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\src\serial_rx.v".
+Synthesizing Unit <serial_rx_1>.
+    Related source file is "/home/zach/SeniorDesign/src/serial_rx.v".
         CLK_PER_BIT = 434
         CTR_SIZE = 13
     Found 3-bit register for signal <bit_ctr_q>.
@@ -232,10 +256,10 @@ Synthesizing Unit <serial_rx>.
 	inferred  26 D-type flip-flop(s).
 	inferred   7 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
-Unit <serial_rx> synthesized.
+Unit <serial_rx_1> synthesized.
 
 Synthesizing Unit <serial_tx>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\src\serial_tx.v".
+    Related source file is "/home/zach/SeniorDesign/src/serial_tx.v".
         CLK_PER_BIT = 434
         CTR_SIZE = 13
     Found 1-bit register for signal <tx_q>.
@@ -271,11 +295,10 @@ Synthesizing Unit <serial_tx>.
 Unit <serial_tx> synthesized.
 
 Synthesizing Unit <Sensor_Reg>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\Sensor_Reg.v".
-WARNING:Xst:647 - Input <x_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <y_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <z_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <time_gps> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Related source file is "/home/zach/SeniorDesign/Sensor_Reg.v".
+WARNING:Xst:647 - Input <gps_lon> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_lat> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_time> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <ground_speed> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <air_speed_p> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -291,7 +314,7 @@ WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved
     Found 16-bit register for signal <int_magm_x>.
     Found 16-bit register for signal <int_magm_y>.
     Found 16-bit register for signal <int_magm_z>.
-    Found 8-bit 25-to-1 multiplexer for signal <_n0160> created at line 64.
+    Found 8-bit 25-to-1 multiplexer for signal <_n0159> created at line 62.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -307,7 +330,7 @@ WARNING:Xst:737 - Found 1-bit latch for signal <data<7>>. Latches may be generat
 Unit <Sensor_Reg> synthesized.
 
 Synthesizing Unit <Altimeter_Controller>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\Altimeter_Controller.v".
+    Related source file is "/home/zach/SeniorDesign/Altimeter_Controller.v".
 WARNING:Xst:647 - Input <ack_err> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 8-bit register for signal <STATUS_REG>.
     Found 8-bit register for signal <data_wr>.
@@ -378,7 +401,7 @@ WARNING:Xst:647 - Input <ack_err> is never used. This port will be preserved and
 Unit <Altimeter_Controller> synthesized.
 
 Synthesizing Unit <I2C_Driver>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v".
+    Related source file is "/home/zach/SeniorDesign/I2C_Driver.v".
     Found 1-bit register for signal <sda_int>.
     Found 1-bit register for signal <busy>.
     Found 8-bit register for signal <count>.
@@ -432,7 +455,7 @@ INFO:Xst:1799 - State 0000000101 is never reached in FSM <state>.
 Unit <I2C_Driver> synthesized.
 
 Synthesizing Unit <IMU_Controller>.
-    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\IMU_Controller.v".
+    Related source file is "/home/zach/SeniorDesign/IMU_Controller.v".
     Found 11-bit register for signal <state>.
     Found 8-bit register for signal <data_wr>.
     Found 1-bit register for signal <rw>.
@@ -620,44 +643,187 @@ Synthesizing Unit <IMU_Controller>.
 	inferred   1 Finite State Machine(s).
 Unit <IMU_Controller> synthesized.
 
+Synthesizing Unit <serial_tx_dualspeed>.
+    Related source file is "/home/zach/SeniorDesign/serial_tx_dualspeed.v".
+        CLK_PER_BIT_SLOW = 5208
+        CLK_PER_BIT_FAST = 434
+        CTR_SIZE = 13
+    Found 1-bit register for signal <tx_q>.
+    Found 1-bit register for signal <speed_q>.
+    Found 8-bit register for signal <data_q>.
+    Found 3-bit register for signal <bit_ctr_q>.
+    Found 13-bit register for signal <ctr_q>.
+    Found 1-bit register for signal <busy_q>.
+    Found 2-bit register for signal <state_q>.
+    Found finite state machine <FSM_6> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 14-bit subtractor for signal <GND_23_o_GND_23_o_sub_17_OUT> created at line 84.
+    Found 3-bit adder for signal <bit_ctr_q[2]_GND_23_o_add_18_OUT> created at line 86.
+    Found 13-bit adder for signal <ctr_q[12]_GND_23_o_add_24_OUT> created at line 95.
+    Found 1-bit 8-to-1 multiplexer for signal <bit_ctr_q[2]_data_q[7]_Mux_14_o> created at line 82.
+    Found 13-bit 4-to-1 multiplexer for signal <ctr_d> created at line 51.
+    Found 1-bit comparator equal for signal <n0005> created at line 53
+    Found 32-bit comparator equal for signal <GND_23_o_GND_23_o_equal_18_o> created at line 84
+    WARNING:Xst:2404 -  FFs/Latches <block_q<0:0>> (without init value) have a constant value of 0 in block <serial_tx_dualspeed>.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  27 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   4 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <serial_tx_dualspeed> synthesized.
+
+Synthesizing Unit <serial_rx_2>.
+    Related source file is "/home/zach/SeniorDesign/src/serial_rx.v".
+        CLK_PER_BIT = 434
+        CTR_SIZE = 9
+    Found 3-bit register for signal <bit_ctr_q>.
+    Found 1-bit register for signal <new_data_q>.
+    Found 2-bit register for signal <state_q>.
+    Found 1-bit register for signal <rx_q>.
+    Found 8-bit register for signal <data_q>.
+    Found 9-bit register for signal <ctr_q>.
+    Found finite state machine <FSM_7> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 9-bit adder for signal <ctr_q[8]_GND_24_o_add_7_OUT> created at line 52.
+    Found 3-bit adder for signal <bit_ctr_q[2]_GND_24_o_add_9_OUT> created at line 55.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <serial_rx_2> synthesized.
+
+Synthesizing Unit <GPS_Controller>.
+    Related source file is "/home/zach/SeniorDesign/GPS_Controller.v".
+WARNING:Xst:653 - Signal <lon> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <lat> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <time_> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ground_speed> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 6-bit register for signal <rom_index_q>.
+    Found 3-bit register for signal <state_q>.
+    Found 24-bit register for signal <send_wait_ctr_q>.
+    Found 2-bit register for signal <rom_message_q>.
+    Found 1-bit register for signal <tx_send_q>.
+    Found finite state machine <FSM_8> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 16                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 6-bit adder for signal <rom_index_q[5]_GND_25_o_add_9_OUT> created at line 109.
+    Found 2-bit adder for signal <_n0083> created at line 112.
+    Found 24-bit adder for signal <send_wait_ctr_q[23]_GND_25_o_add_20_OUT> created at line 123.
+    Found 2-bit comparator lessequal for signal <n0000> created at line 68
+    Found 1-bit comparator equal for signal <tx_req_speed_tx_cur_speed_equal_8_o> created at line 101
+    Found 6-bit comparator equal for signal <rom_index_q[5]_rom_length[5]_equal_11_o> created at line 110
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  33 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <GPS_Controller> synthesized.
+
+Synthesizing Unit <gps_rom>.
+    Related source file is "/home/zach/SeniorDesign/gps_rom.v".
+    Found 64x8-bit Read Only RAM for signal <index[5]_X_24_o_wide_mux_6_OUT>
+    Found 4x32-bit Read Only RAM for signal <n0018>
+    Found 32x16-bit Read Only RAM for signal <_n0075>
+    Found 8-bit 4-to-1 multiplexer for signal <data> created at line 25.
+    Summary:
+	inferred   3 RAM(s).
+	inferred   1 Multiplexer(s).
+Unit <gps_rom> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 11
- 13-bit adder                                          : 2
- 3-bit adder                                           : 2
+# RAMs                                                 : 3
+ 32x16-bit single-port Read Only RAM                   : 1
+ 4x32-bit single-port Read Only RAM                    : 1
+ 64x8-bit single-port Read Only RAM                    : 1
+# Adders/Subtractors                                   : 19
+ 13-bit adder                                          : 3
+ 14-bit subtractor                                     : 1
+ 2-bit adder                                           : 1
+ 24-bit adder                                          : 1
+ 3-bit adder                                           : 4
  3-bit subtractor                                      : 2
  4-bit subtractor                                      : 2
+ 6-bit adder                                           : 1
  8-bit adder                                           : 3
-# Registers                                            : 233
- 1-bit register                                        : 197
- 13-bit register                                       : 2
+ 9-bit adder                                           : 1
+# Registers                                            : 248
+ 1-bit register                                        : 203
+ 13-bit register                                       : 3
  16-bit register                                       : 12
- 24-bit register                                       : 2
- 3-bit register                                        : 2
+ 2-bit register                                        : 1
+ 24-bit register                                       : 3
+ 3-bit register                                        : 4
  4-bit register                                        : 2
- 8-bit register                                        : 16
+ 6-bit register                                        : 1
+ 8-bit register                                        : 18
+ 9-bit register                                        : 1
 # Latches                                              : 8
  1-bit latch                                           : 8
-# Comparators                                          : 9
+# Comparators                                          : 14
+ 1-bit comparator equal                                : 2
+ 2-bit comparator lessequal                            : 1
+ 32-bit comparator equal                               : 1
  4-bit comparator lessequal                            : 2
+ 6-bit comparator equal                                : 1
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 286
- 1-bit 2-to-1 multiplexer                              : 238
- 1-bit 8-to-1 multiplexer                              : 3
- 13-bit 2-to-1 multiplexer                             : 5
- 13-bit 4-to-1 multiplexer                             : 1
+# Multiplexers                                         : 300
+ 1-bit 2-to-1 multiplexer                              : 240
+ 1-bit 8-to-1 multiplexer                              : 4
+ 13-bit 2-to-1 multiplexer                             : 6
+ 13-bit 4-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 22
- 24-bit 2-to-1 multiplexer                             : 3
- 3-bit 2-to-1 multiplexer                              : 2
+ 24-bit 2-to-1 multiplexer                             : 4
+ 3-bit 2-to-1 multiplexer                              : 4
  4-bit 2-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 9
  8-bit 25-to-1 multiplexer                             : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+ 9-bit 2-to-1 multiplexer                              : 4
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
-# FSMs                                                 : 7
+# FSMs                                                 : 10
 
 =========================================================================
 
@@ -672,18 +838,67 @@ WARNING:Xst:2677 - Node <STATUS_REG_5> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <STATUS_REG_6> of sequential type is unconnected in block <Altimeter_Controller>.
 WARNING:Xst:2677 - Node <STATUS_REG_7> of sequential type is unconnected in block <Altimeter_Controller>.
 
+Synthesizing (advanced) Unit <GPS_Controller>.
+The following registers are absorbed into counter <send_wait_ctr_q>: 1 register on signal <send_wait_ctr_q>.
+The following registers are absorbed into counter <rom_message_q>: 1 register on signal <rom_message_q>.
+Unit <GPS_Controller> synthesized (advanced).
+
 Synthesizing (advanced) Unit <I2C_Driver>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 The following registers are absorbed into counter <bitcount>: 1 register on signal <bitcount>.
 Unit <I2C_Driver> synthesized (advanced).
 
-Synthesizing (advanced) Unit <serial_rx>.
+Synthesizing (advanced) Unit <gps_rom>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_n0018> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 32-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <message>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_index[5]_X_24_o_wide_mux_6_OUT> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <index>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0075> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 16-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <index<4:0>>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <gps_rom> synthesized (advanced).
+
+Synthesizing (advanced) Unit <serial_rx_1>.
 The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
-Unit <serial_rx> synthesized (advanced).
+Unit <serial_rx_1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <serial_rx_2>.
+The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
+Unit <serial_rx_2> synthesized (advanced).
 
 Synthesizing (advanced) Unit <serial_tx>.
 The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
 Unit <serial_tx> synthesized (advanced).
+
+Synthesizing (advanced) Unit <serial_tx_dualspeed>.
+The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
+Unit <serial_tx_dualspeed> synthesized (advanced).
 WARNING:Xst:2677 - Node <STATUS_REG_0> of sequential type is unconnected in block <Altimeter_Controller>.
 WARNING:Xst:2677 - Node <STATUS_REG_1> of sequential type is unconnected in block <Altimeter_Controller>.
 WARNING:Xst:2677 - Node <STATUS_REG_4> of sequential type is unconnected in block <Altimeter_Controller>.
@@ -695,30 +910,47 @@ WARNING:Xst:2677 - Node <STATUS_REG_7> of sequential type is unconnected in bloc
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 5
- 13-bit adder                                          : 2
+# RAMs                                                 : 3
+ 32x16-bit single-port distributed Read Only RAM       : 1
+ 4x32-bit single-port distributed Read Only RAM        : 1
+ 64x8-bit single-port distributed Read Only RAM        : 1
+# Adders/Subtractors                                   : 10
+ 13-bit adder                                          : 3
+ 14-bit subtractor                                     : 1
+ 2-bit adder                                           : 1
  3-bit subtractor                                      : 2
+ 6-bit adder                                           : 1
  8-bit adder                                           : 1
-# Counters                                             : 6
- 3-bit up counter                                      : 2
+ 9-bit adder                                           : 1
+# Counters                                             : 10
+ 2-bit up counter                                      : 1
+ 24-bit up counter                                     : 1
+ 3-bit up counter                                      : 4
  4-bit down counter                                    : 2
  8-bit up counter                                      : 2
-# Registers                                            : 569
- Flip-Flops                                            : 569
-# Comparators                                          : 9
+# Registers                                            : 619
+ Flip-Flops                                            : 619
+# Comparators                                          : 14
+ 1-bit comparator equal                                : 2
+ 2-bit comparator lessequal                            : 1
+ 32-bit comparator equal                               : 1
  4-bit comparator lessequal                            : 2
+ 6-bit comparator equal                                : 1
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 278
- 1-bit 2-to-1 multiplexer                              : 236
- 1-bit 8-to-1 multiplexer                              : 3
- 13-bit 2-to-1 multiplexer                             : 5
- 13-bit 4-to-1 multiplexer                             : 1
+# Multiplexers                                         : 289
+ 1-bit 2-to-1 multiplexer                              : 238
+ 1-bit 8-to-1 multiplexer                              : 4
+ 13-bit 2-to-1 multiplexer                             : 6
+ 13-bit 4-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 22
  24-bit 2-to-1 multiplexer                             : 3
+ 6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 7
  8-bit 25-to-1 multiplexer                             : 1
-# FSMs                                                 : 7
+ 8-bit 4-to-1 multiplexer                              : 1
+ 9-bit 2-to-1 multiplexer                              : 4
+# FSMs                                                 : 10
 
 =========================================================================
 
@@ -1240,6 +1472,38 @@ Optimizing FSM <IMU_Controller/FSM_5> on signal <state[1:340]> with one-hot enco
  00101010010 | 0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
  00101010011 | 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <gps_serial_tx/FSM_6> on signal <state_q[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <gps_serial_rx/FSM_7> on signal <state_q[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <GPS_Controller/FSM_8> on signal <state_q[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+ 101   | 101
+-------------------
 WARNING:Xst:2677 - Node <IMU_I2C_Driver/ack_err> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
    incompatible with the Spartan6 architecture. The two primary causes of this is
@@ -1277,7 +1541,7 @@ Optimizing unit <mojo_top> ...
 
 Optimizing unit <Data_Controller> ...
 
-Optimizing unit <serial_rx> ...
+Optimizing unit <serial_rx_1> ...
 
 Optimizing unit <serial_tx> ...
 
@@ -1286,11 +1550,26 @@ Optimizing unit <Sensor_Reg> ...
 Optimizing unit <Altimeter_Controller> ...
 
 Optimizing unit <IMU_Controller> ...
+
+Optimizing unit <serial_tx_dualspeed> ...
+
+Optimizing unit <serial_rx_2> ...
+
+Optimizing unit <GPS_Controller> ...
+WARNING:Xst:1710 - FF/Latch <gps_serial_tx/data_q_7> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <Alt_I2C_Driver/ack_err> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <Data_Controller/debug_0> of sequential type is unconnected in block <mojo_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 35.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 37.
 WARNING:Xst:1426 - The value init of the FF/Latch IMU_I2C_Driver/bitcount_2_LD hinder the constant cleaning in the block mojo_top.
    You should achieve better results by setting this init to 1.
 
@@ -1300,8 +1579,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1083
- Flip-Flops                                            : 1083
+# Registers                                            : 1163
+ Flip-Flops                                            : 1163
 
 =========================================================================
 
@@ -1324,39 +1603,39 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1835
+# BELS                             : 2060
 #      GND                         : 1
-#      INV                         : 7
-#      LUT1                        : 26
-#      LUT2                        : 40
-#      LUT3                        : 282
-#      LUT4                        : 426
-#      LUT5                        : 110
-#      LUT6                        : 562
-#      MUXCY                       : 319
-#      MUXF7                       : 19
+#      INV                         : 10
+#      LUT1                        : 38
+#      LUT2                        : 77
+#      LUT3                        : 295
+#      LUT4                        : 453
+#      LUT5                        : 121
+#      LUT6                        : 610
+#      MUXCY                       : 354
+#      MUXF7                       : 21
 #      VCC                         : 1
-#      XORCY                       : 42
-# FlipFlops/Latches                : 1092
-#      FD                          : 17
-#      FDC                         : 653
-#      FDCE                        : 26
-#      FDE                         : 333
+#      XORCY                       : 79
+# FlipFlops/Latches                : 1172
+#      FD                          : 32
+#      FDC                         : 657
+#      FDCE                        : 58
+#      FDE                         : 343
 #      FDE_1                       : 16
 #      FDP                         : 8
 #      FDPE                        : 8
-#      FDR                         : 5
-#      FDRE                        : 16
-#      FDS                         : 1
+#      FDR                         : 11
+#      FDRE                        : 28
+#      FDS                         : 2
 #      LD                          : 1
 #      LDE_1                       : 8
 # Clock Buffers                    : 4
 #      BUFG                        : 3
 #      BUFGP                       : 1
-# IO Buffers                       : 15
-#      IBUF                        : 2
+# IO Buffers                       : 17
+#      IBUF                        : 3
 #      IOBUF                       : 4
-#      OBUF                        : 9
+#      OBUF                        : 10
 
 Device utilization summary:
 ---------------------------
@@ -1365,20 +1644,20 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1092  out of  11440     9%  
- Number of Slice LUTs:                 1453  out of   5720    25%  
-    Number used as Logic:              1453  out of   5720    25%  
+ Number of Slice Registers:            1172  out of  11440    10%  
+ Number of Slice LUTs:                 1604  out of   5720    28%  
+    Number used as Logic:              1604  out of   5720    28%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1661
-   Number with an unused Flip Flop:     569  out of   1661    34%  
-   Number with an unused LUT:           208  out of   1661    12%  
-   Number of fully used LUT-FF pairs:   884  out of   1661    53%  
-   Number of unique control sets:        32
+ Number of LUT Flip Flop pairs used:   1811
+   Number with an unused Flip Flop:     639  out of   1811    35%  
+   Number with an unused LUT:           207  out of   1811    11%  
+   Number of fully used LUT-FF pairs:   965  out of   1811    53%  
+   Number of unique control sets:        39
 
 IO Utilization: 
- Number of IOs:                          16
- Number of bonded IOBs:                  16  out of    102    15%  
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    102    17%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
@@ -1405,7 +1684,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 IMU_I2C_Driver/data_clk            | BUFG                   | 46    |
-clk                                | BUFGP                  | 991   |
+clk                                | BUFGP                  | 1071  |
 Alt_I2C_Driver/data_clk            | BUFG                   | 46    |
 rst_n                              | IBUF+BUFG              | 9     |
 -----------------------------------+------------------------+-------+
@@ -1419,7 +1698,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.472ns (Maximum Frequency: 118.043MHz)
-   Minimum input arrival time before clock: 6.990ns
+   Minimum input arrival time before clock: 7.005ns
    Maximum output required time after clock: 5.866ns
    Maximum combinational path delay: No path found
 
@@ -1453,7 +1732,7 @@ Delay:               3.380ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.472ns (frequency: 118.043MHz)
-  Total number of paths / destination ports: 337541 / 1073
+  Total number of paths / destination ports: 340214 / 1206
 -------------------------------------------------------------------------
 Delay:               8.472ns (Levels of Logic = 32)
   Source:            IMU_Controller/state_FSM_FFd257 (FF)
@@ -1494,9 +1773,9 @@ Delay:               8.472ns (Levels of Logic = 32)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<26> (IMU_Controller/state_state[0]_wg_cy<26>)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<27> (IMU_Controller/state_state[0]_wg_cy<27>)
      MUXCY:CI->O          18   0.235   1.665  IMU_Controller/state_state[0]_wg_cy<28> (IMU_Controller/state[0])
-     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N140)
-     LUT6:I4->O            1   0.250   0.790  IMU_Controller/_n13768_inv8_SW1 (N227)
-     LUT6:I4->O            6   0.250   0.876  IMU_Controller/data_wr_7_rstpot_SW0 (N178)
+     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N174)
+     LUT6:I4->O            1   0.250   0.790  IMU_Controller/_n13768_inv8_SW1 (N261)
+     LUT6:I4->O            6   0.250   0.876  IMU_Controller/data_wr_7_rstpot_SW0 (N212)
      LUT6:I5->O            1   0.254   0.000  IMU_Controller/data_wr_7_rstpot (IMU_Controller/data_wr_7_rstpot)
      FDC:D                     0.074          IMU_Controller/data_wr_7
     ----------------------------------------
@@ -1530,7 +1809,7 @@ Delay:               3.380ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'IMU_I2C_Driver/data_clk'
   Total number of paths / destination ports: 51 / 51
 -------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
+Offset:              7.005ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       IMU_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: IMU_I2C_Driver/data_clk rising
@@ -1539,18 +1818,18 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            772   0.255   2.532  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          IMU_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
-                                       (29.2% logic, 70.8% route)
+    Total                      7.005ns (2.042ns logic, 4.963ns route)
+                                       (29.1% logic, 70.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 960 / 960
+  Total number of paths / destination ports: 1008 / 1008
 -------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
+Offset:              7.005ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       IMU_I2C_Driver/count_7 (FF)
   Destination Clock: clk rising
@@ -1559,18 +1838,18 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            772   0.255   2.532  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDCE:CLR                  0.459          IMU_I2C_Driver/count_0
     ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
-                                       (29.2% logic, 70.8% route)
+    Total                      7.005ns (2.042ns logic, 4.963ns route)
+                                       (29.1% logic, 70.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Alt_I2C_Driver/data_clk'
   Total number of paths / destination ports: 51 / 51
 -------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
+Offset:              7.005ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       Alt_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: Alt_I2C_Driver/data_clk rising
@@ -1579,32 +1858,12 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            772   0.255   2.532  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          Alt_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
-                                       (29.2% logic, 70.8% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 17 / 13
--------------------------------------------------------------------------
-Offset:              5.317ns (Levels of Logic = 2)
-  Source:            Altimeter_Controller/rw (FF)
-  Destination:       alt_sda_out (PAD)
-  Source Clock:      clk rising
-
-  Data Path: Altimeter_Controller/rw to alt_sda_out
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              5   0.525   0.949  Altimeter_Controller/rw (Altimeter_Controller/rw)
-     LUT6:I4->O            1   0.250   0.681  Alt_I2C_Driver/Mmux_sda_ena_n111 (Alt_I2C_Driver/sda_ena_n)
-     IOBUF:T->IO               2.912          alt_sda_out_IOBUF (alt_sda_out)
-    ----------------------------------------
-    Total                      5.317ns (3.687ns logic, 1.630ns route)
-                                       (69.3% logic, 30.7% route)
+    Total                      7.005ns (2.042ns logic, 4.963ns route)
+                                       (29.1% logic, 70.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Alt_I2C_Driver/data_clk'
@@ -1625,6 +1884,26 @@ Offset:              5.866ns (Levels of Logic = 2)
     ----------------------------------------
     Total                      5.866ns (3.691ns logic, 2.175ns route)
                                        (62.9% logic, 37.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 6
+-------------------------------------------------------------------------
+Offset:              5.317ns (Levels of Logic = 2)
+  Source:            Altimeter_Controller/rw (FF)
+  Destination:       alt_sda_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Altimeter_Controller/rw to alt_sda_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              5   0.525   0.949  Altimeter_Controller/rw (Altimeter_Controller/rw)
+     LUT6:I4->O            1   0.250   0.681  Alt_I2C_Driver/Mmux_sda_ena_n111 (Alt_I2C_Driver/sda_ena_n)
+     IOBUF:T->IO               2.912          alt_sda_out_IOBUF (alt_sda_out)
+    ----------------------------------------
+    Total                      5.317ns (3.687ns logic, 1.630ns route)
+                                       (69.3% logic, 30.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'IMU_I2C_Driver/data_clk'
@@ -1693,14 +1972,15 @@ clk            |         |         |    4.550|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 50.00 secs
-Total CPU time to Xst completion: 49.88 secs
+Total REAL time to Xst completion: 40.00 secs
+Total CPU time to Xst completion: 37.71 secs
  
 --> 
 
-Total memory usage is 338408 kilobytes
+
+Total memory usage is 445472 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   52 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   68 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 
