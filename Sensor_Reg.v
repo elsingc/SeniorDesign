@@ -209,7 +209,7 @@ always@(*) begin
 	end
 end
 
-always@(posedge clk or posedge rst)begin
+always@(negedge clk or posedge rst)begin
 	if(rst)begin
 	
 	end else begin

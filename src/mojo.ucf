@@ -9,15 +9,15 @@ NET "rst_n" LOC = P38;
 
 #NET "cclk" LOC = P70;
 
-NET "led<0>" LOC = P134;
-NET "led<1>" LOC = P133;
-NET "led<2>" LOC = P132;
-NET "led<3>" LOC = P131;
-NET "led<4>" LOC = P127;
-NET "led<5>" LOC = P126;
-NET "led<6>" LOC = P124;
-NET "led<7>" LOC = P123;
-
+#NET "led<0>" LOC = P134;
+#NET "led<1>" LOC = P133;
+#NET "led<2>" LOC = P132;
+#NET "led<3>" LOC = P131;
+#NET "led<4>" LOC = P127;
+#NET "led<5>" LOC = P126;
+#NET "led<6>" LOC = P124;
+#NET "led<7>" LOC = P123;
+//NET "servoDrive" LOC = P58;
 
 #NET "pixel<0>" LOC = P26;
 #NET "pixel<1>" LOC = P27;
@@ -32,13 +32,13 @@ NET "led<7>" LOC = P123;
 #NET "href" LOC = P35;
 #NET "vsync" LOC = P33;
 
-NET "alt_sda_out" LOC = P34;
-NET "alt_scl_out" LOC = P32;
-NET "imu_sda_out" LOC = P16;
-NET "imu_scl_out" LOC = P21;
+NET "alt_sda_out" LOC = P16;
+NET "alt_scl_out" LOC = P14;
+NET "imu_sda_out" LOC = P32;
+NET "imu_scl_out" LOC = P34;
 
-NET "data_tx" LOC = P50;
-NET "data_rx" LOC = P51;
+NET "data_tx" LOC = P133;
+NET "data_rx" LOC = P131;
 
 NET "gps_tx" LOC = P139;
 NET "gps_rx" LOC = P137;
