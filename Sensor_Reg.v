@@ -189,15 +189,41 @@ always@(*) begin
 				data <= int_magm_z[7:0];
 			end
 			
-			8'd26: data <= gps_lon_deg;
-			8'd27: data <= gps_lon_submins [23:16];
-			8'd28: data <= gps_lon_submins [15:8];
-			8'd29: data <= gps_lon_submins [7:0];
-			8'd30: data <= gps_lon_deg;
-			8'd31: data <= gps_lon_submins [23:16];
-			8'd32: data <= gps_lon_submins [15:8];
-			8'd33: data <= gps_lon_submins [7:0];
-			8'd34: data <= gps_status;
+			8'd26:begin
+				data <= gps_lon_deg;
+			end
+			
+			8'd27:begin
+				data <= gps_lon_submins [23:16];
+			end
+			
+			8'd28:begin
+				data <= gps_lon_submins [15:8];
+			end
+			
+			8'd29:begin
+				data <= gps_lon_submins [7:0];
+			end
+			
+			8'd30:begin
+				data <= gps_lon_deg;
+			end
+			
+			8'd31:begin
+				data <= gps_lon_submins [23:16];
+			end
+			
+			8'd32:begin
+				data <= gps_lon_submins [15:8];
+			end
+			
+			8'd33:begin
+				data <= gps_lon_submins [7:0];
+			end
+			
+			8'd34:begin
+				data <= gps_status;
+			end
 
 //input [31:0] gps_time,
 //input [31:0] ground_speed,
