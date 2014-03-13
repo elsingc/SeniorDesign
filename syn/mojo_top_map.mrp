@@ -10,40 +10,40 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Mar 12 17:32:49 2014
+Mapped Date    : Wed Mar 12 20:04:46 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:   11
 Slice Logic Utilization:
-  Number of Slice Registers:                 1,172 out of  11,440   10%
+  Number of Slice Registers:                 1,248 out of  11,440   10%
     Number used as Flip Flops:               1,163
-    Number used as Latches:                      9
+    Number used as Latches:                     85
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      1,361 out of   5,720   23%
-    Number used as logic:                    1,308 out of   5,720   22%
-      Number using O6 output only:             938
+  Number of Slice LUTs:                      1,408 out of   5,720   24%
+    Number used as logic:                    1,372 out of   5,720   23%
+      Number using O6 output only:             995
       Number using O5 output only:              37
-      Number using O5 and O6:                  333
+      Number using O5 and O6:                  340
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:     53
-      Number with same-slice register load:     50
+    Number used exclusively as route-thrus:     36
+      Number with same-slice register load:     33
       Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   454 out of   1,430   31%
-  Number of MUXCYs used:                       384 out of   2,860   13%
-  Number of LUT Flip Flop pairs used:        1,482
-    Number with an unused Flip Flop:           637 out of   1,482   42%
-    Number with an unused LUT:                 121 out of   1,482    8%
-    Number of fully used LUT-FF pairs:         724 out of   1,482   48%
-    Number of unique control sets:              38
+  Number of occupied Slices:                   482 out of   1,430   33%
+  Number of MUXCYs used:                       412 out of   2,860   14%
+  Number of LUT Flip Flop pairs used:        1,585
+    Number with an unused Flip Flop:           651 out of   1,585   41%
+    Number with an unused LUT:                 177 out of   1,585   11%
+    Number of fully used LUT-FF pairs:         757 out of   1,585   47%
+    Number of unique control sets:              48
     Number of slice register sites lost
-      to control set restrictions:              92 out of  11,440    1%
+      to control set restrictions:              96 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -80,11 +80,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.79
+Average Fanout of Non-Clock Nets:                4.61
 
-Peak Memory Usage:  685 MB
-Total REAL time to MAP completion:  18 secs 
-Total CPU time to MAP completion:   15 secs 
+Peak Memory Usage:  686 MB
+Total REAL time to MAP completion:  16 secs 
+Total CPU time to MAP completion:   16 secs 
 
 Table of Contents
 -----------------
@@ -119,6 +119,46 @@ WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
    related to the specified COMP.PIN. The use of this override is highly
    discouraged as it may lead to very poor timing results. It is recommended
    that this error condition be corrected in the design.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_65_o_Mux_367_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_114_o_Mux_527_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_106_o_Mux_511_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_346_o_Mux_991_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_338_o_Mux_975_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_330_o_Mux_959_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_98_o_Mux_495_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_122_o_Mux_543_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   GPS_Controller/state_q[2]_GND_130_o_Mux_559_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
@@ -136,10 +176,2181 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
+ 518 block(s) removed
    2 block(s) optimized away
+1068 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "GPS_Controller/Madd_n072831" (ROM) removed.
+ The signal "GPS_Controller/n0622<31>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<31>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<31>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>24" (ROM) removed.
+ The signal "GPS_Controller/n0622<24>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<24>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<24>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072823" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072823" (ROM) removed.
+   The signal "GPS_Controller/n0622<23>" is loadless and has been removed.
+   The signal "GPS_Controller/n0624<23>" is loadless and has been removed.
+   The signal "GPS_Controller/n0627<23>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>25" (ROM) removed.
+ The signal "GPS_Controller/n0622<25>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<25>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<25>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072824" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072824" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>26" (ROM) removed.
+ The signal "GPS_Controller/n0622<26>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<26>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<26>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072825" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072825" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>27" (ROM) removed.
+ The signal "GPS_Controller/n0622<27>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<27>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<27>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072826" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072826" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>28" (ROM) removed.
+ The signal "GPS_Controller/n0622<28>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<28>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<28>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072827" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072827" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>29" (ROM) removed.
+ The signal "GPS_Controller/n0622<29>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<29>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<29>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072828" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072828" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>30" (ROM) removed.
+ The signal "GPS_Controller/n0622<30>" is loadless and has been removed.
+ The signal "GPS_Controller/n0624<30>" is loadless and has been removed.
+ The signal "GPS_Controller/n0627<30>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n072829" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072829" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0728_lut<0>31" (ROM) removed.
+ The signal "GPS_Controller/Madd_n072830" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n072830" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd23" (ROM) removed.
+ The signal "GPS_Controller/n0728<23>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_22" (XOR) removed.
+   The signal "GPS_Controller/Madd_n0728_cy<0>22" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0728_cy<0>_21" (MUX) removed.
+     The signal "GPS_Controller/Madd_n0728_cy<0>21" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n0728_cy<0>_20" (MUX) removed.
+       The signal "GPS_Controller/Madd_n0728_cy<0>20" is loadless and has been removed.
+        Loadless block "GPS_Controller/Madd_n0728_cy<0>_19" (MUX) removed.
+         The signal "GPS_Controller/Madd_n0728_cy<0>19" is loadless and has been removed.
+          Loadless block "GPS_Controller/Madd_n0728_cy<0>_18" (MUX) removed.
+           The signal "GPS_Controller/Madd_n0728_cy<0>18" is loadless and has been removed.
+            Loadless block "GPS_Controller/Madd_n0728_cy<0>_17" (MUX) removed.
+             The signal "GPS_Controller/Madd_n0728_cy<0>17" is loadless and has been removed.
+              Loadless block "GPS_Controller/Madd_n0728_cy<0>_16" (MUX) removed.
+               The signal "GPS_Controller/Madd_n0728_cy<0>16" is loadless and has been removed.
+                Loadless block "GPS_Controller/Madd_n0728_cy<0>_15" (MUX) removed.
+                 The signal "GPS_Controller/Madd_n0728_cy<0>15" is loadless and has been removed.
+                  Loadless block "GPS_Controller/Madd_n0728_cy<0>_14" (MUX) removed.
+                   The signal "GPS_Controller/Madd_n0728_cy<0>14" is loadless and has been removed.
+                    Loadless block "GPS_Controller/Madd_n0728_cy<0>_13" (MUX) removed.
+                     The signal "GPS_Controller/Madd_n0728_cy<0>13" is loadless and has been removed.
+                      Loadless block "GPS_Controller/Madd_n0728_cy<0>_12" (MUX) removed.
+                       The signal "GPS_Controller/Madd_n0728_cy<0>12" is loadless and has been removed.
+                        Loadless block "GPS_Controller/Madd_n0728_cy<0>_11" (MUX) removed.
+                         The signal "GPS_Controller/Madd_n0728_cy<0>11" is loadless and has been removed.
+                          Loadless block "GPS_Controller/Madd_n0728_cy<0>_10" (MUX) removed.
+                           The signal "GPS_Controller/Madd_n0728_cy<0>10" is loadless and has been removed.
+                            Loadless block "GPS_Controller/Madd_n0728_cy<0>_9" (MUX) removed.
+                             The signal "GPS_Controller/Madd_n0728_cy<0>9" is loadless and has been removed.
+                              Loadless block "GPS_Controller/Madd_n0728_cy<0>_8" (MUX) removed.
+                               The signal "GPS_Controller/Madd_n0728_cy<0>8" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n0728_cy<0>_7" (MUX) removed.
+                                 The signal "GPS_Controller/Madd_n0728_cy<0>7" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n0728_cy<0>_6" (MUX) removed.
+                                   The signal "GPS_Controller/Madd_n0728_cy<0>6" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n0728_cy<0>_5" (MUX) removed.
+                                     The signal "GPS_Controller/Madd_n0728_cy<0>5" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n0728_cy<0>_4" (MUX) removed.
+                                       The signal "GPS_Controller/Madd_n0728_cy<0>4" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n0728_cy<0>_3" (MUX) removed.
+                                         The signal "GPS_Controller/Madd_n0728_cy<0>3" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n0728_cy<0>_2" (MUX) removed.
+                                           The signal "GPS_Controller/Madd_n0728_cy<0>2" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n0728_cy<0>_1" (MUX) removed.
+                                             The signal "GPS_Controller/Madd_n0728_cy<0>1" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n0728_cy<0>_0" (MUX) removed.
+                                               The signal "GPS_Controller/Madd_n0728_cy<0>" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0728_cy<0>" (MUX) removed.
+                                                 The signal "GPS_Controller/Madd_n0728_lut<0>" is loadless and has been removed.
+*Loadless block "GPS_Controller/Madd_n0728_lut<0>" (ROM) removed.
+* The signal "GPS_Controller/n0622<0>" is loadless and has been removed.
+* The signal "GPS_Controller/n0624<0>" is loadless and has been removed.
+* The signal "GPS_Controller/n0627<0>" is loadless and has been removed.
+                                               The signal "GPS_Controller/Madd_n0728" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0728" (ROM) removed.
+                                               The signal "GPS_Controller/Madd_n0728_lut<0>1" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0728_lut<0>1" (ROM) removed.
+                                                 The signal "GPS_Controller/n0622<1>" is loadless and has been removed.
+                                                 The signal "GPS_Controller/n0624<1>" is loadless and has been removed.
+                                                 The signal "GPS_Controller/n0627<1>" is loadless and has been removed.
+                                             The signal "GPS_Controller/Madd_n07281" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n07281" (ROM) removed.
+                                             The signal "GPS_Controller/Madd_n0728_lut<0>2" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n0728_lut<0>2" (ROM) removed.
+                                               The signal "GPS_Controller/n0622<2>" is loadless and has been removed.
+                                               The signal "GPS_Controller/n0624<2>" is loadless and has been removed.
+                                               The signal "GPS_Controller/n0627<2>" is loadless and has been removed.
+                                           The signal "GPS_Controller/Madd_n07282" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n07282" (ROM) removed.
+                                           The signal "GPS_Controller/Madd_n0728_lut<0>3" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n0728_lut<0>3" (ROM) removed.
+                                             The signal "GPS_Controller/n0622<3>" is loadless and has been removed.
+                                             The signal "GPS_Controller/n0624<3>" is loadless and has been removed.
+                                             The signal "GPS_Controller/n0627<3>" is loadless and has been removed.
+                                         The signal "GPS_Controller/Madd_n07283" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n07283" (ROM) removed.
+                                         The signal "GPS_Controller/Madd_n0728_lut<0>4" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n0728_lut<0>4" (ROM) removed.
+                                           The signal "GPS_Controller/n0622<4>" is loadless and has been removed.
+                                           The signal "GPS_Controller/n0624<4>" is loadless and has been removed.
+                                           The signal "GPS_Controller/n0627<4>" is loadless and has been removed.
+                                       The signal "GPS_Controller/Madd_n07284" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n07284" (ROM) removed.
+                                       The signal "GPS_Controller/Madd_n0728_lut<0>5" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n0728_lut<0>5" (ROM) removed.
+                                         The signal "GPS_Controller/n0622<5>" is loadless and has been removed.
+                                         The signal "GPS_Controller/n0624<5>" is loadless and has been removed.
+                                         The signal "GPS_Controller/n0627<5>" is loadless and has been removed.
+                                     The signal "GPS_Controller/Madd_n07285" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n07285" (ROM) removed.
+                                     The signal "GPS_Controller/Madd_n0728_lut<0>6" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n0728_lut<0>6" (ROM) removed.
+                                       The signal "GPS_Controller/n0622<6>" is loadless and has been removed.
+                                       The signal "GPS_Controller/n0624<6>" is loadless and has been removed.
+                                       The signal "GPS_Controller/n0627<6>" is loadless and has been removed.
+                                   The signal "GPS_Controller/Madd_n07286" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n07286" (ROM) removed.
+                                   The signal "GPS_Controller/Madd_n0728_lut<0>7" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n0728_lut<0>7" (ROM) removed.
+                                     The signal "GPS_Controller/n0622<7>" is loadless and has been removed.
+                                     The signal "GPS_Controller/n0624<7>" is loadless and has been removed.
+                                     The signal "GPS_Controller/n0627<7>" is loadless and has been removed.
+                                 The signal "GPS_Controller/Madd_n07287" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n07287" (ROM) removed.
+                                 The signal "GPS_Controller/Madd_n0728_lut<0>8" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n0728_lut<0>8" (ROM) removed.
+                                   The signal "GPS_Controller/n0622<8>" is loadless and has been removed.
+                                   The signal "GPS_Controller/n0624<8>" is loadless and has been removed.
+                                   The signal "GPS_Controller/n0627<8>" is loadless and has been removed.
+                               The signal "GPS_Controller/Madd_n07288" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n07288" (ROM) removed.
+                               The signal "GPS_Controller/Madd_n0728_lut<0>9" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n0728_lut<0>9" (ROM) removed.
+                                 The signal "GPS_Controller/n0622<9>" is loadless and has been removed.
+                                 The signal "GPS_Controller/n0624<9>" is loadless and has been removed.
+                                 The signal "GPS_Controller/n0627<9>" is loadless and has been removed.
+                             The signal "GPS_Controller/Madd_n07289" is loadless and has been removed.
+                              Loadless block "GPS_Controller/Madd_n07289" (ROM) removed.
+                             The signal "GPS_Controller/Madd_n0728_lut<0>10" is loadless and has been
+removed.
+                              Loadless block "GPS_Controller/Madd_n0728_lut<0>10" (ROM) removed.
+                               The signal "GPS_Controller/n0622<10>" is loadless and has been removed.
+                               The signal "GPS_Controller/n0624<10>" is loadless and has been removed.
+                               The signal "GPS_Controller/n0627<10>" is loadless and has been removed.
+                           The signal "GPS_Controller/Madd_n072810" is loadless and has been removed.
+                            Loadless block "GPS_Controller/Madd_n072810" (ROM) removed.
+                           The signal "GPS_Controller/Madd_n0728_lut<0>11" is loadless and has been
+removed.
+                            Loadless block "GPS_Controller/Madd_n0728_lut<0>11" (ROM) removed.
+                             The signal "GPS_Controller/n0622<11>" is loadless and has been removed.
+                             The signal "GPS_Controller/n0624<11>" is loadless and has been removed.
+                             The signal "GPS_Controller/n0627<11>" is loadless and has been removed.
+                         The signal "GPS_Controller/Madd_n072811" is loadless and has been removed.
+                          Loadless block "GPS_Controller/Madd_n072811" (ROM) removed.
+                         The signal "GPS_Controller/Madd_n0728_lut<0>12" is loadless and has been
+removed.
+                          Loadless block "GPS_Controller/Madd_n0728_lut<0>12" (ROM) removed.
+                           The signal "GPS_Controller/n0622<12>" is loadless and has been removed.
+                           The signal "GPS_Controller/n0624<12>" is loadless and has been removed.
+                           The signal "GPS_Controller/n0627<12>" is loadless and has been removed.
+                       The signal "GPS_Controller/Madd_n072812" is loadless and has been removed.
+                        Loadless block "GPS_Controller/Madd_n072812" (ROM) removed.
+                       The signal "GPS_Controller/Madd_n0728_lut<0>13" is loadless and has been
+removed.
+                        Loadless block "GPS_Controller/Madd_n0728_lut<0>13" (ROM) removed.
+                         The signal "GPS_Controller/n0622<13>" is loadless and has been removed.
+                         The signal "GPS_Controller/n0624<13>" is loadless and has been removed.
+                         The signal "GPS_Controller/n0627<13>" is loadless and has been removed.
+                     The signal "GPS_Controller/Madd_n072813" is loadless and has been removed.
+                      Loadless block "GPS_Controller/Madd_n072813" (ROM) removed.
+                     The signal "GPS_Controller/Madd_n0728_lut<0>14" is loadless and has been
+removed.
+                      Loadless block "GPS_Controller/Madd_n0728_lut<0>14" (ROM) removed.
+                       The signal "GPS_Controller/n0622<14>" is loadless and has been removed.
+                       The signal "GPS_Controller/n0624<14>" is loadless and has been removed.
+                       The signal "GPS_Controller/n0627<14>" is loadless and has been removed.
+                   The signal "GPS_Controller/Madd_n072814" is loadless and has been removed.
+                    Loadless block "GPS_Controller/Madd_n072814" (ROM) removed.
+                   The signal "GPS_Controller/Madd_n0728_lut<0>15" is loadless and has been
+removed.
+                    Loadless block "GPS_Controller/Madd_n0728_lut<0>15" (ROM) removed.
+                     The signal "GPS_Controller/n0622<15>" is loadless and has been removed.
+                     The signal "GPS_Controller/n0624<15>" is loadless and has been removed.
+                     The signal "GPS_Controller/n0627<15>" is loadless and has been removed.
+                 The signal "GPS_Controller/Madd_n072815" is loadless and has been removed.
+                  Loadless block "GPS_Controller/Madd_n072815" (ROM) removed.
+                 The signal "GPS_Controller/Madd_n0728_lut<0>16" is loadless and has been
+removed.
+                  Loadless block "GPS_Controller/Madd_n0728_lut<0>16" (ROM) removed.
+                   The signal "GPS_Controller/n0622<16>" is loadless and has been removed.
+                   The signal "GPS_Controller/n0624<16>" is loadless and has been removed.
+                   The signal "GPS_Controller/n0627<16>" is loadless and has been removed.
+               The signal "GPS_Controller/Madd_n072816" is loadless and has been removed.
+                Loadless block "GPS_Controller/Madd_n072816" (ROM) removed.
+               The signal "GPS_Controller/Madd_n0728_lut<0>17" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Madd_n0728_lut<0>17" (ROM) removed.
+                 The signal "GPS_Controller/n0622<17>" is loadless and has been removed.
+                 The signal "GPS_Controller/n0624<17>" is loadless and has been removed.
+                 The signal "GPS_Controller/n0627<17>" is loadless and has been removed.
+             The signal "GPS_Controller/Madd_n072817" is loadless and has been removed.
+              Loadless block "GPS_Controller/Madd_n072817" (ROM) removed.
+             The signal "GPS_Controller/Madd_n0728_lut<0>18" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Madd_n0728_lut<0>18" (ROM) removed.
+               The signal "GPS_Controller/n0622<18>" is loadless and has been removed.
+               The signal "GPS_Controller/n0624<18>" is loadless and has been removed.
+               The signal "GPS_Controller/n0627<18>" is loadless and has been removed.
+           The signal "GPS_Controller/Madd_n072818" is loadless and has been removed.
+            Loadless block "GPS_Controller/Madd_n072818" (ROM) removed.
+           The signal "GPS_Controller/Madd_n0728_lut<0>19" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Madd_n0728_lut<0>19" (ROM) removed.
+             The signal "GPS_Controller/n0622<19>" is loadless and has been removed.
+             The signal "GPS_Controller/n0624<19>" is loadless and has been removed.
+             The signal "GPS_Controller/n0627<19>" is loadless and has been removed.
+         The signal "GPS_Controller/Madd_n072819" is loadless and has been removed.
+          Loadless block "GPS_Controller/Madd_n072819" (ROM) removed.
+         The signal "GPS_Controller/Madd_n0728_lut<0>20" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Madd_n0728_lut<0>20" (ROM) removed.
+           The signal "GPS_Controller/n0622<20>" is loadless and has been removed.
+           The signal "GPS_Controller/n0624<20>" is loadless and has been removed.
+           The signal "GPS_Controller/n0627<20>" is loadless and has been removed.
+       The signal "GPS_Controller/Madd_n072820" is loadless and has been removed.
+        Loadless block "GPS_Controller/Madd_n072820" (ROM) removed.
+       The signal "GPS_Controller/Madd_n0728_lut<0>21" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Madd_n0728_lut<0>21" (ROM) removed.
+         The signal "GPS_Controller/n0622<21>" is loadless and has been removed.
+         The signal "GPS_Controller/n0624<21>" is loadless and has been removed.
+         The signal "GPS_Controller/n0627<21>" is loadless and has been removed.
+     The signal "GPS_Controller/Madd_n072821" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n072821" (ROM) removed.
+     The signal "GPS_Controller/Madd_n0728_lut<0>22" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Madd_n0728_lut<0>22" (ROM) removed.
+       The signal "GPS_Controller/n0622<22>" is loadless and has been removed.
+       The signal "GPS_Controller/n0624<22>" is loadless and has been removed.
+       The signal "GPS_Controller/n0627<22>" is loadless and has been removed.
+   The signal "GPS_Controller/Madd_n0728_lut<0>23" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Madd_n0728_lut<0>23" (ROM) removed.
+     The signal "GPS_Controller/Madd_n072822" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n072822" (ROM) removed.
+ The signal "GPS_Controller/n0630<23>" is loadless and has been removed.
+ The signal "GPS_Controller/GND_25_o_GND_25_o_sub_182_OUT<8>" is loadless and has
+been removed.
+  Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_182_OUT_xor<8>11"
+(ROM) removed.
+   The signal "GPS_Controller/rx_buffer<24>_6" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<24>_6" (LATCH) removed.
+     The signal "GPS_Controller/state_q[2]_GND_290_o_Mux_879_o" is loadless and has
+been removed.
+      Loadless block "GPS_Controller/Mmux_state_q[2]_GND_290_o_Mux_879_o11" (ROM)
+removed.
+   The signal "GPS_Controller/rx_buffer<24>_7" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<24>_7" (LATCH) removed.
+   The signal "GPS_Controller/rx_buffer<24>_4" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<24>_4" (LATCH) removed.
+   The signal "GPS_Controller/rx_buffer<24>_5" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<24>_5" (LATCH) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>1" (ROM) removed.
+ The signal "GPS_Controller/n0728<1>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_0" (XOR) removed.
+ The signal "GPS_Controller/n0630<1>" is loadless and has been removed.
+ The signal "GPS_Controller/rx_buffer<24>_0" is loadless and has been removed.
+  Loadless block "GPS_Controller/rx_buffer<24>_0" (LATCH) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd" (ROM) removed.
+   The signal "GPS_Controller/n0728<0>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0728_xor<0>" (XOR) removed.
+   The signal "GPS_Controller/n0630<0>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>10" (ROM) removed.
+ The signal "GPS_Controller/n0728<10>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_9" (XOR) removed.
+ The signal "GPS_Controller/n0630<10>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<10>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<10>" (XOR) removed.
+   The signal "GPS_Controller/Mmult_n0633_Madd_cy<9>" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<9>" (MUX) removed.
+     The signal "GPS_Controller/Mmult_n0633_Madd_cy<8>" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<8>" (MUX) removed.
+       The signal "GPS_Controller/Mmult_n0633_Madd_cy<7>" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<7>" (MUX) removed.
+         The signal "GPS_Controller/Mmult_n0633_Madd_cy<6>" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<6>" (MUX) removed.
+           The signal "GPS_Controller/Mmult_n0633_Madd_cy<5>" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<5>" (MUX) removed.
+             The signal "GPS_Controller/Mmult_n0633_Madd_cy<4>" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<4>" (MUX) removed.
+               The signal "GPS_Controller/Mmult_n0633_Madd_cy<3>" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<3>" (MUX) removed.
+                 The signal "GPS_Controller/rx_buffer<24>_2" is loadless and has been removed.
+                  Loadless block "GPS_Controller/rx_buffer<24>_2" (LATCH) removed.
+                 The signal "GPS_Controller/Mmult_n0633_Madd_lut<3>" is loadless and has been
+removed.
+                  Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<3>" (ROM) removed.
+               The signal "GPS_Controller/rx_buffer<24>_3" is loadless and has been removed.
+                Loadless block "GPS_Controller/rx_buffer<24>_3" (LATCH) removed.
+               The signal "GPS_Controller/Mmult_n0633_Madd_lut<4>" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<4>" (ROM) removed.
+                 The signal "GPS_Controller/rx_buffer<24>_1" is loadless and has been removed.
+                  Loadless block "GPS_Controller/rx_buffer<24>_1" (LATCH) removed.
+             The signal "GPS_Controller/Mmult_n0633_Madd_lut<5>" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<5>" (ROM) removed.
+           The signal "GPS_Controller/Mmult_n0633_Madd_lut<6>" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<6>" (ROM) removed.
+         The signal "GPS_Controller/GND_25_o_GND_25_o_sub_182_OUT<6>" is loadless and has
+been removed.
+          Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_182_OUT_xor<6>11"
+(ROM) removed.
+         The signal "GPS_Controller/Mmult_n0633_Madd_lut<7>" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<7>" (ROM) removed.
+       The signal "GPS_Controller/GND_25_o_GND_25_o_sub_182_OUT<7>" is loadless and has
+been removed.
+        Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_182_OUT_xor<7>11"
+(ROM) removed.
+       The signal "GPS_Controller/Mmult_n0633_Madd_lut<8>" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<8>" (ROM) removed.
+     The signal "GPS_Controller/Mmult_n0633_Madd_lut<9>" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<9>" (ROM) removed.
+   The signal "GPS_Controller/Mmult_n0633_Madd_lut<10>" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Mmult_n0633_Madd_lut<10>" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd9" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd9" (ROM) removed.
+   The signal "GPS_Controller/n0728<9>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0728_xor<0>_8" (XOR) removed.
+   The signal "GPS_Controller/n0630<9>" is loadless and has been removed.
+   The signal "GPS_Controller/n0633<9>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<9>" (XOR) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>11" (ROM) removed.
+ The signal "GPS_Controller/n0728<11>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_10" (XOR) removed.
+ The signal "GPS_Controller/n0630<11>" is loadless and has been removed.
+ The signal "GPS_Controller/Mmult_n0633_Madd_cy<10>" is loadless and has been
+removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_cy<10>" (MUX) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd10" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd10" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>12" (ROM) removed.
+ The signal "GPS_Controller/n0728<12>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_11" (XOR) removed.
+ The signal "GPS_Controller/n0630<12>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd11" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd11" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>13" (ROM) removed.
+ The signal "GPS_Controller/n0728<13>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_12" (XOR) removed.
+ The signal "GPS_Controller/n0630<13>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd12" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd12" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>14" (ROM) removed.
+ The signal "GPS_Controller/n0728<14>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_13" (XOR) removed.
+ The signal "GPS_Controller/n0630<14>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd13" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd13" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>15" (ROM) removed.
+ The signal "GPS_Controller/n0728<15>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_14" (XOR) removed.
+ The signal "GPS_Controller/n0630<15>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd14" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd14" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>16" (ROM) removed.
+ The signal "GPS_Controller/n0728<16>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_15" (XOR) removed.
+ The signal "GPS_Controller/n0630<16>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd15" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd15" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>17" (ROM) removed.
+ The signal "GPS_Controller/n0728<17>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_16" (XOR) removed.
+ The signal "GPS_Controller/n0630<17>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd16" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd16" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>18" (ROM) removed.
+ The signal "GPS_Controller/n0728<18>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_17" (XOR) removed.
+ The signal "GPS_Controller/n0630<18>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd17" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd17" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>19" (ROM) removed.
+ The signal "GPS_Controller/n0728<19>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_18" (XOR) removed.
+ The signal "GPS_Controller/n0630<19>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd18" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd18" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>2" (ROM) removed.
+ The signal "GPS_Controller/n0728<2>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_1" (XOR) removed.
+ The signal "GPS_Controller/n0630<2>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd1" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd1" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>20" (ROM) removed.
+ The signal "GPS_Controller/n0728<20>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_19" (XOR) removed.
+ The signal "GPS_Controller/n0630<20>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd19" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd19" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>21" (ROM) removed.
+ The signal "GPS_Controller/n0728<21>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_20" (XOR) removed.
+ The signal "GPS_Controller/n0630<21>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd20" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd20" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>22" (ROM) removed.
+ The signal "GPS_Controller/n0728<22>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_21" (XOR) removed.
+ The signal "GPS_Controller/n0630<22>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0734_Madd21" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd21" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>23" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd22" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd22" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>3" (ROM) removed.
+ The signal "GPS_Controller/n0728<3>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_2" (XOR) removed.
+ The signal "GPS_Controller/n0630<3>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<3>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<3>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd2" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd2" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>4" (ROM) removed.
+ The signal "GPS_Controller/n0728<4>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_3" (XOR) removed.
+ The signal "GPS_Controller/n0630<4>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<4>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<4>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd3" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd3" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>5" (ROM) removed.
+ The signal "GPS_Controller/n0728<5>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_4" (XOR) removed.
+ The signal "GPS_Controller/n0630<5>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<5>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<5>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd4" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd4" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>6" (ROM) removed.
+ The signal "GPS_Controller/n0728<6>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_5" (XOR) removed.
+ The signal "GPS_Controller/n0630<6>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<6>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<6>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd5" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd5" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>7" (ROM) removed.
+ The signal "GPS_Controller/n0728<7>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_6" (XOR) removed.
+ The signal "GPS_Controller/n0630<7>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<7>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<7>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd6" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd6" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>8" (ROM) removed.
+ The signal "GPS_Controller/n0728<8>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0728_xor<0>_7" (XOR) removed.
+ The signal "GPS_Controller/n0630<8>" is loadless and has been removed.
+ The signal "GPS_Controller/n0633<8>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0633_Madd_xor<8>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd7" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd7" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0734_Madd_lut<0>9" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0734_Madd8" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0734_Madd8" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n074931" (ROM) removed.
+ The signal "GPS_Controller/n0645<31>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<31>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<31>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>24" (ROM) removed.
+ The signal "GPS_Controller/n0645<24>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<24>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<24>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074923" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074923" (ROM) removed.
+   The signal "GPS_Controller/n0645<23>" is loadless and has been removed.
+   The signal "GPS_Controller/n0647<23>" is loadless and has been removed.
+   The signal "GPS_Controller/n0650<23>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>25" (ROM) removed.
+ The signal "GPS_Controller/n0645<25>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<25>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<25>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074924" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074924" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>26" (ROM) removed.
+ The signal "GPS_Controller/n0645<26>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<26>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<26>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074925" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074925" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>27" (ROM) removed.
+ The signal "GPS_Controller/n0645<27>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<27>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<27>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074926" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074926" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>28" (ROM) removed.
+ The signal "GPS_Controller/n0645<28>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<28>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<28>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074927" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074927" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>29" (ROM) removed.
+ The signal "GPS_Controller/n0645<29>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<29>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<29>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074928" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074928" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>30" (ROM) removed.
+ The signal "GPS_Controller/n0645<30>" is loadless and has been removed.
+ The signal "GPS_Controller/n0647<30>" is loadless and has been removed.
+ The signal "GPS_Controller/n0650<30>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n074929" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074929" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0749_lut<0>31" (ROM) removed.
+ The signal "GPS_Controller/Madd_n074930" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n074930" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd23" (ROM) removed.
+ The signal "GPS_Controller/n0749<23>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_22" (XOR) removed.
+   The signal "GPS_Controller/Madd_n0749_cy<0>22" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0749_cy<0>_21" (MUX) removed.
+     The signal "GPS_Controller/Madd_n0749_cy<0>21" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n0749_cy<0>_20" (MUX) removed.
+       The signal "GPS_Controller/Madd_n0749_cy<0>20" is loadless and has been removed.
+        Loadless block "GPS_Controller/Madd_n0749_cy<0>_19" (MUX) removed.
+         The signal "GPS_Controller/Madd_n0749_cy<0>19" is loadless and has been removed.
+          Loadless block "GPS_Controller/Madd_n0749_cy<0>_18" (MUX) removed.
+           The signal "GPS_Controller/Madd_n0749_cy<0>18" is loadless and has been removed.
+            Loadless block "GPS_Controller/Madd_n0749_cy<0>_17" (MUX) removed.
+             The signal "GPS_Controller/Madd_n0749_cy<0>17" is loadless and has been removed.
+              Loadless block "GPS_Controller/Madd_n0749_cy<0>_16" (MUX) removed.
+               The signal "GPS_Controller/Madd_n0749_cy<0>16" is loadless and has been removed.
+                Loadless block "GPS_Controller/Madd_n0749_cy<0>_15" (MUX) removed.
+                 The signal "GPS_Controller/Madd_n0749_cy<0>15" is loadless and has been removed.
+                  Loadless block "GPS_Controller/Madd_n0749_cy<0>_14" (MUX) removed.
+                   The signal "GPS_Controller/Madd_n0749_cy<0>14" is loadless and has been removed.
+                    Loadless block "GPS_Controller/Madd_n0749_cy<0>_13" (MUX) removed.
+                     The signal "GPS_Controller/Madd_n0749_cy<0>13" is loadless and has been removed.
+                      Loadless block "GPS_Controller/Madd_n0749_cy<0>_12" (MUX) removed.
+                       The signal "GPS_Controller/Madd_n0749_cy<0>12" is loadless and has been removed.
+                        Loadless block "GPS_Controller/Madd_n0749_cy<0>_11" (MUX) removed.
+                         The signal "GPS_Controller/Madd_n0749_cy<0>11" is loadless and has been removed.
+                          Loadless block "GPS_Controller/Madd_n0749_cy<0>_10" (MUX) removed.
+                           The signal "GPS_Controller/Madd_n0749_cy<0>10" is loadless and has been removed.
+                            Loadless block "GPS_Controller/Madd_n0749_cy<0>_9" (MUX) removed.
+                             The signal "GPS_Controller/Madd_n0749_cy<0>9" is loadless and has been removed.
+                              Loadless block "GPS_Controller/Madd_n0749_cy<0>_8" (MUX) removed.
+                               The signal "GPS_Controller/Madd_n0749_cy<0>8" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n0749_cy<0>_7" (MUX) removed.
+                                 The signal "GPS_Controller/Madd_n0749_cy<0>7" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n0749_cy<0>_6" (MUX) removed.
+                                   The signal "GPS_Controller/Madd_n0749_cy<0>6" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n0749_cy<0>_5" (MUX) removed.
+                                     The signal "GPS_Controller/Madd_n0749_cy<0>5" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n0749_cy<0>_4" (MUX) removed.
+                                       The signal "GPS_Controller/Madd_n0749_cy<0>4" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n0749_cy<0>_3" (MUX) removed.
+                                         The signal "GPS_Controller/Madd_n0749_cy<0>3" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n0749_cy<0>_2" (MUX) removed.
+                                           The signal "GPS_Controller/Madd_n0749_cy<0>2" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n0749_cy<0>_1" (MUX) removed.
+                                             The signal "GPS_Controller/Madd_n0749_cy<0>1" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n0749_cy<0>_0" (MUX) removed.
+                                               The signal "GPS_Controller/Madd_n0749_cy<0>" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0749_cy<0>" (MUX) removed.
+                                                 The signal "GPS_Controller/Madd_n0749_lut<0>" is loadless and has been removed.
+*Loadless block "GPS_Controller/Madd_n0749_lut<0>" (ROM) removed.
+* The signal "GPS_Controller/n0645<0>" is loadless and has been removed.
+* The signal "GPS_Controller/n0647<0>" is loadless and has been removed.
+* The signal "GPS_Controller/n0650<0>" is loadless and has been removed.
+                                               The signal "GPS_Controller/Madd_n0749" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0749" (ROM) removed.
+                                               The signal "GPS_Controller/Madd_n0749_lut<0>1" is loadless and has been removed.
+                                                Loadless block "GPS_Controller/Madd_n0749_lut<0>1" (ROM) removed.
+                                                 The signal "GPS_Controller/n0645<1>" is loadless and has been removed.
+                                                 The signal "GPS_Controller/n0647<1>" is loadless and has been removed.
+                                                 The signal "GPS_Controller/n0650<1>" is loadless and has been removed.
+                                             The signal "GPS_Controller/Madd_n07491" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n07491" (ROM) removed.
+                                             The signal "GPS_Controller/Madd_n0749_lut<0>2" is loadless and has been removed.
+                                              Loadless block "GPS_Controller/Madd_n0749_lut<0>2" (ROM) removed.
+                                               The signal "GPS_Controller/n0645<2>" is loadless and has been removed.
+                                               The signal "GPS_Controller/n0647<2>" is loadless and has been removed.
+                                               The signal "GPS_Controller/n0650<2>" is loadless and has been removed.
+                                           The signal "GPS_Controller/Madd_n07492" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n07492" (ROM) removed.
+                                           The signal "GPS_Controller/Madd_n0749_lut<0>3" is loadless and has been removed.
+                                            Loadless block "GPS_Controller/Madd_n0749_lut<0>3" (ROM) removed.
+                                             The signal "GPS_Controller/n0645<3>" is loadless and has been removed.
+                                             The signal "GPS_Controller/n0647<3>" is loadless and has been removed.
+                                             The signal "GPS_Controller/n0650<3>" is loadless and has been removed.
+                                         The signal "GPS_Controller/Madd_n07493" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n07493" (ROM) removed.
+                                         The signal "GPS_Controller/Madd_n0749_lut<0>4" is loadless and has been removed.
+                                          Loadless block "GPS_Controller/Madd_n0749_lut<0>4" (ROM) removed.
+                                           The signal "GPS_Controller/n0645<4>" is loadless and has been removed.
+                                           The signal "GPS_Controller/n0647<4>" is loadless and has been removed.
+                                           The signal "GPS_Controller/n0650<4>" is loadless and has been removed.
+                                       The signal "GPS_Controller/Madd_n07494" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n07494" (ROM) removed.
+                                       The signal "GPS_Controller/Madd_n0749_lut<0>5" is loadless and has been removed.
+                                        Loadless block "GPS_Controller/Madd_n0749_lut<0>5" (ROM) removed.
+                                         The signal "GPS_Controller/n0645<5>" is loadless and has been removed.
+                                         The signal "GPS_Controller/n0647<5>" is loadless and has been removed.
+                                         The signal "GPS_Controller/n0650<5>" is loadless and has been removed.
+                                     The signal "GPS_Controller/Madd_n07495" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n07495" (ROM) removed.
+                                     The signal "GPS_Controller/Madd_n0749_lut<0>6" is loadless and has been removed.
+                                      Loadless block "GPS_Controller/Madd_n0749_lut<0>6" (ROM) removed.
+                                       The signal "GPS_Controller/n0645<6>" is loadless and has been removed.
+                                       The signal "GPS_Controller/n0647<6>" is loadless and has been removed.
+                                       The signal "GPS_Controller/n0650<6>" is loadless and has been removed.
+                                   The signal "GPS_Controller/Madd_n07496" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n07496" (ROM) removed.
+                                   The signal "GPS_Controller/Madd_n0749_lut<0>7" is loadless and has been removed.
+                                    Loadless block "GPS_Controller/Madd_n0749_lut<0>7" (ROM) removed.
+                                     The signal "GPS_Controller/n0645<7>" is loadless and has been removed.
+                                     The signal "GPS_Controller/n0647<7>" is loadless and has been removed.
+                                     The signal "GPS_Controller/n0650<7>" is loadless and has been removed.
+                                 The signal "GPS_Controller/Madd_n07497" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n07497" (ROM) removed.
+                                 The signal "GPS_Controller/Madd_n0749_lut<0>8" is loadless and has been removed.
+                                  Loadless block "GPS_Controller/Madd_n0749_lut<0>8" (ROM) removed.
+                                   The signal "GPS_Controller/n0645<8>" is loadless and has been removed.
+                                   The signal "GPS_Controller/n0647<8>" is loadless and has been removed.
+                                   The signal "GPS_Controller/n0650<8>" is loadless and has been removed.
+                               The signal "GPS_Controller/Madd_n07498" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n07498" (ROM) removed.
+                               The signal "GPS_Controller/Madd_n0749_lut<0>9" is loadless and has been removed.
+                                Loadless block "GPS_Controller/Madd_n0749_lut<0>9" (ROM) removed.
+                                 The signal "GPS_Controller/n0645<9>" is loadless and has been removed.
+                                 The signal "GPS_Controller/n0647<9>" is loadless and has been removed.
+                                 The signal "GPS_Controller/n0650<9>" is loadless and has been removed.
+                             The signal "GPS_Controller/Madd_n07499" is loadless and has been removed.
+                              Loadless block "GPS_Controller/Madd_n07499" (ROM) removed.
+                             The signal "GPS_Controller/Madd_n0749_lut<0>10" is loadless and has been
+removed.
+                              Loadless block "GPS_Controller/Madd_n0749_lut<0>10" (ROM) removed.
+                               The signal "GPS_Controller/n0645<10>" is loadless and has been removed.
+                               The signal "GPS_Controller/n0647<10>" is loadless and has been removed.
+                               The signal "GPS_Controller/n0650<10>" is loadless and has been removed.
+                           The signal "GPS_Controller/Madd_n074910" is loadless and has been removed.
+                            Loadless block "GPS_Controller/Madd_n074910" (ROM) removed.
+                           The signal "GPS_Controller/Madd_n0749_lut<0>11" is loadless and has been
+removed.
+                            Loadless block "GPS_Controller/Madd_n0749_lut<0>11" (ROM) removed.
+                             The signal "GPS_Controller/n0645<11>" is loadless and has been removed.
+                             The signal "GPS_Controller/n0647<11>" is loadless and has been removed.
+                             The signal "GPS_Controller/n0650<11>" is loadless and has been removed.
+                         The signal "GPS_Controller/Madd_n074911" is loadless and has been removed.
+                          Loadless block "GPS_Controller/Madd_n074911" (ROM) removed.
+                         The signal "GPS_Controller/Madd_n0749_lut<0>12" is loadless and has been
+removed.
+                          Loadless block "GPS_Controller/Madd_n0749_lut<0>12" (ROM) removed.
+                           The signal "GPS_Controller/n0645<12>" is loadless and has been removed.
+                           The signal "GPS_Controller/n0647<12>" is loadless and has been removed.
+                           The signal "GPS_Controller/n0650<12>" is loadless and has been removed.
+                       The signal "GPS_Controller/Madd_n074912" is loadless and has been removed.
+                        Loadless block "GPS_Controller/Madd_n074912" (ROM) removed.
+                       The signal "GPS_Controller/Madd_n0749_lut<0>13" is loadless and has been
+removed.
+                        Loadless block "GPS_Controller/Madd_n0749_lut<0>13" (ROM) removed.
+                         The signal "GPS_Controller/n0645<13>" is loadless and has been removed.
+                         The signal "GPS_Controller/n0647<13>" is loadless and has been removed.
+                         The signal "GPS_Controller/n0650<13>" is loadless and has been removed.
+                     The signal "GPS_Controller/Madd_n074913" is loadless and has been removed.
+                      Loadless block "GPS_Controller/Madd_n074913" (ROM) removed.
+                     The signal "GPS_Controller/Madd_n0749_lut<0>14" is loadless and has been
+removed.
+                      Loadless block "GPS_Controller/Madd_n0749_lut<0>14" (ROM) removed.
+                       The signal "GPS_Controller/n0645<14>" is loadless and has been removed.
+                       The signal "GPS_Controller/n0647<14>" is loadless and has been removed.
+                       The signal "GPS_Controller/n0650<14>" is loadless and has been removed.
+                   The signal "GPS_Controller/Madd_n074914" is loadless and has been removed.
+                    Loadless block "GPS_Controller/Madd_n074914" (ROM) removed.
+                   The signal "GPS_Controller/Madd_n0749_lut<0>15" is loadless and has been
+removed.
+                    Loadless block "GPS_Controller/Madd_n0749_lut<0>15" (ROM) removed.
+                     The signal "GPS_Controller/n0645<15>" is loadless and has been removed.
+                     The signal "GPS_Controller/n0647<15>" is loadless and has been removed.
+                     The signal "GPS_Controller/n0650<15>" is loadless and has been removed.
+                 The signal "GPS_Controller/Madd_n074915" is loadless and has been removed.
+                  Loadless block "GPS_Controller/Madd_n074915" (ROM) removed.
+                 The signal "GPS_Controller/Madd_n0749_lut<0>16" is loadless and has been
+removed.
+                  Loadless block "GPS_Controller/Madd_n0749_lut<0>16" (ROM) removed.
+                   The signal "GPS_Controller/n0645<16>" is loadless and has been removed.
+                   The signal "GPS_Controller/n0647<16>" is loadless and has been removed.
+                   The signal "GPS_Controller/n0650<16>" is loadless and has been removed.
+               The signal "GPS_Controller/Madd_n074916" is loadless and has been removed.
+                Loadless block "GPS_Controller/Madd_n074916" (ROM) removed.
+               The signal "GPS_Controller/Madd_n0749_lut<0>17" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Madd_n0749_lut<0>17" (ROM) removed.
+                 The signal "GPS_Controller/n0645<17>" is loadless and has been removed.
+                 The signal "GPS_Controller/n0647<17>" is loadless and has been removed.
+                 The signal "GPS_Controller/n0650<17>" is loadless and has been removed.
+             The signal "GPS_Controller/Madd_n074917" is loadless and has been removed.
+              Loadless block "GPS_Controller/Madd_n074917" (ROM) removed.
+             The signal "GPS_Controller/Madd_n0749_lut<0>18" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Madd_n0749_lut<0>18" (ROM) removed.
+               The signal "GPS_Controller/n0645<18>" is loadless and has been removed.
+               The signal "GPS_Controller/n0647<18>" is loadless and has been removed.
+               The signal "GPS_Controller/n0650<18>" is loadless and has been removed.
+           The signal "GPS_Controller/Madd_n074918" is loadless and has been removed.
+            Loadless block "GPS_Controller/Madd_n074918" (ROM) removed.
+           The signal "GPS_Controller/Madd_n0749_lut<0>19" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Madd_n0749_lut<0>19" (ROM) removed.
+             The signal "GPS_Controller/n0645<19>" is loadless and has been removed.
+             The signal "GPS_Controller/n0647<19>" is loadless and has been removed.
+             The signal "GPS_Controller/n0650<19>" is loadless and has been removed.
+         The signal "GPS_Controller/Madd_n074919" is loadless and has been removed.
+          Loadless block "GPS_Controller/Madd_n074919" (ROM) removed.
+         The signal "GPS_Controller/Madd_n0749_lut<0>20" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Madd_n0749_lut<0>20" (ROM) removed.
+           The signal "GPS_Controller/n0645<20>" is loadless and has been removed.
+           The signal "GPS_Controller/n0647<20>" is loadless and has been removed.
+           The signal "GPS_Controller/n0650<20>" is loadless and has been removed.
+       The signal "GPS_Controller/Madd_n074920" is loadless and has been removed.
+        Loadless block "GPS_Controller/Madd_n074920" (ROM) removed.
+       The signal "GPS_Controller/Madd_n0749_lut<0>21" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Madd_n0749_lut<0>21" (ROM) removed.
+         The signal "GPS_Controller/n0645<21>" is loadless and has been removed.
+         The signal "GPS_Controller/n0647<21>" is loadless and has been removed.
+         The signal "GPS_Controller/n0650<21>" is loadless and has been removed.
+     The signal "GPS_Controller/Madd_n074921" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n074921" (ROM) removed.
+     The signal "GPS_Controller/Madd_n0749_lut<0>22" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Madd_n0749_lut<0>22" (ROM) removed.
+       The signal "GPS_Controller/n0645<22>" is loadless and has been removed.
+       The signal "GPS_Controller/n0647<22>" is loadless and has been removed.
+       The signal "GPS_Controller/n0650<22>" is loadless and has been removed.
+   The signal "GPS_Controller/Madd_n0749_lut<0>23" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Madd_n0749_lut<0>23" (ROM) removed.
+     The signal "GPS_Controller/Madd_n074922" is loadless and has been removed.
+      Loadless block "GPS_Controller/Madd_n074922" (ROM) removed.
+ The signal "GPS_Controller/n0653<23>" is loadless and has been removed.
+ The signal "GPS_Controller/GND_25_o_GND_25_o_sub_206_OUT<8>" is loadless and has
+been removed.
+  Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_206_OUT_xor<8>11"
+(ROM) removed.
+   The signal "GPS_Controller/rx_buffer<37>_6" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<37>_6" (LATCH) removed.
+     The signal "GPS_Controller/state_q[2]_GND_394_o_Mux_1087_o" is loadless and has
+been removed.
+      Loadless block "GPS_Controller/Mmux_state_q[2]_GND_394_o_Mux_1087_o11" (ROM)
+removed.
+       The signal "GPS_Controller/rx_new_rx_data[7]_AND_6760_o1" is loadless and has
+been removed.
+        Loadless block "GPS_Controller/rx_new_rx_data[7]_AND_6760_o11" (ROM) removed.
+   The signal "GPS_Controller/rx_buffer<37>_7" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<37>_7" (LATCH) removed.
+   The signal "GPS_Controller/rx_buffer<37>_4" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<37>_4" (LATCH) removed.
+   The signal "GPS_Controller/rx_buffer<37>_5" is loadless and has been removed.
+    Loadless block "GPS_Controller/rx_buffer<37>_5" (LATCH) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>1" (ROM) removed.
+ The signal "GPS_Controller/n0749<1>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_0" (XOR) removed.
+ The signal "GPS_Controller/n0653<1>" is loadless and has been removed.
+ The signal "GPS_Controller/rx_buffer<37>_0" is loadless and has been removed.
+  Loadless block "GPS_Controller/rx_buffer<37>_0" (LATCH) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd" (ROM) removed.
+   The signal "GPS_Controller/n0749<0>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0749_xor<0>" (XOR) removed.
+   The signal "GPS_Controller/n0653<0>" is loadless and has been removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>10" (ROM) removed.
+ The signal "GPS_Controller/n0749<10>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_9" (XOR) removed.
+ The signal "GPS_Controller/n0653<10>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<10>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<10>" (XOR) removed.
+   The signal "GPS_Controller/Mmult_n0656_Madd_cy<9>" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<9>" (MUX) removed.
+     The signal "GPS_Controller/Mmult_n0656_Madd_cy<8>" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<8>" (MUX) removed.
+       The signal "GPS_Controller/Mmult_n0656_Madd_cy<7>" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<7>" (MUX) removed.
+         The signal "GPS_Controller/Mmult_n0656_Madd_cy<6>" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<6>" (MUX) removed.
+           The signal "GPS_Controller/Mmult_n0656_Madd_cy<5>" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<5>" (MUX) removed.
+             The signal "GPS_Controller/Mmult_n0656_Madd_cy<4>" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<4>" (MUX) removed.
+               The signal "GPS_Controller/Mmult_n0656_Madd_cy<3>" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<3>" (MUX) removed.
+                 The signal "GPS_Controller/rx_buffer<37>_2" is loadless and has been removed.
+                  Loadless block "GPS_Controller/rx_buffer<37>_2" (LATCH) removed.
+                 The signal "GPS_Controller/Mmult_n0656_Madd_lut<3>" is loadless and has been
+removed.
+                  Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<3>" (ROM) removed.
+               The signal "GPS_Controller/rx_buffer<37>_3" is loadless and has been removed.
+                Loadless block "GPS_Controller/rx_buffer<37>_3" (LATCH) removed.
+               The signal "GPS_Controller/Mmult_n0656_Madd_lut<4>" is loadless and has been
+removed.
+                Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<4>" (ROM) removed.
+                 The signal "GPS_Controller/rx_buffer<37>_1" is loadless and has been removed.
+                  Loadless block "GPS_Controller/rx_buffer<37>_1" (LATCH) removed.
+             The signal "GPS_Controller/Mmult_n0656_Madd_lut<5>" is loadless and has been
+removed.
+              Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<5>" (ROM) removed.
+           The signal "GPS_Controller/Mmult_n0656_Madd_lut<6>" is loadless and has been
+removed.
+            Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<6>" (ROM) removed.
+         The signal "GPS_Controller/GND_25_o_GND_25_o_sub_206_OUT<6>" is loadless and has
+been removed.
+          Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_206_OUT_xor<6>11"
+(ROM) removed.
+         The signal "GPS_Controller/Mmult_n0656_Madd_lut<7>" is loadless and has been
+removed.
+          Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<7>" (ROM) removed.
+       The signal "GPS_Controller/GND_25_o_GND_25_o_sub_206_OUT<7>" is loadless and has
+been removed.
+        Loadless block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_206_OUT_xor<7>11"
+(ROM) removed.
+       The signal "GPS_Controller/Mmult_n0656_Madd_lut<8>" is loadless and has been
+removed.
+        Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<8>" (ROM) removed.
+     The signal "GPS_Controller/Mmult_n0656_Madd_lut<9>" is loadless and has been
+removed.
+      Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<9>" (ROM) removed.
+   The signal "GPS_Controller/Mmult_n0656_Madd_lut<10>" is loadless and has been
+removed.
+    Loadless block "GPS_Controller/Mmult_n0656_Madd_lut<10>" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd9" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd9" (ROM) removed.
+   The signal "GPS_Controller/n0749<9>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Madd_n0749_xor<0>_8" (XOR) removed.
+   The signal "GPS_Controller/n0653<9>" is loadless and has been removed.
+   The signal "GPS_Controller/n0656<9>" is loadless and has been removed.
+    Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<9>" (XOR) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>11" (ROM) removed.
+ The signal "GPS_Controller/n0749<11>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_10" (XOR) removed.
+ The signal "GPS_Controller/n0653<11>" is loadless and has been removed.
+ The signal "GPS_Controller/Mmult_n0656_Madd_cy<10>" is loadless and has been
+removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_cy<10>" (MUX) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd10" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd10" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>12" (ROM) removed.
+ The signal "GPS_Controller/n0749<12>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_11" (XOR) removed.
+ The signal "GPS_Controller/n0653<12>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd11" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd11" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>13" (ROM) removed.
+ The signal "GPS_Controller/n0749<13>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_12" (XOR) removed.
+ The signal "GPS_Controller/n0653<13>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd12" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd12" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>14" (ROM) removed.
+ The signal "GPS_Controller/n0749<14>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_13" (XOR) removed.
+ The signal "GPS_Controller/n0653<14>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd13" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd13" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>15" (ROM) removed.
+ The signal "GPS_Controller/n0749<15>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_14" (XOR) removed.
+ The signal "GPS_Controller/n0653<15>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd14" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd14" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>16" (ROM) removed.
+ The signal "GPS_Controller/n0749<16>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_15" (XOR) removed.
+ The signal "GPS_Controller/n0653<16>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd15" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd15" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>17" (ROM) removed.
+ The signal "GPS_Controller/n0749<17>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_16" (XOR) removed.
+ The signal "GPS_Controller/n0653<17>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd16" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd16" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>18" (ROM) removed.
+ The signal "GPS_Controller/n0749<18>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_17" (XOR) removed.
+ The signal "GPS_Controller/n0653<18>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd17" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd17" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>19" (ROM) removed.
+ The signal "GPS_Controller/n0749<19>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_18" (XOR) removed.
+ The signal "GPS_Controller/n0653<19>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd18" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd18" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>2" (ROM) removed.
+ The signal "GPS_Controller/n0749<2>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_1" (XOR) removed.
+ The signal "GPS_Controller/n0653<2>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd1" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd1" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>20" (ROM) removed.
+ The signal "GPS_Controller/n0749<20>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_19" (XOR) removed.
+ The signal "GPS_Controller/n0653<20>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd19" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd19" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>21" (ROM) removed.
+ The signal "GPS_Controller/n0749<21>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_20" (XOR) removed.
+ The signal "GPS_Controller/n0653<21>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd20" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd20" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>22" (ROM) removed.
+ The signal "GPS_Controller/n0749<22>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_21" (XOR) removed.
+ The signal "GPS_Controller/n0653<22>" is loadless and has been removed.
+ The signal "GPS_Controller/Madd_n0755_Madd21" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd21" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>23" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd22" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd22" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>3" (ROM) removed.
+ The signal "GPS_Controller/n0749<3>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_2" (XOR) removed.
+ The signal "GPS_Controller/n0653<3>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<3>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<3>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd2" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd2" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>4" (ROM) removed.
+ The signal "GPS_Controller/n0749<4>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_3" (XOR) removed.
+ The signal "GPS_Controller/n0653<4>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<4>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<4>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd3" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd3" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>5" (ROM) removed.
+ The signal "GPS_Controller/n0749<5>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_4" (XOR) removed.
+ The signal "GPS_Controller/n0653<5>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<5>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<5>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd4" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd4" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>6" (ROM) removed.
+ The signal "GPS_Controller/n0749<6>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_5" (XOR) removed.
+ The signal "GPS_Controller/n0653<6>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<6>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<6>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd5" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd5" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>7" (ROM) removed.
+ The signal "GPS_Controller/n0749<7>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_6" (XOR) removed.
+ The signal "GPS_Controller/n0653<7>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<7>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<7>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd6" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd6" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>8" (ROM) removed.
+ The signal "GPS_Controller/n0749<8>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0749_xor<0>_7" (XOR) removed.
+ The signal "GPS_Controller/n0653<8>" is loadless and has been removed.
+ The signal "GPS_Controller/n0656<8>" is loadless and has been removed.
+  Loadless block "GPS_Controller/Mmult_n0656_Madd_xor<8>" (XOR) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd7" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd7" (ROM) removed.
+Loadless block "GPS_Controller/Madd_n0755_Madd_lut<0>9" (ROM) removed.
+ The signal "GPS_Controller/Madd_n0755_Madd8" is loadless and has been removed.
+  Loadless block "GPS_Controller/Madd_n0755_Madd8" (ROM) removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "GPS_Controller/rx_new_rx_data[7]_AND_6600_o1" is unused and has been
+removed.
+ Unused block "GPS_Controller/rx_new_rx_data[7]_AND_6600_o11" (ROM) removed.
+The signal "GPS_Controller/rx_buffer<36>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_386_o_Mux_1071_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_386_o_Mux_1071_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<36>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<35>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_378_o_Mux_1055_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_378_o_Mux_1055_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<35>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<33>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_362_o_Mux_1023_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_362_o_Mux_1023_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<33>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<32>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_354_o_Mux_1007_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_354_o_Mux_1007_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<32>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<22>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_274_o_Mux_847_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_274_o_Mux_847_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<22>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<20>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_258_o_Mux_815_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_258_o_Mux_815_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<20>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<23>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_282_o_Mux_863_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_282_o_Mux_863_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<23>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_4" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<19>_5" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_5" (LATCH) removed.
+  The signal "GPS_Controller/state_q[2]_GND_250_o_Mux_799_o" is unused and has
+been removed.
+   Unused block "GPS_Controller/Mmux_state_q[2]_GND_250_o_Mux_799_o11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<19>_4" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_4" (LATCH) removed.
+The signal "GPS_Controller/Mmult_n0653_P47_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P46_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P45_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P44_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P43_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P42_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P41_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P40_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P39_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P38_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P37_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P36_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P35_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P34_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P33_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P32_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P31_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P30_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P29_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P28_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P27_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P26_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P25_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P24_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P23_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P22_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P21_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P20_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P19_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P18_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_P17_to_Mmult_n06531" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0653_BCOUT_to_Mmult_n06531_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_P47_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P46_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P45_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P44_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P43_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P42_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P41_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P40_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P39_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P38_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P37_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P36_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P35_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P34_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P33_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P32_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P31_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P30_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P29_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P28_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P27_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P26_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P25_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P24_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P23_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P22_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P21_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P20_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P19_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P18_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_P17_to_Mmult_n06451" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0645_BCOUT_to_Mmult_n06451_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_P47_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P46_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P45_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P44_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P43_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P42_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P41_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P40_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P39_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P38_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P37_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P36_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P35_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P34_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P33_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P32_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P31_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P30_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P29_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P28_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P27_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P26_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P25_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P24_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P23_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P22_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P21_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P20_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P19_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P18_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_P17_to_Mmult_n06271" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0627_BCOUT_to_Mmult_n06271_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_P47_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P46_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P45_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P44_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P43_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P42_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P41_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P40_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P39_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P38_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P37_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P36_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P35_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P34_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P33_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P32_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P31_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P30_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P29_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P28_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P27_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P26_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P25_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P24_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P23_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P22_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P21_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P20_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P19_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P18_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_P17_to_Mmult_n06301" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0630_BCOUT_to_Mmult_n06301_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_P47_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P46_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P45_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P44_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P43_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P42_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P41_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P40_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P39_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P38_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P37_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P36_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P35_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P34_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P33_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P32_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P31_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P30_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P29_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P28_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P27_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P26_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P25_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P24_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P23_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P22_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P21_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P20_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P19_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P18_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_P17_to_Mmult_n06501" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0650_BCOUT_to_Mmult_n06501_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_P47_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P46_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P45_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P44_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P43_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P42_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P41_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P40_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P39_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P38_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P37_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P36_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P35_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P34_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P33_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P32_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P31_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P30_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P29_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P28_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P27_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P26_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P25_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P24_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P23_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P22_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P21_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P20_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P19_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P18_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_P17_to_Mmult_n06221" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0622_BCOUT_to_Mmult_n06221_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_P47_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P46_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P45_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P44_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P43_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P42_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P41_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P40_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P39_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P38_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P37_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P36_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P35_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P34_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P33_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P32_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P31_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P30_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P29_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P28_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P27_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P26_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P25_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P24_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P23_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P22_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P21_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P20_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P19_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P18_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_P17_to_Mmult_n06471" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0647_BCOUT_to_Mmult_n06471_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_P47_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P46_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P45_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P44_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P43_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P42_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P41_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P40_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P39_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P38_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P37_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P36_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P35_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P34_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P33_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P32_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P31_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P30_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P29_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P28_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P27_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P26_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P25_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P24_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P23_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P22_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P21_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P20_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P19_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P18_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_P17_to_Mmult_n06241" is unused and has
+been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_17" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_16" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_15" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_14" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_13" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_12" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_11" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_10" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_9" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_8" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_7" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_6" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_5" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_4" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_3" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_2" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_1" is unused and
+has been removed.
+The signal "GPS_Controller/Mmult_n0624_BCOUT_to_Mmult_n06241_B_0" is unused and
+has been removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_203_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_203_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_203_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_203_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_203_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_203_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<36>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<36>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_203_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_203_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<36>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<36>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_203_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_203_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_200_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_200_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_200_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_200_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_200_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_200_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<35>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<35>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_200_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_200_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<35>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<35>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_200_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_200_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_197_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_197_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_197_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_197_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_197_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_197_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<33>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<33>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_197_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_197_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<33>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<33>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_197_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_197_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_195_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_195_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_195_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_195_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_195_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_195_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<32>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<32>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_195_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_195_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<32>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<32>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_195_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_195_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_179_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_179_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_179_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_179_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_179_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_179_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<23>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<23>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_179_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_179_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<23>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<23>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_179_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_179_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_176_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_176_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_176_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_176_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_176_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_176_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<22>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<22>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_176_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_176_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<22>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<22>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_176_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_176_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_173_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_173_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_173_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_173_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_173_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_173_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<20>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<20>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_173_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_173_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<20>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<20>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_173_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_173_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_171_OUT<4>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_171_OUT_xor<4>11_INV_0"
+(BUF) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_171_OUT<5>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_171_OUT_xor<5>11" (ROM)
+removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_171_OUT<6>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_171_OUT_xor<6>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<19>_6" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<19>_6" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_171_OUT<7>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_171_OUT_xor<7>11" (ROM)
+removed.
+  The signal "GPS_Controller/rx_buffer<19>_7" is unused and has been removed.
+   Unused block "GPS_Controller/rx_buffer<19>_7" (LATCH) removed.
+The signal "GPS_Controller/GND_25_o_GND_25_o_sub_171_OUT<8>" is unused and has
+been removed.
+ Unused block "GPS_Controller/Msub_GND_25_o_GND_25_o_sub_171_OUT_xor<8>11" (ROM)
+removed.
+The signal "GPS_Controller/rx_buffer<36>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<35>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<33>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<32>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<23>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<22>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<20>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<19>_0" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_0" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<36>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<35>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<33>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<32>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<23>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<22>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<20>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<19>_1" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_1" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<36>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<35>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<33>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<32>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<23>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<22>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<20>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<19>_2" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_2" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<36>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<36>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<35>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<35>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<33>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<33>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<32>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<32>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<23>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<23>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<22>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<22>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<20>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<20>_3" (LATCH) removed.
+The signal "GPS_Controller/rx_buffer<19>_3" is unused and has been removed.
+ Unused block "GPS_Controller/rx_buffer<19>_3" (LATCH) removed.
+Unused block "GPS_Controller/Mmult_n0622" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06221" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0624" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06241" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0627" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06271" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0630" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06301" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0645" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06451" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0647" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06471" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0650" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06501" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n0653" (DSP48A1) removed.
+Unused block "GPS_Controller/Mmult_n06531" (DSP48A1) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK

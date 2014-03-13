@@ -33,8 +33,11 @@ input [15:0] z_accl,
 input [15:0] magm_x,
 input [15:0] magm_y,
 input [15:0] magm_z,
-input [31:0] gps_lon,
-input [31:0] gps_lat,
+input [7:0]  gps_lon_deg,
+input [23:0] gps_lon_submins,
+input [7:0]  gps_lat_deg,
+input [23:0] gps_lat_submins,
+input [7:0]  gps_status,
 input [31:0] gps_time,
 input [31:0] ground_speed,
 input [15:0] air_speed_p,
@@ -185,6 +188,20 @@ always@(*) begin
 			8'd25:begin 
 				data <= int_magm_z[7:0];
 			end
+			
+			8'd26: data <= gps_lon_deg;
+			8'd27: data <= gps_lon_submins [23:16];
+			8'd28: data <= gps_lon_submins [15:8];
+			8'd29: data <= gps_lon_submins [7:0];
+			8'd30: data <= gps_lon_deg;
+			8'd31: data <= gps_lon_submins [23:16];
+			8'd32: data <= gps_lon_submins [15:8];
+			8'd33: data <= gps_lon_submins [7:0];
+			8'd34: data <= gps_status;
+
+//input [31:0] gps_time,
+//input [31:0] ground_speed,
+			
 			default:begin
 				data <= data;
 			end

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Mar 12 17:33:06 2014
+// Written by: Map P.20131013 on Wed Mar 12 20:05:01 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -18,8 +18,8 @@ COMP "led<4>" LOCATE = SITE "P127" LEVEL 1;
 COMP "led<5>" LOCATE = SITE "P126" LEVEL 1;
 COMP "led<6>" LOCATE = SITE "P124" LEVEL 1;
 COMP "led<7>" LOCATE = SITE "P123" LEVEL 1;
-COMP "gps_rx" LOCATE = SITE "P117" LEVEL 1;
-COMP "gps_tx" LOCATE = SITE "P99" LEVEL 1;
+COMP "gps_rx" LOCATE = SITE "P137" LEVEL 1;
+COMP "gps_tx" LOCATE = SITE "P139" LEVEL 1;
 COMP "imu_sda_out" LOCATE = SITE "P16" LEVEL 1;
 COMP "imu_scl_out" LOCATE = SITE "P21" LEVEL 1;
 COMP "alt_sda_out" LOCATE = SITE "P34" LEVEL 1;
@@ -71,14 +71,6 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_7" BEL "IMU_I2C_Driver/count_6" BEL
         "Data_serial_tx/data_q_4" BEL "Data_serial_tx/data_q_3" BEL
         "Data_serial_tx/data_q_2" BEL "Data_serial_tx/data_q_1" BEL
         "Data_serial_tx/data_q_0" BEL "Data_serial_tx/tx_q" BEL
-        "Sensor_Reg/int_magm_z_15" BEL "Sensor_Reg/int_magm_z_14" BEL
-        "Sensor_Reg/int_magm_z_13" BEL "Sensor_Reg/int_magm_z_12" BEL
-        "Sensor_Reg/int_magm_z_11" BEL "Sensor_Reg/int_magm_z_10" BEL
-        "Sensor_Reg/int_magm_z_9" BEL "Sensor_Reg/int_magm_z_8" BEL
-        "Sensor_Reg/int_magm_z_7" BEL "Sensor_Reg/int_magm_z_6" BEL
-        "Sensor_Reg/int_magm_z_5" BEL "Sensor_Reg/int_magm_z_4" BEL
-        "Sensor_Reg/int_magm_z_3" BEL "Sensor_Reg/int_magm_z_2" BEL
-        "Sensor_Reg/int_magm_z_1" BEL "Sensor_Reg/int_magm_z_0" BEL
         "Sensor_Reg/int_magm_y_15" BEL "Sensor_Reg/int_magm_y_14" BEL
         "Sensor_Reg/int_magm_y_13" BEL "Sensor_Reg/int_magm_y_12" BEL
         "Sensor_Reg/int_magm_y_11" BEL "Sensor_Reg/int_magm_y_10" BEL
@@ -95,6 +87,14 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_7" BEL "IMU_I2C_Driver/count_6" BEL
         "Sensor_Reg/int_magm_x_5" BEL "Sensor_Reg/int_magm_x_4" BEL
         "Sensor_Reg/int_magm_x_3" BEL "Sensor_Reg/int_magm_x_2" BEL
         "Sensor_Reg/int_magm_x_1" BEL "Sensor_Reg/int_magm_x_0" BEL
+        "Sensor_Reg/int_magm_z_15" BEL "Sensor_Reg/int_magm_z_14" BEL
+        "Sensor_Reg/int_magm_z_13" BEL "Sensor_Reg/int_magm_z_12" BEL
+        "Sensor_Reg/int_magm_z_11" BEL "Sensor_Reg/int_magm_z_10" BEL
+        "Sensor_Reg/int_magm_z_9" BEL "Sensor_Reg/int_magm_z_8" BEL
+        "Sensor_Reg/int_magm_z_7" BEL "Sensor_Reg/int_magm_z_6" BEL
+        "Sensor_Reg/int_magm_z_5" BEL "Sensor_Reg/int_magm_z_4" BEL
+        "Sensor_Reg/int_magm_z_3" BEL "Sensor_Reg/int_magm_z_2" BEL
+        "Sensor_Reg/int_magm_z_1" BEL "Sensor_Reg/int_magm_z_0" BEL
         "Sensor_Reg/int_y_accl_15" BEL "Sensor_Reg/int_y_accl_14" BEL
         "Sensor_Reg/int_y_accl_13" BEL "Sensor_Reg/int_y_accl_12" BEL
         "Sensor_Reg/int_y_accl_11" BEL "Sensor_Reg/int_y_accl_10" BEL
@@ -743,9 +743,7 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_7" BEL "IMU_I2C_Driver/count_6" BEL
         "gps_serial_rx/data_q_2" BEL "gps_serial_rx/data_q_1" BEL
         "gps_serial_rx/data_q_0" BEL "gps_serial_rx/rx_q" BEL
         "GPS_Controller/rom_message_q_1" BEL "GPS_Controller/rom_message_q_0"
-        BEL "GPS_Controller/state_q_FSM_FFd1" BEL
-        "GPS_Controller/state_q_FSM_FFd2" BEL
-        "GPS_Controller/send_wait_ctr_q_23" BEL
+        BEL "GPS_Controller/send_wait_ctr_q_23" BEL
         "GPS_Controller/send_wait_ctr_q_22" BEL
         "GPS_Controller/send_wait_ctr_q_21" BEL
         "GPS_Controller/send_wait_ctr_q_20" BEL
@@ -769,6 +767,8 @@ TIMEGRP clk = BEL "IMU_I2C_Driver/count_7" BEL "IMU_I2C_Driver/count_6" BEL
         "GPS_Controller/send_wait_ctr_q_2" BEL
         "GPS_Controller/send_wait_ctr_q_1" BEL
         "GPS_Controller/send_wait_ctr_q_0" BEL
+        "GPS_Controller/state_q_FSM_FFd1" BEL
+        "GPS_Controller/state_q_FSM_FFd2" BEL
         "GPS_Controller/state_q_FSM_FFd3" BEL "GPS_Controller/rom_index_q_5"
         BEL "GPS_Controller/rom_index_q_4" BEL "GPS_Controller/rom_index_q_3"
         BEL "GPS_Controller/rom_index_q_2" BEL "GPS_Controller/rom_index_q_1"

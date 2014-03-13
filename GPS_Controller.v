@@ -20,8 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 module GPS_Controller
   (
-   output reg [31:0] lon,
-   output reg [31:0] lat,
+   output reg        data_valid,
+   output reg [7:0]  lon_deg,
+	output reg [23:0] lon_submins,
+	output reg        lon_east,
+   output reg [6:0]  lat_deg,
+	output reg [23:0] lat_submins,
+	output reg        lat_north,
    output reg [31:0] time_,
    output reg [31:0] ground_speed,
 
@@ -79,6 +84,7 @@ module GPS_Controller
 	 tx_send_q <= 0;
 	 state_q <= s_cfg_send;
 	 send_wait_ctr_q <= 0;
+         //data_valid <= 0; 
       end else begin
 	 tx_send_q <= tx_send_d;
 	 state_q <= state_d;
@@ -140,8 +146,32 @@ module GPS_Controller
 
 	s_rx_process: begin
 	   case ({rx_buffer[0], rx_buffer[1], rx_buffer[2], rx_buffer[3], rx_buffer[4]})
-	     "GPGGA": ;
+	     "GPGGA": begin
+                if (rx_size != 68) data_valid = 0;
+                else begin
+                   data_valid = 1;
+
+                   lat_deg = (rx_buffer[17] - "0") * 10 + (rx_buffer[18] - "0");
+						 lat_submins = (rx_buffer[19] - "0") * 100000 +
+						               (rx_buffer[20] - "0") * 10000 +
+						               (rx_buffer[22] - "0") * 1000 +
+											(rx_buffer[23] - "0") * 100 +
+											(rx_buffer[24] - "0") * 10 +
+											(rx_buffer[25] - "0");
+                   lat_north = (rx_buffer[27] == "N");
+
+                   lon_deg = (rx_buffer[29] - "0") * 100 + (rx_buffer[30] - "0") * 10 + (rx_buffer[31] - "0");
+						 lon_submins = (rx_buffer[32] - "0") * 100000 +
+						               (rx_buffer[33] - "0") * 10000 +
+						               (rx_buffer[35] - "0") * 1000 +
+											(rx_buffer[36] - "0") * 100 +
+											(rx_buffer[37] - "0") * 10 +
+											(rx_buffer[38] - "0");
+						 lon_east = (rx_buffer[40] == "E");
+					end
+             end
 	     "GPVTG": ;
+//$GPVTG,59.11,T,,M,0.09,N,0.17,K,A
 	     default: ;
 	   endcase
 	   state_d = s_idle;

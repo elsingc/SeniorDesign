@@ -49,7 +49,9 @@ assign led[7:0] = 8'h00;
 //assign led[0] = 1'b1;
 
 wire [23:0] pressure;
-wire [31:0] gps_lon, gps_lat, gps_time, ground_speed;
+wire [31:0] gps_time, ground_speed;
+wire [7:0] gps_lat_deg, gps_lon_deg, gps_status;
+wire [23:0] gps_lat_submins, gps_lon_submins;
 wire [15:0] alt_temp, gyro_temp, gyro_x, gyro_y, gyro_z, accl_x, accl_y, accl_z, magm_x, magm_y, magm_z;
 //====================DATA CONTROLLER===================================
 wire data_busy, data_block, data_new_data_tx, data_new_data_rx;
@@ -101,8 +103,8 @@ Sensor_Reg Sensor_Reg(
 	.magm_x(magm_x),
 	.magm_y(magm_y),
 	.magm_z(magm_z),
-   .gps_lon(gps_lon),
-	.gps_lat(gps_lat),
+   .gps_lon_deg(gps_lon_deg),
+	.gps_lat_deg(gps_lat_deg),
 	.gps_time(gps_time),
 	.ground_speed(ground_speed),
 	.air_speed_p(),
@@ -218,8 +220,13 @@ serial_rx #(.CLK_PER_BIT(434), .CTR_SIZE(9)) gps_serial_rx(
 );
 
 GPS_Controller GPS_Controller(
-	.lon(gps_lon),
-	.lat(gps_lat),
+   .data_valid(gps_status[0]),
+	.lon_deg(gps_lon_deg),
+	.lon_east(gps_status[1]),
+	.lon_submins (gps_lon_submins),
+	.lat_deg(gps_lat_deg),
+	.lat_north(gps_status[2]),
+	.lat_submins (gps_lat_submins),
 	.time_(gps_time),
 	.ground_speed(ground_speed),
 

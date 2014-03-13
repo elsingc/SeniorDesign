@@ -40,8 +40,8 @@ NET "imu_scl_out" LOC = P21;
 NET "data_tx" LOC = P50;
 NET "data_rx" LOC = P51;
 
-NET "gps_tx" LOC = P99;
-NET "gps_rx" LOC = P117;
+NET "gps_tx" LOC = P139;
+NET "gps_rx" LOC = P137;
 
 #
 #NET "spi_mosi" LOC = P44;

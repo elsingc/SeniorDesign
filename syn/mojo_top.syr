@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -137,6 +137,7 @@ Parsing module <mojo_top>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
+WARNING:HDLCompiler:1016 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 91: Port gps_lon_submins is not connected to this instance
 
 Elaborating module <mojo_top>.
 WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 43: Assignment to spi_miso ignored, since the identifier is never used
@@ -159,7 +160,7 @@ WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/I2C_Driver.v" Line 149: Assi
 WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/I2C_Driver.v" Line 321: Assignment to sda_int_negedge ignored, since the identifier is never used
 
 Elaborating module <IMU_Controller>.
-WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 186: Assignment to imu_ack_err ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 188: Assignment to imu_ack_err ignored, since the identifier is never used
 
 Elaborating module <serial_tx_dualspeed>.
 WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/serial_tx_dualspeed.v" Line 39: Result of 32-bit expression is truncated to fit in 13-bit target.
@@ -170,13 +171,23 @@ Elaborating module <GPS_Controller>.
 
 Elaborating module <gps_rom>.
 WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/gps_rom.v" Line 38: Result of 32-bit expression is truncated to fit in 6-bit target.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 109: Result of 7-bit expression is truncated to fit in 6-bit target.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 112: Result of 3-bit expression is truncated to fit in 2-bit target.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 123: Result of 25-bit expression is truncated to fit in 24-bit target.
-WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 137: Result of 8-bit expression is truncated to fit in 7-bit target.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 55: Net <data_block> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 196: Net <gps_tx_block> does not have a driver.
-WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 89: Input port air_speed_p[15] is not connected on this instance
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 115: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 118: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 129: Result of 25-bit expression is truncated to fit in 24-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 143: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 154: Result of 32-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 155: Result of 32-bit expression is truncated to fit in 24-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 163: Result of 32-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "/home/zach/SeniorDesign/GPS_Controller.v" Line 164: Result of 32-bit expression is truncated to fit in 24-bit target.
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 223: Assignment to gps_status ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 225: Assignment to gps_status ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 226: Assignment to gps_lon_submins ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 227: Size mismatch in connection of port <lat_deg>. Formal port size is 7-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 228: Assignment to gps_status ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 229: Assignment to gps_lat_submins ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 57: Net <data_block> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 198: Net <gps_tx_block> does not have a driver.
+WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 91: Input port gps_lon_submins[23] is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -184,10 +195,18 @@ WARNING:HDLCompiler:552 - "/home/zach/SeniorDesign/src/mojo_top.v" Line 89: Inpu
 
 Synthesizing Unit <mojo_top>.
     Related source file is "/home/zach/SeniorDesign/src/mojo_top.v".
+WARNING:Xst:2898 - Port 'gps_lon_submins', unconnected in block instance 'Sensor_Reg', is tied to GND.
+WARNING:Xst:2898 - Port 'gps_lat_submins', unconnected in block instance 'Sensor_Reg', is tied to GND.
+WARNING:Xst:2898 - Port 'gps_status', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_p', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_n', unconnected in block instance 'Sensor_Reg', is tied to GND.
-INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 57: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 178: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 59: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 180: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 222: Output port <lon_submins> of the instance <GPS_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 222: Output port <lat_submins> of the instance <GPS_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 222: Output port <data_valid> of the instance <GPS_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 222: Output port <lon_east> of the instance <GPS_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/zach/SeniorDesign/src/mojo_top.v" line 222: Output port <lat_north> of the instance <GPS_Controller> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <data_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <gps_tx_block> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
@@ -296,8 +315,8 @@ Unit <serial_tx> synthesized.
 
 Synthesizing Unit <Sensor_Reg>.
     Related source file is "/home/zach/SeniorDesign/Sensor_Reg.v".
-WARNING:Xst:647 - Input <gps_lon> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <gps_lat> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_lat_deg> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <gps_lat_submins> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <gps_time> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <ground_speed> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <air_speed_p> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -314,7 +333,6 @@ WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved
     Found 16-bit register for signal <int_magm_x>.
     Found 16-bit register for signal <int_magm_y>.
     Found 16-bit register for signal <int_magm_z>.
-    Found 8-bit 25-to-1 multiplexer for signal <_n0159> created at line 62.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -326,7 +344,7 @@ WARNING:Xst:737 - Found 1-bit latch for signal <data<7>>. Latches may be generat
     Summary:
 	inferred 200 D-type flip-flop(s).
 	inferred   8 Latch(s).
-	inferred   1 Multiplexer(s).
+	inferred  26 Multiplexer(s).
 Unit <Sensor_Reg> synthesized.
 
 Synthesizing Unit <Altimeter_Controller>.
@@ -720,8 +738,6 @@ Unit <serial_rx_2> synthesized.
 
 Synthesizing Unit <GPS_Controller>.
     Related source file is "/home/zach/SeniorDesign/GPS_Controller.v".
-WARNING:Xst:653 - Signal <lon> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <lat> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <time_> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <ground_speed> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 6-bit register for signal <rom_index_q>.
@@ -742,17 +758,328 @@ WARNING:Xst:653 - Signal <ground_speed> is used but never assigned. This sourcel
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 6-bit adder for signal <rom_index_q[5]_GND_25_o_add_9_OUT> created at line 109.
-    Found 2-bit adder for signal <_n0083> created at line 112.
-    Found 24-bit adder for signal <send_wait_ctr_q[23]_GND_25_o_add_20_OUT> created at line 123.
-    Found 2-bit comparator lessequal for signal <n0000> created at line 68
-    Found 1-bit comparator equal for signal <tx_req_speed_tx_cur_speed_equal_8_o> created at line 101
-    Found 6-bit comparator equal for signal <rom_index_q[5]_rom_length[5]_equal_11_o> created at line 110
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_167_OUT> created at line 154.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_169_OUT> created at line 154.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_171_OUT> created at line 155.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_173_OUT> created at line 156.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_176_OUT> created at line 157.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_179_OUT> created at line 158.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_182_OUT> created at line 159.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_185_OUT> created at line 160.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_188_OUT> created at line 163.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_190_OUT> created at line 163.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_193_OUT> created at line 163.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_195_OUT> created at line 164.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_197_OUT> created at line 165.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_200_OUT> created at line 166.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_203_OUT> created at line 167.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_206_OUT> created at line 168.
+    Found 9-bit subtractor for signal <GND_25_o_GND_25_o_sub_209_OUT> created at line 169.
+    Found 6-bit adder for signal <rom_index_q[5]_GND_25_o_add_9_OUT> created at line 115.
+    Found 2-bit adder for signal <_n0822> created at line 118.
+    Found 24-bit adder for signal <send_wait_ctr_q[23]_GND_25_o_add_20_OUT> created at line 129.
+    Found 7-bit adder for signal <rx_size[6]_GND_25_o_add_158_OUT> created at line 143.
+    Found 32-bit adder for signal <n0620> created at line 154.
+    Found 32-bit adder for signal <n0725> created at line 155.
+    Found 32-bit adder for signal <n0728> created at line 155.
+    Found 32-bit adder for signal <n0731> created at line 155.
+    Found 32-bit adder for signal <n0734> created at line 155.
+    Found 32-bit adder for signal <n0636> created at line 155.
+    Found 32-bit adder for signal <n0740> created at line 163.
+    Found 32-bit adder for signal <n0643> created at line 163.
+    Found 32-bit adder for signal <n0746> created at line 164.
+    Found 32-bit adder for signal <n0749> created at line 164.
+    Found 32-bit adder for signal <n0752> created at line 164.
+    Found 32-bit adder for signal <n0755> created at line 164.
+    Found 32-bit adder for signal <n0659> created at line 164.
+    Found 32x4-bit multiplier for signal <n0618> created at line 154.
+    Found 32x17-bit multiplier for signal <n0622> created at line 155.
+    Found 32x14-bit multiplier for signal <n0624> created at line 156.
+    Found 32x10-bit multiplier for signal <n0627> created at line 157.
+    Found 32x7-bit multiplier for signal <n0630> created at line 158.
+    Found 32x4-bit multiplier for signal <n0633> created at line 159.
+    Found 32x7-bit multiplier for signal <n0638> created at line 163.
+    Found 32x4-bit multiplier for signal <n0640> created at line 163.
+    Found 32x17-bit multiplier for signal <n0645> created at line 164.
+    Found 32x14-bit multiplier for signal <n0647> created at line 165.
+    Found 32x10-bit multiplier for signal <n0650> created at line 166.
+    Found 32x7-bit multiplier for signal <n0653> created at line 167.
+    Found 32x4-bit multiplier for signal <n0656> created at line 168.
+WARNING:Xst:737 - Found 1-bit latch for signal <data_valid>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_deg<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<23>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<22>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<21>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<20>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<19>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<18>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<17>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<16>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_submins<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lat_north>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_deg<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<23>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<22>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<21>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<20>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<19>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<18>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<17>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<16>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_submins<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <lon_east>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<0><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<1><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<2><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<3><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<4><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<17><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<18><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<19><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<20><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<22><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<23><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<24><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<25><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<27><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<29><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<30><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<31><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<32><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<33><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<35><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<36><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<37><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<38><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_buffer<40><0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <rx_size<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 2-bit comparator lessequal for signal <n0000> created at line 73
+    Found 1-bit comparator equal for signal <tx_req_speed_tx_cur_speed_equal_8_o> created at line 107
+    Found 6-bit comparator equal for signal <rom_index_q[5]_rom_length[5]_equal_11_o> created at line 116
     Summary:
-	inferred   3 Adder/Subtractor(s).
+	inferred  13 Multiplier(s).
+	inferred  34 Adder/Subtractor(s).
 	inferred  33 D-type flip-flop(s).
+	inferred 265 Latch(s).
 	inferred   3 Comparator(s).
-	inferred   2 Multiplexer(s).
+	inferred  42 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <GPS_Controller> synthesized.
 
@@ -775,17 +1102,26 @@ Macro Statistics
  32x16-bit single-port Read Only RAM                   : 1
  4x32-bit single-port Read Only RAM                    : 1
  64x8-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 19
+# Multipliers                                          : 13
+ 32x10-bit multiplier                                  : 2
+ 32x14-bit multiplier                                  : 2
+ 32x17-bit multiplier                                  : 2
+ 32x4-bit multiplier                                   : 4
+ 32x7-bit multiplier                                   : 3
+# Adders/Subtractors                                   : 50
  13-bit adder                                          : 3
  14-bit subtractor                                     : 1
  2-bit adder                                           : 1
  24-bit adder                                          : 1
  3-bit adder                                           : 4
  3-bit subtractor                                      : 2
+ 32-bit adder                                          : 13
  4-bit subtractor                                      : 2
  6-bit adder                                           : 1
+ 7-bit adder                                           : 1
  8-bit adder                                           : 3
  9-bit adder                                           : 1
+ 9-bit subtractor                                      : 17
 # Registers                                            : 248
  1-bit register                                        : 203
  13-bit register                                       : 3
@@ -797,8 +1133,8 @@ Macro Statistics
  6-bit register                                        : 1
  8-bit register                                        : 18
  9-bit register                                        : 1
-# Latches                                              : 8
- 1-bit latch                                           : 8
+# Latches                                              : 273
+ 1-bit latch                                           : 273
 # Comparators                                          : 14
  1-bit comparator equal                                : 2
  2-bit comparator lessequal                            : 1
@@ -807,8 +1143,8 @@ Macro Statistics
  6-bit comparator equal                                : 1
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 300
- 1-bit 2-to-1 multiplexer                              : 240
+# Multiplexers                                         : 365
+ 1-bit 2-to-1 multiplexer                              : 280
  1-bit 8-to-1 multiplexer                              : 4
  13-bit 2-to-1 multiplexer                             : 6
  13-bit 4-to-1 multiplexer                             : 2
@@ -817,8 +1153,7 @@ Macro Statistics
  3-bit 2-to-1 multiplexer                              : 4
  4-bit 2-to-1 multiplexer                              : 2
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 9
- 8-bit 25-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 35
  8-bit 4-to-1 multiplexer                              : 1
  9-bit 2-to-1 multiplexer                              : 4
 # Tristates                                            : 6
@@ -839,8 +1174,8 @@ WARNING:Xst:2677 - Node <STATUS_REG_6> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <STATUS_REG_7> of sequential type is unconnected in block <Altimeter_Controller>.
 
 Synthesizing (advanced) Unit <GPS_Controller>.
-The following registers are absorbed into counter <send_wait_ctr_q>: 1 register on signal <send_wait_ctr_q>.
 The following registers are absorbed into counter <rom_message_q>: 1 register on signal <rom_message_q>.
+The following registers are absorbed into counter <send_wait_ctr_q>: 1 register on signal <send_wait_ctr_q>.
 Unit <GPS_Controller> synthesized (advanced).
 
 Synthesizing (advanced) Unit <I2C_Driver>.
@@ -914,14 +1249,26 @@ Macro Statistics
  32x16-bit single-port distributed Read Only RAM       : 1
  4x32-bit single-port distributed Read Only RAM        : 1
  64x8-bit single-port distributed Read Only RAM        : 1
-# Adders/Subtractors                                   : 10
+# Multipliers                                          : 13
+ 32x10-bit multiplier                                  : 2
+ 32x14-bit multiplier                                  : 2
+ 32x17-bit multiplier                                  : 2
+ 32x4-bit multiplier                                   : 4
+ 32x7-bit multiplier                                   : 3
+# Adders/Subtractors                                   : 41
  13-bit adder                                          : 3
  14-bit subtractor                                     : 1
  2-bit adder                                           : 1
+ 24-bit adder                                          : 6
  3-bit subtractor                                      : 2
+ 32-bit adder                                          : 4
  6-bit adder                                           : 1
- 8-bit adder                                           : 1
+ 7-bit adder                                           : 2
+ 7-bit subtractor                                      : 1
+ 8-bit adder                                           : 3
+ 8-bit subtractor                                      : 1
  9-bit adder                                           : 1
+ 9-bit subtractor                                      : 15
 # Counters                                             : 10
  2-bit up counter                                      : 1
  24-bit up counter                                     : 1
@@ -938,16 +1285,15 @@ Macro Statistics
  6-bit comparator equal                                : 1
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 289
- 1-bit 2-to-1 multiplexer                              : 238
+# Multiplexers                                         : 354
+ 1-bit 2-to-1 multiplexer                              : 278
  1-bit 8-to-1 multiplexer                              : 4
  13-bit 2-to-1 multiplexer                             : 6
  13-bit 4-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 22
  24-bit 2-to-1 multiplexer                             : 3
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 7
- 8-bit 25-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 33
  8-bit 4-to-1 multiplexer                              : 1
  9-bit 2-to-1 multiplexer                              : 4
 # FSMs                                                 : 10
@@ -1504,6 +1850,11 @@ Optimizing FSM <GPS_Controller/FSM_8> on signal <state_q[1:3]> with user encodin
  100   | 100
  101   | 101
 -------------------
+WARNING:Xst:2677 - Node <rx_buffer<17>_7> of sequential type is unconnected in block <GPS_Controller>.
+WARNING:Xst:2677 - Node <rx_buffer<29>_7> of sequential type is unconnected in block <GPS_Controller>.
+WARNING:Xst:2677 - Node <rx_buffer<30>_7> of sequential type is unconnected in block <GPS_Controller>.
+WARNING:Xst:2677 - Node <rx_buffer<17>_6> of sequential type is unconnected in block <GPS_Controller>.
+WARNING:Xst:2677 - Node <rx_buffer<29>_6> of sequential type is unconnected in block <GPS_Controller>.
 WARNING:Xst:2677 - Node <IMU_I2C_Driver/ack_err> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
    incompatible with the Spartan6 architecture. The two primary causes of this is
@@ -1566,10 +1917,113 @@ WARNING:Xst:2677 - Node <Data_Controller/debug_3> of sequential type is unconnec
 WARNING:Xst:2677 - Node <Data_Controller/debug_2> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <Data_Controller/debug_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <Data_Controller/debug_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_submins_21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_9> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_10> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_8> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_12> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_13> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_11> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_15> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_16> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_14> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_18> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_19> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_17> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_21> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_22> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_20> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_submins_23> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_deg_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/data_valid> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lat_north> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/lon_east> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<17>_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<18>_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<40>_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<38>_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<27>_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <GPS_Controller/rx_buffer<25>_7> of sequential type is unconnected in block <mojo_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 37.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 44.
 WARNING:Xst:1426 - The value init of the FF/Latch IMU_I2C_Driver/bitcount_2_LD hinder the constant cleaning in the block mojo_top.
    You should achieve better results by setting this init to 1.
 
@@ -1603,20 +2057,20 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2060
+# BELS                             : 2570
 #      GND                         : 1
-#      INV                         : 10
+#      INV                         : 18
 #      LUT1                        : 38
-#      LUT2                        : 77
-#      LUT3                        : 295
-#      LUT4                        : 453
-#      LUT5                        : 121
-#      LUT6                        : 610
-#      MUXCY                       : 354
-#      MUXF7                       : 21
+#      LUT2                        : 98
+#      LUT3                        : 429
+#      LUT4                        : 611
+#      LUT5                        : 146
+#      LUT6                        : 631
+#      MUXCY                       : 435
+#      MUXF7                       : 5
 #      VCC                         : 1
-#      XORCY                       : 79
-# FlipFlops/Latches                : 1172
+#      XORCY                       : 157
+# FlipFlops/Latches                : 1328
 #      FD                          : 32
 #      FDC                         : 657
 #      FDCE                        : 58
@@ -1627,7 +2081,7 @@ Primitive and Black Box Usage:
 #      FDR                         : 11
 #      FDRE                        : 28
 #      FDS                         : 2
-#      LD                          : 1
+#      LD                          : 157
 #      LDE_1                       : 8
 # Clock Buffers                    : 4
 #      BUFG                        : 3
@@ -1636,6 +2090,8 @@ Primitive and Black Box Usage:
 #      IBUF                        : 3
 #      IOBUF                       : 4
 #      OBUF                        : 10
+# DSPs                             : 16
+#      DSP48A1                     : 16
 
 Device utilization summary:
 ---------------------------
@@ -1644,16 +2100,16 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1172  out of  11440    10%  
- Number of Slice LUTs:                 1604  out of   5720    28%  
-    Number used as Logic:              1604  out of   5720    28%  
+ Number of Slice Registers:            1328  out of  11440    11%  
+ Number of Slice LUTs:                 1971  out of   5720    34%  
+    Number used as Logic:              1971  out of   5720    34%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1811
-   Number with an unused Flip Flop:     639  out of   1811    35%  
-   Number with an unused LUT:           207  out of   1811    11%  
-   Number of fully used LUT-FF pairs:   965  out of   1811    53%  
-   Number of unique control sets:        39
+ Number of LUT Flip Flop pairs used:   2246
+   Number with an unused Flip Flop:     918  out of   2246    40%  
+   Number with an unused LUT:           275  out of   2246    12%  
+   Number of fully used LUT-FF pairs:  1053  out of   2246    46%  
+   Number of unique control sets:        59
 
 IO Utilization: 
  Number of IOs:                          18
@@ -1661,6 +2117,7 @@ IO Utilization:
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of DSP48A1s:                     16  out of     16   100%  
 
 ---------------------------
 Partition Resource Summary:
@@ -1680,14 +2137,38 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-IMU_I2C_Driver/data_clk            | BUFG                   | 46    |
-clk                                | BUFGP                  | 1071  |
-Alt_I2C_Driver/data_clk            | BUFG                   | 46    |
-rst_n                              | IBUF+BUFG              | 9     |
------------------------------------+------------------------+-------+
+--------------------------------------------------------------------------------------------------------+----------------------------------------+-------+
+Clock Signal                                                                                            | Clock buffer(FF name)                  | Load  |
+--------------------------------------------------------------------------------------------------------+----------------------------------------+-------+
+IMU_I2C_Driver/data_clk                                                                                 | BUFG                                   | 46    |
+clk                                                                                                     | BUFGP                                  | 1071  |
+Alt_I2C_Driver/data_clk                                                                                 | BUFG                                   | 46    |
+rst_n                                                                                                   | IBUF+BUFG                              | 9     |
+GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o(GPS_Controller/Mmux_state_q[2]_GND_1122_o_Mux_2543_o1:O)| NONE(*)(GPS_Controller/rx_size_0)      | 7     |
+GPS_Controller/state_q[2]_GND_65_o_Mux_367_o(GPS_Controller/state_q[2]_GND_65_o_Mux_367_o_wg_cy<7>:O)   | NONE(*)(GPS_Controller/lon_deg_0)      | 8     |
+GPS_Controller/state_q[2]_GND_394_o_Mux_1087_o(GPS_Controller/Mmux_state_q[2]_GND_394_o_Mux_1087_o11:O) | NONE(*)(GPS_Controller/rx_buffer<37>_0)| 8     |
+GPS_Controller/state_q[2]_GND_378_o_Mux_1055_o(GPS_Controller/Mmux_state_q[2]_GND_378_o_Mux_1055_o11:O) | NONE(*)(GPS_Controller/rx_buffer<35>_0)| 8     |
+GPS_Controller/state_q[2]_GND_362_o_Mux_1023_o(GPS_Controller/Mmux_state_q[2]_GND_362_o_Mux_1023_o11:O) | NONE(*)(GPS_Controller/rx_buffer<33>_0)| 8     |
+GPS_Controller/state_q[2]_GND_386_o_Mux_1071_o(GPS_Controller/Mmux_state_q[2]_GND_386_o_Mux_1071_o11:O) | NONE(*)(GPS_Controller/rx_buffer<36>_0)| 8     |
+GPS_Controller/state_q[2]_GND_346_o_Mux_991_o(GPS_Controller/Mmux_state_q[2]_GND_346_o_Mux_991_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<31>_0)| 8     |
+GPS_Controller/state_q[2]_GND_338_o_Mux_975_o(GPS_Controller/Mmux_state_q[2]_GND_338_o_Mux_975_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<30>_0)| 7     |
+GPS_Controller/state_q[2]_GND_354_o_Mux_1007_o(GPS_Controller/Mmux_state_q[2]_GND_354_o_Mux_1007_o11:O) | NONE(*)(GPS_Controller/rx_buffer<32>_0)| 8     |
+GPS_Controller/state_q[2]_GND_330_o_Mux_959_o(GPS_Controller/Mmux_state_q[2]_GND_330_o_Mux_959_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<29>_0)| 6     |
+GPS_Controller/state_q[2]_GND_282_o_Mux_863_o(GPS_Controller/Mmux_state_q[2]_GND_282_o_Mux_863_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<23>_0)| 8     |
+GPS_Controller/state_q[2]_GND_274_o_Mux_847_o(GPS_Controller/Mmux_state_q[2]_GND_274_o_Mux_847_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<22>_0)| 8     |
+GPS_Controller/state_q[2]_GND_290_o_Mux_879_o(GPS_Controller/Mmux_state_q[2]_GND_290_o_Mux_879_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<24>_0)| 8     |
+GPS_Controller/state_q[2]_GND_258_o_Mux_815_o(GPS_Controller/Mmux_state_q[2]_GND_258_o_Mux_815_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<20>_0)| 8     |
+GPS_Controller/state_q[2]_GND_250_o_Mux_799_o(GPS_Controller/Mmux_state_q[2]_GND_250_o_Mux_799_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<19>_0)| 8     |
+GPS_Controller/state_q[2]_GND_130_o_Mux_559_o(GPS_Controller/Mmux_state_q[2]_GND_130_o_Mux_559_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<4>_0) | 8     |
+GPS_Controller/state_q[2]_GND_114_o_Mux_527_o(GPS_Controller/Mmux_state_q[2]_GND_114_o_Mux_527_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<2>_0) | 8     |
+GPS_Controller/state_q[2]_GND_106_o_Mux_511_o(GPS_Controller/Mmux_state_q[2]_GND_106_o_Mux_511_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<1>_0) | 8     |
+GPS_Controller/state_q[2]_GND_122_o_Mux_543_o(GPS_Controller/Mmux_state_q[2]_GND_122_o_Mux_543_o11:O)   | NONE(*)(GPS_Controller/rx_buffer<3>_0) | 8     |
+GPS_Controller/state_q[2]_GND_98_o_Mux_495_o(GPS_Controller/Mmux_state_q[2]_GND_98_o_Mux_495_o11:O)     | NONE(*)(GPS_Controller/rx_buffer<0>_0) | 8     |
+--------------------------------------------------------------------------------------------------------+----------------------------------------+-------+
+(*) These 20 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -1732,7 +2213,7 @@ Delay:               3.380ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.472ns (frequency: 118.043MHz)
-  Total number of paths / destination ports: 340214 / 1206
+  Total number of paths / destination ports: 340472 / 1206
 -------------------------------------------------------------------------
 Delay:               8.472ns (Levels of Logic = 32)
   Source:            IMU_Controller/state_FSM_FFd257 (FF)
@@ -1773,9 +2254,9 @@ Delay:               8.472ns (Levels of Logic = 32)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<26> (IMU_Controller/state_state[0]_wg_cy<26>)
      MUXCY:CI->O           1   0.023   0.000  IMU_Controller/state_state[0]_wg_cy<27> (IMU_Controller/state_state[0]_wg_cy<27>)
      MUXCY:CI->O          18   0.235   1.665  IMU_Controller/state_state[0]_wg_cy<28> (IMU_Controller/state[0])
-     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N174)
-     LUT6:I4->O            1   0.250   0.790  IMU_Controller/_n13768_inv8_SW1 (N261)
-     LUT6:I4->O            6   0.250   0.876  IMU_Controller/data_wr_7_rstpot_SW0 (N212)
+     LUT6:I1->O            3   0.254   0.874  IMU_Controller/_n13768_inv11_SW0 (N166)
+     LUT6:I4->O            1   0.250   0.790  IMU_Controller/_n13768_inv8_SW1 (N253)
+     LUT6:I4->O            6   0.250   0.876  IMU_Controller/data_wr_7_rstpot_SW0 (N204)
      LUT6:I5->O            1   0.254   0.000  IMU_Controller/data_wr_7_rstpot (IMU_Controller/data_wr_7_rstpot)
      FDC:D                     0.074          IMU_Controller/data_wr_7
     ----------------------------------------
@@ -1804,6 +2285,29 @@ Delay:               3.380ns (Levels of Logic = 2)
     ----------------------------------------
     Total                      3.380ns (1.103ns logic, 2.277ns route)
                                        (32.6% logic, 67.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o'
+  Clock period: 3.483ns (frequency: 287.109MHz)
+  Total number of paths / destination ports: 28 / 7
+-------------------------------------------------------------------------
+Delay:               3.483ns (Levels of Logic = 2)
+  Source:            GPS_Controller/rx_size_4 (LATCH)
+  Destination:       GPS_Controller/rx_size_5 (LATCH)
+  Source Clock:      GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o falling
+  Destination Clock: GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o falling
+
+  Data Path: GPS_Controller/rx_size_4 to GPS_Controller/rx_size_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              13   0.581   1.528  GPS_Controller/rx_size_4 (GPS_Controller/rx_size_4)
+     LUT5:I0->O            2   0.254   0.834  GPS_Controller/Madd_rx_size[6]_GND_25_o_add_158_OUT_cy<4>11 (GPS_Controller/Madd_rx_size[6]_GND_25_o_add_158_OUT_cy<4>)
+     LUT3:I1->O            1   0.250   0.000  GPS_Controller/Mmux_state_q[2]_rx_size[5]_Mux_2544_o11 (GPS_Controller/state_q[2]_rx_size[5]_Mux_2544_o)
+     LD:D                      0.036          GPS_Controller/rx_size_5
+    ----------------------------------------
+    Total                      3.483ns (1.121ns logic, 2.362ns route)
+                                       (32.2% logic, 67.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'IMU_I2C_Driver/data_clk'
@@ -1940,6 +2444,169 @@ clk                    |    2.865|         |    3.026|         |
 rst_n                  |    6.540|         |    3.844|         |
 -----------------------+---------+---------+---------+---------+
 
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_106_o_Mux_511_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o
+-----------------------------------------------+---------+---------+---------+---------+
+                                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------------------------+---------+---------+---------+---------+
+GPS_Controller/state_q[2]_GND_1122_o_Mux_2543_o|         |         |    3.483|         |
+clk                                            |         |         |    2.580|         |
+-----------------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_114_o_Mux_527_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_122_o_Mux_543_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_130_o_Mux_559_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_250_o_Mux_799_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_258_o_Mux_815_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_274_o_Mux_847_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_282_o_Mux_863_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_290_o_Mux_879_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_330_o_Mux_959_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_338_o_Mux_975_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_346_o_Mux_991_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_354_o_Mux_1007_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_362_o_Mux_1023_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_378_o_Mux_1055_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_386_o_Mux_1071_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_394_o_Mux_1087_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_65_o_Mux_367_o
+---------------------------------------------+---------+---------+---------+---------+
+                                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------------------+---------+---------+---------+---------+
+GPS_Controller/state_q[2]_GND_330_o_Mux_959_o|         |         |    7.543|         |
+GPS_Controller/state_q[2]_GND_338_o_Mux_975_o|         |         |    8.289|         |
+GPS_Controller/state_q[2]_GND_346_o_Mux_991_o|         |         |    6.076|         |
+---------------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock GPS_Controller/state_q[2]_GND_98_o_Mux_495_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    1.940|         |
+---------------+---------+---------+---------+---------+
+
 Clock to Setup on destination clock IMU_I2C_Driver/data_clk
 -----------------------+---------+---------+---------+---------+
                        | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
@@ -1962,25 +2629,26 @@ rst_n                  |         |    2.021|         |         |
 -----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock rst_n
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    4.550|         |
----------------+---------+---------+---------+---------+
+--------------------------------------------+---------+---------+---------+---------+
+                                            | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+--------------------------------------------+---------+---------+---------+---------+
+GPS_Controller/state_q[2]_GND_65_o_Mux_367_o|         |         |    3.023|         |
+clk                                         |         |         |    5.740|         |
+--------------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 40.00 secs
-Total CPU time to Xst completion: 37.71 secs
+Total REAL time to Xst completion: 42.00 secs
+Total CPU time to Xst completion: 40.66 secs
  
 --> 
 
 
-Total memory usage is 445472 kilobytes
+Total memory usage is 457328 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   68 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of warnings :  453 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
 
