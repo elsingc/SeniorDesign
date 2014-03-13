@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.61 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.62 secs
  
 --> Reading design: mojo_top.prj
 
@@ -120,6 +120,8 @@ Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" in
 Parsing module <I2C_Driver>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Data_Controller.v" into library work
 Parsing module <Data_Controller>.
+Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Bomb_Dropper.v" into library work
+Parsing module <Bomb_Dropper>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\Altimeter_Controller.v" into library work
 Parsing module <Altimeter_Controller>.
 Analyzing Verilog file "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" into library work
@@ -130,10 +132,10 @@ Parsing module <mojo_top>.
 =========================================================================
 
 Elaborating module <mojo_top>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 43: Assignment to spi_miso ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 44: Assignment to avr_rx ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 45: Result of 4-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 45: Assignment to spi_channel ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 45: Assignment to spi_miso ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 46: Assignment to avr_rx ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 47: Result of 4-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 47: Assignment to spi_channel ignored, since the identifier is never used
 
 Elaborating module <Data_Controller>.
 
@@ -150,10 +152,12 @@ WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v
 WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\I2C_Driver.v" Line 321: Assignment to sda_int_negedge ignored, since the identifier is never used
 
 Elaborating module <IMU_Controller>.
-WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 186: Assignment to imu_ack_err ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 52: Net <gps_lon[31]> does not have a driver.
-WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 55: Net <data_block> does not have a driver.
-WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 89: Input port air_speed_p[15] is not connected on this instance
+WARNING:HDLCompiler:1127 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 191: Assignment to imu_ack_err ignored, since the identifier is never used
+
+Elaborating module <Bomb_Dropper>.
+WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 56: Net <gps_lon[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 59: Net <data_block> does not have a driver.
+WARNING:HDLCompiler:552 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" Line 94: Input port air_speed_p[15] is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -163,8 +167,9 @@ Synthesizing Unit <mojo_top>.
     Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v".
 WARNING:Xst:2898 - Port 'air_speed_p', unconnected in block instance 'Sensor_Reg', is tied to GND.
 WARNING:Xst:2898 - Port 'air_speed_n', unconnected in block instance 'Sensor_Reg', is tied to GND.
-INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 57: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 178: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 61: Output port <debug> of the instance <Data_Controller> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 183: Output port <ack_err> of the instance <IMU_I2C_Driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\MyDocs\Documents\GitHub\SeniorDesign\src\mojo_top.v" line 349: Output port <debug> of the instance <Bomb_Dropper> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <gps_lon> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <gps_lat> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <gps_time> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -181,6 +186,7 @@ WARNING:Xst:647 - Input <block> is never used. This port will be preserved and l
     Found 1-bit register for signal <new_data_tx>.
     Found 8-bit register for signal <data_tx>.
     Found 8-bit register for signal <addr>.
+    Found 1-bit register for signal <drop>.
     Found 8-bit register for signal <debug>.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
@@ -195,11 +201,11 @@ WARNING:Xst:647 - Input <block> is never used. This port will be preserved and l
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 8-bit adder for signal <addr[7]_GND_2_o_add_9_OUT> created at line 73.
-    Found 8-bit comparator greater for signal <n0010> created at line 69
+    Found 8-bit adder for signal <addr[7]_GND_2_o_add_12_OUT> created at line 78.
+    Found 8-bit comparator greater for signal <n0018> created at line 74
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  25 D-type flip-flop(s).
+	inferred  26 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 	inferred   7 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
@@ -294,7 +300,7 @@ WARNING:Xst:647 - Input <air_speed_n> is never used. This port will be preserved
     Found 16-bit register for signal <int_magm_x>.
     Found 16-bit register for signal <int_magm_y>.
     Found 16-bit register for signal <int_magm_z>.
-    Found 8-bit 25-to-1 multiplexer for signal <_n0159> created at line 62.
+    Found 8-bit 25-to-1 multiplexer for signal <_n0160> created at line 62.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <data<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -390,9 +396,9 @@ Synthesizing Unit <I2C_Driver>.
     Found 1-bit register for signal <scl_ena>.
     Found 1-bit register for signal <ack_err>.
     Found 1-bit register for signal <stretch>.
-    Found 1-bit register for signal <Z_7_o_clk_DFF_135_q>.
+    Found 1-bit register for signal <Z_7_o_clk_DFF_136_q>.
     Found 1-bit register for signal <data_clk>.
-    Found 1-bit register for signal <count[7]_clk_DFF_137>.
+    Found 1-bit register for signal <count[7]_clk_DFF_138>.
     Found 1-bit register for signal <ready>.
     Found 1-bit register for signal <scl_wait>.
     Found 1-bit register for signal <rstart_clk_high>.
@@ -405,7 +411,7 @@ INFO:Xst:1799 - State 0000000101 is never reached in FSM <state>.
     | States             | 10                                             |
     | Transitions        | 22                                             |
     | Inputs             | 8                                              |
-    | Outputs            | 16                                             |
+    | Outputs            | 13                                             |
     | Clock              | data_clk (rising_edge)                         |
     | Reset              | rst (positive)                                 |
     | Reset type         | asynchronous                                   |
@@ -623,32 +629,50 @@ Synthesizing Unit <IMU_Controller>.
 	inferred   1 Finite State Machine(s).
 Unit <IMU_Controller> synthesized.
 
+Synthesizing Unit <Bomb_Dropper>.
+    Related source file is "D:\MyDocs\Documents\GitHub\SeniorDesign\Bomb_Dropper.v".
+WARNING:Xst:653 - Signal <debug> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <pwm_q>.
+    Found 20-bit register for signal <ctr_q>.
+    Found 20-bit adder for signal <ctr_d> created at line 34.
+    Found 12-bit comparator greater for signal <ctr_q[19]_GND_23_o_LessThan_3_o> created at line 36
+    Found 12-bit comparator greater for signal <ctr_q[19]_GND_23_o_LessThan_4_o> created at line 41
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  21 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <Bomb_Dropper> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 11
+# Adders/Subtractors                                   : 12
  13-bit adder                                          : 2
+ 20-bit adder                                          : 1
  3-bit adder                                           : 2
  3-bit subtractor                                      : 2
  4-bit subtractor                                      : 2
  8-bit adder                                           : 3
-# Registers                                            : 233
- 1-bit register                                        : 197
+# Registers                                            : 236
+ 1-bit register                                        : 199
  13-bit register                                       : 2
  16-bit register                                       : 12
+ 20-bit register                                       : 1
  24-bit register                                       : 2
  3-bit register                                        : 2
  4-bit register                                        : 2
  8-bit register                                        : 16
 # Latches                                              : 8
  1-bit latch                                           : 8
-# Comparators                                          : 9
+# Comparators                                          : 11
+ 12-bit comparator greater                             : 2
  4-bit comparator lessequal                            : 2
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 286
- 1-bit 2-to-1 multiplexer                              : 238
+# Multiplexers                                         : 287
+ 1-bit 2-to-1 multiplexer                              : 239
  1-bit 8-to-1 multiplexer                              : 3
  13-bit 2-to-1 multiplexer                             : 5
  13-bit 4-to-1 multiplexer                             : 1
@@ -674,6 +698,10 @@ WARNING:Xst:2677 - Node <STATUS_REG_4> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <STATUS_REG_5> of sequential type is unconnected in block <Altimeter_Controller>.
 WARNING:Xst:2677 - Node <STATUS_REG_6> of sequential type is unconnected in block <Altimeter_Controller>.
 WARNING:Xst:2677 - Node <STATUS_REG_7> of sequential type is unconnected in block <Altimeter_Controller>.
+
+Synthesizing (advanced) Unit <Bomb_Dropper>.
+The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
+Unit <Bomb_Dropper> synthesized (advanced).
 
 Synthesizing (advanced) Unit <I2C_Driver>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
@@ -702,13 +730,15 @@ Macro Statistics
  13-bit adder                                          : 2
  3-bit subtractor                                      : 2
  8-bit adder                                           : 1
-# Counters                                             : 6
+# Counters                                             : 7
+ 20-bit up counter                                     : 1
  3-bit up counter                                      : 2
  4-bit down counter                                    : 2
  8-bit up counter                                      : 2
-# Registers                                            : 569
- Flip-Flops                                            : 569
-# Comparators                                          : 9
+# Registers                                            : 571
+ Flip-Flops                                            : 571
+# Comparators                                          : 11
+ 12-bit comparator greater                             : 2
  4-bit comparator lessequal                            : 2
  8-bit comparator greater                              : 5
  8-bit comparator lessequal                            : 2
@@ -1311,8 +1341,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1075
- Flip-Flops                                            : 1075
+# Registers                                            : 1097
+ Flip-Flops                                            : 1097
 
 =========================================================================
 
@@ -1335,28 +1365,28 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1832
+# BELS                             : 1900
 #      GND                         : 1
-#      INV                         : 7
-#      LUT1                        : 26
-#      LUT2                        : 40
-#      LUT3                        : 290
-#      LUT4                        : 424
-#      LUT5                        : 111
-#      LUT6                        : 552
-#      MUXCY                       : 319
-#      MUXF7                       : 19
+#      INV                         : 8
+#      LUT1                        : 45
+#      LUT2                        : 43
+#      LUT3                        : 292
+#      LUT4                        : 422
+#      LUT5                        : 112
+#      LUT6                        : 556
+#      MUXCY                       : 338
+#      MUXF7                       : 20
 #      VCC                         : 1
-#      XORCY                       : 42
-# FlipFlops/Latches                : 1084
-#      FD                          : 17
+#      XORCY                       : 62
+# FlipFlops/Latches                : 1106
+#      FD                          : 19
 #      FDC                         : 653
 #      FDCE                        : 26
-#      FDE                         : 325
-#      FDE_1                       : 16
+#      FDE                         : 125
+#      FDE_1                       : 216
 #      FDP                         : 8
 #      FDPE                        : 8
-#      FDR                         : 5
+#      FDR                         : 25
 #      FDRE                        : 16
 #      FDS                         : 1
 #      LD                          : 1
@@ -1364,10 +1394,10 @@ Primitive and Black Box Usage:
 # Clock Buffers                    : 4
 #      BUFG                        : 3
 #      BUFGP                       : 1
-# IO Buffers                       : 15
+# IO Buffers                       : 16
 #      IBUF                        : 2
 #      IOBUF                       : 4
-#      OBUF                        : 9
+#      OBUF                        : 10
 
 Device utilization summary:
 ---------------------------
@@ -1376,20 +1406,20 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1084  out of  11440     9%  
- Number of Slice LUTs:                 1450  out of   5720    25%  
-    Number used as Logic:              1450  out of   5720    25%  
+ Number of Slice Registers:            1106  out of  11440     9%  
+ Number of Slice LUTs:                 1478  out of   5720    25%  
+    Number used as Logic:              1478  out of   5720    25%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1649
-   Number with an unused Flip Flop:     565  out of   1649    34%  
-   Number with an unused LUT:           199  out of   1649    12%  
-   Number of fully used LUT-FF pairs:   885  out of   1649    53%  
+ Number of LUT Flip Flop pairs used:   1678
+   Number with an unused Flip Flop:     572  out of   1678    34%  
+   Number with an unused LUT:           200  out of   1678    11%  
+   Number of fully used LUT-FF pairs:   906  out of   1678    53%  
    Number of unique control sets:        31
 
 IO Utilization: 
- Number of IOs:                          16
- Number of bonded IOBs:                  16  out of    102    15%  
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    102    16%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
@@ -1415,8 +1445,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 1005  |
 IMU_I2C_Driver/data_clk            | BUFG                   | 46    |
-clk                                | BUFGP                  | 983   |
 Alt_I2C_Driver/data_clk            | BUFG                   | 46    |
 rst_n                              | IBUF+BUFG              | 9     |
 -----------------------------------+------------------------+-------+
@@ -1430,7 +1460,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.472ns (Maximum Frequency: 118.043MHz)
-   Minimum input arrival time before clock: 6.990ns
+   Minimum input arrival time before clock: 6.996ns
    Maximum output required time after clock: 5.866ns
    Maximum combinational path delay: No path found
 
@@ -1439,32 +1469,9 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'IMU_I2C_Driver/data_clk'
-  Clock period: 6.760ns (frequency: 147.929MHz)
-  Total number of paths / destination ports: 419 / 69
--------------------------------------------------------------------------
-Delay:               3.380ns (Levels of Logic = 2)
-  Source:            IMU_I2C_Driver/bitcount_0_C_0 (FF)
-  Destination:       IMU_I2C_Driver/data_rx_7 (FF)
-  Source Clock:      IMU_I2C_Driver/data_clk rising
-  Destination Clock: IMU_I2C_Driver/data_clk falling
-
-  Data Path: IMU_I2C_Driver/bitcount_0_C_0 to IMU_I2C_Driver/data_rx_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              3   0.525   0.874  IMU_I2C_Driver/bitcount_0_C_0 (IMU_I2C_Driver/bitcount_0_C_0)
-     LUT3:I1->O           14   0.250   1.403  IMU_I2C_Driver/bitcount_01 (IMU_I2C_Driver/bitcount_0)
-     LUT6:I2->O            1   0.254   0.000  IMU_I2C_Driver/Mmux_data_rx[7]_SDA_MUX_236_o11 (IMU_I2C_Driver/data_rx[7]_SDA_MUX_236_o)
-     FDE_1:D                   0.074          IMU_I2C_Driver/data_rx_7
-    ----------------------------------------
-    Total                      3.380ns (1.103ns logic, 2.277ns route)
-                                       (32.6% logic, 67.4% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.472ns (frequency: 118.043MHz)
-  Total number of paths / destination ports: 337445 / 1057
+  Total number of paths / destination ports: 337685 / 1079
 -------------------------------------------------------------------------
 Delay:               8.472ns (Levels of Logic = 32)
   Source:            IMU_Controller/state_FSM_FFd257 (FF)
@@ -1515,6 +1522,29 @@ Delay:               8.472ns (Levels of Logic = 32)
                                        (34.1% logic, 65.9% route)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'IMU_I2C_Driver/data_clk'
+  Clock period: 6.760ns (frequency: 147.929MHz)
+  Total number of paths / destination ports: 419 / 69
+-------------------------------------------------------------------------
+Delay:               3.380ns (Levels of Logic = 2)
+  Source:            IMU_I2C_Driver/bitcount_0_C_0 (FF)
+  Destination:       IMU_I2C_Driver/data_rx_7 (FF)
+  Source Clock:      IMU_I2C_Driver/data_clk rising
+  Destination Clock: IMU_I2C_Driver/data_clk falling
+
+  Data Path: IMU_I2C_Driver/bitcount_0_C_0 to IMU_I2C_Driver/data_rx_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.525   0.874  IMU_I2C_Driver/bitcount_0_C_0 (IMU_I2C_Driver/bitcount_0_C_0)
+     LUT3:I1->O           14   0.250   1.403  IMU_I2C_Driver/bitcount_01 (IMU_I2C_Driver/bitcount_0)
+     LUT6:I2->O            1   0.254   0.000  IMU_I2C_Driver/Mmux_data_rx[7]_SDA_MUX_241_o11 (IMU_I2C_Driver/data_rx[7]_SDA_MUX_241_o)
+     FDE_1:D                   0.074          IMU_I2C_Driver/data_rx_7
+    ----------------------------------------
+    Total                      3.380ns (1.103ns logic, 2.277ns route)
+                                       (32.6% logic, 67.4% route)
+
+=========================================================================
 Timing constraint: Default period analysis for Clock 'Alt_I2C_Driver/data_clk'
   Clock period: 6.760ns (frequency: 147.929MHz)
   Total number of paths / destination ports: 419 / 69
@@ -1531,17 +1561,37 @@ Delay:               3.380ns (Levels of Logic = 2)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   0.874  Alt_I2C_Driver/bitcount_0_C_0 (Alt_I2C_Driver/bitcount_0_C_0)
      LUT3:I1->O           14   0.250   1.403  Alt_I2C_Driver/bitcount_01 (Alt_I2C_Driver/bitcount_0)
-     LUT6:I2->O            1   0.254   0.000  Alt_I2C_Driver/Mmux_data_rx[7]_SDA_MUX_236_o11 (Alt_I2C_Driver/data_rx[7]_SDA_MUX_236_o)
+     LUT6:I2->O            1   0.254   0.000  Alt_I2C_Driver/Mmux_data_rx[7]_SDA_MUX_241_o11 (Alt_I2C_Driver/data_rx[7]_SDA_MUX_241_o)
      FDE_1:D                   0.074          Alt_I2C_Driver/data_rx_7
     ----------------------------------------
     Total                      3.380ns (1.103ns logic, 2.277ns route)
                                        (32.6% logic, 67.4% route)
 
 =========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 973 / 973
+-------------------------------------------------------------------------
+Offset:              6.996ns (Levels of Logic = 2)
+  Source:            rst_n (PAD)
+  Destination:       Bomb_Dropper/ctr_q_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst_n to Bomb_Dropper/ctr_q_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            737   0.255   2.522  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     FDR:R                     0.459          Bomb_Dropper/ctr_q_0
+    ----------------------------------------
+    Total                      6.996ns (2.042ns logic, 4.954ns route)
+                                       (29.2% logic, 70.8% route)
+
+=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'IMU_I2C_Driver/data_clk'
   Total number of paths / destination ports: 51 / 51
 -------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
+Offset:              6.996ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       IMU_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: IMU_I2C_Driver/data_clk rising
@@ -1550,38 +1600,18 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            737   0.255   2.522  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          IMU_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
-                                       (29.2% logic, 70.8% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 952 / 952
--------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
-  Source:            rst_n (PAD)
-  Destination:       IMU_I2C_Driver/count_7 (FF)
-  Destination Clock: clk rising
-
-  Data Path: rst_n to IMU_I2C_Driver/count_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
-     FDCE:CLR                  0.459          IMU_I2C_Driver/count_0
-    ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
+    Total                      6.996ns (2.042ns logic, 4.954ns route)
                                        (29.2% logic, 70.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Alt_I2C_Driver/data_clk'
   Total number of paths / destination ports: 51 / 51
 -------------------------------------------------------------------------
-Offset:              6.990ns (Levels of Logic = 2)
+Offset:              6.996ns (Levels of Logic = 2)
   Source:            rst_n (PAD)
   Destination:       Alt_I2C_Driver/state_FSM_FFd1 (FF)
   Destination Clock: Alt_I2C_Driver/data_clk rising
@@ -1590,11 +1620,11 @@ Offset:              6.990ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           263   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
-     INV:I->O            717   0.255   2.516  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
+     IBUF:I->O           264   1.328   2.432  rst_n_IBUF (Alt_I2C_Driver/rst_inv)
+     INV:I->O            737   0.255   2.522  Alt_I2C_Driver/rst_inv_BUFG_LUT1_INV_0 (Alt_I2C_Driver/rst_inv_BUFG_LUT1)
      FDP:PRE                   0.459          Alt_I2C_Driver/sda_int
     ----------------------------------------
-    Total                      6.990ns (2.042ns logic, 4.948ns route)
+    Total                      6.996ns (2.042ns logic, 4.954ns route)
                                        (29.2% logic, 70.8% route)
 
 =========================================================================
@@ -1619,7 +1649,7 @@ Offset:              5.866ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 9 / 5
+  Total number of paths / destination ports: 10 / 6
 -------------------------------------------------------------------------
 Offset:              5.317ns (Levels of Logic = 2)
   Source:            Altimeter_Controller/rw (FF)
@@ -1689,7 +1719,7 @@ Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------+---------+---------+---------+---------+
 Alt_I2C_Driver/data_clk|    4.617|         |         |         |
 IMU_I2C_Driver/data_clk|    7.256|         |         |         |
-clk                    |    8.472|         |         |         |
+clk                    |    8.472|         |    1.324|         |
 rst_n                  |         |    2.021|         |         |
 -----------------------+---------+---------+---------+---------+
 
@@ -1698,20 +1728,20 @@ Clock to Setup on destination clock rst_n
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |         |         |    4.550|         |
+clk            |         |         |    4.542|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 47.00 secs
-Total CPU time to Xst completion: 47.06 secs
+Total REAL time to Xst completion: 49.00 secs
+Total CPU time to Xst completion: 49.30 secs
  
 --> 
 
-Total memory usage is 338792 kilobytes
+Total memory usage is 320872 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   59 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :   60 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

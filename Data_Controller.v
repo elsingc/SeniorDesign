@@ -27,6 +27,7 @@ module Data_Controller(
 	input [7:0] data_rx,
 	input [7:0] data,
 	output reg [7:0] addr,
+	output reg drop,
 	input rst,
 	input clk
     );
@@ -59,6 +60,10 @@ always @(posedge clk or posedge rst) begin
 				//	debug <= 8'h02;
 					addr <= 8'h00;
 					state <= BURST_DATA_ADDR;
+				end else if(new_data_rx && data_rx == 8'h42) begin
+					addr<= 8'h00;
+					state <= IDLE;
+					drop <= ~drop;
 				end else begin
 					debug <= data_rx;
 					state <= IDLE;

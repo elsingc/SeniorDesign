@@ -31,8 +31,10 @@ module mojo_top(
 	// output gps_tx_pin,
 	 
 	 //input start,
+	 output ServoDrive,
 	 output data_tx, 
 	 input data_rx
+	 
     );
 
 wire rst = ~rst_n;
@@ -46,7 +48,9 @@ assign spi_channel = 4'bzzzz;
 //assign toggle_check = toggle;
 
 assign led[7:0] = 8'h00;
-//assign led[0] = 1'b1;
+
+
+wire drop;
 
 wire [23:0] pressure;
 wire [31:0] gps_lon, gps_lat, gps_time, ground_speed;
@@ -64,6 +68,7 @@ Data_Controller Data_Controller(
 	.data_rx(data_data_rx),
 	.data(snsr_data),
 	.addr(snsr_addr),
+	.drop(drop),
 	.rst(rst),
 	.clk(clk)
 );
@@ -340,6 +345,16 @@ cam_I2C_Driver cam_I2C_Driver(
 	.busy(cam_busy)
 );
 */
+//====================BOMB DROP=========================================
+Bomb_Dropper Bomb_Dropper(
+	.debug(),
+	.drop(drop),
+	.servoDrive(ServoDrive),
+	.rst(rst),
+	.clk(clk)
+    );
+	 
+	 
 //====================END===============================================
 //initializer_pulse pulser(
 //	.clk(clk),
