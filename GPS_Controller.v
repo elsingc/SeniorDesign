@@ -79,104 +79,109 @@ module GPS_Controller
    always @(posedge clk or posedge rst) begin
 
       if (rst) begin
-         rom_message_q <= 0;
-	 rom_index_q <= 0;
-	 tx_send_q <= 0;
-	 state_q <= s_cfg_send;
-	 send_wait_ctr_q <= 0;
-         //data_valid <= 0; 
-      end else begin
-	 tx_send_q <= tx_send_d;
-	 state_q <= state_d;
-	 rom_message_q <= rom_message_d;
-	 rom_index_q <= rom_index_d;
-	 send_wait_ctr_q <= send_wait_ctr_d;
+			rom_message_q <= 0;
+			rom_index_q <= 0;
+			tx_send_q <= 0;
+			state_q <= s_cfg_send;
+			send_wait_ctr_q <= 0;
+			//data_valid <= 0; 
+		end else begin
+			tx_send_q <= tx_send_d;
+			state_q <= state_d;
+			rom_message_q <= rom_message_d;
+			rom_index_q <= rom_index_d;
+			send_wait_ctr_q <= send_wait_ctr_d;
       end // else: !if(rst)
    end // always @ (posedge clk or posedge rst)
 
 
    always @(*) begin
-      state_d = state_q;
-      tx_send_d = tx_send_q;
-      rom_message_d = rom_message_q;
-      rom_index_d = rom_index_q;
-      send_wait_ctr_d = send_wait_ctr_q;
+      state_d <= state_q;
+      tx_send_d <= tx_send_q;
+      rom_message_d <= rom_message_q;
+      rom_index_d <= rom_index_q;
+      send_wait_ctr_d <= send_wait_ctr_q;
 
       case (state_q)
-	s_cfg_send:
-	  if (!tx_busy && tx_req_speed == tx_cur_speed) begin
-	     tx_send_d = 1;
-	     state_d = s_cfg_check_finished;
-	  end
+			s_cfg_send:begin
+				if (!tx_busy && tx_req_speed == tx_cur_speed) begin
+					tx_send_d <= 1;
+					state_d <= s_cfg_check_finished;
+				end
+			end
 
-	s_cfg_check_finished: begin
-	   tx_send_d = 0;
+			s_cfg_check_finished: begin
+				tx_send_d <= 0;
 
-	   rom_index_d = rom_index_q + 1;
-	   if (rom_index_d == rom_length) begin
-	      rom_index_d = 0;
-	      rom_message_d = rom_message_q + 1;
-	      if (rom_message_d == 3) state_d = s_idle;
-	      else begin
-		 state_d = s_cfg_wait;
-		 send_wait_ctr_d = 0;
-	      end
-	   end else state_d = s_cfg_send;
-	end // case: s_cfg_check_finished
+				rom_index_d <= rom_index_q + 1;
+				if (rom_index_d == rom_length) begin
+					rom_index_d <= 0;
+					rom_message_d <= rom_message_q + 1;
+					if (rom_message_d == 3) 
+						state_d <= s_idle;
+					else begin
+						state_d <= s_cfg_wait;
+						send_wait_ctr_d <= 0;
+					end
+				end else 
+					state_d <= s_cfg_send;
+			end // case: s_cfg_check_finished
 
-	s_cfg_wait: if (!tx_busy) begin
-	   if (send_wait_ctr_d == 24'hffffff) state_d = s_cfg_send;
-	   else send_wait_ctr_d = send_wait_ctr_q + 1;
-	end
+			s_cfg_wait: if (!tx_busy) begin
+				if (send_wait_ctr_d == 24'hffffff) 
+					state_d <= s_cfg_send;
+				else 
+					send_wait_ctr_d <= send_wait_ctr_q + 1;
+			end
 
 	// ------
 
-	s_idle: if (rx_new && rx_data == "$") begin
-	   state_d = s_rx_save;
-	   rx_size = 0;
-	end
+			s_idle: if (rx_new && rx_data == "$") begin
+				state_d <= s_rx_save;
+				rx_size <= 0;
+			end
 
-	s_rx_save: if (rx_new) begin
-	   if (rx_data == "*") state_d = s_rx_process;
-	   else begin
-	      rx_buffer[rx_size] = rx_data;
-	      rx_size = rx_size + 1;
-	   end
-	end
+			s_rx_save: if (rx_new) begin
+				if (rx_data == "*") 
+					state_d <= s_rx_process;
+				else begin
+					rx_buffer[rx_size] <= rx_data;
+					rx_size <= rx_size + 1;
+				end
+			end
 
-	s_rx_process: begin
-	   case ({rx_buffer[0], rx_buffer[1], rx_buffer[2], rx_buffer[3], rx_buffer[4]})
-	     "GPGGA": begin
-                if (rx_size != 68) data_valid = 0;
-                else begin
-                   data_valid = 1;
+			s_rx_process: begin
+				case ({rx_buffer[0], rx_buffer[1], rx_buffer[2], rx_buffer[3], rx_buffer[4]})
+					"GPGGA": begin
+						if (rx_size != 68) 
+							data_valid <= 0;
+						else begin
+							data_valid <= 1;
+							lat_deg <= (rx_buffer[17] - "0") * 10 + (rx_buffer[18] - "0");
+							lat_submins <= (rx_buffer[19] - "0") * 100000 +
+												(rx_buffer[20] - "0") * 10000 +
+												(rx_buffer[22] - "0") * 1000 +
+												(rx_buffer[23] - "0") * 100 +
+												(rx_buffer[24] - "0") * 10 +
+												(rx_buffer[25] - "0");
+							lat_north <= (rx_buffer[27] == "N");
 
-                   lat_deg = (rx_buffer[17] - "0") * 10 + (rx_buffer[18] - "0");
-						 lat_submins = (rx_buffer[19] - "0") * 100000 +
-						               (rx_buffer[20] - "0") * 10000 +
-						               (rx_buffer[22] - "0") * 1000 +
-											(rx_buffer[23] - "0") * 100 +
-											(rx_buffer[24] - "0") * 10 +
-											(rx_buffer[25] - "0");
-                   lat_north = (rx_buffer[27] == "N");
-
-                   lon_deg = (rx_buffer[29] - "0") * 100 + (rx_buffer[30] - "0") * 10 + (rx_buffer[31] - "0");
-						 lon_submins = (rx_buffer[32] - "0") * 100000 +
-						               (rx_buffer[33] - "0") * 10000 +
-						               (rx_buffer[35] - "0") * 1000 +
-											(rx_buffer[36] - "0") * 100 +
-											(rx_buffer[37] - "0") * 10 +
-											(rx_buffer[38] - "0");
-						 lon_east = (rx_buffer[40] == "E");
+							lon_deg <= (rx_buffer[29] - "0") * 100 + (rx_buffer[30] - "0") * 10 + (rx_buffer[31] - "0");
+							lon_submins <= (rx_buffer[32] - "0") * 100000 +
+												(rx_buffer[33] - "0") * 10000 +
+												(rx_buffer[35] - "0") * 1000 +
+												(rx_buffer[36] - "0") * 100 +
+												(rx_buffer[37] - "0") * 10 +
+												(rx_buffer[38] - "0");
+							lon_east <= (rx_buffer[40] == "E");
+						end
 					end
-             end
-	     "GPVTG": ;
-//$GPVTG,59.11,T,,M,0.09,N,0.17,K,A
-	     default: ;
-	   endcase
-	   state_d = s_idle;
-	end
-
+					"GPVTG": ;
+		//$GPVTG,59.11,T,,M,0.09,N,0.17,K,A
+					default: ;
+				endcase
+				state_d <= s_idle;
+			end
       endcase // case (state_q)
    end // always @ (*)
 
