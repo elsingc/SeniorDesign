@@ -55,6 +55,8 @@ wire rst = ~rst_n;
 
 wire drop;
 
+wire [0:80*8-1] gps_ram;
+
 wire [23:0] pressure;
 wire [31:0] gps_time, ground_speed;
 wire [7:0] gps_lat_deg, gps_lon_deg, gps_status;
@@ -120,6 +122,7 @@ Sensor_Reg Sensor_Reg(
 	.ground_speed(ground_speed),
 	.air_speed_p(),
 	.air_speed_n(),
+	.gps_ram(gps_ram),
 	.rst(rst),
 	.clk(clk)
 	);
@@ -249,6 +252,8 @@ GPS_Controller GPS_Controller(
 	
 	.rx_data(gps_rx_data),
 	.rx_new(gps_rx_new),
+	
+	.gps_ram(gps_ram),
 
 	.rst(rst),
 	.clk(clk)

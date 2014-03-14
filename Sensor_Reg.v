@@ -39,6 +39,7 @@ input [7:0]  gps_lat_deg,
 input [23:0] gps_lat_submins,
 input [7:0]  gps_status,
 input [31:0] gps_time,
+   input [0:80*8-1]      gps_ram,
 input [31:0] ground_speed,
 input [15:0] air_speed_p,
 input [15:0] air_speed_n,
@@ -229,6 +230,9 @@ always@(*) begin
 //input [31:0] ground_speed,
 			
 			default:begin
+                          if (addr < (80 + 35))
+                             data <= gps_ram[(addr-35)*8+:8];
+                          else
 				data <= data;
 			end
 		endcase
