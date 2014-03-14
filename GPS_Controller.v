@@ -37,6 +37,7 @@ module GPS_Controller
    input             tx_cur_speed,
    
    output [0:80*8-1] gps_ram,
+   output [6:0] msg_len,
 
    input             rx_new,
    input [7:0]       rx_data,
@@ -165,6 +166,8 @@ module GPS_Controller
    assign gps_ram[616:623] = rx_buffer[77];
    assign gps_ram[624:631] = rx_buffer[78];
    assign gps_ram[632:639] = rx_buffer[79];
+   
+   assign msg_len = rx_size;
 
    always @(posedge clk or posedge rst) begin
 
