@@ -48,8 +48,8 @@ module Altimeter_Controller(
 						INIT_ACTIVE_WAIT_C0 				= 23,
 						INIT_ACTIVE_SEND_26				= 24,
 						INIT_ACTIVE_WAIT_26 				= 25,
-						INIT_ACTIVE_SEND_B9 				= 26,
-						INIT_ACTIVE_WAIT_B9 				= 27,
+						INIT_ACTIVE_SEND_81 				= 26,
+						INIT_ACTIVE_WAIT_81 				= 27,
 						INIT_ACTIVE_STOP 					= 28,
 						INIT_ACTIVE_WAIT_STOP 			= 29,
 						
@@ -296,7 +296,7 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= INIT_PT_DATA_CFG_START;
+						state <= INIT_ACTIVE_START;
 					end else begin
 						state <= INIT_OSR_WAIT_STOP;
 					end
@@ -526,28 +526,28 @@ always @(posedge clk or posedge rst) begin
 					stop_transfer <= 1'b0;
 					r_start <= 1'b0;
 					if(!busy) begin
-						state <= INIT_ACTIVE_SEND_B9;
+						state <= INIT_ACTIVE_SEND_81;
 					end else begin
 						state <= INIT_ACTIVE_WAIT_26;
 					end
 				end 	
 			
-			INIT_ACTIVE_SEND_B9:begin
+			INIT_ACTIVE_SEND_81:begin
 				ena <= 1'b1;
-				data_wr <= 8'hB9;
+				data_wr <= 8'h81;
 				rw <= 1'b0;
 				r_start <= 1'b0;
 				stop_transfer <= 1'b0;
 				if(!busy && ready) begin
 					start_transfer <= 1'b1;
-					state <= INIT_ACTIVE_SEND_B9;
+					state <= INIT_ACTIVE_SEND_81;
 				end else begin
 					start_transfer <= 1'b0;
-					state <= INIT_ACTIVE_WAIT_B9;
+					state <= INIT_ACTIVE_WAIT_81;
 				end
 			end
 			
-			INIT_ACTIVE_WAIT_B9: begin
+			INIT_ACTIVE_WAIT_81: begin
 					ena <= 1'b1;
 					data_wr <= 8'h00;
 					rw <= 1'b0;
@@ -557,7 +557,7 @@ always @(posedge clk or posedge rst) begin
 					if(!busy) begin
 						state <= INIT_ACTIVE_STOP;
 					end else begin
-						state <= INIT_ACTIVE_WAIT_B9;
+						state <= INIT_ACTIVE_WAIT_81;
 					end
 				end 
 			

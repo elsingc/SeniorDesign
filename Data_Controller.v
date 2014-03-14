@@ -32,7 +32,7 @@ module Data_Controller(
 	input clk
     );
 
-localparam DATA_LENGTH = 35;
+localparam DATA_LENGTH = 25;//35;
 localparam STATE_SIZE = 5;
 localparam	IDLE = 0,
 				BURST_DATA_ADDR = 1,
@@ -72,10 +72,10 @@ always @(posedge clk or posedge rst) begin
 			
 			BURST_DATA_ADDR: begin
                if (addr >= DATA_LENGTH) begin
-						addr <= 8'd0;
+						addr <= 8'd0; 
 						state <= IDLE;
 					end else begin
-						addr <= addr + 1'b1;
+						//addr <= addr + 1'b1;
 						state <= BURST_DATA_SEND;
 					end
 			end
@@ -84,6 +84,8 @@ always @(posedge clk or posedge rst) begin
 				if (!busy) begin
 					new_data_tx <= 1'b1;
 					data_tx <= data;
+					addr <= addr + 1'b1;
+
 					state <= BURST_DATA_ADDR;
 				end else begin
 					new_data_tx <= 1'b0;

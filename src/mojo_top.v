@@ -36,18 +36,21 @@ module mojo_top(
 	 input data_rx
 	 
     );
+//assign gps_rx = 1'bz;
+//assign gps_tx = 1'bz;
+
 
 wire rst = ~rst_n;
 
 //assign data_tx = gps_rx_pin;
 //assign gps_tx_pin = data_rx;
 
-assign spi_miso = 1'bz;
-assign avr_rx = 1'bz;
-assign spi_channel = 4'bzzzz;
+//assign spi_miso = 1'bz;
+//assign avr_rx = 1'bz;
+//assign spi_channel = 4'bzzzz;
 //assign toggle_check = toggle;
 
-assign led[7:0] = 8'h00;
+//assign led[7:0] = 8'h00;
 
 
 wire drop;
@@ -247,6 +250,7 @@ GPS_Controller GPS_Controller(
 	.rst(rst),
 	.clk(clk)
 );
+
 //====================ANALOG CONGROLLER=================================
 /*Analog_Controller Analog_Controller(
 	.ch0(),
