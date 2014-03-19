@@ -66,6 +66,13 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="74"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
+<<<<<<< HEAD
+=======
+    <file xil_pn:name="GPS_Controller.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="75"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="8"/>
+    </file>
+>>>>>>> b55df0b98347f8dd32d34a9b841b2fd4652c349c
     <file xil_pn:name="Analog_Controller.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="76"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>

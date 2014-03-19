@@ -55,6 +55,8 @@ wire rst = ~rst_n;
 
 wire drop;
 
+wire [0:80*8-1] gps_ram;
+wire [6:0] gps_msg_len;
 wire [23:0] pressure;
 wire [31:0] gps_time, ground_speed;
 wire [7:0] gps_lat_deg, gps_lon_deg, gps_status;
@@ -111,15 +113,17 @@ Sensor_Reg Sensor_Reg(
 	.magm_x(magm_x),
 	.magm_y(magm_y),
 	.magm_z(magm_z),
-   .gps_lon_deg(gps_lon_deg),
+	.gps_lon_deg(gps_lon_deg),
 	.gps_lat_deg(gps_lat_deg),
 	.gps_lon_submins(gps_lon_submins),
 	.gps_lat_submins(gps_lat_submins),
 	.gps_status (gps_status),
+	.gps_msg_len (gps_msg_len),
 	.gps_time(gps_time),
 	.ground_speed(ground_speed),
 	.air_speed_p(),
 	.air_speed_n(),
+	.gps_ram(gps_ram),
 	.rst(rst),
 	.clk(clk)
 	);
@@ -239,6 +243,7 @@ GPS_Controller GPS_Controller(
 	.lat_north(gps_status[2]),
 	.lat_submins (gps_lat_submins),
 	.time_(gps_time),
+	.msg_len (gps_msg_len),
 	.ground_speed(ground_speed),
 
 	.tx_data(gps_tx_data),
@@ -249,6 +254,8 @@ GPS_Controller GPS_Controller(
 	
 	.rx_data(gps_rx_data),
 	.rx_new(gps_rx_new),
+	
+	.gps_ram(gps_ram),
 
 	.rst(rst),
 	.clk(clk)

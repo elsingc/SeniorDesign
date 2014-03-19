@@ -32,7 +32,8 @@ module Data_Controller(
 	input clk
     );
 
-localparam DATA_LENGTH = 35;
+
+localparam DATA_LENGTH = 80+36;//35;
 localparam STATE_SIZE = 5;
 localparam	IDLE = 0,
 				BURST_DATA_ADDR = 1,
